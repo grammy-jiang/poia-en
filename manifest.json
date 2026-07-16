@@ -1,0 +1,210 @@
+{
+  "asset_mode": "embedded-section-assets-packaged-source",
+  "book": {
+    "slug": "psychology-of-intelligence-analysis",
+    "title": "Psychology of Intelligence Analysis",
+    "version_label": "Richards J. Heuer, Jr. — CIA Center for the Study of Intelligence, 1999"
+  },
+  "book_key": "psychology-of-intelligence-analysis--5320b0abc261",
+  "content_mode": "sectioned-continuous-html",
+  "content_sha256": "908c2d792092d360eb8de4be54867d5095cc05e64b637bc0002edcf7095c1ca5",
+  "document_id": "doc_019f6c0b-d481-7439-ba26-7aa6261a6d47",
+  "export_id": "pub-908c2d792092d360eb8d",
+  "files": {
+    "01-front-matter.html": "1daea447134d8d020d962138fa9000afc52612add9485ef730666c78a02d5250",
+    "02-preface.html": "0aaad72a39a75d89ece4e46f1e7e2f4fc424d8c9d193ef27c9c42b796b2b08d3",
+    "03-foreword.html": "99577ddcd1368a3fdfabe077d403666c6a743d6c409ed692ff5a8239af868615",
+    "04-introduction.html": "37cc2cda354109211dff40c0ef1bd497c48b0720bf6b17895d15ec1ce4cfaf40",
+    "05-chapter-01.html": "f67e70513eff72abb0b435e555cdd1e2fab2200e889673cac82a03e33e763406",
+    "06-chapter-02.html": "c18f404bfa3f202f729254d6366f1a55ac16301e372901d39fcfa5a9936e479b",
+    "07-chapter-03.html": "0571cccbff5cb31b972552ee3d065d3138b26e246ded0947c734713970c09918",
+    "08-chapter-04.html": "096624755b1d243fc99ceeb4c04e4fe61118735c7738728b7cc85b025f933d5f",
+    "09-chapter-05.html": "527bf493416f5c517823a072f80a8180ed8d9189c4d136462052362c5494244d",
+    "10-chapter-06.html": "5383f622e4d956e7686c42ec0e5572afe65179f6bdba2b3e8042c0747b2758f3",
+    "11-chapter-07.html": "2ed6195a37d764d955bd3487ba3e75c7f3d1f433b2c9cb304aa2922830e15c0b",
+    "12-chapter-08.html": "666a1fa71a00a6f465e5348f7ee1468ae0a6ee99440db68bddea48f6c7fd7888",
+    "13-chapter-09.html": "9ccc569d6c7a866e9e962a4cba0a4cd78847e763a39581b96607ddf881da4100",
+    "14-chapter-10.html": "24097b36300af00018e4664012b7cd76811b3d083e566ff46d3432c483933ed7",
+    "15-chapter-11.html": "c56b5f74a2d24ea5955f662d80cdf0e1d7a47aed0b3181fb45a3e9aafb6f1878",
+    "16-chapter-12.html": "57ac9853c2a0f9b8f2706661c93016059842e0b3cf1a721ef55f0460d412a6e0",
+    "17-chapter-13.html": "931f638a3b65bde4e484c6b9bdfe9f7d888a7a1b9968f561dfb6f4c1a9e955df",
+    "18-chapter-14.html": "e4b5ef369bcc4ea73a6bb63be0b163461c58e64ef6e36f7f89575d1e85c06db0",
+    "assets/original.pdf": "5320b0abc2610ebeb93a7c556da3661b65abc95284d06f1a210127ae971c1b4c",
+    "index.html": "d5f2edd5d3a6bf5de24e5e4f58afd3d4685f660e4661eab3d289dfc96b69b6fb"
+  },
+  "offline": true,
+  "output_kind": "publication",
+  "renderer_version": "0.1.0",
+  "rendering_profile_sha256": "fd8f9c0980c0f4c2f79c6407139e6715e4b528eef778ac1ec656f03bbfd5de98",
+  "schema_version": 1,
+  "sections": [
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "01-front-matter.html",
+      "object_count": 61,
+      "page_end": 8,
+      "page_start": 0,
+      "slug": "front-matter",
+      "title": "Front Matter & Contents"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "02-preface.html",
+      "object_count": 21,
+      "page_end": 10,
+      "page_start": 8,
+      "slug": "preface",
+      "title": "Author's Preface"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "03-foreword.html",
+      "object_count": 54,
+      "page_end": 14,
+      "page_start": 10,
+      "slug": "foreword",
+      "title": "Foreword"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "04-introduction.html",
+      "object_count": 293,
+      "page_end": 28,
+      "page_start": 14,
+      "slug": "introduction",
+      "title": "Introduction — Improving Intelligence Analysis at CIA"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "05-chapter-01.html",
+      "object_count": 145,
+      "page_end": 34,
+      "page_start": 28,
+      "slug": "chapter-01",
+      "title": "Part I · Chapter 1 — Thinking About Thinking"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "06-chapter-02.html",
+      "object_count": 208,
+      "page_end": 44,
+      "page_start": 34,
+      "slug": "chapter-02",
+      "title": "Chapter 2 — Perception: Why Can't We See What Is There To Be Seen?"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "07-chapter-03.html",
+      "object_count": 328,
+      "page_end": 58,
+      "page_start": 44,
+      "slug": "chapter-03",
+      "title": "Chapter 3 — Memory: How Do We Remember What We Know?"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "08-chapter-04.html",
+      "object_count": 434,
+      "page_end": 78,
+      "page_start": 58,
+      "slug": "chapter-04",
+      "title": "Part II · Chapter 4 — Strategies for Analytical Judgment"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "09-chapter-05.html",
+      "object_count": 270,
+      "page_end": 92,
+      "page_start": 78,
+      "slug": "chapter-05",
+      "title": "Chapter 5 — Do You Really Need More Information?"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "10-chapter-06.html",
+      "object_count": 511,
+      "page_end": 112,
+      "page_start": 92,
+      "slug": "chapter-06",
+      "title": "Chapter 6 — Keeping an Open Mind"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "11-chapter-07.html",
+      "object_count": 237,
+      "page_end": 122,
+      "page_start": 112,
+      "slug": "chapter-07",
+      "title": "Chapter 7 — Structuring Analytical Problems"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "12-chapter-08.html",
+      "object_count": 402,
+      "page_end": 138,
+      "page_start": 122,
+      "slug": "chapter-08",
+      "title": "Chapter 8 — Analysis of Competing Hypotheses"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "13-chapter-09.html",
+      "object_count": 60,
+      "page_end": 142,
+      "page_start": 138,
+      "slug": "chapter-09",
+      "title": "Part III · Chapter 9 — What Are Cognitive Biases?"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "14-chapter-10.html",
+      "object_count": 242,
+      "page_end": 154,
+      "page_start": 142,
+      "slug": "chapter-10",
+      "title": "Chapter 10 — Biases in Evaluation of Evidence"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "15-chapter-11.html",
+      "object_count": 485,
+      "page_end": 174,
+      "page_start": 154,
+      "slug": "chapter-11",
+      "title": "Chapter 11 — Biases in Perception of Cause and Effect"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "16-chapter-12.html",
+      "object_count": 366,
+      "page_end": 188,
+      "page_start": 174,
+      "slug": "chapter-12",
+      "title": "Chapter 12 — Biases in Estimating Probabilities"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "17-chapter-13.html",
+      "object_count": 227,
+      "page_end": 200,
+      "page_start": 188,
+      "slug": "chapter-13",
+      "title": "Chapter 13 — Hindsight Biases in Evaluation of Intelligence Reporting"
+    },
+    {
+      "boundary_spanning_object_ids": [],
+      "href": "18-chapter-14.html",
+      "object_count": 292,
+      "page_end": 214,
+      "page_start": 200,
+      "slug": "chapter-14",
+      "title": "Part IV · Chapter 14 — Improving Intelligence Analysis"
+    }
+  ],
+  "source": {
+    "filename": "psychology-of-intelligence-analysis.pdf",
+    "href": "assets/original.pdf",
+    "page_count": 214,
+    "sha256": "5320b0abc2610ebeb93a7c556da3661b65abc95284d06f1a210127ae971c1b4c"
+  }
+}

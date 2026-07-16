@@ -1,0 +1,1232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-RMwI2cUOpfY7xavPKEOEQVFVk13iRBK8Zm4a9/HvqsA=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Introduction — Improving Intelligence Analysis at CIA — Psychology of Intelligence Analysis</title><style>:root {
+  --reader-prose-measure: 60ch;
+  --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
+  --reader-document-gutter: clamp(1rem, 5vw, 4rem);
+  --source-gap-cap: 8rem;
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #eee9de;
+  color: #181714;
+}
+
+body {
+  margin: 0;
+}
+
+.reader-shell {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) minmax(20rem, 1fr);
+  gap: 2rem;
+  max-width: 90rem;
+  margin: auto;
+  padding: var(--reader-shell-gutter);
+}
+
+.document {
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: document;
+  background: white;
+  padding: clamp(2rem, 6vw, 5rem);
+  line-height: 1.62;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 14%);
+}
+
+.reader-shell.static-export {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 72rem;
+}
+
+.static-export .document {
+  min-height: 80vh;
+  padding-inline: var(--reader-document-gutter);
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.375rem);
+  line-height: 1.45;
+}
+
+.export-tools {
+  margin-top: 1rem;
+  text-align: center;
+  font: 0.8rem/1.4 system-ui, sans-serif;
+}
+
+.publication-navigation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  max-inline-size: var(--reader-prose-measure);
+  margin: 0 auto 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d7d0c3;
+  border-radius: 0.25rem;
+  background: white;
+  font: clamp(0.78rem, 0.74rem + 0.15vw, 0.9rem) / 1.35 system-ui, sans-serif;
+}
+
+.publication-navigation-bottom {
+  margin-block: 1rem 0;
+}
+
+.publication-navigation a {
+  color: #473b27;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.publication-navigation .publication-previous {
+  justify-self: start;
+}
+
+.publication-navigation .publication-contents {
+  justify-self: center;
+  font-weight: 650;
+}
+
+.publication-navigation .publication-next {
+  justify-self: end;
+  text-align: end;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.18;
+  text-align: center;
+}
+
+.document h1 {
+  font-size: 1.5em;
+}
+
+.document h2,
+.document h3 {
+  font-size: 1.08em;
+}
+
+.document .heading-kicker {
+  font-size: 0.78em;
+  letter-spacing: 0.025em;
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: min(1.35em, 5cqi);
+  hyphens: auto;
+}
+
+.document > p:first-of-type,
+.document h1 + p,
+.document h2 + p,
+.document h3 + p,
+.document figure + p,
+.document .formula-coordinate-lane + p:not(:has(+ .formula-coordinate-lane)),
+.source-theme > p:first-child,
+.source-theme h1 + p,
+.source-theme h2 + p,
+.source-theme h3 + p,
+.source-theme figure + p,
+.source-theme:has(> figure:last-child) + p,
+.source-theme:has(> .formula-coordinate-lane:last-child)
+  + p:not(:has(+ .formula-coordinate-lane)) {
+  text-indent: 0;
+}
+
+blockquote {
+  box-sizing: border-box;
+  margin-block: 1rem;
+  padding-inline: clamp(1rem, 4vw, 2.25rem);
+  text-align: justify;
+}
+
+.document :where(p, blockquote, ul, ol, h1, h2, h3, h4, h5, h6, .footnote) {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.document :where(p, blockquote, li, figcaption, h1, h2, h3, h4, h5, h6, .footnote) {
+  overflow-wrap: anywhere;
+}
+
+.sentence {
+  cursor: pointer;
+}
+
+.sentence:focus,
+.sentence:hover,
+.sentence.is-selected {
+  background: #fff0a8;
+  outline: 0;
+}
+
+.source-link,
+.relation-links {
+  font: 0.75rem/1.3 system-ui, sans-serif;
+  margin-left: 0.4em;
+}
+
+.static-export .source-link {
+  display: none;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.small-cap-rest {
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+}
+
+.rule-below {
+  display: inline-block;
+  padding: 0 0.45em 0.05em;
+  margin: 0 -0.45em;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula {
+  container-type: inline-size;
+  container-name: formula;
+  overflow: auto;
+  margin: 0.35rem 0;
+  text-align: center;
+}
+
+.formula-coordinate-lane {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.formula-spatial {
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #6f6a61 #eee9de;
+  scrollbar-width: thin;
+}
+
+.formula-spatial:focus-visible {
+  outline: 0.12rem solid #6f5a32;
+  outline-offset: 0.2rem;
+}
+
+.formula code {
+  display: block;
+  max-width: 100%;
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+
+.formula .rule-below {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+.formula code.formula-layout-positioned {
+  overflow: visible;
+  white-space: normal;
+}
+
+.formula code.formula-layout-with-annotation {
+  display: grid;
+}
+
+.formula-layout-spatial-layer,
+.formula-layout-annotation {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.formula-layout-row {
+  position: relative;
+  display: block;
+  height: 1em;
+}
+
+.formula-layout-row.is-ruled {
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-rule {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-token {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.formula-layout-annotation {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1em;
+  padding-inline-start: clamp(0.5em, 1.5cqi, 0.8em);
+  align-self: start;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.formula-layout-hanging-row {
+  height: auto;
+  min-height: 1em;
+  inline-size: min(100cqi, var(--reader-prose-measure));
+  max-inline-size: min(100cqi, var(--reader-prose-measure));
+  text-align: left;
+}
+
+.formula-layout-marker {
+  position: absolute;
+  top: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.formula-layout-flow-body {
+  display: block;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.document [class*="source-width-"] {
+  box-sizing: border-box;
+  inline-size: var(--source-inline-size, auto);
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+.document [class*="source-left-"] {
+  margin-inline-start: var(--source-inline-start, auto);
+  margin-inline-end: auto;
+}
+
+.document [class*="source-gap-"] {
+  margin-block-start: clamp(0.25rem, var(--source-block-gap, 0rem), var(--source-gap-cap));
+}
+
+.source-theme {
+  padding-block: 0.01px;
+}
+
+.marginalia {
+  display: none;
+}
+
+.source-viewer {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  background: #242424;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.source-canvas {
+  position: relative;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.source-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.source-controls button {
+  padding: 0.3rem 0.55rem;
+}
+
+.source-page-label,
+#source-page-label,
+#source-zoom-label {
+  min-width: 4rem;
+  text-align: center;
+}
+
+.source-scroll {
+  max-height: 46vh;
+  overflow: auto;
+}
+
+.source-canvas img {
+  display: block;
+  width: 100%;
+  min-height: 10rem;
+  object-fit: contain;
+  background: #ddd;
+}
+
+.source-canvas canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ddd;
+}
+
+.source-overlay {
+  position: absolute;
+  border: 2px solid #ffbf00;
+  background: rgb(255 191 0 / 22%);
+  pointer-events: none;
+}
+
+.source-overlays {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.source-overlay-shape {
+  fill: rgb(255 191 0 / 22%);
+  stroke: #ffbf00;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.source-overlay-shape.is-active-region {
+  fill: rgb(255 106 0 / 28%);
+  stroke: #ff6a00;
+  stroke-width: 3;
+}
+
+.review-editor {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #666;
+  font: 0.85rem/1.45 system-ui, sans-serif;
+}
+
+.review-editor h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.review-editor label,
+.review-editor textarea,
+.review-editor input,
+.review-editor select,
+.review-editor button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.review-editor textarea,
+.review-editor input,
+.review-editor select {
+  margin: 0.2rem 0 0.65rem;
+  padding: 0.45rem;
+  border: 1px solid #888;
+  border-radius: 0.2rem;
+  background: #fff;
+  color: #111;
+}
+
+.review-editor textarea {
+  resize: vertical;
+  font: 0.9rem/1.4 ui-monospace, monospace;
+}
+
+.review-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(6rem, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 0.7rem;
+}
+
+.review-summary div {
+  min-width: 0;
+}
+
+.review-summary dt {
+  color: #bbb;
+}
+
+.review-summary dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.7rem 0;
+}
+
+.review-editor button {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #999;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.review-editor button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.review-evidence {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.review-evidence li {
+  margin-bottom: 0.45rem;
+  overflow-wrap: anywhere;
+}
+
+.review-message {
+  display: block;
+  min-height: 1.4em;
+  margin-top: 0.6rem;
+  color: #ffe082;
+}
+
+.citation {
+  display: inline;
+  font-style: normal;
+}
+
+.footnote {
+  border-top: 1px solid #aaa;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.reconstructed-toc {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin: clamp(2rem, 8cqi, 5rem) auto 0;
+}
+
+.reconstructed-toc .toc-list {
+  display: grid;
+  gap: 0.6em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reconstructed-toc .toc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+  column-gap: clamp(0.75em, 3cqi, 2em);
+}
+
+.reconstructed-toc .toc-entry {
+  display: flex;
+  min-inline-size: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(0.6em, 2.5cqi, 1.5em);
+}
+
+.reconstructed-toc .toc-fragment {
+  overflow-wrap: anywhere;
+}
+
+.reconstructed-toc .toc-page {
+  min-inline-size: 2.5ch;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .reader-shell {
+    display: block;
+  }
+
+  .source-viewer {
+    position: static;
+    max-height: none;
+    margin-top: 2rem;
+  }
+
+}
+
+@media (max-width: 34rem) {
+  .publication-navigation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .publication-navigation .publication-contents {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .publication-navigation .publication-previous {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .publication-navigation .publication-next {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@container formula (max-width: 24rem) {
+  .formula-layout-with-annotation > .formula-layout-spatial-layer {
+    grid-area: 1 / 1;
+  }
+
+  .formula-layout-with-annotation > .formula-layout-annotation {
+    grid-area: 2 / 1;
+    inline-size: 100cqi;
+    max-inline-size: 100cqi;
+    margin-left: 0;
+    margin-block-start: 0.35em;
+    padding-inline-start: 1.4em;
+  }
+}
+
+@container document (max-width: 42rem) {
+  .document [class*="source-width-"]:not(.formula-preserve-indent) {
+    --source-inline-size: 100%;
+  }
+
+  .document [class*="source-left-"]:not(.formula-preserve-indent) {
+    --source-inline-start: 0%;
+  }
+
+  .document [class*="source-gap-"] {
+    --source-gap-cap: 4rem;
+  }
+
+  .document blockquote {
+    padding-inline: 1rem;
+  }
+
+  .document :where(p, blockquote) {
+    text-align: start;
+  }
+}
+
+@container document (max-width: 30rem) {
+  .reconstructed-toc .toc-entry {
+    display: block;
+  }
+
+  .reconstructed-toc .toc-fragment {
+    margin-inline-end: 0.35em;
+  }
+}
+.source-gap-10{--source-block-gap:2.5%}.source-gap-13{--source-block-gap:3.25%}.source-gap-15{--source-block-gap:3.75%}.source-gap-16{--source-block-gap:4%}.source-gap-21{--source-block-gap:5.25%}.source-gap-26{--source-block-gap:6.5%}.source-gap-27{--source-block-gap:6.75%}.source-gap-30{--source-block-gap:7.5%}.source-gap-31{--source-block-gap:7.75%}.source-gap-40{--source-block-gap:10%}.source-gap-51{--source-block-gap:12.75%}.source-gap-57{--source-block-gap:14.25%}.source-gap-70{--source-block-gap:17.5%}.source-gap-123{--source-block-gap:30.75%}.source-gap-212{--source-block-gap:53%}.source-gap-223{--source-block-gap:55.75%}</style></head><body><main class="reader-shell static-export"><nav class="publication-navigation publication-navigation-top" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="03-foreword.html">← Foreword</a><a class="publication-contents" href="index.html">Contents</a><a class="publication-next" rel="next" href="05-chapter-01.html">Part I · Chapter 1 — Thinking About Thinking →</a></nav><article class="document" data-document-id="doc_019f6c0b-d481-7439-ba26-7aa6261a6d47"><section id="obj_019f6c0d-c65b-7f56-8069-6e83c17c4617" data-object-id="obj_019f6c0d-c65b-7f56-8069-6e83c17c4617" data-object-type="section" data-page="14" data-anchor-id="anchor_019f6c0d-c65b-7f56-8069-6e83c17c4618" data-anchor-ids="anchor_019f6c0d-c65b-7f56-8069-6e83c17c4618" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.3754,0.2257,0.6588,0.3484"><h1 id="obj_019f6c0d-c65c-7fb4-9953-f00406e92187" data-object-id="obj_019f6c0d-c65c-7fb4-9953-f00406e92187" data-object-type="heading" data-page="14" data-anchor-id="anchor_019f6c0d-c65c-7fb4-9953-f00406e92188" data-anchor-ids="anchor_019f6c0d-c65c-7fb4-9953-f00406e92188" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.3754,0.2257,0.6588,0.3484"><strong>Introduction Improving Intelligence Analysis at CIA: Dick Heuer’s Contribution to Intelligence Analysis by Jack Davis</strong><sup><strong>2</strong></sup></h1><p class="source-gap-13" id="obj_019f6c0d-c65d-7fb2-9337-ef6b5a7293e3" data-object-id="obj_019f6c0d-c65d-7fb2-9337-ef6b5a7293e3" data-object-type="paragraph" data-page="14" data-anchor-id="anchor_019f6c0d-c65d-7fb2-9337-ef6b5a7293e4" data-anchor-ids="anchor_019f6c0d-c65d-7fb2-9337-ef6b5a7293e4" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.3617,0.7917,0.5446" data-source-gap="0.0315"><span tabindex="0" class="sentence" id="obj_019f6c0d-c65d-7fb2-9337-ef6b5a7293e5" data-object-id="obj_019f6c0d-c65d-7fb2-9337-ef6b5a7293e5" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c65e-7c4b-9c56-be050911e9dd" data-anchor-ids="anchor_019f6c0d-c65e-7c4b-9c56-be050911e9dd" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.3617,0.7917,0.5083">I applaud CIA’s Center for the Study of Intelligence for making the work of Richards J. Heuer, Jr. on the psychology of intelligence analysis available to a new generation of intelligence practitioners and scholars. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c65e-7c4b-9c56-be050911e9de" data-object-id="obj_019f6c0d-c65e-7c4b-9c56-be050911e9de" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c65e-7c4b-9c56-be050911e9df" data-anchor-ids="anchor_019f6c0d-c65e-7c4b-9c56-be050911e9df" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.4163,0.7917,0.5083">Dick Heuer’s ideas on how to improve analysis focus on helping analysts compensate for the human mind’s limitations in dealing with complex problems that typically involve ambiguous information, multiple players, and fluid circumstances. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c65e-7c4b-9c56-be050911e9e0" data-object-id="obj_019f6c0d-c65e-7c4b-9c56-be050911e9e0" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c65f-771b-997e-5a05cf936bd8" data-anchor-ids="anchor_019f6c0d-c65f-771b-997e-5a05cf936bd8" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.4163,0.7917,0.5446">Such multi-faceted estimative challenges have proliferated in the turbulent post-Cold War world. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c65f-771b-997e-5a05cf936bd9" data-object-id="obj_019f6c0d-c65f-771b-997e-5a05cf936bd9" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c65f-771b-997e-5a05cf936bda" data-anchor-ids="anchor_019f6c0d-c65f-771b-997e-5a05cf936bda" data-page-indices="14" data-pages="15" data-confidence="0.7500" data-source-bbox="0.2426,0.5072,0.7916,0.5446">Heuer’s message to analysts can be encapsulated by quoting two sentences from Chapter 4 of this book:</span></p><p class="source-gap-15" id="obj_019f6c0d-c660-7606-86c7-f026f9d6482a" data-object-id="obj_019f6c0d-c660-7606-86c7-f026f9d6482a" data-object-type="paragraph" data-page="14" data-anchor-id="anchor_019f6c0d-c660-7606-86c7-f026f9d6482b" data-anchor-ids="anchor_019f6c0d-c660-7606-86c7-f026f9d6482b" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.3096,0.5602,0.7471,0.6279" data-source-gap="0.0368"><span tabindex="0" class="sentence" id="obj_019f6c0d-c660-7606-86c7-f026f9d6482c" data-object-id="obj_019f6c0d-c660-7606-86c7-f026f9d6482c" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c660-7606-86c7-f026f9d6482d" data-anchor-ids="anchor_019f6c0d-c660-7606-86c7-f026f9d6482d" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.3096,0.5602,0.7471,0.6279">Intelligence analysts should be self-conscious about their reasoning processes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c661-70e7-a0a2-75e50fab014c" data-object-id="obj_019f6c0d-c661-70e7-a0a2-75e50fab014c" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c661-70e7-a0a2-75e50fab014d" data-anchor-ids="anchor_019f6c0d-c661-70e7-a0a2-75e50fab014d" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.3096,0.5602,0.7471,0.6279">They should think about <em>how</em> they make judgments and reach conclusions, not just about the judgments and conclusions themselves.</span></p><p class="source-gap-15" id="obj_019f6c0d-c661-70e7-a0a2-75e50fab014e" data-object-id="obj_019f6c0d-c661-70e7-a0a2-75e50fab014e" data-object-type="paragraph" data-page="14" data-anchor-id="anchor_019f6c0d-c661-70e7-a0a2-75e50fab014f" data-anchor-ids="anchor_019f6c0d-c661-70e7-a0a2-75e50fab014f" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.6443,0.7917,0.8506" data-source-gap="0.0387"><span tabindex="0" class="sentence" id="obj_019f6c0d-c662-7d74-9d8c-ced3b6454323" data-object-id="obj_019f6c0d-c662-7d74-9d8c-ced3b6454323" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c662-7d74-9d8c-ced3b6454324" data-anchor-ids="anchor_019f6c0d-c662-7d74-9d8c-ced3b6454324" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.6443,0.7917,0.7363">Heuer’s ideas are applicable to any analytical endeavor. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c662-7d74-9d8c-ced3b6454325" data-object-id="obj_019f6c0d-c662-7d74-9d8c-ced3b6454325" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c663-7097-9405-bed8c6d9939b" data-anchor-ids="anchor_019f6c0d-c663-7097-9405-bed8c6d9939b" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.6443,0.7917,0.8506">In this Introduction, I have concentrated on his impact—and that of other pioneer thinkers in the intelligence analysis field—at CIA, because that is the institution that Heuer and his predecessors, and I myself, know best, having spent the bulk of our intelligence careers there. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c663-7097-9405-bed8c6d9939c" data-object-id="obj_019f6c0d-c663-7097-9405-bed8c6d9939c" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c663-7097-9405-bed8c6d9939d" data-anchor-ids="anchor_019f6c0d-c663-7097-9405-bed8c6d9939d" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7767,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c663-7097-9405-bed8c6d9939e" data-object-id="obj_019f6c0d-c663-7097-9405-bed8c6d9939e" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c664-75c6-8bc2-b79e5fc69bf9" data-anchor-ids="anchor_019f6c0d-c664-75c6-8bc2-b79e5fc69bf9" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7767,0.8506">Jack Davis served with the Directorate of Intelligence (DI), the National Intelligence Council, and the Office of Training during his CIA career. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c664-75c6-8bc2-b79e5fc69bfa" data-object-id="obj_019f6c0d-c664-75c6-8bc2-b79e5fc69bfa" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c664-75c6-8bc2-b79e5fc69bfb" data-anchor-ids="anchor_019f6c0d-c664-75c6-8bc2-b79e5fc69bfb" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7767,0.8506">He is now an independent contractor who specializes in developing and teaching analytic tradecraft. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c664-75c6-8bc2-b79e5fc69bfc" data-object-id="obj_019f6c0d-c664-75c6-8bc2-b79e5fc69bfc" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c665-7beb-ad0e-0c86c216a789" data-anchor-ids="anchor_019f6c0d-c665-7beb-ad0e-0c86c216a789" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7767,0.8506">Among his publications is <em>Uncertainty, Surprise, and Warning</em> (1996).</span></p><p class="source-gap-27" id="obj_019f6c0d-c665-7beb-ad0e-0c86c216a78a" data-object-id="obj_019f6c0d-c665-7beb-ad0e-0c86c216a78a" data-object-type="paragraph" data-page="14" data-anchor-id="anchor_019f6c0d-c665-7beb-ad0e-0c86c216a78b" data-anchor-ids="anchor_019f6c0d-c665-7beb-ad0e-0c86c216a78b" data-page-indices="14" data-pages="15" data-confidence="0.9000" data-source-bbox="0.5029,0.8794,0.5265,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-c665-7beb-ad0e-0c86c216a78c" data-object-id="obj_019f6c0d-c665-7beb-ad0e-0c86c216a78c" data-object-type="sentence" data-page="14" data-anchor-id="anchor_019f6c0d-c666-75e2-940e-6c13aa061374" data-anchor-ids="anchor_019f6c0d-c666-75e2-940e-6c13aa061374" data-page-indices="14" data-pages="15" data-confidence="0.7500" data-source-bbox="0.5029,0.8794,0.5265,0.8986">xiii</span></p></section><section id="obj_019f6c0d-c666-75e2-940e-6c13aa061375" data-object-id="obj_019f6c0d-c666-75e2-940e-6c13aa061375" data-object-type="section" data-page="15" data-anchor-id="anchor_019f6c0d-c666-75e2-940e-6c13aa061376" data-anchor-ids="anchor_019f6c0d-c666-75e2-940e-6c13aa061376" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.6258,0.1716"><h1 id="obj_019f6c0d-c666-75e2-940e-6c13aa061377" data-object-id="obj_019f6c0d-c666-75e2-940e-6c13aa061377" data-object-type="heading" data-page="15" data-anchor-id="anchor_019f6c0d-c667-7328-8568-cb55c430fe70" data-anchor-ids="anchor_019f6c0d-c667-7328-8568-cb55c430fe70" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.6258,0.1716"><strong>Leading Contributors to Quality of Analysis</strong></h1><p class="source-gap-10" id="obj_019f6c0d-c667-7328-8568-cb55c430fe73" data-object-id="obj_019f6c0d-c667-7328-8568-cb55c430fe73" data-object-type="paragraph" data-page="15" data-anchor-id="anchor_019f6c0d-c668-757c-a7b1-1ec06dbcb4fb" data-anchor-ids="anchor_019f6c0d-c668-757c-a7b1-1ec06dbcb4fb" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.3830" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-c668-757c-a7b1-1ec06dbcb4fc" data-object-id="obj_019f6c0d-c668-757c-a7b1-1ec06dbcb4fc" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c668-757c-a7b1-1ec06dbcb4fd" data-anchor-ids="anchor_019f6c0d-c668-757c-a7b1-1ec06dbcb4fd" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7622,0.2920">Intelligence analysts, in seeking to make sound judgments, are always under challenge from the complexities of the issues they address and from the demands made on them for timeliness and volume of production. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c668-757c-a7b1-1ec06dbcb4fe" data-object-id="obj_019f6c0d-c668-757c-a7b1-1ec06dbcb4fe" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c669-7ffd-8c44-4f15d947162b" data-anchor-ids="anchor_019f6c0d-c669-7ffd-8c44-4f15d947162b" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.3830">Four Agency individuals over the decades stand out for having made major contributions on how to deal with these challenges to the quality of analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c669-7ffd-8c44-4f15d947162c" data-object-id="obj_019f6c0d-c669-7ffd-8c44-4f15d947162c" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c669-7ffd-8c44-4f15d947162d" data-anchor-ids="anchor_019f6c0d-c669-7ffd-8c44-4f15d947162d" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.2910,0.7623,0.3830">My short list of the people who have had the greatest positive impact on CIA analysis consists of Sherman Kent, Robert Gates, Douglas MacEachin, and Richards Heuer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c669-7ffd-8c44-4f15d947162e" data-object-id="obj_019f6c0d-c669-7ffd-8c44-4f15d947162e" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66a-7e91-acb0-7de9b2f83191" data-anchor-ids="anchor_019f6c0d-c66a-7e91-acb0-7de9b2f83191" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.2910,0.7623,0.3830">My selection methodology was simple. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66a-7e91-acb0-7de9b2f83192" data-object-id="obj_019f6c0d-c66a-7e91-acb0-7de9b2f83192" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66a-7e91-acb0-7de9b2f83193" data-anchor-ids="anchor_019f6c0d-c66a-7e91-acb0-7de9b2f83193" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.2910,0.7623,0.3830">I asked myself: Whose insights have influenced me the most during my four decades of practicing, teaching, and writing about analysis?</span></p></section><section class="source-gap-212" id="obj_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37a9" data-object-id="obj_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37a9" data-object-type="section" data-page="15" data-anchor-id="anchor_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37aa" data-anchor-ids="anchor_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37aa" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.3965,0.3472,0.4178" data-source-gap="0.5302"><h1 id="obj_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37ab" data-object-id="obj_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37ab" data-object-type="heading" data-page="15" data-anchor-id="anchor_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37ac" data-anchor-ids="anchor_019f6c0d-c66b-7a9d-9b9e-5fcda3ac37ac" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.3965,0.3472,0.4178"><strong>Sherman Kent</strong></h1><p id="obj_019f6c0d-c66c-75f2-bb49-b7b1e45c4ea1" data-object-id="obj_019f6c0d-c66c-75f2-bb49-b7b1e45c4ea1" data-object-type="paragraph" data-page="15" data-anchor-id="anchor_019f6c0d-c66c-75f2-bb49-b7b1e45c4ea2" data-anchor-ids="anchor_019f6c0d-c66c-75f2-bb49-b7b1e45c4ea2" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4167,0.7623,0.7269"><span tabindex="0" class="sentence" id="obj_019f6c0d-c66d-7cf5-aa4c-da3b885baf1a" data-object-id="obj_019f6c0d-c66d-7cf5-aa4c-da3b885baf1a" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66d-7cf5-aa4c-da3b885baf1b" data-anchor-ids="anchor_019f6c0d-c66d-7cf5-aa4c-da3b885baf1b" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4167,0.7622,0.4905">Sherman Kent’s pathbreaking contributions to analysis cannot be done justice in a couple of paragraphs, and I refer readers to fuller treatments elsewhere.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66d-7cf5-aa4c-da3b885baf1c" data-object-id="obj_019f6c0d-c66d-7cf5-aa4c-da3b885baf1c" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66e-7ad5-a85e-61d716fc0313" data-anchor-ids="anchor_019f6c0d-c66e-7ad5-a85e-61d716fc0313" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4167,0.7623,0.5996"><sup></sup> Here I address his general legacy to the analytical profession. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66e-7ad5-a85e-61d716fc0314" data-object-id="obj_019f6c0d-c66e-7ad5-a85e-61d716fc0314" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66e-7ad5-a85e-61d716fc0315" data-anchor-ids="anchor_019f6c0d-c66e-7ad5-a85e-61d716fc0315" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4895,0.7623,0.5996">Kent, a professor of European history at Yale, worked in the Research and Analysis branch of the Office of Strategic Services during World War II. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66e-7ad5-a85e-61d716fc0316" data-object-id="obj_019f6c0d-c66e-7ad5-a85e-61d716fc0316" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66f-769a-9b39-0bd295b0fff4" data-anchor-ids="anchor_019f6c0d-c66f-769a-9b39-0bd295b0fff4" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4895,0.7623,0.5996">He wrote an influential book, <em>Strategic Intelligence for American World Power,</em> while at the National War College in the late 1940s. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66f-769a-9b39-0bd295b0fff5" data-object-id="obj_019f6c0d-c66f-769a-9b39-0bd295b0fff5" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c66f-769a-9b39-0bd295b0fff6" data-anchor-ids="anchor_019f6c0d-c66f-769a-9b39-0bd295b0fff6" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.4895,0.7623,0.7269">He served as Vice Chairman and then as Chairman of the DCI’s Board of National Estimates from 1950 to 1967. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c66f-769a-9b39-0bd295b0fff7" data-object-id="obj_019f6c0d-c66f-769a-9b39-0bd295b0fff7" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c670-7a5f-8b5a-f1f536fd6661" data-anchor-ids="anchor_019f6c0d-c670-7a5f-8b5a-f1f536fd6661" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.5985,0.7623,0.7269">Kent’s greatest contribution to the quality of analysis was to define an honorable place for the analyst—the thoughtful individual “applying the instruments of reason and the scientific method”—in an intelligence world then as now dominated by collectors and operators. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c670-7a5f-8b5a-f1f536fd6662" data-object-id="obj_019f6c0d-c670-7a5f-8b5a-f1f536fd6662" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c670-7a5f-8b5a-f1f536fd6663" data-anchor-ids="anchor_019f6c0d-c670-7a5f-8b5a-f1f536fd6663" data-page-indices="15" data-pages="16" data-confidence="0.7500" data-source-bbox="0.2132,0.5985,0.7623,0.7269">In a second (1965) edition of <em>Strategic Intelligence,</em> Kent took account of the coming computer age as well as human and technical collectors in proclaiming the centrality of the analyst:</span></p><p class="source-gap-15" id="obj_019f6c0d-c670-7a5f-8b5a-f1f536fd6664" data-object-id="obj_019f6c0d-c670-7a5f-8b5a-f1f536fd6664" data-object-type="paragraph" data-page="15" data-anchor-id="anchor_019f6c0d-c671-7a07-bff9-b6bebcd53d0d" data-anchor-ids="anchor_019f6c0d-c671-7a07-bff9-b6bebcd53d0d" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2802,0.7425,0.7177,0.7768" data-source-gap="0.0368"><span tabindex="0" class="sentence" id="obj_019f6c0d-c671-7a07-bff9-b6bebcd53d0e" data-object-id="obj_019f6c0d-c671-7a07-bff9-b6bebcd53d0e" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c671-7a07-bff9-b6bebcd53d0f" data-anchor-ids="anchor_019f6c0d-c671-7a07-bff9-b6bebcd53d0f" data-page-indices="15" data-pages="16" data-confidence="0.7500" data-source-bbox="0.2802,0.7425,0.7177,0.7768">Whatever the complexities of the puzzles we strive to solve and whatever the sophisticated techniques we may use to collect</span></p><p class="source-gap-30" id="obj_019f6c0d-c671-7a07-bff9-b6bebcd53d10" data-object-id="obj_019f6c0d-c671-7a07-bff9-b6bebcd53d10" data-object-type="paragraph" data-page="15" data-anchor-id="anchor_019f6c0d-c672-73b6-999c-8511b965bc94" data-anchor-ids="anchor_019f6c0d-c672-73b6-999c-8511b965bc94" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7585,0.8506" data-source-gap="0.0756"><span tabindex="0" class="sentence" id="obj_019f6c0d-c672-73b6-999c-8511b965bc95" data-object-id="obj_019f6c0d-c672-73b6-999c-8511b965bc95" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c672-73b6-999c-8511b965bc96" data-anchor-ids="anchor_019f6c0d-c672-73b6-999c-8511b965bc96" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7585,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c673-7548-9840-1ac630230c1c" data-object-id="obj_019f6c0d-c673-7548-9840-1ac630230c1c" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c673-7548-9840-1ac630230c1d" data-anchor-ids="anchor_019f6c0d-c673-7548-9840-1ac630230c1d" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7585,0.8506">See, in particular, the editor’s unclassified introductory essay and “Tribute” by Harold P. Ford in Donald P. Steury, <em>Sherman Kent and the Board of National Estimates: Collected Essays</em> (CIA, Center for the Study of Intelligence, 1994). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c673-7548-9840-1ac630230c1e" data-object-id="obj_019f6c0d-c673-7548-9840-1ac630230c1e" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c673-7548-9840-1ac630230c1f" data-anchor-ids="anchor_019f6c0d-c673-7548-9840-1ac630230c1f" data-page-indices="15" data-pages="16" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7585,0.8506">Hereinafter cited as Steury, <em>Kent</em>.</span></p><p class="source-gap-26" id="obj_019f6c0d-c674-7512-a1c4-55f9f60dec10" data-object-id="obj_019f6c0d-c674-7512-a1c4-55f9f60dec10" data-object-type="paragraph" data-page="15" data-anchor-id="anchor_019f6c0d-c674-7512-a1c4-55f9f60dec11" data-anchor-ids="anchor_019f6c0d-c674-7512-a1c4-55f9f60dec11,anchor_019f6c0d-c674-7512-a1c4-55f9f60dec12" data-page-indices="15,16" data-pages="16,17" data-confidence="0.9000" data-source-bbox="0.4743,0.8787,0.4963,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-c674-7512-a1c4-55f9f60dec13" data-object-id="obj_019f6c0d-c674-7512-a1c4-55f9f60dec13" data-object-type="sentence" data-page="15" data-anchor-id="anchor_019f6c0d-c675-7250-a233-140fbf233208" data-anchor-ids="anchor_019f6c0d-c675-7250-a233-140fbf233208,anchor_019f6c0d-c675-7250-a233-140fbf233209" data-page-indices="15,16" data-pages="16,17" data-confidence="0.9000" data-source-bbox="0.4743,0.8787,0.4963,0.8980">xiv the pieces and store them, there can never be a time when the thoughtful man can be supplanted as the intelligence device supreme.</span></p><p class="source-gap-15" id="obj_019f6c0d-c675-7250-a233-140fbf23320a" data-object-id="obj_019f6c0d-c675-7250-a233-140fbf23320a" data-object-type="paragraph" data-page="16" data-anchor-id="anchor_019f6c0d-c675-7250-a233-140fbf23320b" data-anchor-ids="anchor_019f6c0d-c675-7250-a233-140fbf23320b" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.2181,0.7917,0.6192" data-source-gap="0.0387"><span tabindex="0" class="sentence" id="obj_019f6c0d-c676-7c46-8674-cddbc1fad11a" data-object-id="obj_019f6c0d-c676-7c46-8674-cddbc1fad11a" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c676-7c46-8674-cddbc1fad11b" data-anchor-ids="anchor_019f6c0d-c676-7c46-8674-cddbc1fad11b" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.2181,0.7916,0.3465">More specifically, Kent advocated application of the techniques of “scientific” study of the past to analysis of complex ongoing situations and estimates of likely future events. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c676-7c46-8674-cddbc1fad11c" data-object-id="obj_019f6c0d-c676-7c46-8674-cddbc1fad11c" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c677-7b73-ae04-994c72340bd8" data-anchor-ids="anchor_019f6c0d-c677-7b73-ae04-994c72340bd8" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.2181,0.7916,0.3465">Just as rigorous “impartial” analysis could cut through the gaps and ambiguities of information on events long past and point to the most probable explanation, he contended, the powers of the critical mind could turn to events that had not yet transpired to determine the most probable developments.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c677-7b73-ae04-994c72340bd9" data-object-id="obj_019f6c0d-c677-7b73-ae04-994c72340bd9" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c677-7b73-ae04-994c72340bda" data-anchor-ids="anchor_019f6c0d-c677-7b73-ae04-994c72340bda" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.2181,0.7917,0.4192"><sup></sup>&nbsp;To this end, Kent developed the concept of the analytic pyramid, featuring a wide base of factual information and sides comprised of sound assumptions, which pointed to the most likely future scenario at the apex.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c677-7b73-ae04-994c72340bdb" data-object-id="obj_019f6c0d-c677-7b73-ae04-994c72340bdb" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c678-77e5-ad39-4814e503f379" data-anchor-ids="anchor_019f6c0d-c678-77e5-ad39-4814e503f379" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.3454,0.7917,0.5465"><sup></sup>&nbsp;In his proselytizing and in practice, Kent battled against bureaucratic and ideological biases, which he recognized as impediments to sound analysis, and against imprecise estimative terms that he saw as obstacles to conveying clear messages to readers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c678-77e5-ad39-4814e503f37a" data-object-id="obj_019f6c0d-c678-77e5-ad39-4814e503f37a" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c678-77e5-ad39-4814e503f37b" data-anchor-ids="anchor_019f6c0d-c678-77e5-ad39-4814e503f37b" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.4181,0.7917,0.6192">Although he was aware of what is now called cognitive bias, his writings urge analysts to “make the call” without much discussion of how limitations of the human mind were to be overcome. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c678-77e5-ad39-4814e503f37c" data-object-id="obj_019f6c0d-c678-77e5-ad39-4814e503f37c" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c679-7801-9163-04088877e83a" data-anchor-ids="anchor_019f6c0d-c679-7801-9163-04088877e83a" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.5454,0.7917,0.6192">Not many Agency analysts read Kent nowadays. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c679-7801-9163-04088877e83b" data-object-id="obj_019f6c0d-c679-7801-9163-04088877e83b" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c679-7801-9163-04088877e83c" data-anchor-ids="anchor_019f6c0d-c679-7801-9163-04088877e83c" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.5454,0.7917,0.6192">But he had a profound impact on earlier generations of analysts and managers, and his work continues to exert an indirect influence among practitioners of the analytic profession.</span></p></section><section id="obj_019f6c0d-c679-7801-9163-04088877e83d" data-object-id="obj_019f6c0d-c679-7801-9163-04088877e83d" data-object-type="section" data-page="16" data-anchor-id="anchor_019f6c0d-c67a-75d6-a385-c4bbb1138d98" data-anchor-ids="anchor_019f6c0d-c67a-75d6-a385-c4bbb1138d98" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.6328,0.3647,0.6540"><h1 id="obj_019f6c0d-c67a-75d6-a385-c4bbb1138d99" data-object-id="obj_019f6c0d-c67a-75d6-a385-c4bbb1138d99" data-object-type="heading" data-page="16" data-anchor-id="anchor_019f6c0d-c67a-75d6-a385-c4bbb1138d9a" data-anchor-ids="anchor_019f6c0d-c67a-75d6-a385-c4bbb1138d9a" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.6328,0.3647,0.6540"><strong>Robert Gates</strong></h1><p id="obj_019f6c0d-c67b-7ada-aa3b-0770c225f668" data-object-id="obj_019f6c0d-c67b-7ada-aa3b-0770c225f668" data-object-type="paragraph" data-page="16" data-anchor-id="anchor_019f6c0d-c67b-7ada-aa3b-0770c225f669" data-anchor-ids="anchor_019f6c0d-c67b-7ada-aa3b-0770c225f669" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.6530,0.7917,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-c67b-7ada-aa3b-0770c225f66a" data-object-id="obj_019f6c0d-c67b-7ada-aa3b-0770c225f66a" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67c-7abe-8202-10140524ff4c" data-anchor-ids="anchor_019f6c0d-c67c-7abe-8202-10140524ff4c" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.6530,0.7917,0.7268">Bob Gates served as Deputy Director of Central Intelligence (1986– 1989) and as DCI (1991–1993). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67c-7abe-8202-10140524ff4d" data-object-id="obj_019f6c0d-c67c-7abe-8202-10140524ff4d" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67c-7abe-8202-10140524ff4e" data-anchor-ids="anchor_019f6c0d-c67c-7abe-8202-10140524ff4e" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.6530,0.7917,0.8506">But his greatest impact on the quality of CIA analysis came during his 1982–1986 stint as Deputy Director for Intelligence (DDI). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67c-7abe-8202-10140524ff4f" data-object-id="obj_019f6c0d-c67c-7abe-8202-10140524ff4f" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67d-779f-9215-59f6388f857b" data-anchor-ids="anchor_019f6c0d-c67d-779f-9215-59f6388f857b" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67d-779f-9215-59f6388f857c" data-object-id="obj_019f6c0d-c67d-779f-9215-59f6388f857c" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67d-779f-9215-59f6388f857d" data-anchor-ids="anchor_019f6c0d-c67d-779f-9215-59f6388f857d" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">Sherman Kent, <em>Writing History</em>, second edition (1967). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67e-726c-a88f-5b859388fded" data-object-id="obj_019f6c0d-c67e-726c-a88f-5b859388fded" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67e-726c-a88f-5b859388fdee" data-anchor-ids="anchor_019f6c0d-c67e-726c-a88f-5b859388fdee" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">The first edition was published in 1941, when Kent was an assistant professor of history at Yale. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67e-726c-a88f-5b859388fdef" data-object-id="obj_019f6c0d-c67e-726c-a88f-5b859388fdef" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67e-726c-a88f-5b859388fdf0" data-anchor-ids="anchor_019f6c0d-c67e-726c-a88f-5b859388fdf0" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">In the first chapter, “Why History,” he presented ideas and recommendations that he later adapted for intelligence analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67f-7848-a2ae-a97fc6b04be8" data-object-id="obj_019f6c0d-c67f-7848-a2ae-a97fc6b04be8" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67f-7848-a2ae-a97fc6b04be9" data-anchor-ids="anchor_019f6c0d-c67f-7848-a2ae-a97fc6b04be9" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c67f-7848-a2ae-a97fc6b04bea" data-object-id="obj_019f6c0d-c67f-7848-a2ae-a97fc6b04bea" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c67f-7848-a2ae-a97fc6b04beb" data-anchor-ids="anchor_019f6c0d-c67f-7848-a2ae-a97fc6b04beb" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.2426,0.7816,0.7764,0.8506">Kent, “Estimates and Influence” (1968), in Steury, <em>Kent</em>.</span></p><p class="source-gap-27" id="obj_019f6c0d-c680-7cc6-bf04-a800f88ff2b7" data-object-id="obj_019f6c0d-c680-7cc6-bf04-a800f88ff2b7" data-object-type="paragraph" data-page="16" data-anchor-id="anchor_019f6c0d-c680-7cc6-bf04-a800f88ff2b8" data-anchor-ids="anchor_019f6c0d-c680-7cc6-bf04-a800f88ff2b8" data-page-indices="16" data-pages="17" data-confidence="0.9000" data-source-bbox="0.5063,0.8794,0.5231,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-c680-7cc6-bf04-a800f88ff2b9" data-object-id="obj_019f6c0d-c680-7cc6-bf04-a800f88ff2b9" data-object-type="sentence" data-page="16" data-anchor-id="anchor_019f6c0d-c680-7cc6-bf04-a800f88ff2ba" data-anchor-ids="anchor_019f6c0d-c680-7cc6-bf04-a800f88ff2ba" data-page-indices="16" data-pages="17" data-confidence="0.7500" data-source-bbox="0.5063,0.8794,0.5231,0.8986">xv</span></p><p id="obj_019f6c0d-c681-765b-9fe4-33f08f9d9369" data-object-id="obj_019f6c0d-c681-765b-9fe4-33f08f9d9369" data-object-type="paragraph" data-page="17" data-anchor-id="anchor_019f6c0d-c681-765b-9fe4-33f08f9d936a" data-anchor-ids="anchor_019f6c0d-c681-765b-9fe4-33f08f9d936a" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-c681-765b-9fe4-33f08f9d936b" data-object-id="obj_019f6c0d-c681-765b-9fe4-33f08f9d936b" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c682-7466-a4c0-1785fea9d66e" data-anchor-ids="anchor_019f6c0d-c682-7466-a4c0-1785fea9d66e" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3516">Initially schooled as a political scientist, Gates earned a Ph.D. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c682-7466-a4c0-1785fea9d66f" data-object-id="obj_019f6c0d-c682-7466-a4c0-1785fea9d66f" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c682-7466-a4c0-1785fea9d670" data-anchor-ids="anchor_019f6c0d-c682-7466-a4c0-1785fea9d670" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3516">in Soviet studies at Georgetown while working as an analyst at CIA. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c682-7466-a4c0-1785fea9d671" data-object-id="obj_019f6c0d-c682-7466-a4c0-1785fea9d671" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c683-7854-88c2-d7b27bd0ca59" data-anchor-ids="anchor_019f6c0d-c683-7854-88c2-d7b27bd0ca59" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3516">As a member of the National Security Council staff during the 1970s, he gained invaluable insight into how policymakers use intelligence analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c683-7854-88c2-d7b27bd0ca5a" data-object-id="obj_019f6c0d-c683-7854-88c2-d7b27bd0ca5a" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c683-7854-88c2-d7b27bd0ca5b" data-anchor-ids="anchor_019f6c0d-c683-7854-88c2-d7b27bd0ca5b" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3516">Highly intelligent, exceptionally hard-working, and skilled in the bureaucratic arts, Gates was appointed DDI by DCI William Casey in good part because he was one of the few insiders Casey found who shared the DCI’s views on what Casey saw as glaring deficiencies of Agency analysts.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c683-7854-88c2-d7b27bd0ca5c" data-object-id="obj_019f6c0d-c683-7854-88c2-d7b27bd0ca5c" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c684-739e-91e7-060e6fcf4cd7" data-anchor-ids="anchor_019f6c0d-c684-739e-91e7-060e6fcf4cd7" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4607"><sup> </sup>Few analysts and managers who heard it have forgotten Gates’ blistering criticism of analytic performance in his 1982 “inaugural” speech as DDI. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c684-739e-91e7-060e6fcf4cd8" data-object-id="obj_019f6c0d-c684-739e-91e7-060e6fcf4cd8" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c684-739e-91e7-060e6fcf4cd9" data-anchor-ids="anchor_019f6c0d-c684-739e-91e7-060e6fcf4cd9" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.3505,0.7622,0.4607">Most of the public commentary on Gates and Agency analysis concerned charges of politicization levied against him, and his defense against such charges, during Senate hearings for his 1991 confirmation as DCI. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c685-716f-9725-14e8d9dcce2f" data-object-id="obj_019f6c0d-c685-716f-9725-14e8d9dcce2f" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c685-716f-9725-14e8d9dcce30" data-anchor-ids="anchor_019f6c0d-c685-716f-9725-14e8d9dcce30" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.3505,0.7622,0.4607">The heat of this debate was slow to dissipate among CIA analysts, as reflected in the pages of <em>Studies in Intelligence,</em> the Agency journal founded by Sherman Kent in the 1950s.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c685-716f-9725-14e8d9dcce31" data-object-id="obj_019f6c0d-c685-716f-9725-14e8d9dcce31" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c685-716f-9725-14e8d9dcce32" data-anchor-ids="anchor_019f6c0d-c685-716f-9725-14e8d9dcce32" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.3505,0.7623,0.5879"><sup></sup> I know of no written retrospective on Gates’ contribution to Agency analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c686-7890-84e8-48d1d2954c1a" data-object-id="obj_019f6c0d-c686-7890-84e8-48d1d2954c1a" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c686-7890-84e8-48d1d2954c1b" data-anchor-ids="anchor_019f6c0d-c686-7890-84e8-48d1d2954c1b" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.4596,0.7623,0.5879">My insights into his ideas about analysis came mostly through an arms-length collaboration in setting up and running an Agency training course entitled “Seminar on Intelligence Successes and Failures.”</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c686-7890-84e8-48d1d2954c1c" data-object-id="obj_019f6c0d-c686-7890-84e8-48d1d2954c1c" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c686-7890-84e8-48d1d2954c1d" data-anchor-ids="anchor_019f6c0d-c686-7890-84e8-48d1d2954c1d" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.4596,0.7623,0.6970"><sup></sup> During his tenure as DDI, only rarely could you hold a conversation with analysts or managers without picking up additional viewpoints, thoughtful and otherwise, on what Gates was doing to change CIA analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c687-7904-8739-d6868cc77f97" data-object-id="obj_019f6c0d-c687-7904-8739-d6868cc77f97" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c688-7a86-947e-fef03c5431bd" data-anchor-ids="anchor_019f6c0d-c688-7a86-947e-fef03c5431bd" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.5869,0.7623,0.8506">Among his other tenets were the need to seek the views of non-CIA experts, in- . </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c687-7904-8739-d6868cc77f95" data-object-id="obj_019f6c0d-c687-7904-8739-d6868cc77f95" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c687-7904-8739-d6868cc77f96" data-anchor-ids="anchor_019f6c0d-c687-7904-8739-d6868cc77f96" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.5869,0.7623,0.6970">Gates’s ideas for overcoming what he saw as insular, flabby, and incoherent argumentation featured the importance of distinguishing between what analysts know and what they believe—that is, to make clear what is “fact” (or reliably reported information) and what is the analyst’s opinion (which had to be persuasively supported with evidence). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c688-7a86-947e-fef03c5431be" data-object-id="obj_019f6c0d-c688-7a86-947e-fef03c5431be" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c688-7a86-947e-fef03c5431bf" data-anchor-ids="anchor_019f6c0d-c688-7a86-947e-fef03c5431bf" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">Casey, very early in his tenure as DCI (1981-1987), opined to me that the trouble with Agency analysts is that they went from sitting on their rear ends at universities to sitting on their rear ends at CIA, without seeing the real world. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c688-7a86-947e-fef03c5431c0" data-object-id="obj_019f6c0d-c688-7a86-947e-fef03c5431c0" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c689-79e5-9d19-0bc72cd00750" data-anchor-ids="anchor_019f6c0d-c689-79e5-9d19-0bc72cd00750" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c689-79e5-9d19-0bc72cd00751" data-object-id="obj_019f6c0d-c689-79e5-9d19-0bc72cd00751" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c689-79e5-9d19-0bc72cd00752" data-anchor-ids="anchor_019f6c0d-c689-79e5-9d19-0bc72cd00752" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">“The Gates Hearings: Politicization and Soviet Analysis at CIA”, <em>Studies in Intelligence</em> (Spring 1994). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c689-79e5-9d19-0bc72cd00753" data-object-id="obj_019f6c0d-c689-79e5-9d19-0bc72cd00753" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c68a-71c2-8241-41e510d20537" data-anchor-ids="anchor_019f6c0d-c68a-71c2-8241-41e510d20537" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">“Communication to the Editor: The Gates Hearings: A Biased Account,” <em>Studies in Intelligence</em> (Fall 1994). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68a-71c2-8241-41e510d20538" data-object-id="obj_019f6c0d-c68a-71c2-8241-41e510d20538" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c68a-71c2-8241-41e510d20539" data-anchor-ids="anchor_019f6c0d-c68a-71c2-8241-41e510d20539" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68a-71c2-8241-41e510d2053a" data-object-id="obj_019f6c0d-c68a-71c2-8241-41e510d2053a" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c68b-7b94-b3eb-c549292e7d33" data-anchor-ids="anchor_019f6c0d-c68b-7b94-b3eb-c549292e7d33" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">DCI Casey requested that the Agency’s training office provide this seminar so that, at the least, analysts could learn from their own mistakes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68b-7b94-b3eb-c549292e7d34" data-object-id="obj_019f6c0d-c68b-7b94-b3eb-c549292e7d34" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c68b-7b94-b3eb-c549292e7d35" data-anchor-ids="anchor_019f6c0d-c68b-7b94-b3eb-c549292e7d35" data-page-indices="17" data-pages="18" data-confidence="0.9000" data-source-bbox="0.2132,0.7271,0.7590,0.8506">DDI Gates carefully reviewed the statement of goals for the seminar, the outline of course units, and the required reading list.</span></p><p class="source-gap-26" id="obj_019f6c0d-c68b-7b94-b3eb-c549292e7d36" data-object-id="obj_019f6c0d-c68b-7b94-b3eb-c549292e7d36" data-object-type="paragraph" data-page="17" data-anchor-id="anchor_019f6c0d-c68c-7e4d-98a6-9aa9c15ecb27" data-anchor-ids="anchor_019f6c0d-c68c-7e4d-98a6-9aa9c15ecb27,anchor_019f6c0d-c68c-7e4d-98a6-9aa9c15ecb28" data-page-indices="17,18" data-pages="18,19" data-confidence="0.9000" data-source-bbox="0.4744,0.8787,0.4962,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-c68c-7e4d-98a6-9aa9c15ecb29" data-object-id="obj_019f6c0d-c68c-7e4d-98a6-9aa9c15ecb29" data-object-type="sentence" data-page="17" data-anchor-id="anchor_019f6c0d-c68d-7f6c-b86a-2675846a947f" data-anchor-ids="anchor_019f6c0d-c68d-7f6c-b86a-2675846a947f,anchor_019f6c0d-c68d-7f6c-b86a-2675846a9480" data-page-indices="17,18" data-pages="18,19" data-confidence="0.9000" data-source-bbox="0.4744,0.8787,0.4962,0.8980">xvi cluding academic specialists and policy officials, and to present alternate future scenarios. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68d-7f6c-b86a-2675846a9481" data-object-id="obj_019f6c0d-c68d-7f6c-b86a-2675846a9481" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c68d-7f6c-b86a-2675846a9482" data-anchor-ids="anchor_019f6c0d-c68d-7f6c-b86a-2675846a9482" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.1869,0.7917,0.3152">Gates’s main impact, though, came from practice—from his direct involvement in implementing his ideas. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68e-7a07-8735-589e1c0c5526" data-object-id="obj_019f6c0d-c68e-7a07-8735-589e1c0c5526" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c68e-7a07-8735-589e1c0c5527" data-anchor-ids="anchor_019f6c0d-c68e-7a07-8735-589e1c0c5527" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.1869,0.7917,0.3152">Using his authority as DDI, he reviewed critically almost all in-depth assessments and current intelligence articles <em>prior to publication.</em>&nbsp;</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68e-7a07-8735-589e1c0c5528" data-object-id="obj_019f6c0d-c68e-7a07-8735-589e1c0c5528" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c68f-73ea-98fb-539e2ebba1b1" data-anchor-ids="anchor_019f6c0d-c68f-73ea-98fb-539e2ebba1b1" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.1869,0.7917,0.4243">With help from his deputy and two rotating assistants from the ranks of rising junior managers, Gates raised the standards for DDI review dramatically—in essence, from “looks good to me” to “show me your evidence.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c68f-73ea-98fb-539e2ebba1b2" data-object-id="obj_019f6c0d-c68f-73ea-98fb-539e2ebba1b2" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c68f-73ea-98fb-539e2ebba1b3" data-anchor-ids="anchor_019f6c0d-c68f-73ea-98fb-539e2ebba1b3" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.4243">As the many drafts Gates rejected were sent back to managers who had approved them—accompanied by the DDI’s comments about inconsistency, lack of clarity, substantive bias, and poorly supported judgments—the whole chain of review became much more rigorous. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c690-790a-a017-01ec9b92acd5" data-object-id="obj_019f6c0d-c690-790a-a017-01ec9b92acd5" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c690-790a-a017-01ec9b92acd6" data-anchor-ids="anchor_019f6c0d-c690-790a-a017-01ec9b92acd6" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.4243">Analysts and their managers raised their standards to avoid the pain of DDI rejection. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c690-790a-a017-01ec9b92acd7" data-object-id="obj_019f6c0d-c690-790a-a017-01ec9b92acd7" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c690-790a-a017-01ec9b92acd8" data-anchor-ids="anchor_019f6c0d-c690-790a-a017-01ec9b92acd8" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.5698">Both career advancement and ego were at stake. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c691-76e7-a1c5-4692351b4c4f" data-object-id="obj_019f6c0d-c691-76e7-a1c5-4692351b4c4f" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c691-76e7-a1c5-4692351b4c50" data-anchor-ids="anchor_019f6c0d-c691-76e7-a1c5-4692351b4c50" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.4232,0.7917,0.5698">The rapid and sharp increase in attention paid by analysts and managers to the underpinnings for their substantive judgments probably was without precedent in the Agency’s history. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c691-76e7-a1c5-4692351b4c51" data-object-id="obj_019f6c0d-c691-76e7-a1c5-4692351b4c51" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c691-76e7-a1c5-4692351b4c52" data-anchor-ids="anchor_019f6c0d-c691-76e7-a1c5-4692351b4c52" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.4232,0.7917,0.5698">The longer term benefits of the intensified review process were more limited, however, because insufficient attention was given to clarifying <em>tradecraft</em> practices that would promote analytic soundness. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c692-7015-9fc9-570b0a618d93" data-object-id="obj_019f6c0d-c692-7015-9fc9-570b0a618d93" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c692-7015-9fc9-570b0a618d94" data-anchor-ids="anchor_019f6c0d-c692-7015-9fc9-570b0a618d94" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.4232,0.7917,0.6788">More than one participant in the process observed that a lack of guidelines for meeting Gates’s standards led to a large amount of “wheel-spinning.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c692-7015-9fc9-570b0a618d95" data-object-id="obj_019f6c0d-c692-7015-9fc9-570b0a618d95" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c693-76ad-b731-8f7867090197" data-anchor-ids="anchor_019f6c0d-c693-76ad-b731-8f7867090197" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.5687,0.7917,0.6788">Gates’s impact, like Kent’s, has to be seen on two planes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c693-76ad-b731-8f7867090198" data-object-id="obj_019f6c0d-c693-76ad-b731-8f7867090198" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c693-76ad-b731-8f7867090199" data-anchor-ids="anchor_019f6c0d-c693-76ad-b731-8f7867090199" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.5687,0.7917,0.6788">On the one hand, little that Gates wrote on the craft of analysis is read these days. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c693-76ad-b731-8f786709019a" data-object-id="obj_019f6c0d-c693-76ad-b731-8f786709019a" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c694-7d91-b616-16362074ad7f" data-anchor-ids="anchor_019f6c0d-c694-7d91-b616-16362074ad7f" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.5687,0.7917,0.6788">But even though his pre-publication review process was discontinued under his successors, an enduring awareness of his standards still gives pause at jumping to conclusions to many managers and analysts who experienced his criticism first-hand.</span></p></section><section id="obj_019f6c0d-c694-7d91-b616-16362074ad80" data-object-id="obj_019f6c0d-c694-7d91-b616-16362074ad80" data-object-type="section" data-page="18" data-anchor-id="anchor_019f6c0d-c694-7d91-b616-16362074ad81" data-anchor-ids="anchor_019f6c0d-c694-7d91-b616-16362074ad81" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.6924,0.4309,0.7137"><h1 id="obj_019f6c0d-c694-7d91-b616-16362074ad82" data-object-id="obj_019f6c0d-c694-7d91-b616-16362074ad82" data-object-type="heading" data-page="18" data-anchor-id="anchor_019f6c0d-c695-7c7a-93ea-23e1fe82ff5f" data-anchor-ids="anchor_019f6c0d-c695-7c7a-93ea-23e1fe82ff5f" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.6924,0.4309,0.7137"><strong>Douglas MacEachin</strong></h1><p id="obj_019f6c0d-c695-7c7a-93ea-23e1fe82ff62" data-object-id="obj_019f6c0d-c695-7c7a-93ea-23e1fe82ff62" data-object-type="paragraph" data-page="18" data-anchor-id="anchor_019f6c0d-c696-72d8-8bce-c55583efe3ae" data-anchor-ids="anchor_019f6c0d-c696-72d8-8bce-c55583efe3ae" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8046"><span tabindex="0" class="sentence" id="obj_019f6c0d-c696-72d8-8bce-c55583efe3af" data-object-id="obj_019f6c0d-c696-72d8-8bce-c55583efe3af" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c696-72d8-8bce-c55583efe3b0" data-anchor-ids="anchor_019f6c0d-c696-72d8-8bce-c55583efe3b0" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8046">Doug MacEachin, DDI from 1993 to 1996, sought to provide an essential ingredient for ensuring implementation of sound analytic standards: <em>corporate tradecraft</em> standards for analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c697-7426-96fe-b61df36d1dc1" data-object-id="obj_019f6c0d-c697-7426-96fe-b61df36d1dc1" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c697-7426-96fe-b61df36d1dc2" data-anchor-ids="anchor_019f6c0d-c697-7426-96fe-b61df36d1dc2" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8046">This new tradecraft was aimed in particular at ensuring that sufficient attention would be paid to cognitive challenges in assessing complex issues.</span></p><p class="source-gap-70" id="obj_019f6c0d-c697-7426-96fe-b61df36d1dc3" data-object-id="obj_019f6c0d-c697-7426-96fe-b61df36d1dc3" data-object-type="paragraph" data-page="18" data-anchor-id="anchor_019f6c0d-c697-7426-96fe-b61df36d1dc4" data-anchor-ids="anchor_019f6c0d-c697-7426-96fe-b61df36d1dc4" data-page-indices="18" data-pages="19" data-confidence="0.9000" data-source-bbox="0.5013,0.8794,0.5282,0.8986" data-source-gap="0.1762"><span tabindex="0" class="sentence" id="obj_019f6c0d-c698-7683-adf4-07efe70323b2" data-object-id="obj_019f6c0d-c698-7683-adf4-07efe70323b2" data-object-type="sentence" data-page="18" data-anchor-id="anchor_019f6c0d-c698-7683-adf4-07efe70323b3" data-anchor-ids="anchor_019f6c0d-c698-7683-adf4-07efe70323b3" data-page-indices="18" data-pages="19" data-confidence="0.7500" data-source-bbox="0.5013,0.8794,0.5282,0.8986">xvii</span></p><p id="obj_019f6c0d-c698-7683-adf4-07efe70323b4" data-object-id="obj_019f6c0d-c698-7683-adf4-07efe70323b4" data-object-type="paragraph" data-page="19" data-anchor-id="anchor_019f6c0d-c699-777b-82f5-5c6de55eea36" data-anchor-ids="anchor_019f6c0d-c699-777b-82f5-5c6de55eea36" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-c699-777b-82f5-5c6de55eea37" data-object-id="obj_019f6c0d-c699-777b-82f5-5c6de55eea37" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c699-777b-82f5-5c6de55eea38" data-anchor-ids="anchor_019f6c0d-c699-777b-82f5-5c6de55eea38" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2243">MacEachin set out his views on Agency analytical faults and correctives in <em>The Tradecraft of Analysis: Challenge and Change in the CIA.</em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-c699-777b-82f5-5c6de55eea39" data-object-id="obj_019f6c0d-c699-777b-82f5-5c6de55eea39" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69a-7aac-b611-89265c9724fa" data-anchor-ids="anchor_019f6c0d-c69a-7aac-b611-89265c9724fa" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3698"><sup></sup> My commentary on his contributions to sound analysis is also informed by a series of exchanges with him in 1994 and 1995. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69a-7aac-b611-89265c9724fb" data-object-id="obj_019f6c0d-c69a-7aac-b611-89265c9724fb" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69a-7aac-b611-89265c9724fc" data-anchor-ids="anchor_019f6c0d-c69a-7aac-b611-89265c9724fc" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3698">MacEachin’s university major was economics, but he also showed great interest in philosophy. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69b-7732-af00-d7811f3ff6e9" data-object-id="obj_019f6c0d-c69b-7732-af00-d7811f3ff6e9" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69b-7732-af00-d7811f3ff6ea" data-anchor-ids="anchor_019f6c0d-c69b-7732-af00-d7811f3ff6ea" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3698">His Agency career—like Gates’—included an extended assignment to a policymaking office. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69b-7732-af00-d7811f3ff6eb" data-object-id="obj_019f6c0d-c69b-7732-af00-d7811f3ff6eb" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69b-7732-af00-d7811f3ff6ec" data-anchor-ids="anchor_019f6c0d-c69b-7732-af00-d7811f3ff6ec" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3698">He came away from this experience with new insights on what constitutes “value-added” intelligence usable by policymakers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69c-755c-81e9-e2995086aaf5" data-object-id="obj_019f6c0d-c69c-755c-81e9-e2995086aaf5" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69c-755c-81e9-e2995086aaf6" data-anchor-ids="anchor_019f6c0d-c69c-755c-81e9-e2995086aaf6" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.5879">Subsequently, as CIA’s senior manager on arms control issues, he dealt regularly with a cadre of tough-minded policy officials who let him know in blunt terms what worked as effective policy support and what did not. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69c-755c-81e9-e2995086aaf7" data-object-id="obj_019f6c0d-c69c-755c-81e9-e2995086aaf7" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69d-789b-9ad4-97a0f020bb70" data-anchor-ids="anchor_019f6c0d-c69d-789b-9ad4-97a0f020bb70" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5879">By the time MacEachin became DDI in 1993, Gates’s policy of DDI front-office pre-publication review of nearly all DI analytical studies had been discontinued. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69d-789b-9ad4-97a0f020bb71" data-object-id="obj_019f6c0d-c69d-789b-9ad4-97a0f020bb71" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69d-789b-9ad4-97a0f020bb72" data-anchor-ids="anchor_019f6c0d-c69d-789b-9ad4-97a0f020bb72" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5879">MacEachin took a different approach; he read—mostly on weekends—and reflected on numerous already-published DI analytical papers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69d-789b-9ad4-97a0f020bb73" data-object-id="obj_019f6c0d-c69d-789b-9ad4-97a0f020bb73" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69e-7208-a1ff-8722260a7f01" data-anchor-ids="anchor_019f6c0d-c69e-7208-a1ff-8722260a7f01" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5879">He did not like what he found. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69e-7208-a1ff-8722260a7f02" data-object-id="obj_019f6c0d-c69e-7208-a1ff-8722260a7f02" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69e-7208-a1ff-8722260a7f03" data-anchor-ids="anchor_019f6c0d-c69e-7208-a1ff-8722260a7f03" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5879">In his words, roughly a third of the papers meant to assist the policymaking process had no discernible argumentation to bolster the credibility of intelligence judgments, and another third suffered from flawed argumentation. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69e-7208-a1ff-8722260a7f04" data-object-id="obj_019f6c0d-c69e-7208-a1ff-8722260a7f04" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69f-75c6-8b67-96c07d0731a8" data-anchor-ids="anchor_019f6c0d-c69f-75c6-8b67-96c07d0731a8" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.7516">This experience, along with pressures on CIA for better analytic performance in the wake of alleged “intelligence failures” concerning Iraq’s invasion of Kuwait, prompted his decision to launch a major new effort to raise analytical standards.<sup>10</sup>&nbsp;MacEachin advocated an approach to structured argumentation called “linchpin analysis,” to which he contributed muscular terms designed to overcome many CIA professionals’ distaste for academic nomenclature. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c69f-75c6-8b67-96c07d0731a9" data-object-id="obj_019f6c0d-c69f-75c6-8b67-96c07d0731a9" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c69f-75c6-8b67-96c07d0731aa" data-anchor-ids="anchor_019f6c0d-c69f-75c6-8b67-96c07d0731aa" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.5869,0.7623,0.7516">The standard academic term “key variables” became <em>drivers.</em>&nbsp;</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a0-73e8-8fdb-55148c4712fd" data-object-id="obj_019f6c0d-c6a0-73e8-8fdb-55148c4712fd" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a0-73e8-8fdb-55148c4712fe" data-anchor-ids="anchor_019f6c0d-c6a0-73e8-8fdb-55148c4712fe" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.5869,0.7623,0.7516">“Hypotheses” concerning drivers became <em>linchpins</em>—assumptions underlying the argument—and these had to be explicitly spelled out. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a0-73e8-8fdb-55148c4712ff" data-object-id="obj_019f6c0d-c6a0-73e8-8fdb-55148c4712ff" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e58" data-anchor-ids="anchor_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e58" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.5869,0.7623,0.8506">MacEachin also urged that greater attention be paid to analytical processes for alerting policymakers to changes in circumstances that would increase the likelihood of alternative scenarios. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e59" data-object-id="obj_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e59" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e5a" data-anchor-ids="anchor_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e5a" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7523,0.8506">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e5b" data-object-id="obj_019f6c0d-c6a1-7ea4-96b7-424cfa5b0e5b" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a2-7ab6-9318-896ba586ee07" data-anchor-ids="anchor_019f6c0d-c6a2-7ab6-9318-896ba586ee07" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7523,0.8506">Unclassified paper published in 1994 by the Working Group on Intelligence Reform, which had been created in 1992 by the Consortium for the Study of Intelligence, Washington, DC. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a2-7ab6-9318-896ba586ee08" data-object-id="obj_019f6c0d-c6a2-7ab6-9318-896ba586ee08" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a2-7ab6-9318-896ba586ee09" data-anchor-ids="anchor_019f6c0d-c6a2-7ab6-9318-896ba586ee09" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7523,0.8506">10. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a3-7b2c-9ec3-c139b825bd47" data-object-id="obj_019f6c0d-c6a3-7b2c-9ec3-c139b825bd47" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a3-7b2c-9ec3-c139b825bd48" data-anchor-ids="anchor_019f6c0d-c6a3-7b2c-9ec3-c139b825bd48" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7523,0.8506">Discussion between MacEachin and the author of this Introduction, 1994.</span></p><p class="source-gap-26" id="obj_019f6c0d-c6a3-7b2c-9ec3-c139b825bd49" data-object-id="obj_019f6c0d-c6a3-7b2c-9ec3-c139b825bd49" data-object-type="paragraph" data-page="19" data-anchor-id="anchor_019f6c0d-c6a4-7c3b-b086-c35b9f5bf834" data-anchor-ids="anchor_019f6c0d-c6a4-7c3b-b086-c35b9f5bf834" data-page-indices="19" data-pages="20" data-confidence="0.9000" data-source-bbox="0.4693,0.8787,0.5013,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a4-7c3b-b086-c35b9f5bf835" data-object-id="obj_019f6c0d-c6a4-7c3b-b086-c35b9f5bf835" data-object-type="sentence" data-page="19" data-anchor-id="anchor_019f6c0d-c6a4-7c3b-b086-c35b9f5bf836" data-anchor-ids="anchor_019f6c0d-c6a4-7c3b-b086-c35b9f5bf836" data-page-indices="19" data-pages="20" data-confidence="0.7500" data-source-bbox="0.4693,0.8787,0.5013,0.8980">xviii</span></p><p id="obj_019f6c0d-c6a4-7c3b-b086-c35b9f5bf837" data-object-id="obj_019f6c0d-c6a4-7c3b-b086-c35b9f5bf837" data-object-type="paragraph" data-page="20" data-anchor-id="anchor_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf72" data-anchor-ids="anchor_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf72" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.4970"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf73" data-object-id="obj_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf73" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf74" data-anchor-ids="anchor_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf74" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3334">MacEachin thus worked to put in place systematic and transparent standards for determining whether analysts had met their responsibilities for critical thinking. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf75" data-object-id="obj_019f6c0d-c6a5-754f-a28f-fc2cdbe8bf75" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a6-78ba-bdf0-ec9f428ed517" data-anchor-ids="anchor_019f6c0d-c6a6-78ba-bdf0-ec9f428ed517" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3334">To spread understanding and application of the standards, he mandated creation of workshops on linchpin analysis for managers and production of a series of notes on analytical tradecraft. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a6-78ba-bdf0-ec9f428ed518" data-object-id="obj_019f6c0d-c6a6-78ba-bdf0-ec9f428ed518" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a6-78ba-bdf0-ec9f428ed519" data-anchor-ids="anchor_019f6c0d-c6a6-78ba-bdf0-ec9f428ed519" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3334">He also directed that the DI’s performance on tradecraft standards be tracked and that recognition be given to exemplary assessments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a6-78ba-bdf0-ec9f428ed51a" data-object-id="obj_019f6c0d-c6a6-78ba-bdf0-ec9f428ed51a" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a7-7d87-8cf9-ec4bf1812867" data-anchor-ids="anchor_019f6c0d-c6a7-7d87-8cf9-ec4bf1812867" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3334">Perhaps most ambitious, he saw to it that instruction on standards for analysis was incorporated into a new training course, “Tradecraft 2000.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a7-7d87-8cf9-ec4bf1812868" data-object-id="obj_019f6c0d-c6a7-7d87-8cf9-ec4bf1812868" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a7-7d87-8cf9-ec4bf1812869" data-anchor-ids="anchor_019f6c0d-c6a7-7d87-8cf9-ec4bf1812869" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.4970">Nearly all DI managers and analysts attended this course during 1996–97. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a7-7d87-8cf9-ec4bf181286a" data-object-id="obj_019f6c0d-c6a7-7d87-8cf9-ec4bf181286a" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a8-79d4-be47-af73bb6073e3" data-anchor-ids="anchor_019f6c0d-c6a8-79d4-be47-af73bb6073e3" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">As of this writing (early 1999), the long-term staying power of MacEachin’s tradecraft initiatives is not yet clear. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a8-79d4-be47-af73bb6073e4" data-object-id="obj_019f6c0d-c6a8-79d4-be47-af73bb6073e4" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a8-79d4-be47-af73bb6073e5" data-anchor-ids="anchor_019f6c0d-c6a8-79d4-be47-af73bb6073e5" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">But much of what he advocated has endured so far. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a8-79d4-be47-af73bb6073e6" data-object-id="obj_019f6c0d-c6a8-79d4-be47-af73bb6073e6" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a9-7027-918c-7e5f86228a17" data-anchor-ids="anchor_019f6c0d-c6a9-7027-918c-7e5f86228a17" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">Many DI analysts use variations on his linchpin concept to produce soundly argued forecasts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6a9-7027-918c-7e5f86228a18" data-object-id="obj_019f6c0d-c6a9-7027-918c-7e5f86228a18" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6a9-7027-918c-7e5f86228a19" data-anchor-ids="anchor_019f6c0d-c6a9-7027-918c-7e5f86228a19" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">In the training realm, “Tradecraft 2000” has been supplanted by a new course that teaches the same concepts to newer analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6aa-7b7e-8045-77662bdddd09" data-object-id="obj_019f6c0d-c6aa-7b7e-8045-77662bdddd09" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6aa-7b7e-8045-77662bdddd0a" data-anchor-ids="anchor_019f6c0d-c6aa-7b7e-8045-77662bdddd0a" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">But examples of what MacEachin would label as poorly substantiated analysis are still seen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6aa-7b7e-8045-77662bdddd0b" data-object-id="obj_019f6c0d-c6aa-7b7e-8045-77662bdddd0b" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6aa-7b7e-8045-77662bdddd0c" data-anchor-ids="anchor_019f6c0d-c6aa-7b7e-8045-77662bdddd0c" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.3323,0.7917,0.4970">Clearly, ongoing vigilance is needed to keep such analysis from finding its way into DI products.</span></p></section><section id="obj_019f6c0d-c6ab-750c-95fe-4e999d26200f" data-object-id="obj_019f6c0d-c6ab-750c-95fe-4e999d26200f" data-object-type="section" data-page="20" data-anchor-id="anchor_019f6c0d-c6ab-750c-95fe-4e999d262010" data-anchor-ids="anchor_019f6c0d-c6ab-750c-95fe-4e999d262010" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5106,0.3887,0.5319"><h1 id="obj_019f6c0d-c6ab-750c-95fe-4e999d262011" data-object-id="obj_019f6c0d-c6ab-750c-95fe-4e999d262011" data-object-type="heading" data-page="20" data-anchor-id="anchor_019f6c0d-c6ab-750c-95fe-4e999d262012" data-anchor-ids="anchor_019f6c0d-c6ab-750c-95fe-4e999d262012" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5106,0.3887,0.5319"><strong>Richards Heuer</strong></h1><p id="obj_019f6c0d-c6ac-702b-a2c0-c8948e14ee3b" data-object-id="obj_019f6c0d-c6ac-702b-a2c0-c8948e14ee3b" data-object-type="paragraph" data-page="20" data-anchor-id="anchor_019f6c0d-c6ac-702b-a2c0-c8948e14ee3c" data-anchor-ids="anchor_019f6c0d-c6ac-702b-a2c0-c8948e14ee3c" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.8046"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ad-7009-96a4-776a2dcf16b6" data-object-id="obj_019f6c0d-c6ad-7009-96a4-776a2dcf16b6" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6ad-7009-96a4-776a2dcf16b7" data-anchor-ids="anchor_019f6c0d-c6ad-7009-96a4-776a2dcf16b7" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6410">Dick Heuer was—and is—much less well known within the CIA than Kent, Gates, and MacEachin. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ad-7009-96a4-776a2dcf16b8" data-object-id="obj_019f6c0d-c6ad-7009-96a4-776a2dcf16b8" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6ad-7009-96a4-776a2dcf16b9" data-anchor-ids="anchor_019f6c0d-c6ad-7009-96a4-776a2dcf16b9" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6410">He has not received the wide acclaim that Kent enjoyed as the father of professional analysis, and he has lacked the bureaucratic powers that Gates and MacEachin could wield as DDIs. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ae-7c26-bc83-26cef5dafa6e" data-object-id="obj_019f6c0d-c6ae-7c26-bc83-26cef5dafa6e" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6ae-7c26-bc83-26cef5dafa6f" data-anchor-ids="anchor_019f6c0d-c6ae-7c26-bc83-26cef5dafa6f" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.8046">But his impact on the quality of Agency analysis arguably has been at least as important as theirs. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ae-7c26-bc83-26cef5dafa70" data-object-id="obj_019f6c0d-c6ae-7c26-bc83-26cef5dafa70" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6ae-7c26-bc83-26cef5dafa71" data-anchor-ids="anchor_019f6c0d-c6ae-7c26-bc83-26cef5dafa71" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.6399,0.7917,0.8046">Heuer received a degree in philosophy in 1950 from Williams College, where, he notes, he became fascinated with the fundamental epistemological question, “What is truth and how can we know it?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4a" data-object-id="obj_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4a" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4b" data-anchor-ids="anchor_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4b" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.6399,0.7917,0.8046">In 1951, while a graduate student at the University of California’s Berkeley campus, he was recruited as part of the CIA’s buildup during the Korean War. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4c" data-object-id="obj_019f6c0d-c6af-74a7-b2e4-0e0e1c2bce4c" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6b0-7b81-91c8-7b6c2877e36c" data-anchor-ids="anchor_019f6c0d-c6b0-7b81-91c8-7b6c2877e36c" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.6399,0.7917,0.8046">The recruiter was Richard Helms, OSS veteran and rising player in the Agency’s clandestine service. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b0-7b81-91c8-7b6c2877e36d" data-object-id="obj_019f6c0d-c6b0-7b81-91c8-7b6c2877e36d" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6b0-7b81-91c8-7b6c2877e36e" data-anchor-ids="anchor_019f6c0d-c6b0-7b81-91c8-7b6c2877e36e" data-page-indices="20" data-pages="21" data-confidence="0.9000" data-source-bbox="0.2426,0.6399,0.7917,0.8046">Future DCI Helms, according to Heuer, was looking for candidates for CIA employment among recent graduates of Williams College, his own alma mater. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b0-7b81-91c8-7b6c2877e36f" data-object-id="obj_019f6c0d-c6b0-7b81-91c8-7b6c2877e36f" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c3" data-anchor-ids="anchor_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c3" data-page-indices="20" data-pages="21" data-confidence="0.7500" data-source-bbox="0.2426,0.6399,0.7917,0.8046">Heuer had an added advantage</span></p><p class="source-gap-70" id="obj_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c4" data-object-id="obj_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c4" data-object-type="paragraph" data-page="20" data-anchor-id="anchor_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c5" data-anchor-ids="anchor_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c5,anchor_019f6c0d-c6b1-7b2d-a4f5-3a2704c1e5c6" data-page-indices="20,21" data-pages="21,22" data-confidence="0.9000" data-source-bbox="0.5037,0.8794,0.5257,0.8986" data-source-gap="0.1762"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b2-7b72-807f-c6dd191412ba" data-object-id="obj_019f6c0d-c6b2-7b72-807f-c6dd191412ba" data-object-type="sentence" data-page="20" data-anchor-id="anchor_019f6c0d-c6b2-7b72-807f-c6dd191412bb" data-anchor-ids="anchor_019f6c0d-c6b2-7b72-807f-c6dd191412bb,anchor_019f6c0d-c6b2-7b72-807f-c6dd191412bc" data-page-indices="20,21" data-pages="21,22" data-confidence="0.9000" data-source-bbox="0.5037,0.8794,0.5257,0.8986">xix as a former editor of the college’s newspaper, a position Helms had held some 15 years earlier.<sup>11</sup>&nbsp;In 1975, after 24 years in the Directorate of Operations, Heuer moved to the DI. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b3-79b4-b99d-0664306282b4" data-object-id="obj_019f6c0d-c6b3-79b4-b99d-0664306282b4" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b3-79b4-b99d-0664306282b5" data-anchor-ids="anchor_019f6c0d-c6b3-79b4-b99d-0664306282b5" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.1869,0.7623,0.3152">His earlier academic interest in how we know the truth was rekindled by two experiences. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b3-79b4-b99d-0664306282b6" data-object-id="obj_019f6c0d-c6b3-79b4-b99d-0664306282b6" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b3-79b4-b99d-0664306282b7" data-anchor-ids="anchor_019f6c0d-c6b3-79b4-b99d-0664306282b7" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.1869,0.7623,0.3152">One was his involvement in the controversial case of Soviet KGB defector Yuriy Nosenko. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b4-717d-9b89-6b9986340d8b" data-object-id="obj_019f6c0d-c6b4-717d-9b89-6b9986340d8b" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b4-717d-9b89-6b9986340d8c" data-anchor-ids="anchor_019f6c0d-c6b4-717d-9b89-6b9986340d8c" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.1869,0.7623,0.4061">The other was learning new approaches to social science methodology while earning a Master’s degree in international relations at the University of Southern California’s European campus. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b4-717d-9b89-6b9986340d8d" data-object-id="obj_019f6c0d-c6b4-717d-9b89-6b9986340d8d" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b4-717d-9b89-6b9986340d8e" data-anchor-ids="anchor_019f6c0d-c6b4-717d-9b89-6b9986340d8e" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.4061">At the time he retired in 1979, Heuer headed the methodology unit in the DI’s political analysis office. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b5-72fd-b7eb-649c093ea1b8" data-object-id="obj_019f6c0d-c6b5-72fd-b7eb-649c093ea1b8" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b5-72fd-b7eb-649c093ea1b9" data-anchor-ids="anchor_019f6c0d-c6b5-72fd-b7eb-649c093ea1b9" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.4061">He originally prepared most of the chapters in this book as individual articles between 1978 and 1986; many of them were written for the DI after his retirement. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b5-72fd-b7eb-649c093ea1ba" data-object-id="obj_019f6c0d-c6b5-72fd-b7eb-649c093ea1ba" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b5-72fd-b7eb-649c093ea1bb" data-anchor-ids="anchor_019f6c0d-c6b5-72fd-b7eb-649c093ea1bb" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.4061">He has updated the articles and prepared some new material for inclusion in this book.</span></p></section><section id="obj_019f6c0d-c6b6-7127-97bf-ec71d3349d45" data-object-id="obj_019f6c0d-c6b6-7127-97bf-ec71d3349d45" data-object-type="section" data-page="21" data-anchor-id="anchor_019f6c0d-c6b6-7127-97bf-ec71d3349d46" data-anchor-ids="anchor_019f6c0d-c6b6-7127-97bf-ec71d3349d46" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.4243,0.4124,0.4455"><h1 id="obj_019f6c0d-c6b6-7127-97bf-ec71d3349d47" data-object-id="obj_019f6c0d-c6b6-7127-97bf-ec71d3349d47" data-object-type="heading" data-page="21" data-anchor-id="anchor_019f6c0d-c6b6-7127-97bf-ec71d3349d48" data-anchor-ids="anchor_019f6c0d-c6b6-7127-97bf-ec71d3349d48" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.4243,0.4124,0.4455"><strong>Heuer’s Central Ideas</strong></h1><p class="source-gap-10" id="obj_019f6c0d-c6b7-785d-bfec-9504d5a80f5c" data-object-id="obj_019f6c0d-c6b7-785d-bfec-9504d5a80f5c" data-object-type="paragraph" data-page="21" data-anchor-id="anchor_019f6c0d-c6b7-785d-bfec-9504d5a80f5d" data-anchor-ids="anchor_019f6c0d-c6b7-785d-bfec-9504d5a80f5d" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.4558,0.7622,0.4932" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b8-7b2f-9360-418bda40c4a9" data-object-id="obj_019f6c0d-c6b8-7b2f-9360-418bda40c4a9" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b8-7b2f-9360-418bda40c4aa" data-anchor-ids="anchor_019f6c0d-c6b8-7b2f-9360-418bda40c4aa" data-page-indices="21" data-pages="22" data-confidence="0.7500" data-source-bbox="0.2132,0.4558,0.7622,0.4932">Dick Heuer’s writings make three fundamental points about the cognitive challenges intelligence analysts face:</span></p><p class="source-gap-16" id="obj_019f6c0d-c6b8-7b2f-9360-418bda40c4ab" data-object-id="obj_019f6c0d-c6b8-7b2f-9360-418bda40c4ab" data-object-type="paragraph" data-page="21" data-anchor-id="anchor_019f6c0d-c6b9-7841-96ec-69358defdc0d" data-anchor-ids="anchor_019f6c0d-c6b9-7841-96ec-69358defdc0d" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2328,0.5103,0.7402,0.7819" data-source-gap="0.0403"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b9-7841-96ec-69358defdc0e" data-object-id="obj_019f6c0d-c6b9-7841-96ec-69358defdc0e" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6b9-7841-96ec-69358defdc0f" data-anchor-ids="anchor_019f6c0d-c6b9-7841-96ec-69358defdc0f" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2328,0.5103,0.7402,0.6921">• The mind is poorly &quot;wired&quot; to deal effectively with both inherent uncertainty (the natural fog surrounding complex, indeterminate intelligence issues) and induced uncertainty (the man-made fog fabricated by denial and deception operations). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6b9-7841-96ec-69358defdc10" data-object-id="obj_019f6c0d-c6b9-7841-96ec-69358defdc10" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6ba-7d52-b07a-67b904a86515" data-anchor-ids="anchor_019f6c0d-c6ba-7d52-b07a-67b904a86515" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2328,0.6001,0.7402,0.7819">• Even increased awareness of cognitive and other &quot;unmotivated&quot; biases, such as the tendency to see information confirming an already-held judgment more vividly than one sees &quot;disconfirming&quot; information, does little by itself to help analysts deal effectively with uncertainty. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ba-7d52-b07a-67b904a86516" data-object-id="obj_019f6c0d-c6ba-7d52-b07a-67b904a86516" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6ba-7d52-b07a-67b904a86517" data-anchor-ids="anchor_019f6c0d-c6ba-7d52-b07a-67b904a86517" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2328,0.7081,0.7402,0.7819">• Tools and techniques that gear the analyst&#x27;s mind to apply higher levels of critical thinking can substantially improve analysis on complex issues on which information is incomplete, ambiguous, and often deliberately distorted. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ba-7d52-b07a-67b904a86518" data-object-id="obj_019f6c0d-c6ba-7d52-b07a-67b904a86518" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe6" data-anchor-ids="anchor_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe6" data-page-indices="21" data-pages="22" data-confidence="0.7500" data-source-bbox="0.2328,0.7081,0.7402,0.7819">Key examples of such intellectu-</span></p><p class="source-gap-51" id="obj_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe7" data-object-id="obj_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe7" data-object-type="paragraph" data-page="21" data-anchor-id="anchor_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe8" data-anchor-ids="anchor_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe8" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.8362,0.5037,0.8506" data-source-gap="0.1280"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe9" data-object-id="obj_019f6c0d-c6bb-79bf-8cc7-e51a1a71bbe9" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd4" data-anchor-ids="anchor_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd4" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.8362,0.5037,0.8506">11. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd5" data-object-id="obj_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd5" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd6" data-anchor-ids="anchor_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd6" data-page-indices="21" data-pages="22" data-confidence="0.9000" data-source-bbox="0.2132,0.8362,0.5037,0.8506">Letter to the author of this Introduction, 1998.</span></p><p class="source-gap-26" id="obj_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd7" data-object-id="obj_019f6c0d-c6bc-7f53-9cd3-644d3d6fcbd7" data-object-type="paragraph" data-page="21" data-anchor-id="anchor_019f6c0d-c6bd-7f9a-9fc4-e91d1050c624" data-anchor-ids="anchor_019f6c0d-c6bd-7f9a-9fc4-e91d1050c624,anchor_019f6c0d-c6bd-7f9a-9fc4-e91d1050c625" data-page-indices="21,22" data-pages="22,23" data-confidence="0.9000" data-source-bbox="0.4768,0.8787,0.4938,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6bd-7f9a-9fc4-e91d1050c626" data-object-id="obj_019f6c0d-c6bd-7f9a-9fc4-e91d1050c626" data-object-type="sentence" data-page="21" data-anchor-id="anchor_019f6c0d-c6bd-7f9a-9fc4-e91d1050c627" data-anchor-ids="anchor_019f6c0d-c6bd-7f9a-9fc4-e91d1050c627,anchor_019f6c0d-c6be-751b-8f9d-1137cc2cbf77" data-page-indices="21,22" data-pages="22,23" data-confidence="0.9000" data-source-bbox="0.4768,0.8787,0.4938,0.8980">xx al devices include techniques for structuring information, challenging assumptions, and exploring alternative interpretations. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6be-751b-8f9d-1137cc2cbf78" data-object-id="obj_019f6c0d-c6be-751b-8f9d-1137cc2cbf78" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6be-751b-8f9d-1137cc2cbf79" data-anchor-ids="anchor_019f6c0d-c6be-751b-8f9d-1137cc2cbf79" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.2426,0.2039,0.7916,0.2777">The following passage from Heuer’s 1980 article entitled “Perception: Why Can’t We See What Is There to be Seen?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6be-751b-8f9d-1137cc2cbf7a" data-object-id="obj_019f6c0d-c6be-751b-8f9d-1137cc2cbf7a" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6bf-792b-871e-0dbc52ada006" data-anchor-ids="anchor_019f6c0d-c6bf-792b-871e-0dbc52ada006" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.2426,0.2039,0.7916,0.2777">shows that his ideas were similar to or compatible with MacEachin’s concepts of linchpin analysis.</span></p><p class="source-gap-15" id="obj_019f6c0d-c6bf-792b-871e-0dbc52ada007" data-object-id="obj_019f6c0d-c6bf-792b-871e-0dbc52ada007" data-object-type="paragraph" data-page="22" data-anchor-id="anchor_019f6c0d-c6bf-792b-871e-0dbc52ada008" data-anchor-ids="anchor_019f6c0d-c6bf-792b-871e-0dbc52ada008" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.2933,0.7426,0.3276" data-source-gap="0.0368"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6bf-792b-871e-0dbc52ada009" data-object-id="obj_019f6c0d-c6bf-792b-871e-0dbc52ada009" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c0-7a66-be89-d2e09d5a7918" data-anchor-ids="anchor_019f6c0d-c6c0-7a66-be89-d2e09d5a7918" data-page-indices="22" data-pages="23" data-confidence="0.7500" data-source-bbox="0.3096,0.2933,0.7426,0.3276">Given the difficulties inherent in the human processing of complex information, a prudent management system should:</span></p><p class="source-gap-15" id="obj_019f6c0d-c6c0-7a66-be89-d2e09d5a7919" data-object-id="obj_019f6c0d-c6c0-7a66-be89-d2e09d5a7919" data-object-type="paragraph" data-page="22" data-anchor-id="anchor_019f6c0d-c6c0-7a66-be89-d2e09d5a791a" data-anchor-ids="anchor_019f6c0d-c6c0-7a66-be89-d2e09d5a791a" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3472,0.3435,0.7472,0.5117" data-source-gap="0.0375"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c1-7210-b50e-ba5bf90fbb57" data-object-id="obj_019f6c0d-c6c1-7210-b50e-ba5bf90fbb57" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c1-7210-b50e-ba5bf90fbb58" data-anchor-ids="anchor_019f6c0d-c6c1-7210-b50e-ba5bf90fbb58" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3472,0.3435,0.7472,0.5117">• Encourage products that (a) clearly delineate their assumptions and chains of inference and (b) specify the degree and source of the uncertainty involved in the conclusions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c1-7210-b50e-ba5bf90fbb59" data-object-id="obj_019f6c0d-c6c1-7210-b50e-ba5bf90fbb59" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c1-7210-b50e-ba5bf90fbb5a" data-anchor-ids="anchor_019f6c0d-c6c1-7210-b50e-ba5bf90fbb5a" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3472,0.4273,0.7472,0.5117">• Emphasize procedures that expose and elaborate alternative points of view—analytic debates, devil’s advocates, interdisciplinary brainstorming, competitive analysis, intra-office peer review of production, and elicitation of outside expertise.</span></p><p class="source-gap-21" id="obj_019f6c0d-c6c2-7ae5-a3e5-7791b526b975" data-object-id="obj_019f6c0d-c6c2-7ae5-a3e5-7791b526b975" data-object-type="paragraph" data-page="22" data-anchor-id="anchor_019f6c0d-c6c2-7ae5-a3e5-7791b526b976" data-anchor-ids="anchor_019f6c0d-c6c2-7ae5-a3e5-7791b526b976" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.2426,0.5345,0.7917,0.5901" data-source-gap="0.0536"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c2-7ae5-a3e5-7791b526b977" data-object-id="obj_019f6c0d-c6c2-7ae5-a3e5-7791b526b977" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e48" data-anchor-ids="anchor_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e48" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.2426,0.5345,0.7917,0.5901">Heuer emphasizes both the value and the dangers of <em>mental models,</em> or <em>mind-sets.</em>&nbsp;</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e49" data-object-id="obj_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e49" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e4a" data-anchor-ids="anchor_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e4a" data-page-indices="22" data-pages="23" data-confidence="0.7500" data-source-bbox="0.2426,0.5345,0.7917,0.5901">In the book’s opening chapter, entitled “Thinking About Thinking,” he notes that:</span></p><p class="source-gap-21" id="obj_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e4b" data-object-id="obj_019f6c0d-c6c3-7df2-a2a0-fb4f32d95e4b" data-object-type="paragraph" data-page="22" data-anchor-id="anchor_019f6c0d-c6c4-72b6-b41e-175c5505fe7f" data-anchor-ids="anchor_019f6c0d-c6c4-72b6-b41e-175c5505fe7f" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463" data-source-gap="0.0517"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c4-72b6-b41e-175c5505fe80" data-object-id="obj_019f6c0d-c6c4-72b6-b41e-175c5505fe80" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c4-72b6-b41e-175c5505fe81" data-anchor-ids="anchor_019f6c0d-c6c4-72b6-b41e-175c5505fe81" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">[Analysts] construct their own version of “reality” on the basis of information provided by the senses, but this sensory input is mediated by complex mental processes that determine which information is attended to, how it is organized, and the meaning attributed to it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c4-72b6-b41e-175c5505fe82" data-object-id="obj_019f6c0d-c6c4-72b6-b41e-175c5505fe82" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c5-7320-90e9-3651e45c3689" data-anchor-ids="anchor_019f6c0d-c6c5-7320-90e9-3651e45c3689" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">What people perceive, how readily they perceive it, and how they process this information after receiving it are all strongly influenced by past experience, education, cultural values, role requirements, and organizational norms, as well as by the specifics of the information received. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c5-7320-90e9-3651e45c368a" data-object-id="obj_019f6c0d-c6c5-7320-90e9-3651e45c368a" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c5-7320-90e9-3651e45c368b" data-anchor-ids="anchor_019f6c0d-c6c5-7320-90e9-3651e45c368b" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">This process may be visualized as perceiving the world through a lens or screen that channels and focuses and thereby may distort the images that are seen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c6-728b-b317-17df6844b6cb" data-object-id="obj_019f6c0d-c6c6-728b-b317-17df6844b6cb" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c6-728b-b317-17df6844b6cc" data-anchor-ids="anchor_019f6c0d-c6c6-728b-b317-17df6844b6cc" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">To achieve the clearest possible image. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c6-728b-b317-17df6844b6cd" data-object-id="obj_019f6c0d-c6c6-728b-b317-17df6844b6cd" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c6-728b-b317-17df6844b6ce" data-anchor-ids="anchor_019f6c0d-c6c6-728b-b317-17df6844b6ce" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c7-7df7-a361-38a9bdd281f3" data-object-id="obj_019f6c0d-c6c7-7df7-a361-38a9bdd281f3" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c7-7df7-a361-38a9bdd281f4" data-anchor-ids="anchor_019f6c0d-c6c7-7df7-a361-38a9bdd281f4" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c7-7df7-a361-38a9bdd281f5" data-object-id="obj_019f6c0d-c6c7-7df7-a361-38a9bdd281f5" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c7-7df7-a361-38a9bdd281f6" data-anchor-ids="anchor_019f6c0d-c6c7-7df7-a361-38a9bdd281f6" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">analysts need more than information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b2" data-object-id="obj_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b2" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b3" data-anchor-ids="anchor_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b3" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b4" data-object-id="obj_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b4" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b5" data-anchor-ids="anchor_019f6c0d-c6c8-7f13-a0aa-2c6c163fa0b5" data-page-indices="22" data-pages="23" data-confidence="0.9000" data-source-bbox="0.3096,0.6120,0.7472,0.8463">. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6c9-7396-904e-3dea56dbd1cf" data-object-id="obj_019f6c0d-c6c9-7396-904e-3dea56dbd1cf" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6c9-7396-904e-3dea56dbd1d0" data-anchor-ids="anchor_019f6c0d-c6c9-7396-904e-3dea56dbd1d0" data-page-indices="22" data-pages="23" data-confidence="0.7500" data-source-bbox="0.3096,0.6120,0.7472,0.8463">They also</span></p><p class="source-gap-31" id="obj_019f6c0d-c6c9-7396-904e-3dea56dbd1d1" data-object-id="obj_019f6c0d-c6c9-7396-904e-3dea56dbd1d1" data-object-type="paragraph" data-page="22" data-anchor-id="anchor_019f6c0d-c6c9-7396-904e-3dea56dbd1d2" data-anchor-ids="anchor_019f6c0d-c6c9-7396-904e-3dea56dbd1d2,anchor_019f6c0d-c6ca-7554-aec2-7caa47fdb5f5" data-page-indices="22,23" data-pages="23,24" data-confidence="0.9000" data-source-bbox="0.5037,0.8794,0.5257,0.8986" data-source-gap="0.0778"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ca-7554-aec2-7caa47fdb5f6" data-object-id="obj_019f6c0d-c6ca-7554-aec2-7caa47fdb5f6" data-object-type="sentence" data-page="22" data-anchor-id="anchor_019f6c0d-c6ca-7554-aec2-7caa47fdb5f7" data-anchor-ids="anchor_019f6c0d-c6ca-7554-aec2-7caa47fdb5f7,anchor_019f6c0d-c6ca-7554-aec2-7caa47fdb5f8" data-page-indices="22,23" data-pages="23,24" data-confidence="0.9000" data-source-bbox="0.5037,0.8794,0.5257,0.8986">xxi need to understand the lenses through which this information passes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cb-78ad-a244-69f5e0db8865" data-object-id="obj_019f6c0d-c6cb-78ad-a244-69f5e0db8865" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cb-78ad-a244-69f5e0db8866" data-anchor-ids="anchor_019f6c0d-c6cb-78ad-a244-69f5e0db8866" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.1507,0.7178,0.2017">These lenses are known by many terms—mental models, mind-sets, biases, or analytic assumptions.</span></p><p class="source-gap-21" id="obj_019f6c0d-c6cb-78ad-a244-69f5e0db8867" data-object-id="obj_019f6c0d-c6cb-78ad-a244-69f5e0db8867" data-object-type="paragraph" data-page="23" data-anchor-id="anchor_019f6c0d-c6cb-78ad-a244-69f5e0db8868" data-anchor-ids="anchor_019f6c0d-c6cb-78ad-a244-69f5e0db8868" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.2245,0.7623,0.5417" data-source-gap="0.0536"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cc-71c8-b833-e29d3cc0588b" data-object-id="obj_019f6c0d-c6cc-71c8-b833-e29d3cc0588b" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cc-71c8-b833-e29d3cc0588c" data-anchor-ids="anchor_019f6c0d-c6cc-71c8-b833-e29d3cc0588c" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.2245,0.7623,0.3346">In essence, Heuer sees reliance on mental models to simplify and interpret reality as an unavoidable conceptual mechanism for intelligence analysts—often useful, but at times hazardous. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cc-71c8-b833-e29d3cc0588d" data-object-id="obj_019f6c0d-c6cc-71c8-b833-e29d3cc0588d" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cc-71c8-b833-e29d3cc0588e" data-anchor-ids="anchor_019f6c0d-c6cc-71c8-b833-e29d3cc0588e" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.2245,0.7623,0.4382">What is required of analysts, in his view, is a commitment to <em>challenge, refine, and challenge again</em> their own working mental models, precisely because these steps are central to sound interpretation of complex and ambiguous issues. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cd-7a88-9a24-dd1db39f96f1" data-object-id="obj_019f6c0d-c6cd-7a88-9a24-dd1db39f96f1" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cd-7a88-9a24-dd1db39f96f2" data-anchor-ids="anchor_019f6c0d-c6cd-7a88-9a24-dd1db39f96f2" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.3462,0.7623,0.4382">Throughout the book, Heuer is critical of the orthodox prescription of “more and better information” to remedy unsatisfactory analytic performance. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cd-7a88-9a24-dd1db39f96f3" data-object-id="obj_019f6c0d-c6cd-7a88-9a24-dd1db39f96f3" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cd-7a88-9a24-dd1db39f96f4" data-anchor-ids="anchor_019f6c0d-c6cd-7a88-9a24-dd1db39f96f4" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.3462,0.7623,0.5417">He urges that greater attention be paid instead to more intensive exploitation of information already on hand, and that in so doing, analysts continuously challenge and revise their mental models. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ce-7650-93da-91563a6c78e6" data-object-id="obj_019f6c0d-c6ce-7650-93da-91563a6c78e6" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6ce-7650-93da-91563a6c78e7" data-anchor-ids="anchor_019f6c0d-c6ce-7650-93da-91563a6c78e7" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.4497,0.7623,0.5417">Heuer sees <em>mirror-imaging</em> as an example of an unavoidable cognitive trap. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ce-7650-93da-91563a6c78e8" data-object-id="obj_019f6c0d-c6ce-7650-93da-91563a6c78e8" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cf-7802-8ebb-566ab94b4ef5" data-anchor-ids="anchor_019f6c0d-c6cf-7802-8ebb-566ab94b4ef5" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.4497,0.7623,0.5417">No matter how much expertise an analyst applies to interpreting the value systems of foreign entities, when the hard evidence runs out the tendency to project the analyst’s own mind-set takes over. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6cf-7802-8ebb-566ab94b4ef6" data-object-id="obj_019f6c0d-c6cf-7802-8ebb-566ab94b4ef6" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6cf-7802-8ebb-566ab94b4ef7" data-anchor-ids="anchor_019f6c0d-c6cf-7802-8ebb-566ab94b4ef7" data-page-indices="23" data-pages="24" data-confidence="0.7500" data-source-bbox="0.2132,0.4497,0.7623,0.5417">In Chapter 4, Heuer observes:</span></p><p class="source-gap-21" id="obj_019f6c0d-c6cf-7802-8ebb-566ab94b4ef8" data-object-id="obj_019f6c0d-c6cf-7802-8ebb-566ab94b4ef8" data-object-type="paragraph" data-page="23" data-anchor-id="anchor_019f6c0d-c6d0-7ab2-ab0d-8eba0981d797" data-anchor-ids="anchor_019f6c0d-c6d0-7ab2-ab0d-8eba0981d797" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.5636,0.7178,0.7479" data-source-gap="0.0517"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d0-7ab2-ab0d-8eba0981d798" data-object-id="obj_019f6c0d-c6d0-7ab2-ab0d-8eba0981d798" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d0-7ab2-ab0d-8eba0981d799" data-anchor-ids="anchor_019f6c0d-c6d0-7ab2-ab0d-8eba0981d799" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.5636,0.7178,0.7479">To see the options faced by foreign leaders as these leaders see them, one must understand their values and assumptions and even their misperceptions and misunderstandings. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d0-7ab2-ab0d-8eba0981d79a" data-object-id="obj_019f6c0d-c6d0-7ab2-ab0d-8eba0981d79a" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d1-750c-8ebb-4b7dbd710877" data-anchor-ids="anchor_019f6c0d-c6d1-750c-8ebb-4b7dbd710877" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.5636,0.7178,0.7479">Without such insight, interpreting foreign leaders’ decisions or forecasting future decisions is often nothing more than partially informed speculation. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d1-750c-8ebb-4b7dbd710878" data-object-id="obj_019f6c0d-c6d1-750c-8ebb-4b7dbd710878" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d1-750c-8ebb-4b7dbd710879" data-anchor-ids="anchor_019f6c0d-c6d1-750c-8ebb-4b7dbd710879" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.5636,0.7178,0.7479">Too frequently, foreign behavior appears “irrational” or “not in their own best interest.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a85" data-object-id="obj_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a85" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a86" data-anchor-ids="anchor_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a86" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2802,0.5636,0.7178,0.7479">Such conclusions often indicate analysts have projected American values and conceptual frameworks onto the foreign leaders and societies, rather than understanding the logic of the situation as it appears to them.</span></p></section><section id="obj_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a87" data-object-id="obj_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a87" data-object-type="section" data-page="23" data-anchor-id="anchor_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a88" data-anchor-ids="anchor_019f6c0d-c6d2-7e9b-9824-4e65e2cd9a88" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.7790,0.4326,0.8003"><h1 id="obj_019f6c0d-c6d3-7cb1-8f22-f99972d7105f" data-object-id="obj_019f6c0d-c6d3-7cb1-8f22-f99972d7105f" data-object-type="heading" data-page="23" data-anchor-id="anchor_019f6c0d-c6d3-7cb1-8f22-f99972d71060" data-anchor-ids="anchor_019f6c0d-c6d3-7cb1-8f22-f99972d71060" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.7790,0.4326,0.8003"><strong>Competing Hypotheses</strong></h1><p id="obj_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd803" data-object-id="obj_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd803" data-object-type="paragraph" data-page="23" data-anchor-id="anchor_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd804" data-anchor-ids="anchor_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd804" data-page-indices="23" data-pages="24" data-confidence="0.9000" data-source-bbox="0.2132,0.7992,0.7623,0.8366"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd805" data-object-id="obj_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd805" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd806" data-anchor-ids="anchor_019f6c0d-c6d4-7ffc-b3dd-5066ef2dd806" data-page-indices="23" data-pages="24" data-confidence="0.7500" data-source-bbox="0.2132,0.7992,0.7623,0.8366">To offset the risks accompanying analysts’ inevitable recourse to mirror-imaging, Heuer suggests looking upon analysts’ calculations about</span></p><p class="source-gap-40" id="obj_019f6c0d-c6d5-7bba-b441-cd8823fb694d" data-object-id="obj_019f6c0d-c6d5-7bba-b441-cd8823fb694d" data-object-type="paragraph" data-page="23" data-anchor-id="anchor_019f6c0d-c6d5-7bba-b441-cd8823fb694e" data-anchor-ids="anchor_019f6c0d-c6d5-7bba-b441-cd8823fb694e,anchor_019f6c0d-c6d5-7bba-b441-cd8823fb694f" data-page-indices="23,24" data-pages="24,25" data-confidence="0.9000" data-source-bbox="0.4718,0.8787,0.4988,0.8980" data-source-gap="0.0992"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d6-7e31-b81d-448ac83ceb9f" data-object-id="obj_019f6c0d-c6d6-7e31-b81d-448ac83ceb9f" data-object-type="sentence" data-page="23" data-anchor-id="anchor_019f6c0d-c6d6-7e31-b81d-448ac83ceba0" data-anchor-ids="anchor_019f6c0d-c6d6-7e31-b81d-448ac83ceba0,anchor_019f6c0d-c6d6-7e31-b81d-448ac83ceba1" data-page-indices="23,24" data-pages="24,25" data-confidence="0.9000" data-source-bbox="0.4718,0.8787,0.4988,0.8980">xxii foreign beliefs and behavior as hypotheses to be challenged. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d6-7e31-b81d-448ac83ceba2" data-object-id="obj_019f6c0d-c6d6-7e31-b81d-448ac83ceba2" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d7-7953-bee5-78d01100605d" data-anchor-ids="anchor_019f6c0d-c6d7-7953-bee5-78d01100605d" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3698">Alternative hypotheses need to be carefully considered—especially those that cannot be <em>disproved</em> on the basis of available information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d7-7953-bee5-78d01100605e" data-object-id="obj_019f6c0d-c6d7-7953-bee5-78d01100605e" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d7-7953-bee5-78d01100605f" data-anchor-ids="anchor_019f6c0d-c6d7-7953-bee5-78d01100605f" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3698">Heuer’s concept of “Analysis of Competing Hypotheses” (ACH) is among his most important contributions to the development of an intelligence analysis methodology. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d7-7953-bee5-78d011006060" data-object-id="obj_019f6c0d-c6d7-7953-bee5-78d011006060" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d8-7875-8828-8315f9493812" data-anchor-ids="anchor_019f6c0d-c6d8-7875-8828-8315f9493812" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3698">At the core of ACH is the notion of competition among a series of plausible hypotheses to see which ones survive a gauntlet of testing for compatibility with available information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d8-7875-8828-8315f9493813" data-object-id="obj_019f6c0d-c6d8-7875-8828-8315f9493813" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d8-7875-8828-8315f9493814" data-anchor-ids="anchor_019f6c0d-c6d8-7875-8828-8315f9493814" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3698">The surviving hypotheses—those that have not been disproved—are subjected to further testing. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d8-7875-8828-8315f9493815" data-object-id="obj_019f6c0d-c6d8-7875-8828-8315f9493815" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d9-73ac-912a-d8971cd22601" data-anchor-ids="anchor_019f6c0d-c6d9-73ac-912a-d8971cd22601" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3698">ACH, Heuer concedes, will not always yield the right answer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d9-73ac-912a-d8971cd22602" data-object-id="obj_019f6c0d-c6d9-73ac-912a-d8971cd22602" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6d9-73ac-912a-d8971cd22603" data-anchor-ids="anchor_019f6c0d-c6d9-73ac-912a-d8971cd22603" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.4425">But it can help analysts overcome the cognitive limitations discussed in his book. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6d9-73ac-912a-d8971cd22604" data-object-id="obj_019f6c0d-c6d9-73ac-912a-d8971cd22604" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf1" data-anchor-ids="anchor_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf1" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.3687,0.7917,0.4425">Some analysts who use ACH follow Heuer’s full eight-step methodology. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf2" data-object-id="obj_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf2" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf3" data-anchor-ids="anchor_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf3" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.3687,0.7917,0.4425">More often, they employ some elements of ACH—especially the use of available information to challenge the hypotheses that the analyst favors the most.</span></p></section><section id="obj_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf4" data-object-id="obj_019f6c0d-c6da-71ed-b4f1-2aa6fa85bbf4" data-object-type="section" data-page="24" data-anchor-id="anchor_019f6c0d-c6db-76c7-87a3-791a0d45e57a" data-anchor-ids="anchor_019f6c0d-c6db-76c7-87a3-791a0d45e57a" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.4561,0.4493,0.4773"><h1 id="obj_019f6c0d-c6db-76c7-87a3-791a0d45e57b" data-object-id="obj_019f6c0d-c6db-76c7-87a3-791a0d45e57b" data-object-type="heading" data-page="24" data-anchor-id="anchor_019f6c0d-c6db-76c7-87a3-791a0d45e57c" data-anchor-ids="anchor_019f6c0d-c6db-76c7-87a3-791a0d45e57c" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.4561,0.4493,0.4773"><strong>Denial and Deception</strong></h1><p id="obj_019f6c0d-c6dc-7e59-9408-fccea31ca1e1" data-object-id="obj_019f6c0d-c6dc-7e59-9408-fccea31ca1e1" data-object-type="paragraph" data-page="24" data-anchor-id="anchor_019f6c0d-c6dc-7e59-9408-fccea31ca1e2" data-anchor-ids="anchor_019f6c0d-c6dc-7e59-9408-fccea31ca1e2" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.4763,0.7917,0.6955"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfc" data-object-id="obj_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfc" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfd" data-anchor-ids="anchor_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfd" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.4763,0.7917,0.5319">Heuer’s path-breaking work on countering denial and deception (D&amp;D) was not included as a separate chapter in this volume. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfe" data-object-id="obj_019f6c0d-c6dd-7b29-8e2b-a52d6182fdfe" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6dd-7b29-8e2b-a52d6182fdff" data-anchor-ids="anchor_019f6c0d-c6dd-7b29-8e2b-a52d6182fdff" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.4763,0.7917,0.6955">But his brief references here are persuasive. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6de-746a-8975-00099b00e42e" data-object-id="obj_019f6c0d-c6de-746a-8975-00099b00e42e" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6de-746a-8975-00099b00e42f" data-anchor-ids="anchor_019f6c0d-c6de-746a-8975-00099b00e42f" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6955">He notes, for example, that analysts often reject the possibility of deception because they see no evidence of it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6de-746a-8975-00099b00e430" data-object-id="obj_019f6c0d-c6de-746a-8975-00099b00e430" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6de-746a-8975-00099b00e431" data-anchor-ids="anchor_019f6c0d-c6de-746a-8975-00099b00e431" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6955">He then argues that rejection is not justified under these circumstances. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6df-72c1-a0c7-06e90b72b653" data-object-id="obj_019f6c0d-c6df-72c1-a0c7-06e90b72b653" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6df-72c1-a0c7-06e90b72b654" data-anchor-ids="anchor_019f6c0d-c6df-72c1-a0c7-06e90b72b654" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6955">If deception is well planned and properly executed, one should not expect to see evidence of it readily at hand. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6df-72c1-a0c7-06e90b72b655" data-object-id="obj_019f6c0d-c6df-72c1-a0c7-06e90b72b655" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6df-72c1-a0c7-06e90b72b656" data-anchor-ids="anchor_019f6c0d-c6df-72c1-a0c7-06e90b72b656" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6955">Rejecting a plausible but unproven hypothesis too early tends to bias the subsequent analysis, because one does not then look for the evidence that might support it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2d" data-object-id="obj_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2d" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2e" data-anchor-ids="anchor_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2e" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.5308,0.7917,0.6955">The possibility of deception should not be rejected until it is disproved or, at least, until a systematic search for evidence has been made and none has been found.</span></p></section><section class="source-gap-223" id="obj_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2f" data-object-id="obj_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b2f" data-object-type="section" data-page="24" data-anchor-id="anchor_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b30" data-anchor-ids="anchor_019f6c0d-c6e0-7f6c-aae6-6f1dd7269b30" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7137,0.3838,0.7349" data-source-gap="0.5570"><h1 id="obj_019f6c0d-c6e1-7feb-b715-c75c71a98925" data-object-id="obj_019f6c0d-c6e1-7feb-b715-c75c71a98925" data-object-type="heading" data-page="24" data-anchor-id="anchor_019f6c0d-c6e1-7feb-b715-c75c71a98926" data-anchor-ids="anchor_019f6c0d-c6e1-7feb-b715-c75c71a98926" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7137,0.3838,0.7349"><strong>Heuer’s Impact</strong></h1><p class="source-gap-10" id="obj_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce67" data-object-id="obj_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce67" data-object-type="paragraph" data-page="24" data-anchor-id="anchor_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce68" data-anchor-ids="anchor_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce68" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7452,0.7917,0.8372" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce69" data-object-id="obj_019f6c0d-c6e2-7bc2-9dfc-0dcaac93ce69" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6e3-7419-9ea4-ba1c9982b009" data-anchor-ids="anchor_019f6c0d-c6e3-7419-9ea4-ba1c9982b009" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7452,0.7917,0.8372">Heuer’s influence on analytic tradecraft began with his first articles. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e3-7419-9ea4-ba1c9982b00a" data-object-id="obj_019f6c0d-c6e3-7419-9ea4-ba1c9982b00a" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6e3-7419-9ea4-ba1c9982b00b" data-anchor-ids="anchor_019f6c0d-c6e3-7419-9ea4-ba1c9982b00b" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7452,0.7917,0.8372">CIA officials who set up training courses in the 1980s as part of thenDDI Gates’s quest for improved analysis shaped their lesson plans partly on the basis of Heuer’s findings. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e3-7419-9ea4-ba1c9982b00c" data-object-id="obj_019f6c0d-c6e3-7419-9ea4-ba1c9982b00c" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6e4-7cfc-85d1-9fcba936ae34" data-anchor-ids="anchor_019f6c0d-c6e4-7cfc-85d1-9fcba936ae34" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.2426,0.7452,0.7917,0.8372">Among these courses were a seminar on intelligence successes and failures and another on intelligence analysis.</span></p><p class="source-gap-40" id="obj_019f6c0d-c6e4-7cfc-85d1-9fcba936ae35" data-object-id="obj_019f6c0d-c6e4-7cfc-85d1-9fcba936ae35" data-object-type="paragraph" data-page="24" data-anchor-id="anchor_019f6c0d-c6e4-7cfc-85d1-9fcba936ae36" data-anchor-ids="anchor_019f6c0d-c6e4-7cfc-85d1-9fcba936ae36" data-page-indices="24" data-pages="25" data-confidence="0.9000" data-source-bbox="0.4987,0.8794,0.5307,0.8986" data-source-gap="0.0994"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e4-7cfc-85d1-9fcba936ae37" data-object-id="obj_019f6c0d-c6e4-7cfc-85d1-9fcba936ae37" data-object-type="sentence" data-page="24" data-anchor-id="anchor_019f6c0d-c6e5-7693-b598-6cae086a04ac" data-anchor-ids="anchor_019f6c0d-c6e5-7693-b598-6cae086a04ac" data-page-indices="24" data-pages="25" data-confidence="0.7500" data-source-bbox="0.4987,0.8794,0.5307,0.8986">xxiii</span></p><p id="obj_019f6c0d-c6e5-7693-b598-6cae086a04ad" data-object-id="obj_019f6c0d-c6e5-7693-b598-6cae086a04ad" data-object-type="paragraph" data-page="25" data-anchor-id="anchor_019f6c0d-c6e5-7693-b598-6cae086a04ae" data-anchor-ids="anchor_019f6c0d-c6e5-7693-b598-6cae086a04ae" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3334"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e5-7693-b598-6cae086a04af" data-object-id="obj_019f6c0d-c6e5-7693-b598-6cae086a04af" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6e6-7263-8e21-06492f73aeda" data-anchor-ids="anchor_019f6c0d-c6e6-7263-8e21-06492f73aeda" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2243">The courses influenced scores of DI analysts, many of whom are now in the managerial ranks. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e6-7263-8e21-06492f73aedb" data-object-id="obj_019f6c0d-c6e6-7263-8e21-06492f73aedb" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6e6-7263-8e21-06492f73aedc" data-anchor-ids="anchor_019f6c0d-c6e6-7263-8e21-06492f73aedc" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3334">The designers and teachers of Tradecraft 2000 clearly were also influenced by Heuer, as reflected in reading selections, case studies, and class exercises. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e7-76c4-80b6-8a2c2298821a" data-object-id="obj_019f6c0d-c6e7-76c4-80b6-8a2c2298821a" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6e7-76c4-80b6-8a2c2298821b" data-anchor-ids="anchor_019f6c0d-c6e7-76c4-80b6-8a2c2298821b" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">Heuer’s work has remained on reading lists and in lesson plans for DI training courses offered to all new analysts, as well as courses on warning analysis and on countering denial and deception. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6e7-76c4-80b6-8a2c2298821c" data-object-id="obj_019f6c0d-c6e7-76c4-80b6-8a2c2298821c" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6e7-76c4-80b6-8a2c2298821d" data-anchor-ids="anchor_019f6c0d-c6e7-76c4-80b6-8a2c2298821d" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">Senior analysts and managers who have been directly exposed to Heuer’s thinking through his articles, or through training courses, continue to pass his insights on to newer analysts.</span></p></section><section id="obj_019f6c0d-c6e8-7a15-a280-69e8830c402c" data-object-id="obj_019f6c0d-c6e8-7a15-a280-69e8830c402c" data-object-type="section" data-page="25" data-anchor-id="anchor_019f6c0d-c6e8-7a15-a280-69e8830c402d" data-anchor-ids="anchor_019f6c0d-c6e8-7a15-a280-69e8830c402d" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.3515,0.3871,0.3728"><h1 id="obj_019f6c0d-c6e8-7a15-a280-69e8830c402e" data-object-id="obj_019f6c0d-c6e8-7a15-a280-69e8830c402e" data-object-type="heading" data-page="25" data-anchor-id="anchor_019f6c0d-c6e8-7a15-a280-69e8830c402f" data-anchor-ids="anchor_019f6c0d-c6e8-7a15-a280-69e8830c402f" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.3515,0.3871,0.3728"><strong>Recommendations</strong></h1><p class="source-gap-10" id="obj_019f6c0d-c6e9-747c-9f83-8cad8466007c" data-object-id="obj_019f6c0d-c6e9-747c-9f83-8cad8466007c" data-object-type="paragraph" data-page="25" data-anchor-id="anchor_019f6c0d-c6ea-760a-bd6c-2f9c76f9554c" data-anchor-ids="anchor_019f6c0d-c6ea-760a-bd6c-2f9c76f9554c" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.3831,0.7623,0.4932" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ea-760a-bd6c-2f9c76f9554d" data-object-id="obj_019f6c0d-c6ea-760a-bd6c-2f9c76f9554d" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6eb-7660-ac2d-d07e4247947a" data-anchor-ids="anchor_019f6c0d-c6eb-7660-ac2d-d07e4247947a" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.3831,0.7623,0.4932">Heuer’s advice to Agency leaders, managers, and analysts is pointed: To ensure sustained improvement in assessing complex issues, analysis must be treated as more than a substantive and organizational process. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6eb-7660-ac2d-d07e4247947b" data-object-id="obj_019f6c0d-c6eb-7660-ac2d-d07e4247947b" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6eb-7660-ac2d-d07e4247947c" data-anchor-ids="anchor_019f6c0d-c6eb-7660-ac2d-d07e4247947c" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2132,0.3831,0.7623,0.4932">Attention also must be paid to techniques and tools for coping with the inherent limitations on analysts’ mental machinery. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6eb-7660-ac2d-d07e4247947d" data-object-id="obj_019f6c0d-c6eb-7660-ac2d-d07e4247947d" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ec-7bb9-b445-2bd447962b94" data-anchor-ids="anchor_019f6c0d-c6ec-7bb9-b445-2bd447962b94" data-page-indices="25" data-pages="26" data-confidence="0.7500" data-source-bbox="0.2132,0.3831,0.7623,0.4932">He urges that Agency leaders take steps to:</span></p><p class="source-gap-15" id="obj_019f6c0d-c6ec-7bb9-b445-2bd447962b95" data-object-id="obj_019f6c0d-c6ec-7bb9-b445-2bd447962b95" data-object-type="paragraph" data-page="25" data-anchor-id="anchor_019f6c0d-c6ec-7bb9-b445-2bd447962b96" data-anchor-ids="anchor_019f6c0d-c6ec-7bb9-b445-2bd447962b96" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.5090,0.7402,0.8182" data-source-gap="0.0372"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ec-7bb9-b445-2bd447962b97" data-object-id="obj_019f6c0d-c6ec-7bb9-b445-2bd447962b97" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ed-736c-9256-17a507cb0391" data-anchor-ids="anchor_019f6c0d-c6ed-736c-9256-17a507cb0391" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.5090,0.7402,0.7103">• <em>Establish an organizational environment</em> that promotes and rewards the kind of critical thinking he advocates—or example, analysis on difficult issues that considers in depth a series of plausible hypotheses rather than allowing the first credible hypothesis to suffice. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ed-736c-9256-17a507cb0392" data-object-id="obj_019f6c0d-c6ed-736c-9256-17a507cb0392" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ed-736c-9256-17a507cb0393" data-anchor-ids="anchor_019f6c0d-c6ed-736c-9256-17a507cb0393" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.6170,0.7402,0.7103">•<em> Expand funding for research</em> on the role such mental processes play in shaping analytical judgments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ed-736c-9256-17a507cb0394" data-object-id="obj_019f6c0d-c6ed-736c-9256-17a507cb0394" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ee-7111-b2b8-4a311cbe6bda" data-anchor-ids="anchor_019f6c0d-c6ee-7111-b2b8-4a311cbe6bda" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.6170,0.7402,0.7103">An Agency that relies on sharp cognitive performance by its analysts must stay abreast of studies on how the mind works—i.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ee-7111-b2b8-4a311cbe6bdb" data-object-id="obj_019f6c0d-c6ee-7111-b2b8-4a311cbe6bdb" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ee-7111-b2b8-4a311cbe6bdc" data-anchor-ids="anchor_019f6c0d-c6ee-7111-b2b8-4a311cbe6bdc" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.6170,0.7402,0.7103">e.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ef-7ee6-8370-e4a347c103fa" data-object-id="obj_019f6c0d-c6ef-7ee6-8370-e4a347c103fa" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6ef-7ee6-8370-e4a347c103fb" data-anchor-ids="anchor_019f6c0d-c6ef-7ee6-8370-e4a347c103fb" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.6170,0.7402,0.8182">, on <em>how</em> analysts reach judgments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6ef-7ee6-8370-e4a347c103fc" data-object-id="obj_019f6c0d-c6ef-7ee6-8370-e4a347c103fc" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6f0-7b60-b5c3-51b568c59522" data-anchor-ids="anchor_019f6c0d-c6f0-7b60-b5c3-51b568c59522" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.7249,0.7402,0.8182">•<em> Foster development of tools</em> to assist analysts in assessing information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f0-7b60-b5c3-51b568c59523" data-object-id="obj_019f6c0d-c6f0-7b60-b5c3-51b568c59523" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6f0-7b60-b5c3-51b568c59524" data-anchor-ids="anchor_019f6c0d-c6f0-7b60-b5c3-51b568c59524" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.2328,0.7249,0.7402,0.8182">On tough issues, they need help in improving their mental models and in deriving incisive findings from information they already have; they need such help at least as much as they need more information.</span></p><p class="source-gap-57" id="obj_019f6c0d-c6f0-7b60-b5c3-51b568c59525" data-object-id="obj_019f6c0d-c6f0-7b60-b5c3-51b568c59525" data-object-type="paragraph" data-page="25" data-anchor-id="anchor_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb8f" data-anchor-ids="anchor_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb8f" data-page-indices="25" data-pages="26" data-confidence="0.9000" data-source-bbox="0.4701,0.8787,0.5005,0.8980" data-source-gap="0.1425"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb90" data-object-id="obj_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb90" data-object-type="sentence" data-page="25" data-anchor-id="anchor_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb91" data-anchor-ids="anchor_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb91" data-page-indices="25" data-pages="26" data-confidence="0.7500" data-source-bbox="0.4701,0.8787,0.5005,0.8980">xxiv</span></p><p id="obj_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb92" data-object-id="obj_019f6c0d-c6f1-7bd2-98fa-3b6f1fccdb92" data-object-type="paragraph" data-page="26" data-anchor-id="anchor_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421c" data-anchor-ids="anchor_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421c" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2061"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421d" data-object-id="obj_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421d" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421e" data-anchor-ids="anchor_019f6c0d-c6f2-7df8-bdc8-6cef7ea9421e" data-page-indices="26" data-pages="27" data-confidence="0.7500" data-source-bbox="0.2426,0.1505,0.7917,0.2061">I offer some concluding observations and recommendations, rooted in Heuer’s findings and taking into account the tough tradeoffs facing intelligence professionals:</span></p><p class="source-gap-15" id="obj_019f6c0d-c6f3-7e46-a17b-6d8046ed5cff" data-object-id="obj_019f6c0d-c6f3-7e46-a17b-6d8046ed5cff" data-object-type="paragraph" data-page="26" data-anchor-id="anchor_019f6c0d-c6f3-7e46-a17b-6d8046ed5d00" data-anchor-ids="anchor_019f6c0d-c6f3-7e46-a17b-6d8046ed5d00" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.7491" data-source-gap="0.0372"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f3-7e46-a17b-6d8046ed5d01" data-object-id="obj_019f6c0d-c6f3-7e46-a17b-6d8046ed5d01" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f4-7856-984f-17def113e449" data-anchor-ids="anchor_019f6c0d-c6f4-7856-984f-17def113e449" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">•<em> Commit to a uniform set of tradecraft standards based on the insights in this book. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f4-7856-984f-17def113e44a" data-object-id="obj_019f6c0d-c6f4-7856-984f-17def113e44a" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f4-7856-984f-17def113e44b" data-anchor-ids="anchor_019f6c0d-c6f4-7856-984f-17def113e44b" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">Leaders need to know if analysts have done their cognitive homework before taking corporate responsibility for their judgments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f4-7856-984f-17def113e44c" data-object-id="obj_019f6c0d-c6f4-7856-984f-17def113e44c" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f5-7165-af41-200730380565" data-anchor-ids="anchor_019f6c0d-c6f5-7165-af41-200730380565" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">Although every analytical issue can be seen as one of a kind, I suspect that nearly all such topics fit into about a dozen recurring patterns of challenge based largely on variations in substantive uncertainty and policy sensitivity. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f5-7165-af41-200730380566" data-object-id="obj_019f6c0d-c6f5-7165-af41-200730380566" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f5-7165-af41-200730380567" data-anchor-ids="anchor_019f6c0d-c6f5-7165-af41-200730380567" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">Corporate standards need to be established for each such category. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f5-7165-af41-200730380568" data-object-id="obj_019f6c0d-c6f5-7165-af41-200730380568" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f6-7c7f-ae76-9fd158c94804" data-anchor-ids="anchor_019f6c0d-c6f6-7c7f-ae76-9fd158c94804" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">And the burden should be put on managers to explain why a given analytical assignment requires deviation from the standards. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f6-7c7f-ae76-9fd158c94805" data-object-id="obj_019f6c0d-c6f6-7c7f-ae76-9fd158c94805" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f6-7c7f-ae76-9fd158c94806" data-anchor-ids="anchor_019f6c0d-c6f6-7c7f-ae76-9fd158c94806" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.5152">I am convinced that if tradecraft standards are made uniform and transparent, the time saved by curtailing personalistic review of quick-turnaround analysis (e.g., “It reads better to me this way”) could be “re-invested” in doing battle more effectively against cognitive pitfalls. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f6-7c7f-ae76-9fd158c94807" data-object-id="obj_019f6c0d-c6f6-7c7f-ae76-9fd158c94807" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f7-7352-be6b-a9e08c7df9fc" data-anchor-ids="anchor_019f6c0d-c6f7-7352-be6b-a9e08c7df9fc" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.2219,0.7697,0.6959">(“Regarding point 3, let’s talk about your assumptions.”) </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f7-7352-be6b-a9e08c7df9fd" data-object-id="obj_019f6c0d-c6f7-7352-be6b-a9e08c7df9fd" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f7-7352-be6b-a9e08c7df9fe" data-anchor-ids="anchor_019f6c0d-c6f7-7352-be6b-a9e08c7df9fe" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.5298,0.7697,0.6959">•<em> Pay more honor to &quot;doubt.&quot;</em>&nbsp;</span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec5" data-object-id="obj_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec5" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec6" data-anchor-ids="anchor_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec6" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.5298,0.7697,0.6959">Intelligence leaders and policymakers should, in recognition of the cognitive impediments to sound analysis, establish ground rules that enable analysts, after doing their best to clarify an issue, to express doubts more openly. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec7" data-object-id="obj_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec7" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec8" data-anchor-ids="anchor_019f6c0d-c6f8-7b48-a7dd-f7b7241b3ec8" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.5298,0.7697,0.6959">They should be encouraged to list gaps in information and other obstacles to confident judgment. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2a" data-object-id="obj_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2a" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2b" data-anchor-ids="anchor_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2b" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.5298,0.7697,0.7491">Such conclusions as “We do not know” or “There are several potentially valid ways to assess this issue” should be regarded as badges of sound analysis, not as dereliction of analytic duty. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2c" data-object-id="obj_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2c" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2d" data-anchor-ids="anchor_019f6c0d-c6f9-7c81-9859-3c5ae1b26f2d" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.7105,0.7697,0.7491">•<em> Find a couple of successors to Dick Heuer. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6fa-766c-9c0e-5a95132f1065" data-object-id="obj_019f6c0d-c6fa-766c-9c0e-5a95132f1065" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6fa-766c-9c0e-5a95132f1066" data-anchor-ids="anchor_019f6c0d-c6fa-766c-9c0e-5a95132f1066" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.7105,0.7697,0.7491"><em>Fund their research. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-c6fa-766c-9c0e-5a95132f1067" data-object-id="obj_019f6c0d-c6fa-766c-9c0e-5a95132f1067" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6fb-718f-a8a1-acb9bd86509b" data-anchor-ids="anchor_019f6c0d-c6fb-718f-a8a1-acb9bd86509b" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.2623,0.7105,0.7697,0.7491"><em>Heed their findings.</em></span></p><p class="source-gap-123" id="obj_019f6c0d-c6fb-718f-a8a1-acb9bd86509c" data-object-id="obj_019f6c0d-c6fb-718f-a8a1-acb9bd86509c" data-object-type="paragraph" data-page="26" data-anchor-id="anchor_019f6c0d-c6fb-718f-a8a1-acb9bd86509d" data-anchor-ids="anchor_019f6c0d-c6fb-718f-a8a1-acb9bd86509d" data-page-indices="26" data-pages="27" data-confidence="0.9000" data-source-bbox="0.5021,0.8794,0.5274,0.8986" data-source-gap="0.3071"><span tabindex="0" class="sentence" id="obj_019f6c0d-c6fb-718f-a8a1-acb9bd86509e" data-object-id="obj_019f6c0d-c6fb-718f-a8a1-acb9bd86509e" data-object-type="sentence" data-page="26" data-anchor-id="anchor_019f6c0d-c6fc-7ddc-83de-bc8ac71d60b5" data-anchor-ids="anchor_019f6c0d-c6fc-7ddc-83de-bc8ac71d60b5" data-page-indices="26" data-pages="27" data-confidence="0.7500" data-source-bbox="0.5021,0.8794,0.5274,0.8986">xxv</span></p></section></article><nav class="publication-navigation publication-navigation-bottom" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="03-foreword.html">← Foreword</a><a class="publication-contents" href="index.html">Contents</a><a class="publication-next" rel="next" href="05-chapter-01.html">Part I · Chapter 1 — Thinking About Thinking →</a></nav><nav class="export-tools"><a id="source-pdf-link" href="assets/original.pdf">Open original PDF</a></nav></main><script>(() => {
+  "use strict";
+
+  const viewer = document.querySelector("#source-viewer");
+  if (!viewer) return;
+
+  const image = viewer.querySelector("#source-image");
+  const sourceCanvas = viewer.querySelector("#source-canvas");
+  const pdfCanvas = viewer.querySelector("#source-pdf-canvas");
+  const overlays = viewer.querySelector("#source-overlays");
+  const legacyOverlay = viewer.querySelector("#source-overlay");
+  const label = viewer.querySelector("#source-label");
+  const pageLabel = viewer.querySelector("#source-page-label");
+  const previousRegion = viewer.querySelector("#source-prev");
+  const nextRegion = viewer.querySelector("#source-next");
+  const previousPage = viewer.querySelector("#source-page-prev");
+  const nextPage = viewer.querySelector("#source-page-next");
+  const zoomOut = viewer.querySelector("#source-zoom-out");
+  const zoomIn = viewer.querySelector("#source-zoom-in");
+  const zoomLabel = viewer.querySelector("#source-zoom-label");
+  const sourcePdfLink = viewer.querySelector("#source-pdf-link");
+  const sourcePdfBase = sourcePdfLink?.getAttribute("href") || "";
+  const reviewEmpty = viewer.querySelector("#review-empty");
+  const reviewFields = viewer.querySelector("#review-fields");
+  const reviewObjectId = viewer.querySelector("#review-object-id");
+  const reviewConfidence = viewer.querySelector("#review-confidence");
+  const reviewText = viewer.querySelector("#review-text");
+  const reviewType = viewer.querySelector("#review-type");
+  const reviewStatus = viewer.querySelector("#review-status");
+  const reviewSave = viewer.querySelector("#review-save");
+  const reviewSplit = viewer.querySelector("#review-split");
+  const reviewMergeIds = viewer.querySelector("#review-merge-ids");
+  const reviewMerge = viewer.querySelector("#review-merge");
+  const reviewAlternatives = viewer.querySelector("#review-alternatives");
+  const reviewIssues = viewer.querySelector("#review-issues");
+  const reviewMessage = viewer.querySelector("#review-message");
+  const svgNamespace = "http://www.w3.org/2000/svg";
+
+  let selectedAnchors = [];
+  let anchorIndex = 0;
+  let activeDocumentId = null;
+  let currentPage = null;
+  let pageCount = null;
+  let zoom = 1;
+  let pdfDocument = null;
+  let pdfRenderTask = null;
+  let pdfjsPromise = null;
+  let activeReview = null;
+
+  const isFiniteNumber = (value) => typeof value === "number" && Number.isFinite(value);
+
+  const selectObject = (objectId, scroll = true) => {
+    document.querySelectorAll(".is-selected").forEach((item) => {
+      item.classList.remove("is-selected");
+    });
+    if (!objectId) return;
+    const object = document.getElementById(objectId);
+    if (object) {
+      object.classList.add("is-selected");
+      if (scroll) object.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  const fetchJson = async (url, options = {}) => {
+    const headers = { accept: "application/json", ...(options.headers || {}) };
+    const response = await fetch(url, { ...options, headers });
+    if (!response.ok) {
+      let detail = `request failed (${response.status})`;
+      try {
+        const payload = await response.json();
+        if (typeof payload.detail === "string") detail = payload.detail;
+      } catch (_error) {
+        // Keep the status-only message for non-JSON failures.
+      }
+      throw new Error(detail);
+    }
+    return response.json();
+  };
+
+  const setReviewBusy = (busy) => {
+    if (reviewSave) reviewSave.disabled = busy;
+    if (reviewMerge) reviewMerge.disabled = busy;
+    if (reviewSplit) {
+      const canSplit =
+        activeReview && ["paragraph", "sentence"].includes(activeReview.object.object_type);
+      reviewSplit.disabled = busy || !canSplit;
+    }
+  };
+
+  const evidenceItem = (primary, secondary = "") => {
+    const item = document.createElement("li");
+    const heading = document.createElement("strong");
+    heading.textContent = primary;
+    item.append(heading);
+    if (secondary) {
+      const detail = document.createElement("div");
+      detail.textContent = secondary;
+      item.append(detail);
+    }
+    return item;
+  };
+
+  const renderEvidence = (container, items, render) => {
+    if (!container) return;
+    container.replaceChildren();
+    if (!Array.isArray(items) || !items.length) {
+      container.append(evidenceItem("None available"));
+      return;
+    }
+    items.forEach((item) => container.append(render(item)));
+  };
+
+  const loadReviewObject = async (objectId) => {
+    if (!objectId || !reviewFields) return;
+    reviewMessage.textContent = "Loading review evidence…";
+    const payload = await fetchJson(`/objects/${encodeURIComponent(objectId)}/review`);
+    activeReview = payload;
+    const object = payload.object;
+    reviewEmpty.hidden = true;
+    reviewFields.hidden = false;
+    reviewObjectId.textContent = object.id;
+    reviewConfidence.textContent =
+      typeof object.confidence === "number" ? object.confidence.toFixed(3) : "not scored";
+    reviewText.value = object.text_normalized ?? object.text_raw ?? "";
+    reviewType.value = object.object_type;
+    reviewStatus.value = object.status;
+    reviewMergeIds.value = object.id;
+    reviewSplit.disabled = !["paragraph", "sentence"].includes(object.object_type);
+    renderEvidence(reviewAlternatives, payload.parser_alternatives, (alternative) => {
+      const confidence =
+        typeof alternative.confidence === "number"
+          ? `, confidence ${alternative.confidence.toFixed(3)}`
+          : "";
+      return evidenceItem(
+        `${alternative.tool_name} (${alternative.object_type}${confidence})`,
+        alternative.text || "No text returned by this parser.",
+      );
+    });
+    renderEvidence(reviewIssues, payload.validation_issues, (issue) =>
+      evidenceItem(`${issue.severity}: ${issue.rule_code}`, issue.message),
+    );
+    reviewMessage.textContent = "";
+  };
+
+  const loadReviewSafely = (objectId) => {
+    loadReviewObject(objectId).catch((error) => {
+      reviewMessage.textContent = `Review details unavailable: ${error.message}`;
+    });
+  };
+
+  const mutateReview = async (url, method, payload) => {
+    setReviewBusy(true);
+    reviewMessage.textContent = "Saving…";
+    try {
+      return await fetchJson(url, {
+        method,
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } finally {
+      setReviewBusy(false);
+    }
+  };
+
+  const reloadAtObject = (objectId) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("object_id", objectId);
+    url.hash = objectId;
+    window.location.assign(url.toString());
+  };
+
+  const updateZoom = (value) => {
+    zoom = Math.min(4, Math.max(0.5, value));
+    sourceCanvas.style.width = `${zoom * 100}%`;
+    zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+    zoomOut.disabled = zoom <= 0.5;
+    zoomIn.disabled = zoom >= 4;
+  };
+
+  const loadPdfJs = async () => {
+    if (!pdfjsPromise) {
+      pdfjsPromise = import("/static/vendor/pdfjs/pdf.mjs").then((pdfjs) => {
+        pdfjs.GlobalWorkerOptions.workerSrc = "/static/vendor/pdfjs/pdf.worker.mjs";
+        return pdfjs;
+      });
+    }
+    return pdfjsPromise;
+  };
+
+  const renderPdfPage = async (pageIndex) => {
+    if (!pdfCanvas || !sourcePdfBase) throw new Error("PDF.js source is unavailable");
+    const pdfjs = await loadPdfJs();
+    if (!pdfDocument) {
+      const sourceUrl = sourcePdfBase.split("#", 1)[0];
+      const response = await fetch(sourceUrl, { headers: { accept: "application/pdf" } });
+      if (!response.ok) throw new Error(`PDF request failed (${response.status})`);
+      const data = new Uint8Array(await response.arrayBuffer());
+      pdfDocument = await pdfjs.getDocument({ data }).promise;
+    }
+    if (pdfRenderTask) {
+      pdfRenderTask.cancel();
+      pdfRenderTask = null;
+    }
+    const pdfPage = await pdfDocument.getPage(pageIndex + 1);
+    const baseViewport = pdfPage.getViewport({ scale: 1 });
+    const outputScale = Math.min(3, Math.max(1.5, window.devicePixelRatio || 1));
+    const renderScale = Math.max(outputScale, 1200 / Math.max(baseViewport.width, 1));
+    const viewport = pdfPage.getViewport({ scale: Math.min(3, renderScale) });
+    pdfCanvas.width = Math.ceil(viewport.width);
+    pdfCanvas.height = Math.ceil(viewport.height);
+    const context = pdfCanvas.getContext("2d", { alpha: false });
+    if (!context) throw new Error("PDF canvas is unavailable");
+    pdfRenderTask = pdfPage.render({ canvasContext: context, viewport });
+    try {
+      await pdfRenderTask.promise;
+    } finally {
+      pdfRenderTask = null;
+    }
+    pdfCanvas.hidden = false;
+    image.hidden = true;
+  };
+
+  const polygonPoints = (anchor) => {
+    if (!Array.isArray(anchor.polygon) || anchor.polygon.length < 3) return null;
+    const points = anchor.polygon.map((point) => {
+      if (!Array.isArray(point) || point.length < 2) return null;
+      const x = Number(point[0]);
+      const y = Number(point[1]);
+      return Number.isFinite(x) && Number.isFinite(y) ? [x, y] : null;
+    });
+    return points.every(Boolean) ? points : null;
+  };
+
+  const appendOverlay = (anchor, activeAnchor) => {
+    const polygon = polygonPoints(anchor);
+    let shape;
+    if (polygon) {
+      shape = document.createElementNS(svgNamespace, "polygon");
+      shape.setAttribute(
+        "points",
+        polygon.map(([x, y]) => `${x},${y}`).join(" "),
+      );
+    } else if (
+      [anchor.x0, anchor.y0, anchor.x1, anchor.y1].every(isFiniteNumber) &&
+      anchor.x1 >= anchor.x0 &&
+      anchor.y1 >= anchor.y0
+    ) {
+      shape = document.createElementNS(svgNamespace, "rect");
+      shape.setAttribute("x", String(anchor.x0));
+      shape.setAttribute("y", String(anchor.y0));
+      shape.setAttribute("width", String(anchor.x1 - anchor.x0));
+      shape.setAttribute("height", String(anchor.y1 - anchor.y0));
+    } else {
+      return;
+    }
+    shape.classList.add("source-overlay-shape");
+    if (activeAnchor?.id === anchor.id) shape.classList.add("is-active-region");
+    shape.dataset.anchorId = anchor.id;
+    overlays.append(shape);
+  };
+
+  const renderOverlays = () => {
+    overlays.replaceChildren();
+    legacyOverlay.hidden = true;
+    if (!currentPage || !isFiniteNumber(currentPage.width) || !isFiniteNumber(currentPage.height)) {
+      return;
+    }
+    overlays.setAttribute("viewBox", `0 0 ${currentPage.width} ${currentPage.height}`);
+    overlays.setAttribute("preserveAspectRatio", "none");
+    const activeAnchor = selectedAnchors[anchorIndex] || null;
+    selectedAnchors
+      .filter((anchor) => anchor.page_index === currentPage.page_index)
+      .forEach((anchor) => appendOverlay(anchor, activeAnchor));
+  };
+
+  const updateControls = () => {
+    previousRegion.disabled = anchorIndex <= 0;
+    nextRegion.disabled = !selectedAnchors.length || anchorIndex >= selectedAnchors.length - 1;
+    const pageIndex = currentPage?.page_index;
+    previousPage.disabled = !Number.isInteger(pageIndex) || pageIndex <= 0;
+    nextPage.disabled =
+      !Number.isInteger(pageIndex) || !Number.isInteger(pageCount) || pageIndex >= pageCount - 1;
+  };
+
+  const loadDocumentMetadata = async () => {
+    if (!activeDocumentId) return;
+    try {
+      const documentRecord = await fetchJson(
+        `/documents/${encodeURIComponent(activeDocumentId)}`,
+      );
+      pageCount = Number.isInteger(documentRecord.page_count) ? documentRecord.page_count : null;
+    } catch (_error) {
+      pageCount = null;
+    }
+  };
+
+  const loadPage = async (pageIndex) => {
+    if (!activeDocumentId || !Number.isInteger(pageIndex) || pageIndex < 0) return;
+    currentPage = await fetchJson(
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}`,
+    );
+    image.alt = `Source PDF page ${pageIndex + 1}`;
+    pageLabel.textContent = pageCount
+      ? `Page ${pageIndex + 1} of ${pageCount}`
+      : `Page ${pageIndex + 1}`;
+    const activeAnchor = selectedAnchors[anchorIndex];
+    label.textContent =
+      activeAnchor?.page_index === pageIndex
+        ? `Source region ${anchorIndex + 1} of ${selectedAnchors.length}, page ${pageIndex + 1}`
+        : `Source page ${pageIndex + 1}`;
+    if (sourcePdfLink && sourcePdfBase) {
+      sourcePdfLink.setAttribute("href", `${sourcePdfBase.split("#", 1)[0]}#page=${pageIndex + 1}`);
+    }
+    try {
+      await renderPdfPage(pageIndex);
+      label.textContent = `${label.textContent} · rendered with PDF.js`;
+    } catch (_error) {
+      if (pdfCanvas) pdfCanvas.hidden = true;
+      image.hidden = false;
+      image.src = `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}/image`;
+    }
+    renderOverlays();
+    updateControls();
+  };
+
+  const showAnchor = async (index) => {
+    if (!selectedAnchors.length) return;
+    anchorIndex = Math.min(selectedAnchors.length - 1, Math.max(0, index));
+    await loadPage(selectedAnchors[anchorIndex].page_index);
+  };
+
+  const loadAnchors = async (anchorIds) => {
+    const uniqueIds = [...new Set(anchorIds.filter(Boolean))];
+    const records = await Promise.all(
+      uniqueIds.map(async (anchorId) => {
+        try {
+          return await fetchJson(`/source/${encodeURIComponent(anchorId)}`);
+        } catch (_error) {
+          return null;
+        }
+      }),
+    );
+    const available = records.filter(Boolean);
+    if (!available.length) throw new Error("source anchors unavailable");
+    activeDocumentId = available[0].document_id;
+    selectedAnchors = available.filter((anchor) => anchor.document_id === activeDocumentId);
+    anchorIndex = 0;
+    await loadDocumentMetadata();
+    await showAnchor(0);
+  };
+
+  const movePage = async (offset) => {
+    if (!currentPage) return;
+    const target = currentPage.page_index + offset;
+    if (target < 0 || (Number.isInteger(pageCount) && target >= pageCount)) return;
+    const matchingAnchor = selectedAnchors.findIndex((anchor) => anchor.page_index === target);
+    if (matchingAnchor >= 0) anchorIndex = matchingAnchor;
+    await loadPage(target);
+  };
+
+  previousRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex - 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  nextRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex + 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  previousPage.addEventListener("click", async () => {
+    try {
+      await movePage(-1);
+    } catch (_error) {
+      label.textContent = "Previous source page is unavailable.";
+    }
+  });
+
+  nextPage.addEventListener("click", async () => {
+    try {
+      await movePage(1);
+    } catch (_error) {
+      label.textContent = "Next source page is unavailable.";
+    }
+  });
+
+  zoomOut.addEventListener("click", () => updateZoom(zoom - 0.25));
+  zoomIn.addEventListener("click", () => updateZoom(zoom + 0.25));
+
+  document.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target.closest("a.internal-reference,a.backlink")) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target) return;
+    const anchorIds = (target.dataset.anchorIds || "").split(",").filter(Boolean);
+    if (!anchorIds.length) return;
+    event.preventDefault();
+    const objectId = target.dataset.objectId;
+    selectObject(objectId);
+    loadReviewSafely(objectId);
+    try {
+      await loadAnchors(anchorIds);
+      viewer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!(event.target instanceof Element) || !["Enter", " "].includes(event.key)) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target || target.matches("a,button")) return;
+    event.preventDefault();
+    target.click();
+  });
+
+  const hitTestSource = async (event) => {
+    if (!currentPage || !activeDocumentId) return;
+    const target = event.currentTarget;
+    if (!(target instanceof Element)) return;
+    const bounds = target.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    const x = ((event.clientX - bounds.left) / bounds.width) * currentPage.width;
+    const y = ((event.clientY - bounds.top) / bounds.height) * currentPage.height;
+    const url =
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${currentPage.page_index}` +
+      `/hit-test?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}&tolerance=4`;
+    try {
+      const hits = await fetchJson(url);
+      if (hits.length) {
+        selectObject(hits[0].object_id);
+        loadReviewSafely(hits[0].object_id);
+      }
+    } catch (_error) {
+      label.textContent = "Could not match this source position.";
+    }
+  };
+
+  image.addEventListener("click", hitTestSource);
+  if (pdfCanvas) pdfCanvas.addEventListener("click", hitTestSource);
+
+  reviewSave?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    const payload = {
+      reason: "local review editor correction",
+      created_by: "local-user",
+      expected_updated_at: activeReview.updated_at,
+    };
+    if (reviewText.value !== currentText) payload.text_normalized = reviewText.value;
+    if (reviewType.value !== object.object_type) payload.object_type = reviewType.value;
+    if (reviewStatus.value !== object.status) payload.status = reviewStatus.value;
+    if (!("text_normalized" in payload || "object_type" in payload || "status" in payload)) {
+      reviewMessage.textContent = "No changes to save.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}`,
+        "PATCH",
+        payload,
+      );
+      reviewMessage.textContent = `Saved revision ${result.revision_number}.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Correction failed: ${error.message}`;
+    }
+  });
+
+  reviewSplit?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    if (reviewText.value !== currentText) {
+      reviewMessage.textContent = "Save text edits before splitting.";
+      return;
+    }
+    const offset = reviewText.selectionStart;
+    if (!Number.isInteger(offset) || offset <= 0 || offset >= currentText.length) {
+      reviewMessage.textContent = "Place the text cursor inside the text before splitting.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}/split`,
+        "POST",
+        {
+          offsets: [offset],
+          reason: "local review editor split",
+          created_by: "local-user",
+          expected_updated_at: activeReview.updated_at,
+        },
+      );
+      reviewMessage.textContent = `Created ${result.object_ids.length} objects.`;
+      reloadAtObject(result.object_ids[0]);
+    } catch (error) {
+      reviewMessage.textContent = `Split failed: ${error.message}`;
+    }
+  });
+
+  reviewMerge?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const objectIds = [
+      ...new Set(
+        reviewMergeIds.value
+          .split(",")
+          .map((value) => value.trim())
+          .filter(Boolean),
+      ),
+    ];
+    if (!objectIds.includes(activeReview.object.id)) objectIds.unshift(activeReview.object.id);
+    if (objectIds.length < 2) {
+      reviewMessage.textContent = "Enter at least one additional object ID to merge.";
+      return;
+    }
+    try {
+      const result = await mutateReview("/objects/merge", "POST", {
+        object_ids: objectIds,
+        reason: "local review editor merge",
+        created_by: "local-user",
+      });
+      reviewMessage.textContent = `Merged ${result.merged_object_ids.length} objects.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Merge failed: ${error.message}`;
+    }
+  });
+
+  updateZoom(1);
+
+  const query = new URLSearchParams(window.location.search);
+  const requestedObject = query.get("object_id");
+  if (requestedObject) {
+    selectObject(requestedObject, false);
+    loadReviewSafely(requestedObject);
+  }
+  const requestedAnchor = query.get("anchor_id");
+  if (requestedAnchor) {
+    loadAnchors([requestedAnchor]).catch(() => {
+      label.textContent = "Requested source preview is unavailable.";
+    });
+  } else if (window.location.hash && window.location.hash !== "#source-viewer") {
+    try {
+      const objectId = decodeURIComponent(window.location.hash.slice(1));
+      selectObject(objectId, false);
+      loadReviewSafely(objectId);
+    } catch (_error) {
+      // Ignore malformed external fragments without changing the document.
+    }
+  }
+})();
+</script></body></html>

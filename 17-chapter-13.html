@@ -1,0 +1,1232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-9/OsmHwRemUxdEztXUvS0gXxUCluawVrG+JiOi386ig=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Chapter 13 — Hindsight Biases in Evaluation of Intelligence Reporting — Psychology of Intelligence Analysis</title><style>:root {
+  --reader-prose-measure: 60ch;
+  --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
+  --reader-document-gutter: clamp(1rem, 5vw, 4rem);
+  --source-gap-cap: 8rem;
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #eee9de;
+  color: #181714;
+}
+
+body {
+  margin: 0;
+}
+
+.reader-shell {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) minmax(20rem, 1fr);
+  gap: 2rem;
+  max-width: 90rem;
+  margin: auto;
+  padding: var(--reader-shell-gutter);
+}
+
+.document {
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: document;
+  background: white;
+  padding: clamp(2rem, 6vw, 5rem);
+  line-height: 1.62;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 14%);
+}
+
+.reader-shell.static-export {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 72rem;
+}
+
+.static-export .document {
+  min-height: 80vh;
+  padding-inline: var(--reader-document-gutter);
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.375rem);
+  line-height: 1.45;
+}
+
+.export-tools {
+  margin-top: 1rem;
+  text-align: center;
+  font: 0.8rem/1.4 system-ui, sans-serif;
+}
+
+.publication-navigation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  max-inline-size: var(--reader-prose-measure);
+  margin: 0 auto 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d7d0c3;
+  border-radius: 0.25rem;
+  background: white;
+  font: clamp(0.78rem, 0.74rem + 0.15vw, 0.9rem) / 1.35 system-ui, sans-serif;
+}
+
+.publication-navigation-bottom {
+  margin-block: 1rem 0;
+}
+
+.publication-navigation a {
+  color: #473b27;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.publication-navigation .publication-previous {
+  justify-self: start;
+}
+
+.publication-navigation .publication-contents {
+  justify-self: center;
+  font-weight: 650;
+}
+
+.publication-navigation .publication-next {
+  justify-self: end;
+  text-align: end;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.18;
+  text-align: center;
+}
+
+.document h1 {
+  font-size: 1.5em;
+}
+
+.document h2,
+.document h3 {
+  font-size: 1.08em;
+}
+
+.document .heading-kicker {
+  font-size: 0.78em;
+  letter-spacing: 0.025em;
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: min(1.35em, 5cqi);
+  hyphens: auto;
+}
+
+.document > p:first-of-type,
+.document h1 + p,
+.document h2 + p,
+.document h3 + p,
+.document figure + p,
+.document .formula-coordinate-lane + p:not(:has(+ .formula-coordinate-lane)),
+.source-theme > p:first-child,
+.source-theme h1 + p,
+.source-theme h2 + p,
+.source-theme h3 + p,
+.source-theme figure + p,
+.source-theme:has(> figure:last-child) + p,
+.source-theme:has(> .formula-coordinate-lane:last-child)
+  + p:not(:has(+ .formula-coordinate-lane)) {
+  text-indent: 0;
+}
+
+blockquote {
+  box-sizing: border-box;
+  margin-block: 1rem;
+  padding-inline: clamp(1rem, 4vw, 2.25rem);
+  text-align: justify;
+}
+
+.document :where(p, blockquote, ul, ol, h1, h2, h3, h4, h5, h6, .footnote) {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.document :where(p, blockquote, li, figcaption, h1, h2, h3, h4, h5, h6, .footnote) {
+  overflow-wrap: anywhere;
+}
+
+.sentence {
+  cursor: pointer;
+}
+
+.sentence:focus,
+.sentence:hover,
+.sentence.is-selected {
+  background: #fff0a8;
+  outline: 0;
+}
+
+.source-link,
+.relation-links {
+  font: 0.75rem/1.3 system-ui, sans-serif;
+  margin-left: 0.4em;
+}
+
+.static-export .source-link {
+  display: none;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.small-cap-rest {
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+}
+
+.rule-below {
+  display: inline-block;
+  padding: 0 0.45em 0.05em;
+  margin: 0 -0.45em;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula {
+  container-type: inline-size;
+  container-name: formula;
+  overflow: auto;
+  margin: 0.35rem 0;
+  text-align: center;
+}
+
+.formula-coordinate-lane {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.formula-spatial {
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #6f6a61 #eee9de;
+  scrollbar-width: thin;
+}
+
+.formula-spatial:focus-visible {
+  outline: 0.12rem solid #6f5a32;
+  outline-offset: 0.2rem;
+}
+
+.formula code {
+  display: block;
+  max-width: 100%;
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+
+.formula .rule-below {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+.formula code.formula-layout-positioned {
+  overflow: visible;
+  white-space: normal;
+}
+
+.formula code.formula-layout-with-annotation {
+  display: grid;
+}
+
+.formula-layout-spatial-layer,
+.formula-layout-annotation {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.formula-layout-row {
+  position: relative;
+  display: block;
+  height: 1em;
+}
+
+.formula-layout-row.is-ruled {
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-rule {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-token {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.formula-layout-annotation {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1em;
+  padding-inline-start: clamp(0.5em, 1.5cqi, 0.8em);
+  align-self: start;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.formula-layout-hanging-row {
+  height: auto;
+  min-height: 1em;
+  inline-size: min(100cqi, var(--reader-prose-measure));
+  max-inline-size: min(100cqi, var(--reader-prose-measure));
+  text-align: left;
+}
+
+.formula-layout-marker {
+  position: absolute;
+  top: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.formula-layout-flow-body {
+  display: block;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.document [class*="source-width-"] {
+  box-sizing: border-box;
+  inline-size: var(--source-inline-size, auto);
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+.document [class*="source-left-"] {
+  margin-inline-start: var(--source-inline-start, auto);
+  margin-inline-end: auto;
+}
+
+.document [class*="source-gap-"] {
+  margin-block-start: clamp(0.25rem, var(--source-block-gap, 0rem), var(--source-gap-cap));
+}
+
+.source-theme {
+  padding-block: 0.01px;
+}
+
+.marginalia {
+  display: none;
+}
+
+.source-viewer {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  background: #242424;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.source-canvas {
+  position: relative;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.source-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.source-controls button {
+  padding: 0.3rem 0.55rem;
+}
+
+.source-page-label,
+#source-page-label,
+#source-zoom-label {
+  min-width: 4rem;
+  text-align: center;
+}
+
+.source-scroll {
+  max-height: 46vh;
+  overflow: auto;
+}
+
+.source-canvas img {
+  display: block;
+  width: 100%;
+  min-height: 10rem;
+  object-fit: contain;
+  background: #ddd;
+}
+
+.source-canvas canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ddd;
+}
+
+.source-overlay {
+  position: absolute;
+  border: 2px solid #ffbf00;
+  background: rgb(255 191 0 / 22%);
+  pointer-events: none;
+}
+
+.source-overlays {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.source-overlay-shape {
+  fill: rgb(255 191 0 / 22%);
+  stroke: #ffbf00;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.source-overlay-shape.is-active-region {
+  fill: rgb(255 106 0 / 28%);
+  stroke: #ff6a00;
+  stroke-width: 3;
+}
+
+.review-editor {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #666;
+  font: 0.85rem/1.45 system-ui, sans-serif;
+}
+
+.review-editor h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.review-editor label,
+.review-editor textarea,
+.review-editor input,
+.review-editor select,
+.review-editor button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.review-editor textarea,
+.review-editor input,
+.review-editor select {
+  margin: 0.2rem 0 0.65rem;
+  padding: 0.45rem;
+  border: 1px solid #888;
+  border-radius: 0.2rem;
+  background: #fff;
+  color: #111;
+}
+
+.review-editor textarea {
+  resize: vertical;
+  font: 0.9rem/1.4 ui-monospace, monospace;
+}
+
+.review-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(6rem, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 0.7rem;
+}
+
+.review-summary div {
+  min-width: 0;
+}
+
+.review-summary dt {
+  color: #bbb;
+}
+
+.review-summary dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.7rem 0;
+}
+
+.review-editor button {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #999;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.review-editor button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.review-evidence {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.review-evidence li {
+  margin-bottom: 0.45rem;
+  overflow-wrap: anywhere;
+}
+
+.review-message {
+  display: block;
+  min-height: 1.4em;
+  margin-top: 0.6rem;
+  color: #ffe082;
+}
+
+.citation {
+  display: inline;
+  font-style: normal;
+}
+
+.footnote {
+  border-top: 1px solid #aaa;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.reconstructed-toc {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin: clamp(2rem, 8cqi, 5rem) auto 0;
+}
+
+.reconstructed-toc .toc-list {
+  display: grid;
+  gap: 0.6em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reconstructed-toc .toc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+  column-gap: clamp(0.75em, 3cqi, 2em);
+}
+
+.reconstructed-toc .toc-entry {
+  display: flex;
+  min-inline-size: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(0.6em, 2.5cqi, 1.5em);
+}
+
+.reconstructed-toc .toc-fragment {
+  overflow-wrap: anywhere;
+}
+
+.reconstructed-toc .toc-page {
+  min-inline-size: 2.5ch;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .reader-shell {
+    display: block;
+  }
+
+  .source-viewer {
+    position: static;
+    max-height: none;
+    margin-top: 2rem;
+  }
+
+}
+
+@media (max-width: 34rem) {
+  .publication-navigation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .publication-navigation .publication-contents {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .publication-navigation .publication-previous {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .publication-navigation .publication-next {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@container formula (max-width: 24rem) {
+  .formula-layout-with-annotation > .formula-layout-spatial-layer {
+    grid-area: 1 / 1;
+  }
+
+  .formula-layout-with-annotation > .formula-layout-annotation {
+    grid-area: 2 / 1;
+    inline-size: 100cqi;
+    max-inline-size: 100cqi;
+    margin-left: 0;
+    margin-block-start: 0.35em;
+    padding-inline-start: 1.4em;
+  }
+}
+
+@container document (max-width: 42rem) {
+  .document [class*="source-width-"]:not(.formula-preserve-indent) {
+    --source-inline-size: 100%;
+  }
+
+  .document [class*="source-left-"]:not(.formula-preserve-indent) {
+    --source-inline-start: 0%;
+  }
+
+  .document [class*="source-gap-"] {
+    --source-gap-cap: 4rem;
+  }
+
+  .document blockquote {
+    padding-inline: 1rem;
+  }
+
+  .document :where(p, blockquote) {
+    text-align: start;
+  }
+}
+
+@container document (max-width: 30rem) {
+  .reconstructed-toc .toc-entry {
+    display: block;
+  }
+
+  .reconstructed-toc .toc-fragment {
+    margin-inline-end: 0.35em;
+  }
+}
+.source-gap-9{--source-block-gap:2.25%}.source-gap-10{--source-block-gap:2.5%}.source-gap-11{--source-block-gap:2.75%}.source-gap-12{--source-block-gap:3%}.source-gap-15{--source-block-gap:3.75%}.source-gap-16{--source-block-gap:4%}.source-gap-26{--source-block-gap:6.5%}.source-gap-27{--source-block-gap:6.75%}.source-gap-28{--source-block-gap:7%}.source-gap-34{--source-block-gap:8.5%}.source-gap-35{--source-block-gap:8.75%}.source-gap-38{--source-block-gap:9.5%}.source-gap-93{--source-block-gap:23.25%}</style></head><body><main class="reader-shell static-export"><nav class="publication-navigation publication-navigation-top" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="16-chapter-12.html">← Chapter 12 — Biases in Estimating Probabilities</a><a class="publication-contents" href="index.html">Contents</a><a class="publication-next" rel="next" href="18-chapter-14.html">Part IV · Chapter 14 — Improving Intelligence Analysis →</a></nav><article class="document" data-document-id="doc_019f6c0b-d481-7439-ba26-7aa6261a6d47"><section id="obj_019f6c0d-cf2f-7bfe-a23f-d07153ec4575" data-object-id="obj_019f6c0d-cf2f-7bfe-a23f-d07153ec4575" data-object-type="section" data-page="188" data-anchor-id="anchor_019f6c0d-cf30-7473-99d2-28511e0b3082" data-anchor-ids="anchor_019f6c0d-cf30-7473-99d2-28511e0b3082" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2704,0.2257,0.7653,0.3120"><h1 id="obj_019f6c0d-cf30-7473-99d2-28511e0b3083" data-object-id="obj_019f6c0d-cf30-7473-99d2-28511e0b3083" data-object-type="heading" data-page="188" data-anchor-id="anchor_019f6c0d-cf30-7473-99d2-28511e0b3084" data-anchor-ids="anchor_019f6c0d-cf30-7473-99d2-28511e0b3084" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2704,0.2257,0.7653,0.3120"><a class="internal-reference refers_to_section" href="#obj_019f6c0d-cf2f-7bfe-a23f-d07153ec4575" data-relation-id="rel_019f6c0d-d411-7cf3-8434-2001a17b0038"><strong>Chapter 13</strong></a><strong> Hindsight Biases in Evaluation of Intelligence Reporting</strong></h1><p class="source-gap-11" id="obj_019f6c0d-cf31-722d-9d83-f5d982c1650f" data-object-id="obj_019f6c0d-cf31-722d-9d83-f5d982c1650f" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf31-722d-9d83-f5d982c16510" data-anchor-ids="anchor_019f6c0d-cf31-722d-9d83-f5d982c16510" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.3239,0.7917,0.4520" data-source-gap="0.0279"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf32-70fb-bcca-1c56a34ea935" data-object-id="obj_019f6c0d-cf32-70fb-bcca-1c56a34ea935" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf32-70fb-bcca-1c56a34ea936" data-anchor-ids="anchor_019f6c0d-cf32-70fb-bcca-1c56a34ea936" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.3239,0.7917,0.4520"><em>Evaluations of intelligence analysis—analysts’ own evaluations of their judgments as well as others’ evaluations of intelligence products—are distorted by systematic biases. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf32-70fb-bcca-1c56a34ea937" data-object-id="obj_019f6c0d-cf32-70fb-bcca-1c56a34ea937" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf33-7e79-9150-27232dddc4ff" data-anchor-ids="anchor_019f6c0d-cf33-7e79-9150-27232dddc4ff" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.3239,0.7917,0.4520"><em>As a result, analysts overestimate the quality of their analytical performance, and others underestimate the value and quality of their efforts. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf33-7e79-9150-27232dddc500" data-object-id="obj_019f6c0d-cf33-7e79-9150-27232dddc500" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf34-7aca-a27c-d4c0153667e2" data-anchor-ids="anchor_019f6c0d-cf34-7aca-a27c-d4c0153667e2" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.3239,0.7917,0.4520"><em>These biases are not simply the product of self-interest and lack of objectivity. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf34-7aca-a27c-d4c0153667e3" data-object-id="obj_019f6c0d-cf34-7aca-a27c-d4c0153667e3" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf35-7b95-9275-d01214201312" data-anchor-ids="anchor_019f6c0d-cf35-7b95-9275-d01214201312" data-page-indices="188" data-pages="189" data-confidence="0.7500" data-source-bbox="0.2426,0.3239,0.7917,0.4520"><em>They stem from the nature of human mental processes and are difficult and perhaps impossible to overcome.</em><sup><strong>150</strong></sup></span></p><p class="source-gap-9" id="obj_019f6c0d-cf35-7b95-9275-d01214201313" data-object-id="obj_019f6c0d-cf35-7b95-9275-d01214201313" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf35-7b95-9275-d01214201314" data-anchor-ids="anchor_019f6c0d-cf35-7b95-9275-d01214201314" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.3651,0.4612,0.6643,0.4797" data-source-gap="0.0217"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf36-79a4-81d7-df611934bd36" data-object-id="obj_019f6c0d-cf36-79a4-81d7-df611934bd36" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf36-79a4-81d7-df611934bd37" data-anchor-ids="anchor_019f6c0d-cf36-79a4-81d7-df611934bd37" data-page-indices="188" data-pages="189" data-confidence="0.7500" data-source-bbox="0.3651,0.4612,0.6643,0.4797">* * * * * * * * * * * * * * * * * * *</span></p><p class="source-gap-12" id="obj_019f6c0d-cf36-79a4-81d7-df611934bd38" data-object-id="obj_019f6c0d-cf36-79a4-81d7-df611934bd38" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf36-79a4-81d7-df611934bd39" data-anchor-ids="anchor_019f6c0d-cf36-79a4-81d7-df611934bd39" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.4920,0.7916,0.5295" data-source-gap="0.0290"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf37-7d24-878a-3c511134aae5" data-object-id="obj_019f6c0d-cf37-7d24-878a-3c511134aae5" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf37-7d24-878a-3c511134aae6" data-anchor-ids="anchor_019f6c0d-cf37-7d24-878a-3c511134aae6" data-page-indices="188" data-pages="189" data-confidence="0.7500" data-source-bbox="0.2426,0.4920,0.7916,0.5295">Hindsight biases influence the evaluation of intelligence reporting in three ways:</span></p><p class="source-gap-16" id="obj_019f6c0d-cf37-7d24-878a-3c511134aae7" data-object-id="obj_019f6c0d-cf37-7d24-878a-3c511134aae7" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf38-74f5-9538-d60638950f22" data-anchor-ids="anchor_019f6c0d-cf38-74f5-9538-d60638950f22" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2623,0.5466,0.7697,0.7090" data-source-gap="0.0403"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf38-74f5-9538-d60638950f23" data-object-id="obj_019f6c0d-cf38-74f5-9538-d60638950f23" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf38-74f5-9538-d60638950f24" data-anchor-ids="anchor_019f6c0d-cf38-74f5-9538-d60638950f24" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2623,0.5466,0.7696,0.6374">• Analysts normally overestimate the accuracy of their past judgments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf38-74f5-9538-d60638950f25" data-object-id="obj_019f6c0d-cf38-74f5-9538-d60638950f25" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf39-7e33-a695-1f5ca4289a2f" data-anchor-ids="anchor_019f6c0d-cf39-7e33-a695-1f5ca4289a2f" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2623,0.6000,0.7697,0.7090">• Intelligence consumers normally underestimate how much they learned from intelligence reports. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf39-7e33-a695-1f5ca4289a30" data-object-id="obj_019f6c0d-cf39-7e33-a695-1f5ca4289a30" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf39-7e33-a695-1f5ca4289a31" data-anchor-ids="anchor_019f6c0d-cf39-7e33-a695-1f5ca4289a31" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2623,0.6534,0.7697,0.7090">• Overseers of intelligence production who conduct postmortem analyses of an intelligence failure normally judge that events were more readily foreseeable than was in fact the case.</span></p><p class="source-gap-15" id="obj_019f6c0d-cf3a-732e-bc4d-02582e719e02" data-object-id="obj_019f6c0d-cf3a-732e-bc4d-02582e719e02" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf3a-732e-bc4d-02582e719e03" data-anchor-ids="anchor_019f6c0d-cf3a-732e-bc4d-02582e719e03" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7250,0.7916,0.8506" data-source-gap="0.0376"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3a-732e-bc4d-02582e719e04" data-object-id="obj_019f6c0d-cf3a-732e-bc4d-02582e719e04" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3b-71e2-b988-2985b6a9bbba" data-anchor-ids="anchor_019f6c0d-cf3b-71e2-b988-2985b6a9bbba" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7250,0.7916,0.7624">None of the biases is surprising. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3b-71e2-b988-2985b6a9bbbb" data-object-id="obj_019f6c0d-cf3b-71e2-b988-2985b6a9bbbb" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3b-71e2-b988-2985b6a9bbbc" data-anchor-ids="anchor_019f6c0d-cf3b-71e2-b988-2985b6a9bbbc" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7250,0.7916,0.7624">Analysts have observed these tendencies in others, although probably not in themselves. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3b-71e2-b988-2985b6a9bbbd" data-object-id="obj_019f6c0d-cf3b-71e2-b988-2985b6a9bbbd" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3c-7490-b679-9bdae027ac4c" data-anchor-ids="anchor_019f6c0d-cf3c-7490-b679-9bdae027ac4c" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7250,0.7916,0.8506">What may be 150. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3c-7490-b679-9bdae027ac4d" data-object-id="obj_019f6c0d-cf3c-7490-b679-9bdae027ac4d" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3c-7490-b679-9bdae027ac4e" data-anchor-ids="anchor_019f6c0d-cf3c-7490-b679-9bdae027ac4e" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7841,0.8506">This chapter was first published as an unclassified article in <em>Studies in Intelligence</em>, Vol. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3d-723b-ac15-d95652a2d433" data-object-id="obj_019f6c0d-cf3d-723b-ac15-d95652a2d433" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3d-723b-ac15-d95652a2d434" data-anchor-ids="anchor_019f6c0d-cf3d-723b-ac15-d95652a2d434" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7841,0.8506">22, No. 2 (Summer 1978), under the title “Cognitive Biases: Problems in Hindsight Analysis.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3d-723b-ac15-d95652a2d435" data-object-id="obj_019f6c0d-cf3d-723b-ac15-d95652a2d435" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3e-733c-9208-5f5dd1d2d31a" data-anchor-ids="anchor_019f6c0d-cf3e-733c-9208-5f5dd1d2d31a" data-page-indices="188" data-pages="189" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7841,0.8506">It was later published in H. Bradford Westerfield, editor, <em>Inside CIA’s Private World: Declassified Articles from the Agency’s Internal Journal, 1955-1992</em> (New Haven: Yale University Press, 1995.)</span></p><p class="source-gap-27" id="obj_019f6c0d-cf3e-733c-9208-5f5dd1d2d31b" data-object-id="obj_019f6c0d-cf3e-733c-9208-5f5dd1d2d31b" data-object-type="paragraph" data-page="188" data-anchor-id="anchor_019f6c0d-cf3e-733c-9208-5f5dd1d2d31c" data-anchor-ids="anchor_019f6c0d-cf3e-733c-9208-5f5dd1d2d31c,anchor_019f6c0d-cf3f-7665-be60-5f15714874fe" data-page-indices="188,189" data-pages="189,190" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf3f-7665-be60-5f15714874ff" data-object-id="obj_019f6c0d-cf3f-7665-be60-5f15714874ff" data-object-type="sentence" data-page="188" data-anchor-id="anchor_019f6c0d-cf3f-7665-be60-5f1571487500" data-anchor-ids="anchor_019f6c0d-cf3f-7665-be60-5f1571487500,anchor_019f6c0d-cf3f-7665-be60-5f1571487501" data-page-indices="188,189" data-pages="189,190" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">161 unexpected is that these biases are not only the product of self-interest and lack of objectivity. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf40-7a1c-83df-1cb801fa8b4b" data-object-id="obj_019f6c0d-cf40-7a1c-83df-1cb801fa8b4b" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf40-7a1c-83df-1cb801fa8b4c" data-anchor-ids="anchor_019f6c0d-cf40-7a1c-83df-1cb801fa8b4c" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3334">They are examples of a broader phenomenon that is built into human mental processes and that cannot be overcome by the simple admonition to be more objective. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf40-7a1c-83df-1cb801fa8b4d" data-object-id="obj_019f6c0d-cf40-7a1c-83df-1cb801fa8b4d" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf41-753f-871b-82aaf92a0dd7" data-anchor-ids="anchor_019f6c0d-cf41-753f-871b-82aaf92a0dd7" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">Psychologists who conducted the experiments described below tried to teach test subjects to overcome these biases. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf41-753f-871b-82aaf92a0dd8" data-object-id="obj_019f6c0d-cf41-753f-871b-82aaf92a0dd8" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf41-753f-871b-82aaf92a0dd9" data-anchor-ids="anchor_019f6c0d-cf41-753f-871b-82aaf92a0dd9" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">Experimental subjects with no vested interest in the results were briefed on the biases and encouraged to avoid them or compensate for them, but could not do so. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf41-753f-871b-82aaf92a0dda" data-object-id="obj_019f6c0d-cf41-753f-871b-82aaf92a0dda" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf42-7247-942e-369c91a4c2ec" data-anchor-ids="anchor_019f6c0d-cf42-7247-942e-369c91a4c2ec" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.4788">Like optical illusions, cognitive biases remain compelling even after we become aware of them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf42-7247-942e-369c91a4c2ed" data-object-id="obj_019f6c0d-cf42-7247-942e-369c91a4c2ed" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf42-7247-942e-369c91a4c2ee" data-anchor-ids="anchor_019f6c0d-cf42-7247-942e-369c91a4c2ee" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.3323,0.7623,0.4788">The analyst, consumer, and overseer evaluating analytical performance all have one thing in common. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf42-7247-942e-369c91a4c2ef" data-object-id="obj_019f6c0d-cf42-7247-942e-369c91a4c2ef" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf43-7d7f-9e04-3829e6237f90" data-anchor-ids="anchor_019f6c0d-cf43-7d7f-9e04-3829e6237f90" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.3323,0.7623,0.4788">They are exercising hindsight. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf43-7d7f-9e04-3829e6237f91" data-object-id="obj_019f6c0d-cf43-7d7f-9e04-3829e6237f91" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf43-7d7f-9e04-3829e6237f92" data-anchor-ids="anchor_019f6c0d-cf43-7d7f-9e04-3829e6237f92" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.3323,0.7623,0.4788">They take their current state of knowledge and compare it with what they or others did or could or should have known before the current knowledge was received. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5a" data-object-id="obj_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5a" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5b" data-anchor-ids="anchor_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5b" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.3323,0.7623,0.7152">This is in sharp contrast with intelligence estimation, which is an exercise in foresight, and it is the difference between these two modes of thought—hindsight and foresight—that seems to be a source of bias. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5c" data-object-id="obj_019f6c0d-cf44-77b0-b6db-1ffc8aa1de5c" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf45-7867-aaa5-ed828d532279" data-anchor-ids="anchor_019f6c0d-cf45-7867-aaa5-ed828d532279" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.7152">The amount of good information that is available obviously is greater in hindsight than in foresight. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf45-7867-aaa5-ed828d53227a" data-object-id="obj_019f6c0d-cf45-7867-aaa5-ed828d53227a" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf45-7867-aaa5-ed828d53227b" data-anchor-ids="anchor_019f6c0d-cf45-7867-aaa5-ed828d53227b" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.7152">There are several possible explanations of how this affects mental processes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf45-7867-aaa5-ed828d53227c" data-object-id="obj_019f6c0d-cf45-7867-aaa5-ed828d53227c" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf46-7635-894b-be46d09a9f07" data-anchor-ids="anchor_019f6c0d-cf46-7635-894b-be46d09a9f07" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.7152">One is that the additional information available for hindsight changes perceptions of a situation so naturally and so immediately that people are largely unaware of the change. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf46-7635-894b-be46d09a9f08" data-object-id="obj_019f6c0d-cf46-7635-894b-be46d09a9f08" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf46-7635-894b-be46d09a9f09" data-anchor-ids="anchor_019f6c0d-cf46-7635-894b-be46d09a9f09" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.7152">When new information is received, it is immediately and unconsciously assimilated into our pre-existing knowledge. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf46-7635-894b-be46d09a9f0a" data-object-id="obj_019f6c0d-cf46-7635-894b-be46d09a9f0a" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf47-7103-b27b-4976e2736715" data-anchor-ids="anchor_019f6c0d-cf47-7103-b27b-4976e2736715" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.7152">If this new information adds significantly to our knowledge—that is, if it tells the outcome of a situation or the answer to a question about which we were previously uncertain—our mental images are restructured to take the new information into account. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf47-7103-b27b-4976e2736716" data-object-id="obj_019f6c0d-cf47-7103-b27b-4976e2736716" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf47-7103-b27b-4976e2736717" data-anchor-ids="anchor_019f6c0d-cf47-7103-b27b-4976e2736717" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.4778,0.7623,0.8425">With the benefit of hindsight, for example, factors previously considered relevant may become irrelevant, and factors previously thought to have little relevance may be seen as determinative. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0c" data-object-id="obj_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0c" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0d" data-anchor-ids="anchor_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0d" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.7141,0.7623,0.8425">After a view has been restructured to assimilate the new information, there is virtually no way to accurately reconstruct the pre-existing mental set. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0e" data-object-id="obj_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0e" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0f" data-anchor-ids="anchor_019f6c0d-cf48-7a8c-ad9f-1b1d2013cd0f" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.7141,0.7623,0.8425">Once the bell has rung, it cannot be unrung. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf49-7369-a8aa-95e46ea7abcf" data-object-id="obj_019f6c0d-cf49-7369-a8aa-95e46ea7abcf" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf49-7369-a8aa-95e46ea7abd0" data-anchor-ids="anchor_019f6c0d-cf49-7369-a8aa-95e46ea7abd0" data-page-indices="189" data-pages="190" data-confidence="0.9000" data-source-bbox="0.2132,0.7141,0.7623,0.8425">A person may <em>remember </em>his or her previous judgments if not much time has elapsed and the judgments were precisely articulated, but apparently people cannot accurately <em>reconstruct </em>their previous thinking. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf49-7369-a8aa-95e46ea7abd1" data-object-id="obj_019f6c0d-cf49-7369-a8aa-95e46ea7abd1" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf4a-7fde-8d49-8e3434697120" data-anchor-ids="anchor_019f6c0d-cf4a-7fde-8d49-8e3434697120" data-page-indices="189" data-pages="190" data-confidence="0.7500" data-source-bbox="0.2132,0.7141,0.7623,0.8425">The effort to reconstruct what we previously thought about a given situation, or what we would</span></p><p class="source-gap-34" id="obj_019f6c0d-cf4a-7fde-8d49-8e3434697121" data-object-id="obj_019f6c0d-cf4a-7fde-8d49-8e3434697121" data-object-type="paragraph" data-page="189" data-anchor-id="anchor_019f6c0d-cf4a-7fde-8d49-8e3434697122" data-anchor-ids="anchor_019f6c0d-cf4a-7fde-8d49-8e3434697122,anchor_019f6c0d-cf4a-7fde-8d49-8e3434697123" data-page-indices="189,190" data-pages="190,191" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0854"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4b-71eb-b37d-007d0eea93aa" data-object-id="obj_019f6c0d-cf4b-71eb-b37d-007d0eea93aa" data-object-type="sentence" data-page="189" data-anchor-id="anchor_019f6c0d-cf4b-71eb-b37d-007d0eea93ab" data-anchor-ids="anchor_019f6c0d-cf4b-71eb-b37d-007d0eea93ab,anchor_019f6c0d-cf4b-71eb-b37d-007d0eea93ac" data-page-indices="189,190" data-pages="190,191" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">162 have thought about it, is inevitably influenced by our current thought patterns. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4b-71eb-b37d-007d0eea93ad" data-object-id="obj_019f6c0d-cf4b-71eb-b37d-007d0eea93ad" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4c-78ad-8219-cbe38e26bb32" data-anchor-ids="anchor_019f6c0d-cf4c-78ad-8219-cbe38e26bb32" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2425">Knowing the outcome of a situation makes it harder to imagine other outcomes that might have been considered. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4c-78ad-8219-cbe38e26bb33" data-object-id="obj_019f6c0d-cf4c-78ad-8219-cbe38e26bb33" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4c-78ad-8219-cbe38e26bb34" data-anchor-ids="anchor_019f6c0d-cf4c-78ad-8219-cbe38e26bb34" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7918,0.3879">Unfortunately, simply understanding that the mind works in this fashion does little to help overcome the limitation. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4d-7bd0-b462-3eb3010efaf6" data-object-id="obj_019f6c0d-cf4d-7bd0-b462-3eb3010efaf6" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4d-7bd0-b462-3eb3010efaf7" data-anchor-ids="anchor_019f6c0d-cf4d-7bd0-b462-3eb3010efaf7" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.2414,0.7918,0.3879">The overall message to be learned from an understanding of these biases, as shown in the experiments described below, is that an analyst’s intelligence judgments are not as good as analysts think they are, or as bad as others seem to believe. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4d-7bd0-b462-3eb3010efaf8" data-object-id="obj_019f6c0d-cf4d-7bd0-b462-3eb3010efaf8" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4d-7bd0-b462-3eb3010efaf9" data-anchor-ids="anchor_019f6c0d-cf4d-7bd0-b462-3eb3010efaf9" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.2414,0.7918,0.3879">Because the biases generally cannot be overcome, they would appear to be facts of life that analysts need to take into account in evaluating their own performance and in determining what evaluations to expect from others. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4e-7786-bd19-4e4f38709f06" data-object-id="obj_019f6c0d-cf4e-7786-bd19-4e4f38709f06" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4e-7786-bd19-4e4f38709f07" data-anchor-ids="anchor_019f6c0d-cf4e-7786-bd19-4e4f38709f07" data-page-indices="190" data-pages="191" data-confidence="0.7500" data-source-bbox="0.2426,0.2414,0.7918,0.3879">This suggests the need for a more systematic effort to:</span></p><p class="source-gap-16" id="obj_019f6c0d-cf4e-7786-bd19-4e4f38709f08" data-object-id="obj_019f6c0d-cf4e-7786-bd19-4e4f38709f08" data-object-type="paragraph" data-page="190" data-anchor-id="anchor_019f6c0d-cf4f-71d2-acc0-50638f97176a" data-anchor-ids="anchor_019f6c0d-cf4f-71d2-acc0-50638f97176a" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2623,0.4050,0.7647,0.5129" data-source-gap="0.0403"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4f-71d2-acc0-50638f97176b" data-object-id="obj_019f6c0d-cf4f-71d2-acc0-50638f97176b" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf4f-71d2-acc0-50638f97176c" data-anchor-ids="anchor_019f6c0d-cf4f-71d2-acc0-50638f97176c" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2623,0.4050,0.7647,0.4777">• Define what should be expected from intelligence analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf4f-71d2-acc0-50638f97176d" data-object-id="obj_019f6c0d-cf4f-71d2-acc0-50638f97176d" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf50-7ffe-93bc-83d29a602c25" data-anchor-ids="anchor_019f6c0d-cf50-7ffe-93bc-83d29a602c25" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2623,0.4403,0.7647,0.5129">• Develop an institutionalized procedure for comparing intelligence judgments and estimates with actual outcomes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf50-7ffe-93bc-83d29a602c26" data-object-id="obj_019f6c0d-cf50-7ffe-93bc-83d29a602c26" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf50-7ffe-93bc-83d29a602c27" data-anchor-ids="anchor_019f6c0d-cf50-7ffe-93bc-83d29a602c27" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2623,0.4937,0.7480,0.5129">• Measure how well analysts live up to the defined expectations.</span></p><p class="source-gap-15" id="obj_019f6c0d-cf51-7528-918e-bb32f5cb5bb5" data-object-id="obj_019f6c0d-cf51-7528-918e-bb32f5cb5bb5" data-object-type="paragraph" data-page="190" data-anchor-id="anchor_019f6c0d-cf51-7528-918e-bb32f5cb5bb6" data-anchor-ids="anchor_019f6c0d-cf51-7528-918e-bb32f5cb5bb6" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.5289,0.7868,0.5845" data-source-gap="0.0376"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf51-7528-918e-bb32f5cb5bb7" data-object-id="obj_019f6c0d-cf51-7528-918e-bb32f5cb5bb7" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf51-7528-918e-bb32f5cb5bb8" data-anchor-ids="anchor_019f6c0d-cf51-7528-918e-bb32f5cb5bb8" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.5289,0.7868,0.5845">The discussion now turns to the experimental evidence demonstrating these biases from the perspective of the analyst, consumer, and overseer of intelligence.</span></p></section><section id="obj_019f6c0d-cf52-77fe-b0d9-b62f4cbe9441" data-object-id="obj_019f6c0d-cf52-77fe-b0d9-b62f4cbe9441" data-object-type="section" data-page="190" data-anchor-id="anchor_019f6c0d-cf52-77fe-b0d9-b62f4cbe9442" data-anchor-ids="anchor_019f6c0d-cf52-77fe-b0d9-b62f4cbe9442" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6027,0.4731,0.6239"><h1 id="obj_019f6c0d-cf52-77fe-b0d9-b62f4cbe9443" data-object-id="obj_019f6c0d-cf52-77fe-b0d9-b62f4cbe9443" data-object-type="heading" data-page="190" data-anchor-id="anchor_019f6c0d-cf52-77fe-b0d9-b62f4cbe9444" data-anchor-ids="anchor_019f6c0d-cf52-77fe-b0d9-b62f4cbe9444" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6027,0.4731,0.6239"><strong>The Analyst’s Perspective</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cf53-7d82-b46a-69501d560cf9" data-object-id="obj_019f6c0d-cf53-7d82-b46a-69501d560cf9" data-object-type="paragraph" data-page="190" data-anchor-id="anchor_019f6c0d-cf54-7784-9d9a-1868f97e042f" data-anchor-ids="anchor_019f6c0d-cf54-7784-9d9a-1868f97e042f" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6342,0.7917,0.7807" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf54-7784-9d9a-1868f97e0430" data-object-id="obj_019f6c0d-cf54-7784-9d9a-1868f97e0430" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf54-7784-9d9a-1868f97e0431" data-anchor-ids="anchor_019f6c0d-cf54-7784-9d9a-1868f97e0431" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6342,0.7917,0.7807">Analysts interested in improving their own performance need to evaluate their past estimates in the light of subsequent developments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf54-7784-9d9a-1868f97e0432" data-object-id="obj_019f6c0d-cf54-7784-9d9a-1868f97e0432" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf55-7274-b683-b3d901b5b779" data-anchor-ids="anchor_019f6c0d-cf55-7274-b683-b3d901b5b779" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6342,0.7917,0.7807">To do this, analysts must either remember (or be able to refer to) their past estimates or must reconstruct their past estimates on the basis of what they remember having known about the situation at the time the estimates were made. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf55-7274-b683-b3d901b5b77a" data-object-id="obj_019f6c0d-cf55-7274-b683-b3d901b5b77a" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf55-7274-b683-b3d901b5b77b" data-anchor-ids="anchor_019f6c0d-cf55-7274-b683-b3d901b5b77b" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.2426,0.6342,0.7917,0.7807">The effectiveness of the evaluation process, and of the learning process to which it gives impetus, depends in part upon the accuracy of these remembered or reconstructed estimates.</span></p><p class="source-gap-93" id="obj_019f6c0d-cf56-7d04-87f0-acce20b8c00e" data-object-id="obj_019f6c0d-cf56-7d04-87f0-acce20b8c00e" data-object-type="paragraph" data-page="190" data-anchor-id="anchor_019f6c0d-cf56-7d04-87f0-acce20b8c00f" data-anchor-ids="anchor_019f6c0d-cf56-7d04-87f0-acce20b8c00f" data-page-indices="190" data-pages="191" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.2324"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf56-7d04-87f0-acce20b8c010" data-object-id="obj_019f6c0d-cf56-7d04-87f0-acce20b8c010" data-object-type="sentence" data-page="190" data-anchor-id="anchor_019f6c0d-cf56-7d04-87f0-acce20b8c011" data-anchor-ids="anchor_019f6c0d-cf56-7d04-87f0-acce20b8c011" data-page-indices="190" data-pages="191" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">163</span></p><p id="obj_019f6c0d-cf57-76e3-9309-9ab8d4409360" data-object-id="obj_019f6c0d-cf57-76e3-9309-9ab8d4409360" data-object-type="paragraph" data-page="191" data-anchor-id="anchor_019f6c0d-cf57-76e3-9309-9ab8d4409361" data-anchor-ids="anchor_019f6c0d-cf57-76e3-9309-9ab8d4409361" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf57-76e3-9309-9ab8d4409362" data-object-id="obj_019f6c0d-cf57-76e3-9309-9ab8d4409362" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf58-7c66-a500-3d48520ea392" data-anchor-ids="anchor_019f6c0d-cf58-7c66-a500-3d48520ea392" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3152">Experimental evidence suggests a systematic tendency toward faulty memory of past estimates.<sup><strong>151</strong></sup> That is, when events occur, people tend to overestimate the extent to which they had previously expected them to occur. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf58-7c66-a500-3d48520ea393" data-object-id="obj_019f6c0d-cf58-7c66-a500-3d48520ea393" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf58-7c66-a500-3d48520ea394" data-anchor-ids="anchor_019f6c0d-cf58-7c66-a500-3d48520ea394" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3152">And conversely, when events do not occur, people tend to underestimate the probability they had previously assigned to their occurrence. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf58-7c66-a500-3d48520ea395" data-object-id="obj_019f6c0d-cf58-7c66-a500-3d48520ea395" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf59-7cbe-959b-e9beae077c27" data-anchor-ids="anchor_019f6c0d-cf59-7cbe-959b-e9beae077c27" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3152">In short, events generally seem less surprising than they should on the basis of past estimates. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf59-7cbe-959b-e9beae077c28" data-object-id="obj_019f6c0d-cf59-7cbe-959b-e9beae077c28" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf59-7cbe-959b-e9beae077c29" data-anchor-ids="anchor_019f6c0d-cf59-7cbe-959b-e9beae077c29" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3152">This experimental evidence accords with analysts’ intuitive experience. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf59-7cbe-959b-e9beae077c2a" data-object-id="obj_019f6c0d-cf59-7cbe-959b-e9beae077c2a" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5a-769c-a58a-0c2962a3315e" data-anchor-ids="anchor_019f6c0d-cf5a-769c-a58a-0c2962a3315e" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4425">Analysts rarely appear—or allow themselves to appear—very surprised by the course of events they are following. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5a-769c-a58a-0c2962a3315f" data-object-id="obj_019f6c0d-cf5a-769c-a58a-0c2962a3315f" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5a-769c-a58a-0c2962a33160" data-anchor-ids="anchor_019f6c0d-cf5a-769c-a58a-0c2962a33160" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.4425">In experiments to test the bias in memory of past estimates, 119 subjects were asked to estimate the probability that a number of events would or would not occur during President Nixon’s trips to Peking and Moscow in 1972. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5a-769c-a58a-0c2962a33161" data-object-id="obj_019f6c0d-cf5a-769c-a58a-0c2962a33161" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5b-7c82-be7d-fe2700927617" data-anchor-ids="anchor_019f6c0d-cf5b-7c82-be7d-fe2700927617" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.4425">Fifteen possible outcomes were identified for each trip, and each subject assigned a probability to each of these outcomes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5b-7c82-be7d-fe2700927618" data-object-id="obj_019f6c0d-cf5b-7c82-be7d-fe2700927618" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5b-7c82-be7d-fe2700927619" data-anchor-ids="anchor_019f6c0d-cf5b-7c82-be7d-fe2700927619" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.3141,0.7623,0.5334">The outcomes were selected to cover the range of possible developments and to elicit a wide range of probability values. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5b-7c82-be7d-fe270092761a" data-object-id="obj_019f6c0d-cf5b-7c82-be7d-fe270092761a" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0ce" data-anchor-ids="anchor_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0ce" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.4414,0.7622,0.5334">At varying time periods after the trips, the same subjects were asked to remember or reconstruct their own predictions as accurately as possible. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0cf" data-object-id="obj_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0cf" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0d0" data-anchor-ids="anchor_019f6c0d-cf5c-7a07-9d34-a6bcb6dba0d0" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.4414,0.7622,0.5334">(No mention was made of the memory task at the time of the original prediction.) </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5d-7735-b844-aba12d3d79a0" data-object-id="obj_019f6c0d-cf5d-7735-b844-aba12d3d79a0" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5d-7735-b844-aba12d3d79a1" data-anchor-ids="anchor_019f6c0d-cf5d-7735-b844-aba12d3d79a1" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.4414,0.7623,0.7334">Then the subjects were asked to indicate whether they thought each event had or had not occurred during these trips. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5d-7735-b844-aba12d3d79a2" data-object-id="obj_019f6c0d-cf5d-7735-b844-aba12d3d79a2" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5d-7735-b844-aba12d3d79a3" data-anchor-ids="anchor_019f6c0d-cf5d-7735-b844-aba12d3d79a3" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.7334">When three to six months were allowed to elapse between the subjects’ estimates and their recollection of these estimates, 84 percent of the subjects exhibited the bias when dealing with events they believed actually did happen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5e-7fa9-9d97-9de9956493b4" data-object-id="obj_019f6c0d-cf5e-7fa9-9d97-9de9956493b4" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5e-7fa9-9d97-9de9956493b5" data-anchor-ids="anchor_019f6c0d-cf5e-7fa9-9d97-9de9956493b5" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.7334">That is, the probabilities they remembered having estimated were higher than their actual estimates of events they believed actually did occur. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5e-7fa9-9d97-9de9956493b6" data-object-id="obj_019f6c0d-cf5e-7fa9-9d97-9de9956493b6" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5f-765a-9288-e33b3a6ee012" data-anchor-ids="anchor_019f6c0d-cf5f-765a-9288-e33b3a6ee012" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.7334">Similarly, for events they believed did not occur, the probabilities they remembered having estimated were lower than their actual estimates, although here the bias was not as great. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5f-765a-9288-e33b3a6ee013" data-object-id="obj_019f6c0d-cf5f-765a-9288-e33b3a6ee013" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf5f-765a-9288-e33b3a6ee014" data-anchor-ids="anchor_019f6c0d-cf5f-765a-9288-e33b3a6ee014" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.7879">For both kinds of events, the bias was more pronounced after three to six months had elapsed than when subjects were asked to recall estimates they had given only two weeks earlier. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf5f-765a-9288-e33b3a6ee015" data-object-id="obj_019f6c0d-cf5f-765a-9288-e33b3a6ee015" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf60-738d-86c9-6760d0960e6f" data-anchor-ids="anchor_019f6c0d-cf60-738d-86c9-6760d0960e6f" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.7323,0.7623,0.8506">In summary, knowledge of the outcomes somehow affected most test subjects’ memory of their previous estimates of these outcomes, and the more time that was allowed for memories to fade, the greater the 151. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf60-738d-86c9-6760d0960e70" data-object-id="obj_019f6c0d-cf60-738d-86c9-6760d0960e70" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf61-761c-8ad1-8b4f3376624e" data-anchor-ids="anchor_019f6c0d-cf61-761c-8ad1-8b4f3376624e" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7571,0.8506">This section is based on research reported by Baruch Fischoff and Ruth Beyth in “I Knew It Would Happen: Remembered Probabilities of Once-Future Things,” <em>Organizational Behavior and Human Performance</em>, 13 (1975), pp. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf61-761c-8ad1-8b4f3376624f" data-object-id="obj_019f6c0d-cf61-761c-8ad1-8b4f3376624f" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf61-761c-8ad1-8b4f33766250" data-anchor-ids="anchor_019f6c0d-cf61-761c-8ad1-8b4f33766250" data-page-indices="191" data-pages="192" data-confidence="0.9000" data-source-bbox="0.2132,0.8089,0.7571,0.8506">1-16.</span></p><p class="source-gap-26" id="obj_019f6c0d-cf61-761c-8ad1-8b4f33766251" data-object-id="obj_019f6c0d-cf61-761c-8ad1-8b4f33766251" data-object-type="paragraph" data-page="191" data-anchor-id="anchor_019f6c0d-cf62-7765-81cb-2117e2cc5723" data-anchor-ids="anchor_019f6c0d-cf62-7765-81cb-2117e2cc5723,anchor_019f6c0d-cf62-7765-81cb-2117e2cc5724" data-page-indices="191,192" data-pages="192,193" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf62-7765-81cb-2117e2cc5725" data-object-id="obj_019f6c0d-cf62-7765-81cb-2117e2cc5725" data-object-type="sentence" data-page="191" data-anchor-id="anchor_019f6c0d-cf63-7a08-8817-89e407dad0a4" data-anchor-ids="anchor_019f6c0d-cf63-7a08-8817-89e407dad0a4,anchor_019f6c0d-cf63-7a08-8817-89e407dad0a5" data-page-indices="191,192" data-pages="192,193" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">164 effect of the bias. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf63-7a08-8817-89e407dad0a6" data-object-id="obj_019f6c0d-cf63-7a08-8817-89e407dad0a6" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf63-7a08-8817-89e407dad0a7" data-anchor-ids="anchor_019f6c0d-cf63-7a08-8817-89e407dad0a7" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2607">The developments during the President’s trips were perceived as less surprising than they would have been if actual estimates were compared with actual outcomes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf64-77b3-b5b3-12f9e46196bd" data-object-id="obj_019f6c0d-cf64-77b3-b5b3-12f9e46196bd" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf64-77b3-b5b3-12f9e46196be" data-anchor-ids="anchor_019f6c0d-cf64-77b3-b5b3-12f9e46196be" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2607">For the 84 percent of subjects who showed the anticipated bias, their retrospective evaluation of their estimative performance was clearly more favorable than warranted by the facts.</span></p></section><section id="obj_019f6c0d-cf64-77b3-b5b3-12f9e46196bf" data-object-id="obj_019f6c0d-cf64-77b3-b5b3-12f9e46196bf" data-object-type="section" data-page="192" data-anchor-id="anchor_019f6c0d-cf65-76b6-b713-c094cef2be23" data-anchor-ids="anchor_019f6c0d-cf65-76b6-b713-c094cef2be23" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.2788,0.5007,0.3000"><h1 id="obj_019f6c0d-cf65-76b6-b713-c094cef2be24" data-object-id="obj_019f6c0d-cf65-76b6-b713-c094cef2be24" data-object-type="heading" data-page="192" data-anchor-id="anchor_019f6c0d-cf65-76b6-b713-c094cef2be25" data-anchor-ids="anchor_019f6c0d-cf65-76b6-b713-c094cef2be25" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.2788,0.5007,0.3000"><strong>The Consumer’s Perspective</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cf66-7a0c-9ad8-518d2944d623" data-object-id="obj_019f6c0d-cf66-7a0c-9ad8-518d2944d623" data-object-type="paragraph" data-page="192" data-anchor-id="anchor_019f6c0d-cf66-7a0c-9ad8-518d2944d624" data-anchor-ids="anchor_019f6c0d-cf66-7a0c-9ad8-518d2944d624" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.3103,0.7917,0.8506" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf67-742d-8350-7ceff77b19a8" data-object-id="obj_019f6c0d-cf67-742d-8350-7ceff77b19a8" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf67-742d-8350-7ceff77b19a9" data-anchor-ids="anchor_019f6c0d-cf67-742d-8350-7ceff77b19a9" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.3103,0.7917,0.4205">When consumers of intelligence reports evaluate the quality of the intelligence product, they ask themselves the question: “How much did I learn from these reports that I did not already know?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf67-742d-8350-7ceff77b19aa" data-object-id="obj_019f6c0d-cf67-742d-8350-7ceff77b19aa" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf67-742d-8350-7ceff77b19ab" data-anchor-ids="anchor_019f6c0d-cf67-742d-8350-7ceff77b19ab" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.3103,0.7917,0.4205">In answering this question, there is a consistent tendency for most people to underestimate the contribution made by new information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf68-7b94-924d-466cb93cc7df" data-object-id="obj_019f6c0d-cf68-7b94-924d-466cb93cc7df" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf68-7b94-924d-466cb93cc7e0" data-anchor-ids="anchor_019f6c0d-cf68-7b94-924d-466cb93cc7e0" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.3103,0.7917,0.5478">This “I knew it all along” bias causes consumers to undervalue the intelligence product.<sup><strong>152</strong></sup>&nbsp;That people do in fact commonly react to new information in this manner was tested in a series of experiments involving some 320 people, each of whom answered the same set of 75 factual questions taken from almanacs and encyclopedias. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf68-7b94-924d-466cb93cc7e1" data-object-id="obj_019f6c0d-cf68-7b94-924d-466cb93cc7e1" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf69-7116-a708-4a2b7efc8e11" data-anchor-ids="anchor_019f6c0d-cf69-7116-a708-4a2b7efc8e11" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.4194,0.7917,0.7478">As a measure of their confidence in their answers, the subjects assigned to each question a number ranging from 50 percent to 100 percent, indicating their estimate of the probability that they had chosen the correct answer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf69-7116-a708-4a2b7efc8e12" data-object-id="obj_019f6c0d-cf69-7116-a708-4a2b7efc8e12" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf69-7116-a708-4a2b7efc8e13" data-anchor-ids="anchor_019f6c0d-cf69-7116-a708-4a2b7efc8e13" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7478">As a second step in the experiment, subjects were divided into three groups. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6a-70f2-a905-ca58eddd924d" data-object-id="obj_019f6c0d-cf6a-70f2-a905-ca58eddd924d" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6a-70f2-a905-ca58eddd924e" data-anchor-ids="anchor_019f6c0d-cf6a-70f2-a905-ca58eddd924e" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7478">The first group was given 25 of the previously asked questions and instructed to respond to them exactly as they had previously. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6a-70f2-a905-ca58eddd924f" data-object-id="obj_019f6c0d-cf6a-70f2-a905-ca58eddd924f" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6a-70f2-a905-ca58eddd9250" data-anchor-ids="anchor_019f6c0d-cf6a-70f2-a905-ca58eddd9250" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7478">This simply tested the subjects’ ability to remember their previous answers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6b-7446-b1a1-76d37abdfc92" data-object-id="obj_019f6c0d-cf6b-7446-b1a1-76d37abdfc92" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6b-7446-b1a1-76d37abdfc93" data-anchor-ids="anchor_019f6c0d-cf6b-7446-b1a1-76d37abdfc93" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7478">The second group was given the same set of 25 questions but with the correct answers circled “for your [the subjects’] general information.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6b-7446-b1a1-76d37abdfc94" data-object-id="obj_019f6c0d-cf6b-7446-b1a1-76d37abdfc94" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6b-7446-b1a1-76d37abdfc95" data-anchor-ids="anchor_019f6c0d-cf6b-7446-b1a1-76d37abdfc95" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7478">They, too, were asked to respond by reproducing their previous answers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6c-7650-b2f6-61bea2238d58" data-object-id="obj_019f6c0d-cf6c-7650-b2f6-61bea2238d58" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6c-7650-b2f6-61bea2238d59" data-anchor-ids="anchor_019f6c0d-cf6c-7650-b2f6-61bea2238d59" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.5467,0.7917,0.7842">This tested the extent to which learning the correct answers distorted the subjects’ memories of their own previous answers, thus measuring the same bias in recollection of previous estimates that was discussed above from the analyst’s perspective. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6c-7650-b2f6-61bea2238d5a" data-object-id="obj_019f6c0d-cf6c-7650-b2f6-61bea2238d5a" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c99" data-anchor-ids="anchor_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c99" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.7467,0.7917,0.8506">The third group was given a different set of 25 questions they had not previously seen, but which were of similar difficulty so that results 152. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9a" data-object-id="obj_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9a" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9b" data-anchor-ids="anchor_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9b" data-page-indices="192" data-pages="193" data-confidence="0.9000" data-source-bbox="0.2426,0.8089,0.7893,0.8506">Experiments described in this section are reported in Baruch Fischhoff, <em>The Perceived Informativeness of Factual Information</em>, Technical Report DDI- I (Eugene, OR: Oregon Research Institute, 1976).</span></p><p class="source-gap-27" id="obj_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9c" data-object-id="obj_019f6c0d-cf6d-72c7-a71f-a3e9fd5a1c9c" data-object-type="paragraph" data-page="192" data-anchor-id="anchor_019f6c0d-cf6e-7c5c-a5be-e5008abdb159" data-anchor-ids="anchor_019f6c0d-cf6e-7c5c-a5be-e5008abdb159,anchor_019f6c0d-cf6e-7c5c-a5be-e5008abdb15a" data-page-indices="192,193" data-pages="193,194" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6e-7c5c-a5be-e5008abdb15b" data-object-id="obj_019f6c0d-cf6e-7c5c-a5be-e5008abdb15b" data-object-type="sentence" data-page="192" data-anchor-id="anchor_019f6c0d-cf6f-7918-ac3d-0609d5a0da60" data-anchor-ids="anchor_019f6c0d-cf6f-7918-ac3d-0609d5a0da60,anchor_019f6c0d-cf6f-7918-ac3d-0609d5a0da61" data-page-indices="192,193" data-pages="193,194" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">165 would be comparable with the other two groups. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf6f-7918-ac3d-0609d5a0da62" data-object-id="obj_019f6c0d-cf6f-7918-ac3d-0609d5a0da62" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf6f-7918-ac3d-0609d5a0da63" data-anchor-ids="anchor_019f6c0d-cf6f-7918-ac3d-0609d5a0da63" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">The correct answers were marked on the questionnaire, and the subjects were asked to respond to the questions as they would have responded had they not been told the answer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf70-7963-978b-2a1bce5933f7" data-object-id="obj_019f6c0d-cf70-7963-978b-2a1bce5933f7" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf70-7963-978b-2a1bce5933f8" data-anchor-ids="anchor_019f6c0d-cf70-7963-978b-2a1bce5933f8" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">This tested their ability to recall accurately how much they had known before they learned the correct answer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf70-7963-978b-2a1bce5933f9" data-object-id="obj_019f6c0d-cf70-7963-978b-2a1bce5933f9" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf70-7963-978b-2a1bce5933fa" data-anchor-ids="anchor_019f6c0d-cf70-7963-978b-2a1bce5933fa" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4243">The situation is comparable to that of intelligence consumers who are asked to evaluate how much they learned from a report, and who can do this only by trying to recollect the extent of their knowledge before they read the report. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a1" data-object-id="obj_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a1" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a2" data-anchor-ids="anchor_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a2" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.4243">The most significant results came from this third group of subjects. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a3" data-object-id="obj_019f6c0d-cf71-7dd2-9bf2-7bb3b99f63a3" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf72-78c0-9069-360fa03954d0" data-anchor-ids="anchor_019f6c0d-cf72-78c0-9069-360fa03954d0" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.4243">The group clearly overestimated what they had known originally and underestimated how much they learned from having been told the answer. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf72-78c0-9069-360fa03954d1" data-object-id="obj_019f6c0d-cf72-78c0-9069-360fa03954d1" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf72-78c0-9069-360fa03954d2" data-anchor-ids="anchor_019f6c0d-cf72-78c0-9069-360fa03954d2" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.6061">For 19 of 25 items in one running of the experiment and 20 of 25 items in another running, this group assigned higher probabilities to the correct alternatives than it is reasonable to expect they would have assigned had they not already known the correct answers. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf72-78c0-9069-360fa03954d3" data-object-id="obj_019f6c0d-cf72-78c0-9069-360fa03954d3" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf73-7ff5-b0bd-98a920de8671" data-anchor-ids="anchor_019f6c0d-cf73-7ff5-b0bd-98a920de8671" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.4232,0.7623,0.6061">In summary, the experiment confirmed the results of the previous experiment showing that people exposed to an answer tend to remember having known more than they actually did. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf73-7ff5-b0bd-98a920de8672" data-object-id="obj_019f6c0d-cf73-7ff5-b0bd-98a920de8672" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf73-7ff5-b0bd-98a920de8673" data-anchor-ids="anchor_019f6c0d-cf73-7ff5-b0bd-98a920de8673" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.4232,0.7623,0.6061">It also demonstrates that people have an even greater tendency to exaggerate the likelihood that they would have known the correct answer if they had not been informed of it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf73-7ff5-b0bd-98a920de8674" data-object-id="obj_019f6c0d-cf73-7ff5-b0bd-98a920de8674" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc5" data-anchor-ids="anchor_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc5" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.4232,0.7623,0.6061">In other words, people tend to underestimate both how much they learn from new information and the extent to which new information permits them to make correct judgments with greater confidence. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc6" data-object-id="obj_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc6" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc7" data-anchor-ids="anchor_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc7" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.4232,0.7623,0.6061">To the extent that intelligence consumers manifest these same biases, they will tend to underrate the value to them of intelligence reporting.</span></p></section><section id="obj_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc8" data-object-id="obj_019f6c0d-cf74-7554-8d3b-1fc6e67f9bc8" data-object-type="section" data-page="193" data-anchor-id="anchor_019f6c0d-cf75-7b60-ad1a-79026776fabc" data-anchor-ids="anchor_019f6c0d-cf75-7b60-ad1a-79026776fabc" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6243,0.4558,0.6455"><h1 id="obj_019f6c0d-cf75-7b60-ad1a-79026776fabd" data-object-id="obj_019f6c0d-cf75-7b60-ad1a-79026776fabd" data-object-type="heading" data-page="193" data-anchor-id="anchor_019f6c0d-cf75-7b60-ad1a-79026776fabe" data-anchor-ids="anchor_019f6c0d-cf75-7b60-ad1a-79026776fabe" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6243,0.4558,0.6455"><strong>The Overseer’s Perspective</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cf76-751d-b9a1-bf734ed740ad" data-object-id="obj_019f6c0d-cf76-751d-b9a1-bf734ed740ad" data-object-type="paragraph" data-page="193" data-anchor-id="anchor_019f6c0d-cf76-751d-b9a1-bf734ed740ae" data-anchor-ids="anchor_019f6c0d-cf76-751d-b9a1-bf734ed740ae" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6558,0.7623,0.8387" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf77-7533-a6e6-ec12566cb942" data-object-id="obj_019f6c0d-cf77-7533-a6e6-ec12566cb942" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf77-7533-a6e6-ec12566cb943" data-anchor-ids="anchor_019f6c0d-cf77-7533-a6e6-ec12566cb943" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6558,0.7623,0.8023">An overseer, as the term is used here, is one who investigates intelligence performance by conducting apostmortemexamination of a high-profile intelligence failure. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf77-7533-a6e6-ec12566cb944" data-object-id="obj_019f6c0d-cf77-7533-a6e6-ec12566cb944" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf77-7533-a6e6-ec12566cb945" data-anchor-ids="anchor_019f6c0d-cf77-7533-a6e6-ec12566cb945" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6558,0.7623,0.8023">Such investigations are carried out by Congress, the Intelligence Community staff, and CIA or DI management. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa2" data-object-id="obj_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa2" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa3" data-anchor-ids="anchor_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa3" data-page-indices="193" data-pages="194" data-confidence="0.9000" data-source-bbox="0.2132,0.6558,0.7623,0.8387">For those outside the executive branch who do not regularly read the intelligence product, this sort of retrospective evaluation of known intelligence failures is a principal basis for judgments about the quality of intelligence analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa4" data-object-id="obj_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa4" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa5" data-anchor-ids="anchor_019f6c0d-cf78-7e7d-9eb9-25ae4caf8aa5" data-page-indices="193" data-pages="194" data-confidence="0.7500" data-source-bbox="0.2132,0.8013,0.7623,0.8387">A fundamental question posed in anypostmorteminvestigation of intelligence failure is this: Given the information that was available at the</span></p><p class="source-gap-38" id="obj_019f6c0d-cf79-723c-ad72-ab77d849398d" data-object-id="obj_019f6c0d-cf79-723c-ad72-ab77d849398d" data-object-type="paragraph" data-page="193" data-anchor-id="anchor_019f6c0d-cf79-723c-ad72-ab77d849398e" data-anchor-ids="anchor_019f6c0d-cf79-723c-ad72-ab77d849398e,anchor_019f6c0d-cf79-723c-ad72-ab77d849398f" data-page-indices="193,194" data-pages="194,195" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0943"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7a-7f71-8441-4af943dc5520" data-object-id="obj_019f6c0d-cf7a-7f71-8441-4af943dc5520" data-object-type="sentence" data-page="193" data-anchor-id="anchor_019f6c0d-cf7a-7f71-8441-4af943dc5521" data-anchor-ids="anchor_019f6c0d-cf7a-7f71-8441-4af943dc5521,anchor_019f6c0d-cf7a-7f71-8441-4af943dc5522" data-page-indices="193,194" data-pages="194,195" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">166 time, should analysts have been able to foresee what was going to happen? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7b-70ec-b911-70587c5cbd71" data-object-id="obj_019f6c0d-cf7b-70ec-b911-70587c5cbd71" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7b-70ec-b911-70587c5cbd72" data-anchor-ids="anchor_019f6c0d-cf7b-70ec-b911-70587c5cbd72" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3516">Unbiased evaluation of intelligence performance depends upon the ability to provide an unbiased answer to this question.<sup><strong>153</strong></sup>&nbsp;Unfortunately, once an event has occurred, it is impossible to erase from our mind the knowledge of that event and reconstruct what our thought processes would have been at an earlier point in time. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7b-70ec-b911-70587c5cbd73" data-object-id="obj_019f6c0d-cf7b-70ec-b911-70587c5cbd73" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7b-70ec-b911-70587c5cbd74" data-anchor-ids="anchor_019f6c0d-cf7b-70ec-b911-70587c5cbd74" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3516">In reconstructing the past, there is a tendency toward determinism, toward thinking that what occurred was inevitable under the circumstances and therefore predictable. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7c-7b18-a706-e7941fa3ae31" data-object-id="obj_019f6c0d-cf7c-7b18-a706-e7941fa3ae31" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7c-7b18-a706-e7941fa3ae32" data-anchor-ids="anchor_019f6c0d-cf7c-7b18-a706-e7941fa3ae32" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.4425">In short, there is a tendency to believe analysts should have foreseen events that were, in fact, unforeseeable on the basis of the information available at the time. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7c-7b18-a706-e7941fa3ae33" data-object-id="obj_019f6c0d-cf7c-7b18-a706-e7941fa3ae33" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7c-7b18-a706-e7941fa3ae34" data-anchor-ids="anchor_019f6c0d-cf7c-7b18-a706-e7941fa3ae34" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.3505,0.7917,0.6425">The experiments reported in the following paragraphs tested the hypotheses that knowledge of an outcome increases the perceived inevitability of that outcome, and that people who are informed of the outcome are largely unaware that this information has changed their perceptions in this manner. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2b" data-object-id="obj_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2b" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2c" data-anchor-ids="anchor_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2c" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.6425">A series of sub-experiments used brief (150-word) summaries of several events for which four possible outcomes were identified. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2d" data-object-id="obj_019f6c0d-cf7d-7849-bfa8-93a37ecc4d2d" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7e-78c2-994c-30327b8f334b" data-anchor-ids="anchor_019f6c0d-cf7e-78c2-994c-30327b8f334b" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.6425">One of these events was the struggle between the British and the Gurkhas in India in 1814. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7e-78c2-994c-30327b8f334c" data-object-id="obj_019f6c0d-cf7e-78c2-994c-30327b8f334c" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7e-78c2-994c-30327b8f334d" data-anchor-ids="anchor_019f6c0d-cf7e-78c2-994c-30327b8f334d" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.6425">The four possible outcomes for this event were 1) British victory, 2) Gurkha victory, 3) military stalemate with no peace settlement, and 4) military stalemate with a peace settlement. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7e-78c2-994c-30327b8f334e" data-object-id="obj_019f6c0d-cf7e-78c2-994c-30327b8f334e" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7f-763e-8a12-fbe1fda6105f" data-anchor-ids="anchor_019f6c0d-cf7f-763e-8a12-fbe1fda6105f" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.6425">Five groups of 20 subjects each participated in each sub-experiment. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7f-763e-8a12-fbe1fda61060" data-object-id="obj_019f6c0d-cf7f-763e-8a12-fbe1fda61060" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf7f-763e-8a12-fbe1fda61061" data-anchor-ids="anchor_019f6c0d-cf7f-763e-8a12-fbe1fda61061" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.6425">One group received the 150word description of the struggle between the British and the Gurkhas with no indication of the outcome. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf7f-763e-8a12-fbe1fda61062" data-object-id="obj_019f6c0d-cf7f-763e-8a12-fbe1fda61062" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf80-7f0f-bd13-8899e6858933" data-anchor-ids="anchor_019f6c0d-cf80-7f0f-bd13-8899e6858933" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.7516">The other four groups received the identical description but with one sentence added to indicate the outcome of the struggle—a different outcome for each group. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf80-7f0f-bd13-8899e6858934" data-object-id="obj_019f6c0d-cf80-7f0f-bd13-8899e6858934" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf80-7f0f-bd13-8899e6858935" data-anchor-ids="anchor_019f6c0d-cf80-7f0f-bd13-8899e6858935" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.6414,0.7917,0.7516">The subjects in all five groups were asked to estimate the likelihood of each of the four possible outcomes and to evaluate the relevance to their judgment of each datum in the event description. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf80-7f0f-bd13-8899e6858936" data-object-id="obj_019f6c0d-cf80-7f0f-bd13-8899e6858936" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf81-7a2f-b087-d4f27a00c72f" data-anchor-ids="anchor_019f6c0d-cf81-7a2f-b087-d4f27a00c72f" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.6414,0.7917,0.7516">Those subjects who were informed of an outcome were placed in the same position as an overseer of intelligence analysis preparing a postmortem analysis of an intelligence failure. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf81-7a2f-b087-d4f27a00c730" data-object-id="obj_019f6c0d-cf81-7a2f-b087-d4f27a00c730" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf81-7a2f-b087-d4f27a00c731" data-anchor-ids="anchor_019f6c0d-cf81-7a2f-b087-d4f27a00c731" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.6414,0.7917,0.8506">This person tries to assess the probability of an outcome 153. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf81-7a2f-b087-d4f27a00c732" data-object-id="obj_019f6c0d-cf81-7a2f-b087-d4f27a00c732" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf82-7e79-a0b9-f5daa2e7a529" data-anchor-ids="anchor_019f6c0d-cf82-7e79-a0b9-f5daa2e7a529" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7739,0.8506">Experiments described in this section are reported in Baruch Fischhoff, “Hindsight does not equal Foresight: The Effect of Outcome Knowledge on Judgment Under Uncertainty,” <em>Journal of Experimental Psychology: Human Perception and Performance</em>, 1, 3 (1975), pp. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf82-7e79-a0b9-f5daa2e7a52a" data-object-id="obj_019f6c0d-cf82-7e79-a0b9-f5daa2e7a52a" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf82-7e79-a0b9-f5daa2e7a52b" data-anchor-ids="anchor_019f6c0d-cf82-7e79-a0b9-f5daa2e7a52b" data-page-indices="194" data-pages="195" data-confidence="0.9000" data-source-bbox="0.2426,0.7953,0.7739,0.8506">288299.</span></p><p class="source-gap-27" id="obj_019f6c0d-cf83-7203-82f4-2ac0b0016fa7" data-object-id="obj_019f6c0d-cf83-7203-82f4-2ac0b0016fa7" data-object-type="paragraph" data-page="194" data-anchor-id="anchor_019f6c0d-cf83-7203-82f4-2ac0b0016fa8" data-anchor-ids="anchor_019f6c0d-cf83-7203-82f4-2ac0b0016fa8,anchor_019f6c0d-cf83-7203-82f4-2ac0b0016fa9" data-page-indices="194,195" data-pages="195,196" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf83-7203-82f4-2ac0b0016faa" data-object-id="obj_019f6c0d-cf83-7203-82f4-2ac0b0016faa" data-object-type="sentence" data-page="194" data-anchor-id="anchor_019f6c0d-cf84-7eac-b5c3-aa9b2c4523be" data-anchor-ids="anchor_019f6c0d-cf84-7eac-b5c3-aa9b2c4523be,anchor_019f6c0d-cf84-7eac-b5c3-aa9b2c4523bf" data-page-indices="194,195" data-pages="195,196" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">167 based only on the information available before the outcome was known. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf85-7acc-b7f3-d264094a5e10" data-object-id="obj_019f6c0d-cf85-7acc-b7f3-d264094a5e10" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf85-7acc-b7f3-d264094a5e11" data-anchor-ids="anchor_019f6c0d-cf85-7acc-b7f3-d264094a5e11" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.4839,0.7623,0.6668">The results are shown in Figure 18. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf85-7acc-b7f3-d264094a5e12" data-object-id="obj_019f6c0d-cf85-7acc-b7f3-d264094a5e12" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf85-7acc-b7f3-d264094a5e13" data-anchor-ids="anchor_019f6c0d-cf85-7acc-b7f3-d264094a5e13" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.5203,0.7623,0.6668">The group not informed of any outcome judged the probability of Outcome 1 as 33.8 percent, while the group told that Outcome 1 was the actual outcome perceived the probability of this outcome as 57.2 percent. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf86-7561-a7ed-22081e413fc2" data-object-id="obj_019f6c0d-cf86-7561-a7ed-22081e413fc2" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf86-7561-a7ed-22081e413fc3" data-anchor-ids="anchor_019f6c0d-cf86-7561-a7ed-22081e413fc3" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.5203,0.7623,0.6668">The estimated probability was clearly influenced by knowledge of the outcome. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf86-7561-a7ed-22081e413fc4" data-object-id="obj_019f6c0d-cf86-7561-a7ed-22081e413fc4" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf86-7561-a7ed-22081e413fc5" data-anchor-ids="anchor_019f6c0d-cf86-7561-a7ed-22081e413fc5" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.5203,0.7623,0.7577">Similarly, the control group with no outcome knowledge estimated the probability of Outcome 2 as 21.3 percent, while those informed that Outcome 2 was the actual outcome perceived it as having a 38.4 percent probability. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf87-780d-98b7-1bbd56b375bf" data-object-id="obj_019f6c0d-cf87-780d-98b7-1bbd56b375bf" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf87-780d-98b7-1bbd56b375c0" data-anchor-ids="anchor_019f6c0d-cf87-780d-98b7-1bbd56b375c0" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.6657,0.7623,0.8486">An average of all estimated outcomes in six sub-experiments (a total of 2,188 estimates by 547 subjects) indicates that the knowledge or belief that one of four possible outcomes has occurred approximately doubles the perceived probability of that outcome as judged with hindsight as compared with foresight. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf87-780d-98b7-1bbd56b375c1" data-object-id="obj_019f6c0d-cf87-780d-98b7-1bbd56b375c1" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf87-780d-98b7-1bbd56b375c2" data-anchor-ids="anchor_019f6c0d-cf87-780d-98b7-1bbd56b375c2" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.7567,0.7623,0.8486">The relevance that subjects attributed to any datum was also strongly influenced by which outcome, if any, they had been told was true. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf88-7e93-a951-2a6a2e11b999" data-object-id="obj_019f6c0d-cf88-7e93-a951-2a6a2e11b999" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf88-7e93-a951-2a6a2e11b99a" data-anchor-ids="anchor_019f6c0d-cf88-7e93-a951-2a6a2e11b99a" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.7567,0.7623,0.8486">As Roberta Wohlstetter has written, “It is much easier after the fact to sort the relevant from the irrelevant signals. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf88-7e93-a951-2a6a2e11b99b" data-object-id="obj_019f6c0d-cf88-7e93-a951-2a6a2e11b99b" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf88-7e93-a951-2a6a2e11b99c" data-anchor-ids="anchor_019f6c0d-cf88-7e93-a951-2a6a2e11b99c" data-page-indices="195" data-pages="196" data-confidence="0.9000" data-source-bbox="0.2132,0.7567,0.7623,0.8486">After the event, of course, a signal is always crystal clear. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf89-770c-8324-0dd8b2639b87" data-object-id="obj_019f6c0d-cf89-770c-8324-0dd8b2639b87" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf89-770c-8324-0dd8b2639b88" data-anchor-ids="anchor_019f6c0d-cf89-770c-8324-0dd8b2639b88" data-page-indices="195" data-pages="196" data-confidence="0.7500" data-source-bbox="0.2132,0.7567,0.7623,0.8486">We can now see what disaster it was signaling since</span></p><p class="source-gap-28" id="obj_019f6c0d-cf89-770c-8324-0dd8b2639b89" data-object-id="obj_019f6c0d-cf89-770c-8324-0dd8b2639b89" data-object-type="paragraph" data-page="195" data-anchor-id="anchor_019f6c0d-cf8a-7869-8b40-47589554cf7f" data-anchor-ids="anchor_019f6c0d-cf8a-7869-8b40-47589554cf7f,anchor_019f6c0d-cf8a-7869-8b40-47589554cf80" data-page-indices="195,196" data-pages="196,197" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0709"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8a-7869-8b40-47589554cf81" data-object-id="obj_019f6c0d-cf8a-7869-8b40-47589554cf81" data-object-type="sentence" data-page="195" data-anchor-id="anchor_019f6c0d-cf8a-7869-8b40-47589554cf82" data-anchor-ids="anchor_019f6c0d-cf8a-7869-8b40-47589554cf82,anchor_019f6c0d-cf8b-7b10-8cbe-cb822fd75b2d" data-page-indices="195,196" data-pages="196,197" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">168 the disaster has occurred, but before the event it is obscure and pregnant with conflicting meanings.”</span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8b-7b10-8cbe-cb822fd75b2e" data-object-id="obj_019f6c0d-cf8b-7b10-8cbe-cb822fd75b2e" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8b-7b10-8cbe-cb822fd75b2f" data-anchor-ids="anchor_019f6c0d-cf8b-7b10-8cbe-cb822fd75b2f" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.4243"><sup><strong>154</strong></sup> The fact that outcome knowledge automatically restructures a person’s judgments about the relevance of available data is probably one reason it is so difficult to reconstruct how our thought processes were or would have been without this outcome knowledge. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8b-7b10-8cbe-cb822fd75b30" data-object-id="obj_019f6c0d-cf8b-7b10-8cbe-cb822fd75b30" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8c-7280-be5e-f845508c5c90" data-anchor-ids="anchor_019f6c0d-cf8c-7280-be5e-f845508c5c90" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4243">In several variations of this experiment, subjects were asked to respond as though they did not know the outcome, or as others would respond if they did not know the outcome. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8c-7280-be5e-f845508c5c91" data-object-id="obj_019f6c0d-cf8c-7280-be5e-f845508c5c91" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8c-7280-be5e-f845508c5c92" data-anchor-ids="anchor_019f6c0d-cf8c-7280-be5e-f845508c5c92" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4243">The results were little different, indicating that subjects were largely unaware of how knowledge of the outcome affected their own perceptions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8d-7324-8377-26e228dc0030" data-object-id="obj_019f6c0d-cf8d-7324-8377-26e228dc0030" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8d-7324-8377-26e228dc0031" data-anchor-ids="anchor_019f6c0d-cf8d-7324-8377-26e228dc0031" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4243">The experiment showed that subjects were unable to empathize with how others would judge these situations. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8d-7324-8377-26e228dc0032" data-object-id="obj_019f6c0d-cf8d-7324-8377-26e228dc0032" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8d-7324-8377-26e228dc0033" data-anchor-ids="anchor_019f6c0d-cf8d-7324-8377-26e228dc0033" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.5516">Estimates of how others would interpret the data without knowing the outcome were virtually the same as the test subjects’ own retrospective interpretations. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa2" data-object-id="obj_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa2" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa3" data-anchor-ids="anchor_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa3" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.4232,0.7916,0.5516">These results indicate that overseers conducting postmortemevaluations of what analysts should have been able to foresee, given the available information, will tend to perceive the outcome of that situation as having been more predictable than was, in fact, the case. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa4" data-object-id="obj_019f6c0d-cf8e-719b-9bdd-d8ae89fedaa4" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf8f-7535-bef2-a9aa324a3227" data-anchor-ids="anchor_019f6c0d-cf8f-7535-bef2-a9aa324a3227" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.4232,0.7916,0.5516">Because they are unable to reconstruct a state of mind that views the situation only with foresight, not hindsight, overseers will tend to be more critical of intelligence performance than is warranted.</span></p></section><section id="obj_019f6c0d-cf8f-7535-bef2-a9aa324a3228" data-object-id="obj_019f6c0d-cf8f-7535-bef2-a9aa324a3228" data-object-type="section" data-page="196" data-anchor-id="anchor_019f6c0d-cf8f-7535-bef2-a9aa324a3229" data-anchor-ids="anchor_019f6c0d-cf8f-7535-bef2-a9aa324a3229" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.5697,0.4916,0.5909"><h1 id="obj_019f6c0d-cf8f-7535-bef2-a9aa324a322a" data-object-id="obj_019f6c0d-cf8f-7535-bef2-a9aa324a322a" data-object-type="heading" data-page="196" data-anchor-id="anchor_019f6c0d-cf90-7362-8143-70e0d2695c91" data-anchor-ids="anchor_019f6c0d-cf90-7362-8143-70e0d2695c91" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.5697,0.4916,0.5909"><strong>Discussion of Experiments</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cf90-7362-8143-70e0d2695c94" data-object-id="obj_019f6c0d-cf90-7362-8143-70e0d2695c94" data-object-type="paragraph" data-page="196" data-anchor-id="anchor_019f6c0d-cf91-7fce-96a3-a6be0764ed00" data-anchor-ids="anchor_019f6c0d-cf91-7fce-96a3-a6be0764ed00" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8506" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf91-7fce-96a3-a6be0764ed01" data-object-id="obj_019f6c0d-cf91-7fce-96a3-a6be0764ed01" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf91-7fce-96a3-a6be0764ed02" data-anchor-ids="anchor_019f6c0d-cf91-7fce-96a3-a6be0764ed02" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8023">Experiments that demonstrated these biases and their resistance to corrective action were conducted as part of a research program in decision analysis funded by the Defense Advanced Research Projects Agency. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf91-7fce-96a3-a6be0764ed03" data-object-id="obj_019f6c0d-cf91-7fce-96a3-a6be0764ed03" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf92-71de-a46f-d3858d64d970" data-anchor-ids="anchor_019f6c0d-cf92-71de-a46f-d3858d64d970" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8023">Unfortunately, the experimental subjects were students, not members of the Intelligence Community. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf92-71de-a46f-d3858d64d971" data-object-id="obj_019f6c0d-cf92-71de-a46f-d3858d64d971" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf92-71de-a46f-d3858d64d972" data-anchor-ids="anchor_019f6c0d-cf92-71de-a46f-d3858d64d972" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8023">There is, nonetheless, reason to believe the results can be generalized to apply to the Intelligence Community. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf92-71de-a46f-d3858d64d973" data-object-id="obj_019f6c0d-cf92-71de-a46f-d3858d64d973" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf93-759b-874a-7adcc7a003f6" data-anchor-ids="anchor_019f6c0d-cf93-759b-874a-7adcc7a003f6" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8023">The experiments deal with basic human mental processes, and the results do seem consistent with personal experience in the Intelligence Community. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf93-759b-874a-7adcc7a003f7" data-object-id="obj_019f6c0d-cf93-759b-874a-7adcc7a003f7" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf93-759b-874a-7adcc7a003f8" data-anchor-ids="anchor_019f6c0d-cf93-759b-874a-7adcc7a003f8" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.6013,0.7917,0.8506">In similar kinds of psychological tests, in which experts, including intelligence analysts, were used as test subjects, the experts showed the same pattern of responses as students. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf93-759b-874a-7adcc7a003f9" data-object-id="obj_019f6c0d-cf93-759b-874a-7adcc7a003f9" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf94-714c-8aa2-80d8096a9538" data-anchor-ids="anchor_019f6c0d-cf94-714c-8aa2-80d8096a9538" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7365,0.8506">154. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf94-714c-8aa2-80d8096a9539" data-object-id="obj_019f6c0d-cf94-714c-8aa2-80d8096a9539" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf94-714c-8aa2-80d8096a953a" data-anchor-ids="anchor_019f6c0d-cf94-714c-8aa2-80d8096a953a" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7365,0.8506">Roberta Wohlstetter, <em>Pearl Harbor: Warning and Decision</em> (Stanford, CA: Stanford University Press, 1962), p. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf94-714c-8aa2-80d8096a953b" data-object-id="obj_019f6c0d-cf94-714c-8aa2-80d8096a953b" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf95-774f-afc4-2b146f16dcd8" data-anchor-ids="anchor_019f6c0d-cf95-774f-afc4-2b146f16dcd8" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7365,0.8506">387. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf95-774f-afc4-2b146f16dcd9" data-object-id="obj_019f6c0d-cf95-774f-afc4-2b146f16dcd9" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf95-774f-afc4-2b146f16dcda" data-anchor-ids="anchor_019f6c0d-cf95-774f-afc4-2b146f16dcda" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7365,0.8506">Cited by Fischhoff.</span></p><p class="source-gap-27" id="obj_019f6c0d-cf96-7716-ba14-dd307a07c1f0" data-object-id="obj_019f6c0d-cf96-7716-ba14-dd307a07c1f0" data-object-type="paragraph" data-page="196" data-anchor-id="anchor_019f6c0d-cf96-7716-ba14-dd307a07c1f1" data-anchor-ids="anchor_019f6c0d-cf96-7716-ba14-dd307a07c1f1" data-page-indices="196" data-pages="197" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf96-7716-ba14-dd307a07c1f2" data-object-id="obj_019f6c0d-cf96-7716-ba14-dd307a07c1f2" data-object-type="sentence" data-page="196" data-anchor-id="anchor_019f6c0d-cf96-7716-ba14-dd307a07c1f3" data-anchor-ids="anchor_019f6c0d-cf96-7716-ba14-dd307a07c1f3" data-page-indices="196" data-pages="197" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">169</span></p><p id="obj_019f6c0d-cf97-74b5-9b8b-f8bf8d052e64" data-object-id="obj_019f6c0d-cf97-74b5-9b8b-f8bf8d052e64" data-object-type="paragraph" data-page="197" data-anchor-id="anchor_019f6c0d-cf97-74b5-9b8b-f8bf8d052e65" data-anchor-ids="anchor_019f6c0d-cf97-74b5-9b8b-f8bf8d052e65" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.6243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cf97-74b5-9b8b-f8bf8d052e66" data-object-id="obj_019f6c0d-cf97-74b5-9b8b-f8bf8d052e66" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf98-7407-9d5c-bee860e6e8e0" data-anchor-ids="anchor_019f6c0d-cf98-7407-9d5c-bee860e6e8e0" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">My own imperfect effort to replicate one of these experiments using intelligence analysts also supports the validity of the previous findings. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf98-7407-9d5c-bee860e6e8e1" data-object-id="obj_019f6c0d-cf98-7407-9d5c-bee860e6e8e1" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf98-7407-9d5c-bee860e6e8e2" data-anchor-ids="anchor_019f6c0d-cf98-7407-9d5c-bee860e6e8e2" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">To test the assertion that intelligence analysts normally overestimate the accuracy of their past judgments, there are two necessary preconditions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf98-7407-9d5c-bee860e6e8e3" data-object-id="obj_019f6c0d-cf98-7407-9d5c-bee860e6e8e3" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf99-787f-bcfd-c62e4abd858a" data-anchor-ids="anchor_019f6c0d-cf99-787f-bcfd-c62e4abd858a" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">First, analysts must make a series of estimates in quantitative terms—that is, they must say not just that a given occurrence is probable, but that there is, for example, a 75-percent chance of its occurrence. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf99-787f-bcfd-c62e4abd858b" data-object-id="obj_019f6c0d-cf99-787f-bcfd-c62e4abd858b" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf99-787f-bcfd-c62e4abd858c" data-anchor-ids="anchor_019f6c0d-cf99-787f-bcfd-c62e4abd858c" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">Second, it must be possible to make an unambiguous determination whether the estimated event did or did not occur. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf99-787f-bcfd-c62e4abd858d" data-object-id="obj_019f6c0d-cf99-787f-bcfd-c62e4abd858d" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9a-7d78-a503-2d5826a3076b" data-anchor-ids="anchor_019f6c0d-cf9a-7d78-a503-2d5826a3076b" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">When these two preconditions are present, one can go back and check the analysts’ recollections of their earlier estimates. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9a-7d78-a503-2d5826a3076c" data-object-id="obj_019f6c0d-cf9a-7d78-a503-2d5826a3076c" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9a-7d78-a503-2d5826a3076d" data-anchor-ids="anchor_019f6c0d-cf9a-7d78-a503-2d5826a3076d" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.5334">Because CIA estimates are rarely stated in terms of quantitative probabilities, and because the occurrence of an estimated event within a specified time period often cannot be determined unambiguously, these preconditions are seldom met. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9a-7d78-a503-2d5826a3076e" data-object-id="obj_019f6c0d-cf9a-7d78-a503-2d5826a3076e" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9b-7a2f-aeda-0fd33b655f02" data-anchor-ids="anchor_019f6c0d-cf9b-7a2f-aeda-0fd33b655f02" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.4050,0.7623,0.5334">I did, however, identify several analysts who, on two widely differing subjects, had made quantitative estimates of the likelihood of events for which the subsequent outcome was clearly known. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9b-7a2f-aeda-0fd33b655f03" data-object-id="obj_019f6c0d-cf9b-7a2f-aeda-0fd33b655f03" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9b-7a2f-aeda-0fd33b655f04" data-anchor-ids="anchor_019f6c0d-cf9b-7a2f-aeda-0fd33b655f04" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.4050,0.7623,0.5334">I went to these analysts and asked them to recall their earlier estimates. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9c-7712-ab8b-2780dedf906a" data-object-id="obj_019f6c0d-cf9c-7712-ab8b-2780dedf906a" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9c-7712-ab8b-2780dedf906b" data-anchor-ids="anchor_019f6c0d-cf9c-7712-ab8b-2780dedf906b" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.4050,0.7623,0.6243">The conditions for this mini-experiment were far from ideal and the results were not clear-cut, but they did tend to support the conclusions drawn from the more extensive and systematic experiments described above. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9c-7712-ab8b-2780dedf906c" data-object-id="obj_019f6c0d-cf9c-7712-ab8b-2780dedf906c" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9c-7712-ab8b-2780dedf906d" data-anchor-ids="anchor_019f6c0d-cf9c-7712-ab8b-2780dedf906d" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.6243">All this leads to the conclusion that the three biases are found in Intelligence Community personnel as well as in the specific test subjects. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cf9d-7294-b9ca-7e490fbcf587" data-object-id="obj_019f6c0d-cf9d-7294-b9ca-7e490fbcf587" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cf9d-7294-b9ca-7e490fbcf588" data-anchor-ids="anchor_019f6c0d-cf9d-7294-b9ca-7e490fbcf588" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.6243">In fact, one would expect the biases to be even greater in foreign affairs professionals whose careers and self-esteem depend upon the presumed accuracy of their judgments.</span></p></section><section id="obj_019f6c0d-cf9d-7294-b9ca-7e490fbcf589" data-object-id="obj_019f6c0d-cf9d-7294-b9ca-7e490fbcf589" data-object-type="section" data-page="197" data-anchor-id="anchor_019f6c0d-cf9e-70f9-a47c-74812ebe096a" data-anchor-ids="anchor_019f6c0d-cf9e-70f9-a47c-74812ebe096a" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6424,0.5142,0.6637"><h1 id="obj_019f6c0d-cf9e-70f9-a47c-74812ebe096b" data-object-id="obj_019f6c0d-cf9e-70f9-a47c-74812ebe096b" data-object-type="heading" data-page="197" data-anchor-id="anchor_019f6c0d-cf9e-70f9-a47c-74812ebe096c" data-anchor-ids="anchor_019f6c0d-cf9e-70f9-a47c-74812ebe096c" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6424,0.5142,0.6637"><strong>Can We Overcome These Biases?</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cf9f-705e-bd89-b7ea006d1c5b" data-object-id="obj_019f6c0d-cf9f-705e-bd89-b7ea006d1c5b" data-object-type="paragraph" data-page="197" data-anchor-id="anchor_019f6c0d-cf9f-705e-bd89-b7ea006d1c5c" data-anchor-ids="anchor_019f6c0d-cf9f-705e-bd89-b7ea006d1c5c" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6740,0.7623,0.8387" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa0-7eb1-ae99-e97d4ce90600" data-object-id="obj_019f6c0d-cfa0-7eb1-ae99-e97d4ce90600" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa0-7eb1-ae99-e97d4ce90601" data-anchor-ids="anchor_019f6c0d-cfa0-7eb1-ae99-e97d4ce90601" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6740,0.7623,0.7842">Analysts tend to blame biased evaluations of intelligence performance at best on ignorance and at worst on self-interest and lack of objectivity. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa0-7eb1-ae99-e97d4ce90602" data-object-id="obj_019f6c0d-cfa0-7eb1-ae99-e97d4ce90602" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa0-7eb1-ae99-e97d4ce90603" data-anchor-ids="anchor_019f6c0d-cfa0-7eb1-ae99-e97d4ce90603" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6740,0.7623,0.7842">Both these factors may also be at work, but the experiments suggest the nature of human mental processes is also a principal culprit. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa1-7088-ae1e-665314ae766e" data-object-id="obj_019f6c0d-cfa1-7088-ae1e-665314ae766e" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa1-7088-ae1e-665314ae766f" data-anchor-ids="anchor_019f6c0d-cfa1-7088-ae1e-665314ae766f" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.6740,0.7623,0.8387">This is a more intractable cause than either ignorance or lack of objectivity. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa1-7088-ae1e-665314ae7670" data-object-id="obj_019f6c0d-cfa1-7088-ae1e-665314ae7670" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa1-7088-ae1e-665314ae7671" data-anchor-ids="anchor_019f6c0d-cfa1-7088-ae1e-665314ae7671" data-page-indices="197" data-pages="198" data-confidence="0.9000" data-source-bbox="0.2132,0.7831,0.7623,0.8387">The self-interest of the experimental subjects was not at stake, yet they showed the same kinds of bias with which analysts are familiar. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa2-74b0-be3e-8ede0cd18bee" data-object-id="obj_019f6c0d-cfa2-74b0-be3e-8ede0cd18bee" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa2-74b0-be3e-8ede0cd18bef" data-anchor-ids="anchor_019f6c0d-cfa2-74b0-be3e-8ede0cd18bef" data-page-indices="197" data-pages="198" data-confidence="0.7500" data-source-bbox="0.2132,0.7831,0.7623,0.8387">Moreover, in these experimental situations the biases were highly resis-</span></p><p class="source-gap-38" id="obj_019f6c0d-cfa2-74b0-be3e-8ede0cd18bf0" data-object-id="obj_019f6c0d-cfa2-74b0-be3e-8ede0cd18bf0" data-object-type="paragraph" data-page="197" data-anchor-id="anchor_019f6c0d-cfa3-7f49-9e3f-2cc69b1cc272" data-anchor-ids="anchor_019f6c0d-cfa3-7f49-9e3f-2cc69b1cc272,anchor_019f6c0d-cfa3-7f49-9e3f-2cc69b1cc273" data-page-indices="197,198" data-pages="198,199" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0943"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa3-7f49-9e3f-2cc69b1cc274" data-object-id="obj_019f6c0d-cfa3-7f49-9e3f-2cc69b1cc274" data-object-type="sentence" data-page="197" data-anchor-id="anchor_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f2" data-anchor-ids="anchor_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f2,anchor_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f3" data-page-indices="197,198" data-pages="198,199" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">170 tant to efforts to overcome them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f4" data-object-id="obj_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f4" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f5" data-anchor-ids="anchor_019f6c0d-cfa4-7db5-8f2a-de5bcccf48f5" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2607">Subjects were instructed to make estimates as if they did not already know the answer, but they were unable to do so. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa5-73d7-97f7-428fbc80a85a" data-object-id="obj_019f6c0d-cfa5-73d7-97f7-428fbc80a85a" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa5-73d7-97f7-428fbc80a85b" data-anchor-ids="anchor_019f6c0d-cfa5-73d7-97f7-428fbc80a85b" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2607">One set of test subjects was briefed specifically on the bias, citing the results of previous experiments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa5-73d7-97f7-428fbc80a85c" data-object-id="obj_019f6c0d-cfa5-73d7-97f7-428fbc80a85c" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa5-73d7-97f7-428fbc80a85d" data-anchor-ids="anchor_019f6c0d-cfa5-73d7-97f7-428fbc80a85d" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2607">This group was instructed to try to compensate for the bias, but it was unable to do so. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa6-7bca-acd2-6cd2b5233b7f" data-object-id="obj_019f6c0d-cfa6-7bca-acd2-6cd2b5233b7f" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa6-7bca-acd2-6cd2b5233b80" data-anchor-ids="anchor_019f6c0d-cfa6-7bca-acd2-6cd2b5233b80" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.4425">Despite maximum information and the best of intentions, the bias persisted. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa6-7bca-acd2-6cd2b5233b81" data-object-id="obj_019f6c0d-cfa6-7bca-acd2-6cd2b5233b81" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa7-7c79-8ca8-ab1536a69dff" data-anchor-ids="anchor_019f6c0d-cfa7-7c79-8ca8-ab1536a69dff" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4425">This intractability suggests the bias does indeed have its roots in the nature of our mental processes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa7-7c79-8ca8-ab1536a69e00" data-object-id="obj_019f6c0d-cfa7-7c79-8ca8-ab1536a69e00" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa7-7c79-8ca8-ab1536a69e01" data-anchor-ids="anchor_019f6c0d-cfa7-7c79-8ca8-ab1536a69e01" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4425">Analysts who try to recall a previous estimate after learning the actual outcome of events, consumers who think about how much a report has added to their knowledge, and overseers who judge whether analysts should have been able to avoid an intelligence failure, all have one thing in common. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa7-7c79-8ca8-ab1536a69e02" data-object-id="obj_019f6c0d-cfa7-7c79-8ca8-ab1536a69e02" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa8-7d3c-9054-ea36da1b2060" data-anchor-ids="anchor_019f6c0d-cfa8-7d3c-9054-ea36da1b2060" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.4425">They are engaged in a mental process involving hindsight. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa8-7d3c-9054-ea36da1b2061" data-object-id="obj_019f6c0d-cfa8-7d3c-9054-ea36da1b2061" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa8-7d3c-9054-ea36da1b2062" data-anchor-ids="anchor_019f6c0d-cfa8-7d3c-9054-ea36da1b2062" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.2596,0.7917,0.5516">They are trying to erase the impact of knowledge, so as to remember, reconstruct, or imagine the uncertainties they had or would have had about a subject prior to receipt of more or less definitive information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa9-718d-9da9-16f189414905" data-object-id="obj_019f6c0d-cfa9-718d-9da9-16f189414905" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa9-718d-9da9-16f189414906" data-anchor-ids="anchor_019f6c0d-cfa9-718d-9da9-16f189414906" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.5516">It appears, however, that the receipt of what is accepted as definitive or authoritative information causes an immediate but unconscious restructuring of a person’s mental images to make them consistent with the new information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfa9-718d-9da9-16f189414907" data-object-id="obj_019f6c0d-cfa9-718d-9da9-16f189414907" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfa9-718d-9da9-16f189414908" data-anchor-ids="anchor_019f6c0d-cfa9-718d-9da9-16f189414908" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.4414,0.7917,0.7152">Once past perceptions have been restructured, it seems very difficult, if not impossible, to reconstruct accurately what one’s thought processes were or would have been before this restructuring. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfaa-78d1-8975-dcc45820e872" data-object-id="obj_019f6c0d-cfaa-78d1-8975-dcc45820e872" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfaa-78d1-8975-dcc45820e873" data-anchor-ids="anchor_019f6c0d-cfaa-78d1-8975-dcc45820e873" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.7152">There is one procedure that may help to overcome these biases. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfaa-78d1-8975-dcc45820e874" data-object-id="obj_019f6c0d-cfaa-78d1-8975-dcc45820e874" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfaa-78d1-8975-dcc45820e875" data-anchor-ids="anchor_019f6c0d-cfaa-78d1-8975-dcc45820e875" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.7152">It is to pose such questions as the following: Analysts should ask themselves, “If the opposite outcome had occurred, would I have been surprised?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfab-768c-a5dd-79f91e19403f" data-object-id="obj_019f6c0d-cfab-768c-a5dd-79f91e19403f" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfab-768c-a5dd-79f91e194040" data-anchor-ids="anchor_019f6c0d-cfab-768c-a5dd-79f91e194040" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.7152">Consumers should ask, “If this report had told me the opposite, would I have believed it?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfab-768c-a5dd-79f91e194041" data-object-id="obj_019f6c0d-cfab-768c-a5dd-79f91e194041" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfac-7f25-a1ef-2110124fa3c3" data-anchor-ids="anchor_019f6c0d-cfac-7f25-a1ef-2110124fa3c3" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.7152">And overseers should ask, “If the opposite outcome had occurred, would it have been predictable given the information that was available?” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfac-7f25-a1ef-2110124fa3c4" data-object-id="obj_019f6c0d-cfac-7f25-a1ef-2110124fa3c4" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfac-7f25-a1ef-2110124fa3c5" data-anchor-ids="anchor_019f6c0d-cfac-7f25-a1ef-2110124fa3c5" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8425">These questions may help one recall or reconstruct the uncertainty that existed prior to learning the content of a report or the outcome of a situation. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfac-7f25-a1ef-2110124fa3c6" data-object-id="obj_019f6c0d-cfac-7f25-a1ef-2110124fa3c6" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfad-792a-85af-6cad8012f2f9" data-anchor-ids="anchor_019f6c0d-cfad-792a-85af-6cad8012f2f9" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.7141,0.7917,0.8425">This method of overcoming the bias can be tested by readers of this chapter, especially those who believe it failed to tell them much they had not already known. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfad-792a-85af-6cad8012f2fa" data-object-id="obj_019f6c0d-cfad-792a-85af-6cad8012f2fa" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfad-792a-85af-6cad8012f2fb" data-anchor-ids="anchor_019f6c0d-cfad-792a-85af-6cad8012f2fb" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.7141,0.7917,0.8425">If this chapter had reported that psychological experiments show no consistent pattern of analysts overestimating the accuracy of their estimates, or of consumers underestimating the value of our product, would you have believed it? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfad-792a-85af-6cad8012f2fc" data-object-id="obj_019f6c0d-cfad-792a-85af-6cad8012f2fc" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfae-7279-974a-8bf298a18f50" data-anchor-ids="anchor_019f6c0d-cfae-7279-974a-8bf298a18f50" data-page-indices="198" data-pages="199" data-confidence="0.9000" data-source-bbox="0.2426,0.7141,0.7917,0.8425">(Answer: Probably not.) </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfae-7279-974a-8bf298a18f51" data-object-id="obj_019f6c0d-cfae-7279-974a-8bf298a18f51" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfae-7279-974a-8bf298a18f52" data-anchor-ids="anchor_019f6c0d-cfae-7279-974a-8bf298a18f52" data-page-indices="198" data-pages="199" data-confidence="0.7500" data-source-bbox="0.2426,0.7141,0.7917,0.8425">If it had reported that psychological experiments show these biases to be</span></p><p class="source-gap-35" id="obj_019f6c0d-cfae-7279-974a-8bf298a18f53" data-object-id="obj_019f6c0d-cfae-7279-974a-8bf298a18f53" data-object-type="paragraph" data-page="198" data-anchor-id="anchor_019f6c0d-cfaf-75e7-b920-baa5dd48a65d" data-anchor-ids="anchor_019f6c0d-cfaf-75e7-b920-baa5dd48a65d,anchor_019f6c0d-cfaf-75e7-b920-baa5dd48a65e" data-page-indices="198,199" data-pages="199,200" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0869"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfaf-75e7-b920-baa5dd48a65f" data-object-id="obj_019f6c0d-cfaf-75e7-b920-baa5dd48a65f" data-object-type="sentence" data-page="198" data-anchor-id="anchor_019f6c0d-cfb0-7b02-ab1d-f2971898bae9" data-anchor-ids="anchor_019f6c0d-cfb0-7b02-ab1d-f2971898bae9,anchor_019f6c0d-cfb0-7b02-ab1d-f2971898baea" data-page-indices="198,199" data-pages="199,200" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">171 caused only by self-interest and lack of objectivity, would you have believed this? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb0-7b02-ab1d-f2971898baeb" data-object-id="obj_019f6c0d-cfb0-7b02-ab1d-f2971898baeb" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb0-7b02-ab1d-f2971898baec" data-anchor-ids="anchor_019f6c0d-cfb0-7b02-ab1d-f2971898baec" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2243">(Answer: Probably yes.) </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb1-7821-a72a-a4558349ae6f" data-object-id="obj_019f6c0d-cfb1-7821-a72a-a4558349ae6f" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb1-7821-a72a-a4558349ae70" data-anchor-ids="anchor_019f6c0d-cfb1-7821-a72a-a4558349ae70" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2243">And would you have believed it if this chapter had reported these biases can be overcome by a conscientious effort at objective evaluation? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb1-7821-a72a-a4558349ae71" data-object-id="obj_019f6c0d-cfb1-7821-a72a-a4558349ae71" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb1-7821-a72a-a4558349ae72" data-anchor-ids="anchor_019f6c0d-cfb1-7821-a72a-a4558349ae72" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.3334">(Answer: Probably yes.) </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb2-708b-b61d-04eb71275c12" data-object-id="obj_019f6c0d-cfb2-708b-b61d-04eb71275c12" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb2-708b-b61d-04eb71275c13" data-anchor-ids="anchor_019f6c0d-cfb2-708b-b61d-04eb71275c13" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">These questions may lead you, the reader, to recall the state of your knowledge or beliefs before reading this chapter. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb2-708b-b61d-04eb71275c14" data-object-id="obj_019f6c0d-cfb2-708b-b61d-04eb71275c14" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76d" data-anchor-ids="anchor_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76d" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.2132,0.2232,0.7623,0.3334">If so, the questions will highlight what you learned here—namely, that significant biases in the evaluation of intelligence estimates are attributable to the nature of human mental processes, not just to self-interest and lack of objectivity, and that they are, therefore, exceedingly difficult to overcome.</span></p><p id="obj_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76e" data-object-id="obj_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76e" data-object-type="paragraph" data-page="199" data-anchor-id="anchor_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76f" data-anchor-ids="anchor_019f6c0d-cfb3-75a5-8e9e-9ddc22dec76f" data-page-indices="199" data-pages="200" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb3-75a5-8e9e-9ddc22dec770" data-object-id="obj_019f6c0d-cfb3-75a5-8e9e-9ddc22dec770" data-object-type="sentence" data-page="199" data-anchor-id="anchor_019f6c0d-cfb4-7603-8b9c-9b979ab2b017" data-anchor-ids="anchor_019f6c0d-cfb4-7603-8b9c-9b979ab2b017" data-page-indices="199" data-pages="200" data-confidence="0.7500" data-source-bbox="0.4706,0.8787,0.5000,0.8980">172</span></p></section></article><nav class="publication-navigation publication-navigation-bottom" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="16-chapter-12.html">← Chapter 12 — Biases in Estimating Probabilities</a><a class="publication-contents" href="index.html">Contents</a><a class="publication-next" rel="next" href="18-chapter-14.html">Part IV · Chapter 14 — Improving Intelligence Analysis →</a></nav><nav class="export-tools"><a id="source-pdf-link" href="assets/original.pdf">Open original PDF</a></nav></main><script>(() => {
+  "use strict";
+
+  const viewer = document.querySelector("#source-viewer");
+  if (!viewer) return;
+
+  const image = viewer.querySelector("#source-image");
+  const sourceCanvas = viewer.querySelector("#source-canvas");
+  const pdfCanvas = viewer.querySelector("#source-pdf-canvas");
+  const overlays = viewer.querySelector("#source-overlays");
+  const legacyOverlay = viewer.querySelector("#source-overlay");
+  const label = viewer.querySelector("#source-label");
+  const pageLabel = viewer.querySelector("#source-page-label");
+  const previousRegion = viewer.querySelector("#source-prev");
+  const nextRegion = viewer.querySelector("#source-next");
+  const previousPage = viewer.querySelector("#source-page-prev");
+  const nextPage = viewer.querySelector("#source-page-next");
+  const zoomOut = viewer.querySelector("#source-zoom-out");
+  const zoomIn = viewer.querySelector("#source-zoom-in");
+  const zoomLabel = viewer.querySelector("#source-zoom-label");
+  const sourcePdfLink = viewer.querySelector("#source-pdf-link");
+  const sourcePdfBase = sourcePdfLink?.getAttribute("href") || "";
+  const reviewEmpty = viewer.querySelector("#review-empty");
+  const reviewFields = viewer.querySelector("#review-fields");
+  const reviewObjectId = viewer.querySelector("#review-object-id");
+  const reviewConfidence = viewer.querySelector("#review-confidence");
+  const reviewText = viewer.querySelector("#review-text");
+  const reviewType = viewer.querySelector("#review-type");
+  const reviewStatus = viewer.querySelector("#review-status");
+  const reviewSave = viewer.querySelector("#review-save");
+  const reviewSplit = viewer.querySelector("#review-split");
+  const reviewMergeIds = viewer.querySelector("#review-merge-ids");
+  const reviewMerge = viewer.querySelector("#review-merge");
+  const reviewAlternatives = viewer.querySelector("#review-alternatives");
+  const reviewIssues = viewer.querySelector("#review-issues");
+  const reviewMessage = viewer.querySelector("#review-message");
+  const svgNamespace = "http://www.w3.org/2000/svg";
+
+  let selectedAnchors = [];
+  let anchorIndex = 0;
+  let activeDocumentId = null;
+  let currentPage = null;
+  let pageCount = null;
+  let zoom = 1;
+  let pdfDocument = null;
+  let pdfRenderTask = null;
+  let pdfjsPromise = null;
+  let activeReview = null;
+
+  const isFiniteNumber = (value) => typeof value === "number" && Number.isFinite(value);
+
+  const selectObject = (objectId, scroll = true) => {
+    document.querySelectorAll(".is-selected").forEach((item) => {
+      item.classList.remove("is-selected");
+    });
+    if (!objectId) return;
+    const object = document.getElementById(objectId);
+    if (object) {
+      object.classList.add("is-selected");
+      if (scroll) object.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  const fetchJson = async (url, options = {}) => {
+    const headers = { accept: "application/json", ...(options.headers || {}) };
+    const response = await fetch(url, { ...options, headers });
+    if (!response.ok) {
+      let detail = `request failed (${response.status})`;
+      try {
+        const payload = await response.json();
+        if (typeof payload.detail === "string") detail = payload.detail;
+      } catch (_error) {
+        // Keep the status-only message for non-JSON failures.
+      }
+      throw new Error(detail);
+    }
+    return response.json();
+  };
+
+  const setReviewBusy = (busy) => {
+    if (reviewSave) reviewSave.disabled = busy;
+    if (reviewMerge) reviewMerge.disabled = busy;
+    if (reviewSplit) {
+      const canSplit =
+        activeReview && ["paragraph", "sentence"].includes(activeReview.object.object_type);
+      reviewSplit.disabled = busy || !canSplit;
+    }
+  };
+
+  const evidenceItem = (primary, secondary = "") => {
+    const item = document.createElement("li");
+    const heading = document.createElement("strong");
+    heading.textContent = primary;
+    item.append(heading);
+    if (secondary) {
+      const detail = document.createElement("div");
+      detail.textContent = secondary;
+      item.append(detail);
+    }
+    return item;
+  };
+
+  const renderEvidence = (container, items, render) => {
+    if (!container) return;
+    container.replaceChildren();
+    if (!Array.isArray(items) || !items.length) {
+      container.append(evidenceItem("None available"));
+      return;
+    }
+    items.forEach((item) => container.append(render(item)));
+  };
+
+  const loadReviewObject = async (objectId) => {
+    if (!objectId || !reviewFields) return;
+    reviewMessage.textContent = "Loading review evidence…";
+    const payload = await fetchJson(`/objects/${encodeURIComponent(objectId)}/review`);
+    activeReview = payload;
+    const object = payload.object;
+    reviewEmpty.hidden = true;
+    reviewFields.hidden = false;
+    reviewObjectId.textContent = object.id;
+    reviewConfidence.textContent =
+      typeof object.confidence === "number" ? object.confidence.toFixed(3) : "not scored";
+    reviewText.value = object.text_normalized ?? object.text_raw ?? "";
+    reviewType.value = object.object_type;
+    reviewStatus.value = object.status;
+    reviewMergeIds.value = object.id;
+    reviewSplit.disabled = !["paragraph", "sentence"].includes(object.object_type);
+    renderEvidence(reviewAlternatives, payload.parser_alternatives, (alternative) => {
+      const confidence =
+        typeof alternative.confidence === "number"
+          ? `, confidence ${alternative.confidence.toFixed(3)}`
+          : "";
+      return evidenceItem(
+        `${alternative.tool_name} (${alternative.object_type}${confidence})`,
+        alternative.text || "No text returned by this parser.",
+      );
+    });
+    renderEvidence(reviewIssues, payload.validation_issues, (issue) =>
+      evidenceItem(`${issue.severity}: ${issue.rule_code}`, issue.message),
+    );
+    reviewMessage.textContent = "";
+  };
+
+  const loadReviewSafely = (objectId) => {
+    loadReviewObject(objectId).catch((error) => {
+      reviewMessage.textContent = `Review details unavailable: ${error.message}`;
+    });
+  };
+
+  const mutateReview = async (url, method, payload) => {
+    setReviewBusy(true);
+    reviewMessage.textContent = "Saving…";
+    try {
+      return await fetchJson(url, {
+        method,
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } finally {
+      setReviewBusy(false);
+    }
+  };
+
+  const reloadAtObject = (objectId) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("object_id", objectId);
+    url.hash = objectId;
+    window.location.assign(url.toString());
+  };
+
+  const updateZoom = (value) => {
+    zoom = Math.min(4, Math.max(0.5, value));
+    sourceCanvas.style.width = `${zoom * 100}%`;
+    zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+    zoomOut.disabled = zoom <= 0.5;
+    zoomIn.disabled = zoom >= 4;
+  };
+
+  const loadPdfJs = async () => {
+    if (!pdfjsPromise) {
+      pdfjsPromise = import("/static/vendor/pdfjs/pdf.mjs").then((pdfjs) => {
+        pdfjs.GlobalWorkerOptions.workerSrc = "/static/vendor/pdfjs/pdf.worker.mjs";
+        return pdfjs;
+      });
+    }
+    return pdfjsPromise;
+  };
+
+  const renderPdfPage = async (pageIndex) => {
+    if (!pdfCanvas || !sourcePdfBase) throw new Error("PDF.js source is unavailable");
+    const pdfjs = await loadPdfJs();
+    if (!pdfDocument) {
+      const sourceUrl = sourcePdfBase.split("#", 1)[0];
+      const response = await fetch(sourceUrl, { headers: { accept: "application/pdf" } });
+      if (!response.ok) throw new Error(`PDF request failed (${response.status})`);
+      const data = new Uint8Array(await response.arrayBuffer());
+      pdfDocument = await pdfjs.getDocument({ data }).promise;
+    }
+    if (pdfRenderTask) {
+      pdfRenderTask.cancel();
+      pdfRenderTask = null;
+    }
+    const pdfPage = await pdfDocument.getPage(pageIndex + 1);
+    const baseViewport = pdfPage.getViewport({ scale: 1 });
+    const outputScale = Math.min(3, Math.max(1.5, window.devicePixelRatio || 1));
+    const renderScale = Math.max(outputScale, 1200 / Math.max(baseViewport.width, 1));
+    const viewport = pdfPage.getViewport({ scale: Math.min(3, renderScale) });
+    pdfCanvas.width = Math.ceil(viewport.width);
+    pdfCanvas.height = Math.ceil(viewport.height);
+    const context = pdfCanvas.getContext("2d", { alpha: false });
+    if (!context) throw new Error("PDF canvas is unavailable");
+    pdfRenderTask = pdfPage.render({ canvasContext: context, viewport });
+    try {
+      await pdfRenderTask.promise;
+    } finally {
+      pdfRenderTask = null;
+    }
+    pdfCanvas.hidden = false;
+    image.hidden = true;
+  };
+
+  const polygonPoints = (anchor) => {
+    if (!Array.isArray(anchor.polygon) || anchor.polygon.length < 3) return null;
+    const points = anchor.polygon.map((point) => {
+      if (!Array.isArray(point) || point.length < 2) return null;
+      const x = Number(point[0]);
+      const y = Number(point[1]);
+      return Number.isFinite(x) && Number.isFinite(y) ? [x, y] : null;
+    });
+    return points.every(Boolean) ? points : null;
+  };
+
+  const appendOverlay = (anchor, activeAnchor) => {
+    const polygon = polygonPoints(anchor);
+    let shape;
+    if (polygon) {
+      shape = document.createElementNS(svgNamespace, "polygon");
+      shape.setAttribute(
+        "points",
+        polygon.map(([x, y]) => `${x},${y}`).join(" "),
+      );
+    } else if (
+      [anchor.x0, anchor.y0, anchor.x1, anchor.y1].every(isFiniteNumber) &&
+      anchor.x1 >= anchor.x0 &&
+      anchor.y1 >= anchor.y0
+    ) {
+      shape = document.createElementNS(svgNamespace, "rect");
+      shape.setAttribute("x", String(anchor.x0));
+      shape.setAttribute("y", String(anchor.y0));
+      shape.setAttribute("width", String(anchor.x1 - anchor.x0));
+      shape.setAttribute("height", String(anchor.y1 - anchor.y0));
+    } else {
+      return;
+    }
+    shape.classList.add("source-overlay-shape");
+    if (activeAnchor?.id === anchor.id) shape.classList.add("is-active-region");
+    shape.dataset.anchorId = anchor.id;
+    overlays.append(shape);
+  };
+
+  const renderOverlays = () => {
+    overlays.replaceChildren();
+    legacyOverlay.hidden = true;
+    if (!currentPage || !isFiniteNumber(currentPage.width) || !isFiniteNumber(currentPage.height)) {
+      return;
+    }
+    overlays.setAttribute("viewBox", `0 0 ${currentPage.width} ${currentPage.height}`);
+    overlays.setAttribute("preserveAspectRatio", "none");
+    const activeAnchor = selectedAnchors[anchorIndex] || null;
+    selectedAnchors
+      .filter((anchor) => anchor.page_index === currentPage.page_index)
+      .forEach((anchor) => appendOverlay(anchor, activeAnchor));
+  };
+
+  const updateControls = () => {
+    previousRegion.disabled = anchorIndex <= 0;
+    nextRegion.disabled = !selectedAnchors.length || anchorIndex >= selectedAnchors.length - 1;
+    const pageIndex = currentPage?.page_index;
+    previousPage.disabled = !Number.isInteger(pageIndex) || pageIndex <= 0;
+    nextPage.disabled =
+      !Number.isInteger(pageIndex) || !Number.isInteger(pageCount) || pageIndex >= pageCount - 1;
+  };
+
+  const loadDocumentMetadata = async () => {
+    if (!activeDocumentId) return;
+    try {
+      const documentRecord = await fetchJson(
+        `/documents/${encodeURIComponent(activeDocumentId)}`,
+      );
+      pageCount = Number.isInteger(documentRecord.page_count) ? documentRecord.page_count : null;
+    } catch (_error) {
+      pageCount = null;
+    }
+  };
+
+  const loadPage = async (pageIndex) => {
+    if (!activeDocumentId || !Number.isInteger(pageIndex) || pageIndex < 0) return;
+    currentPage = await fetchJson(
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}`,
+    );
+    image.alt = `Source PDF page ${pageIndex + 1}`;
+    pageLabel.textContent = pageCount
+      ? `Page ${pageIndex + 1} of ${pageCount}`
+      : `Page ${pageIndex + 1}`;
+    const activeAnchor = selectedAnchors[anchorIndex];
+    label.textContent =
+      activeAnchor?.page_index === pageIndex
+        ? `Source region ${anchorIndex + 1} of ${selectedAnchors.length}, page ${pageIndex + 1}`
+        : `Source page ${pageIndex + 1}`;
+    if (sourcePdfLink && sourcePdfBase) {
+      sourcePdfLink.setAttribute("href", `${sourcePdfBase.split("#", 1)[0]}#page=${pageIndex + 1}`);
+    }
+    try {
+      await renderPdfPage(pageIndex);
+      label.textContent = `${label.textContent} · rendered with PDF.js`;
+    } catch (_error) {
+      if (pdfCanvas) pdfCanvas.hidden = true;
+      image.hidden = false;
+      image.src = `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}/image`;
+    }
+    renderOverlays();
+    updateControls();
+  };
+
+  const showAnchor = async (index) => {
+    if (!selectedAnchors.length) return;
+    anchorIndex = Math.min(selectedAnchors.length - 1, Math.max(0, index));
+    await loadPage(selectedAnchors[anchorIndex].page_index);
+  };
+
+  const loadAnchors = async (anchorIds) => {
+    const uniqueIds = [...new Set(anchorIds.filter(Boolean))];
+    const records = await Promise.all(
+      uniqueIds.map(async (anchorId) => {
+        try {
+          return await fetchJson(`/source/${encodeURIComponent(anchorId)}`);
+        } catch (_error) {
+          return null;
+        }
+      }),
+    );
+    const available = records.filter(Boolean);
+    if (!available.length) throw new Error("source anchors unavailable");
+    activeDocumentId = available[0].document_id;
+    selectedAnchors = available.filter((anchor) => anchor.document_id === activeDocumentId);
+    anchorIndex = 0;
+    await loadDocumentMetadata();
+    await showAnchor(0);
+  };
+
+  const movePage = async (offset) => {
+    if (!currentPage) return;
+    const target = currentPage.page_index + offset;
+    if (target < 0 || (Number.isInteger(pageCount) && target >= pageCount)) return;
+    const matchingAnchor = selectedAnchors.findIndex((anchor) => anchor.page_index === target);
+    if (matchingAnchor >= 0) anchorIndex = matchingAnchor;
+    await loadPage(target);
+  };
+
+  previousRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex - 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  nextRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex + 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  previousPage.addEventListener("click", async () => {
+    try {
+      await movePage(-1);
+    } catch (_error) {
+      label.textContent = "Previous source page is unavailable.";
+    }
+  });
+
+  nextPage.addEventListener("click", async () => {
+    try {
+      await movePage(1);
+    } catch (_error) {
+      label.textContent = "Next source page is unavailable.";
+    }
+  });
+
+  zoomOut.addEventListener("click", () => updateZoom(zoom - 0.25));
+  zoomIn.addEventListener("click", () => updateZoom(zoom + 0.25));
+
+  document.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target.closest("a.internal-reference,a.backlink")) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target) return;
+    const anchorIds = (target.dataset.anchorIds || "").split(",").filter(Boolean);
+    if (!anchorIds.length) return;
+    event.preventDefault();
+    const objectId = target.dataset.objectId;
+    selectObject(objectId);
+    loadReviewSafely(objectId);
+    try {
+      await loadAnchors(anchorIds);
+      viewer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!(event.target instanceof Element) || !["Enter", " "].includes(event.key)) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target || target.matches("a,button")) return;
+    event.preventDefault();
+    target.click();
+  });
+
+  const hitTestSource = async (event) => {
+    if (!currentPage || !activeDocumentId) return;
+    const target = event.currentTarget;
+    if (!(target instanceof Element)) return;
+    const bounds = target.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    const x = ((event.clientX - bounds.left) / bounds.width) * currentPage.width;
+    const y = ((event.clientY - bounds.top) / bounds.height) * currentPage.height;
+    const url =
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${currentPage.page_index}` +
+      `/hit-test?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}&tolerance=4`;
+    try {
+      const hits = await fetchJson(url);
+      if (hits.length) {
+        selectObject(hits[0].object_id);
+        loadReviewSafely(hits[0].object_id);
+      }
+    } catch (_error) {
+      label.textContent = "Could not match this source position.";
+    }
+  };
+
+  image.addEventListener("click", hitTestSource);
+  if (pdfCanvas) pdfCanvas.addEventListener("click", hitTestSource);
+
+  reviewSave?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    const payload = {
+      reason: "local review editor correction",
+      created_by: "local-user",
+      expected_updated_at: activeReview.updated_at,
+    };
+    if (reviewText.value !== currentText) payload.text_normalized = reviewText.value;
+    if (reviewType.value !== object.object_type) payload.object_type = reviewType.value;
+    if (reviewStatus.value !== object.status) payload.status = reviewStatus.value;
+    if (!("text_normalized" in payload || "object_type" in payload || "status" in payload)) {
+      reviewMessage.textContent = "No changes to save.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}`,
+        "PATCH",
+        payload,
+      );
+      reviewMessage.textContent = `Saved revision ${result.revision_number}.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Correction failed: ${error.message}`;
+    }
+  });
+
+  reviewSplit?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    if (reviewText.value !== currentText) {
+      reviewMessage.textContent = "Save text edits before splitting.";
+      return;
+    }
+    const offset = reviewText.selectionStart;
+    if (!Number.isInteger(offset) || offset <= 0 || offset >= currentText.length) {
+      reviewMessage.textContent = "Place the text cursor inside the text before splitting.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}/split`,
+        "POST",
+        {
+          offsets: [offset],
+          reason: "local review editor split",
+          created_by: "local-user",
+          expected_updated_at: activeReview.updated_at,
+        },
+      );
+      reviewMessage.textContent = `Created ${result.object_ids.length} objects.`;
+      reloadAtObject(result.object_ids[0]);
+    } catch (error) {
+      reviewMessage.textContent = `Split failed: ${error.message}`;
+    }
+  });
+
+  reviewMerge?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const objectIds = [
+      ...new Set(
+        reviewMergeIds.value
+          .split(",")
+          .map((value) => value.trim())
+          .filter(Boolean),
+      ),
+    ];
+    if (!objectIds.includes(activeReview.object.id)) objectIds.unshift(activeReview.object.id);
+    if (objectIds.length < 2) {
+      reviewMessage.textContent = "Enter at least one additional object ID to merge.";
+      return;
+    }
+    try {
+      const result = await mutateReview("/objects/merge", "POST", {
+        object_ids: objectIds,
+        reason: "local review editor merge",
+        created_by: "local-user",
+      });
+      reviewMessage.textContent = `Merged ${result.merged_object_ids.length} objects.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Merge failed: ${error.message}`;
+    }
+  });
+
+  updateZoom(1);
+
+  const query = new URLSearchParams(window.location.search);
+  const requestedObject = query.get("object_id");
+  if (requestedObject) {
+    selectObject(requestedObject, false);
+    loadReviewSafely(requestedObject);
+  }
+  const requestedAnchor = query.get("anchor_id");
+  if (requestedAnchor) {
+    loadAnchors([requestedAnchor]).catch(() => {
+      label.textContent = "Requested source preview is unavailable.";
+    });
+  } else if (window.location.hash && window.location.hash !== "#source-viewer") {
+    try {
+      const objectId = decodeURIComponent(window.location.hash.slice(1));
+      selectObject(objectId, false);
+      loadReviewSafely(objectId);
+    } catch (_error) {
+      // Ignore malformed external fragments without changing the document.
+    }
+  }
+})();
+</script></body></html>

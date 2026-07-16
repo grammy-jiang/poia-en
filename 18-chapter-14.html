@@ -1,0 +1,1232 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-/D8gEDQKg535ldl84gTrBJk/vzMG6kIvkn0Yb4tOM5E=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Part IV · Chapter 14 — Improving Intelligence Analysis — Psychology of Intelligence Analysis</title><style>:root {
+  --reader-prose-measure: 60ch;
+  --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
+  --reader-document-gutter: clamp(1rem, 5vw, 4rem);
+  --source-gap-cap: 8rem;
+  color-scheme: light;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #eee9de;
+  color: #181714;
+}
+
+body {
+  margin: 0;
+}
+
+.reader-shell {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) minmax(20rem, 1fr);
+  gap: 2rem;
+  max-width: 90rem;
+  margin: auto;
+  padding: var(--reader-shell-gutter);
+}
+
+.document {
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: document;
+  background: white;
+  padding: clamp(2rem, 6vw, 5rem);
+  line-height: 1.62;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 14%);
+}
+
+.reader-shell.static-export {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 72rem;
+}
+
+.static-export .document {
+  min-height: 80vh;
+  padding-inline: var(--reader-document-gutter);
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.375rem);
+  line-height: 1.45;
+}
+
+.export-tools {
+  margin-top: 1rem;
+  text-align: center;
+  font: 0.8rem/1.4 system-ui, sans-serif;
+}
+
+.publication-navigation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  max-inline-size: var(--reader-prose-measure);
+  margin: 0 auto 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d7d0c3;
+  border-radius: 0.25rem;
+  background: white;
+  font: clamp(0.78rem, 0.74rem + 0.15vw, 0.9rem) / 1.35 system-ui, sans-serif;
+}
+
+.publication-navigation-bottom {
+  margin-block: 1rem 0;
+}
+
+.publication-navigation a {
+  color: #473b27;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.publication-navigation .publication-previous {
+  justify-self: start;
+}
+
+.publication-navigation .publication-contents {
+  justify-self: center;
+  font-weight: 650;
+}
+
+.publication-navigation .publication-next {
+  justify-self: end;
+  text-align: end;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.18;
+  text-align: center;
+}
+
+.document h1 {
+  font-size: 1.5em;
+}
+
+.document h2,
+.document h3 {
+  font-size: 1.08em;
+}
+
+.document .heading-kicker {
+  font-size: 0.78em;
+  letter-spacing: 0.025em;
+}
+
+p {
+  margin: 0;
+  text-align: justify;
+  text-indent: min(1.35em, 5cqi);
+  hyphens: auto;
+}
+
+.document > p:first-of-type,
+.document h1 + p,
+.document h2 + p,
+.document h3 + p,
+.document figure + p,
+.document .formula-coordinate-lane + p:not(:has(+ .formula-coordinate-lane)),
+.source-theme > p:first-child,
+.source-theme h1 + p,
+.source-theme h2 + p,
+.source-theme h3 + p,
+.source-theme figure + p,
+.source-theme:has(> figure:last-child) + p,
+.source-theme:has(> .formula-coordinate-lane:last-child)
+  + p:not(:has(+ .formula-coordinate-lane)) {
+  text-indent: 0;
+}
+
+blockquote {
+  box-sizing: border-box;
+  margin-block: 1rem;
+  padding-inline: clamp(1rem, 4vw, 2.25rem);
+  text-align: justify;
+}
+
+.document :where(p, blockquote, ul, ol, h1, h2, h3, h4, h5, h6, .footnote) {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.document :where(p, blockquote, li, figcaption, h1, h2, h3, h4, h5, h6, .footnote) {
+  overflow-wrap: anywhere;
+}
+
+.sentence {
+  cursor: pointer;
+}
+
+.sentence:focus,
+.sentence:hover,
+.sentence.is-selected {
+  background: #fff0a8;
+  outline: 0;
+}
+
+.source-link,
+.relation-links {
+  font: 0.75rem/1.3 system-ui, sans-serif;
+  margin-left: 0.4em;
+}
+
+.static-export .source-link {
+  display: none;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.small-cap-rest {
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+}
+
+.rule-below {
+  display: inline-block;
+  padding: 0 0.45em 0.05em;
+  margin: 0 -0.45em;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula {
+  container-type: inline-size;
+  container-name: formula;
+  overflow: auto;
+  margin: 0.35rem 0;
+  text-align: center;
+}
+
+.formula-coordinate-lane {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin-inline: auto;
+}
+
+.formula-spatial {
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #6f6a61 #eee9de;
+  scrollbar-width: thin;
+}
+
+.formula-spatial:focus-visible {
+  outline: 0.12rem solid #6f5a32;
+  outline-offset: 0.2rem;
+}
+
+.formula code {
+  display: block;
+  max-width: 100%;
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+
+.formula .rule-below {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+.formula code.formula-layout-positioned {
+  overflow: visible;
+  white-space: normal;
+}
+
+.formula code.formula-layout-with-annotation {
+  display: grid;
+}
+
+.formula-layout-spatial-layer,
+.formula-layout-annotation {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.formula-layout-row {
+  position: relative;
+  display: block;
+  height: 1em;
+}
+
+.formula-layout-row.is-ruled {
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-rule {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 0.08em solid currentcolor;
+}
+
+.formula-layout-token {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.formula-layout-annotation {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1em;
+  padding-inline-start: clamp(0.5em, 1.5cqi, 0.8em);
+  align-self: start;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.formula-layout-hanging-row {
+  height: auto;
+  min-height: 1em;
+  inline-size: min(100cqi, var(--reader-prose-measure));
+  max-inline-size: min(100cqi, var(--reader-prose-measure));
+  text-align: left;
+}
+
+.formula-layout-marker {
+  position: absolute;
+  top: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.formula-layout-flow-body {
+  display: block;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+figure {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.document [class*="source-width-"] {
+  box-sizing: border-box;
+  inline-size: var(--source-inline-size, auto);
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+.document [class*="source-left-"] {
+  margin-inline-start: var(--source-inline-start, auto);
+  margin-inline-end: auto;
+}
+
+.document [class*="source-gap-"] {
+  margin-block-start: clamp(0.25rem, var(--source-block-gap, 0rem), var(--source-gap-cap));
+}
+
+.source-theme {
+  padding-block: 0.01px;
+}
+
+.marginalia {
+  display: none;
+}
+
+.source-viewer {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  background: #242424;
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.source-canvas {
+  position: relative;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.source-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.source-controls button {
+  padding: 0.3rem 0.55rem;
+}
+
+.source-page-label,
+#source-page-label,
+#source-zoom-label {
+  min-width: 4rem;
+  text-align: center;
+}
+
+.source-scroll {
+  max-height: 46vh;
+  overflow: auto;
+}
+
+.source-canvas img {
+  display: block;
+  width: 100%;
+  min-height: 10rem;
+  object-fit: contain;
+  background: #ddd;
+}
+
+.source-canvas canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ddd;
+}
+
+.source-overlay {
+  position: absolute;
+  border: 2px solid #ffbf00;
+  background: rgb(255 191 0 / 22%);
+  pointer-events: none;
+}
+
+.source-overlays {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.source-overlay-shape {
+  fill: rgb(255 191 0 / 22%);
+  stroke: #ffbf00;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.source-overlay-shape.is-active-region {
+  fill: rgb(255 106 0 / 28%);
+  stroke: #ff6a00;
+  stroke-width: 3;
+}
+
+.review-editor {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #666;
+  font: 0.85rem/1.45 system-ui, sans-serif;
+}
+
+.review-editor h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.review-editor label,
+.review-editor textarea,
+.review-editor input,
+.review-editor select,
+.review-editor button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.review-editor textarea,
+.review-editor input,
+.review-editor select {
+  margin: 0.2rem 0 0.65rem;
+  padding: 0.45rem;
+  border: 1px solid #888;
+  border-radius: 0.2rem;
+  background: #fff;
+  color: #111;
+}
+
+.review-editor textarea {
+  resize: vertical;
+  font: 0.9rem/1.4 ui-monospace, monospace;
+}
+
+.review-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(6rem, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 0.7rem;
+}
+
+.review-summary div {
+  min-width: 0;
+}
+
+.review-summary dt {
+  color: #bbb;
+}
+
+.review-summary dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.review-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.7rem 0;
+}
+
+.review-editor button {
+  margin: 0.4rem 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #999;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.review-editor button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.review-evidence {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.review-evidence li {
+  margin-bottom: 0.45rem;
+  overflow-wrap: anywhere;
+}
+
+.review-message {
+  display: block;
+  min-height: 1.4em;
+  margin-top: 0.6rem;
+  color: #ffe082;
+}
+
+.citation {
+  display: inline;
+  font-style: normal;
+}
+
+.footnote {
+  border-top: 1px solid #aaa;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.reconstructed-toc {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: var(--reader-prose-measure);
+  margin: clamp(2rem, 8cqi, 5rem) auto 0;
+}
+
+.reconstructed-toc .toc-list {
+  display: grid;
+  gap: 0.6em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reconstructed-toc .toc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+  column-gap: clamp(0.75em, 3cqi, 2em);
+}
+
+.reconstructed-toc .toc-entry {
+  display: flex;
+  min-inline-size: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(0.6em, 2.5cqi, 1.5em);
+}
+
+.reconstructed-toc .toc-fragment {
+  overflow-wrap: anywhere;
+}
+
+.reconstructed-toc .toc-page {
+  min-inline-size: 2.5ch;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .reader-shell {
+    display: block;
+  }
+
+  .source-viewer {
+    position: static;
+    max-height: none;
+    margin-top: 2rem;
+  }
+
+}
+
+@media (max-width: 34rem) {
+  .publication-navigation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .publication-navigation .publication-contents {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .publication-navigation .publication-previous {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .publication-navigation .publication-next {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@container formula (max-width: 24rem) {
+  .formula-layout-with-annotation > .formula-layout-spatial-layer {
+    grid-area: 1 / 1;
+  }
+
+  .formula-layout-with-annotation > .formula-layout-annotation {
+    grid-area: 2 / 1;
+    inline-size: 100cqi;
+    max-inline-size: 100cqi;
+    margin-left: 0;
+    margin-block-start: 0.35em;
+    padding-inline-start: 1.4em;
+  }
+}
+
+@container document (max-width: 42rem) {
+  .document [class*="source-width-"]:not(.formula-preserve-indent) {
+    --source-inline-size: 100%;
+  }
+
+  .document [class*="source-left-"]:not(.formula-preserve-indent) {
+    --source-inline-start: 0%;
+  }
+
+  .document [class*="source-gap-"] {
+    --source-gap-cap: 4rem;
+  }
+
+  .document blockquote {
+    padding-inline: 1rem;
+  }
+
+  .document :where(p, blockquote) {
+    text-align: start;
+  }
+}
+
+@container document (max-width: 30rem) {
+  .reconstructed-toc .toc-entry {
+    display: block;
+  }
+
+  .reconstructed-toc .toc-fragment {
+    margin-inline-end: 0.35em;
+  }
+}
+.source-gap-9{--source-block-gap:2.25%}.source-gap-10{--source-block-gap:2.5%}.source-gap-11{--source-block-gap:2.75%}.source-gap-12{--source-block-gap:3%}.source-gap-14{--source-block-gap:3.5%}.source-gap-26{--source-block-gap:6.5%}.source-gap-27{--source-block-gap:6.75%}.source-gap-28{--source-block-gap:7%}.source-gap-35{--source-block-gap:8.75%}.source-gap-36{--source-block-gap:9%}.source-gap-41{--source-block-gap:10.25%}.source-gap-49{--source-block-gap:12.25%}.source-gap-52{--source-block-gap:13%}.source-gap-53{--source-block-gap:13.25%}.source-gap-144{--source-block-gap:36%}.source-gap-184{--source-block-gap:46%}.source-gap-206{--source-block-gap:51.5%}</style></head><body><main class="reader-shell static-export"><nav class="publication-navigation publication-navigation-top" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="17-chapter-13.html">← Chapter 13 — Hindsight Biases in Evaluation of Intelligence Reporting</a><a class="publication-contents" href="index.html">Contents</a><span class="publication-next"></span></nav><article class="document" data-document-id="doc_019f6c0b-d481-7439-ba26-7aa6261a6d47"><section id="obj_019f6c0d-cfb4-7603-8b9c-9b979ab2b018" data-object-id="obj_019f6c0d-cfb4-7603-8b9c-9b979ab2b018" data-object-type="section" data-page="200" data-anchor-id="anchor_019f6c0d-cfb4-7603-8b9c-9b979ab2b019" data-anchor-ids="anchor_019f6c0d-cfb4-7603-8b9c-9b979ab2b019" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.3452,0.1499,0.6842,0.2499"><h1 id="obj_019f6c0d-cfb4-7603-8b9c-9b979ab2b01a" data-object-id="obj_019f6c0d-cfb4-7603-8b9c-9b979ab2b01a" data-object-type="heading" data-page="200" data-anchor-id="anchor_019f6c0d-cfb5-7a84-a796-81bddbf40c78" data-anchor-ids="anchor_019f6c0d-cfb5-7a84-a796-81bddbf40c78" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.3452,0.1499,0.6842,0.2499"><strong>PART IV—CONCLUSIONS Chapter 14 Improving Intelligence Analysis</strong></h1><p class="source-gap-11" id="obj_019f6c0d-cfb5-7a84-a796-81bddbf40c7b" data-object-id="obj_019f6c0d-cfb5-7a84-a796-81bddbf40c7b" data-object-type="paragraph" data-page="200" data-anchor-id="anchor_019f6c0d-cfb6-702d-8c9a-8844a238c62c" data-anchor-ids="anchor_019f6c0d-cfb6-702d-8c9a-8844a238c62c" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.2617,0.7917,0.3353" data-source-gap="0.0279"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb6-702d-8c9a-8844a238c62d" data-object-id="obj_019f6c0d-cfb6-702d-8c9a-8844a238c62d" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfb6-702d-8c9a-8844a238c62e" data-anchor-ids="anchor_019f6c0d-cfb6-702d-8c9a-8844a238c62e" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.2617,0.7917,0.3353"><em>This chapter offers a checklist for analysts—a summary of tips on how to navigate the minefield of problems identified in previous chapters. </em></span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb6-702d-8c9a-8844a238c62f" data-object-id="obj_019f6c0d-cfb6-702d-8c9a-8844a238c62f" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfb7-7ce1-aeb7-91a892ef8593" data-anchor-ids="anchor_019f6c0d-cfb7-7ce1-aeb7-91a892ef8593" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.2617,0.7917,0.3353"><em>It also identifies steps that managers of intelligence analysis can take to help create an environment in which analytical excellence can flourish.</em></span></p><p class="source-gap-9" id="obj_019f6c0d-cfb7-7ce1-aeb7-91a892ef8594" data-object-id="obj_019f6c0d-cfb7-7ce1-aeb7-91a892ef8594" data-object-type="paragraph" data-page="200" data-anchor-id="anchor_019f6c0d-cfb7-7ce1-aeb7-91a892ef8595" data-anchor-ids="anchor_019f6c0d-cfb7-7ce1-aeb7-91a892ef8595" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.3651,0.3445,0.6643,0.3631" data-source-gap="0.0217"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb7-7ce1-aeb7-91a892ef8596" data-object-id="obj_019f6c0d-cfb7-7ce1-aeb7-91a892ef8596" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa6" data-anchor-ids="anchor_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa6" data-page-indices="200" data-pages="201" data-confidence="0.7500" data-source-bbox="0.3651,0.3445,0.6643,0.3631">* * * * * * * * * * * * * * * * * * *</span></p><p class="source-gap-12" id="obj_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa7" data-object-id="obj_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa7" data-object-type="paragraph" data-page="200" data-anchor-id="anchor_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa8" data-anchor-ids="anchor_019f6c0d-cfb8-7dd0-99ea-eb305cf31fa8" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.3754,0.7917,0.6310" data-source-gap="0.0290"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb9-7626-a1d8-b1ff80fad7ee" data-object-id="obj_019f6c0d-cfb9-7626-a1d8-b1ff80fad7ee" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfb9-7626-a1d8-b1ff80fad7ef" data-anchor-ids="anchor_019f6c0d-cfb9-7626-a1d8-b1ff80fad7ef" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.3754,0.7917,0.5401">How can intelligence analysis be improved? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfb9-7626-a1d8-b1ff80fad7f0" data-object-id="obj_019f6c0d-cfb9-7626-a1d8-b1ff80fad7f0" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfb9-7626-a1d8-b1ff80fad7f1" data-anchor-ids="anchor_019f6c0d-cfb9-7626-a1d8-b1ff80fad7f1" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.3754,0.7917,0.5401">That is the challenge. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfba-7c4b-b460-121f6ba798ff" data-object-id="obj_019f6c0d-cfba-7c4b-b460-121f6ba798ff" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfba-7c4b-b460-121f6ba79900" data-anchor-ids="anchor_019f6c0d-cfba-7c4b-b460-121f6ba79900" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.3754,0.7917,0.6310">A variety of traditional approaches are used in pursuing this goal: collecting more and better information for analysts to work with, changing the management of the analytical process, increasing the number of analysts, providing language and area studies to improve analysts’ substantive expertise, revising employee selection and retention criteria, improving report-writing skills, fine-tuning the relationship between intelligence analysts and intelligence consumers, and modifying the types of analytical products. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfba-7c4b-b460-121f6ba79901" data-object-id="obj_019f6c0d-cfba-7c4b-b460-121f6ba79901" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbb-7b07-bd9f-9de881c0a167" data-anchor-ids="anchor_019f6c0d-cfbb-7b07-bd9f-9de881c0a167" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.5390,0.7917,0.6310">Any of these measures may play an important role, but analysis is, above all, a mental process. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfbb-7b07-bd9f-9de881c0a168" data-object-id="obj_019f6c0d-cfbb-7b07-bd9f-9de881c0a168" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbb-7b07-bd9f-9de881c0a169" data-anchor-ids="anchor_019f6c0d-cfbb-7b07-bd9f-9de881c0a169" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.5390,0.7917,0.6310">Traditionally, analysts at all levels devote little attention to improving how they think. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfbb-7b07-bd9f-9de881c0a16a" data-object-id="obj_019f6c0d-cfbb-7b07-bd9f-9de881c0a16a" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea6" data-anchor-ids="anchor_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea6" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.5390,0.7917,0.6310">To penetrate the heart and soul of the problem of improving analysis, it is necessary to better understand, influence, and guide the mental processes of analysts themselves.</span></p></section><section id="obj_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea7" data-object-id="obj_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea7" data-object-type="section" data-page="200" data-anchor-id="anchor_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea8" data-anchor-ids="anchor_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea8" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6491,0.4469,0.6704"><h1 id="obj_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea9" data-object-id="obj_019f6c0d-cfbc-74e4-bfcf-fe44ccb85ea9" data-object-type="heading" data-page="200" data-anchor-id="anchor_019f6c0d-cfbd-785f-953c-559873ae7bee" data-anchor-ids="anchor_019f6c0d-cfbd-785f-953c-559873ae7bee" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6491,0.4469,0.6704"><strong>Checklist for Analysts</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cfbd-785f-953c-559873ae7bf1" data-object-id="obj_019f6c0d-cfbd-785f-953c-559873ae7bf1" data-object-type="paragraph" data-page="200" data-anchor-id="anchor_019f6c0d-cfbe-7301-880f-900d37a30ad5" data-anchor-ids="anchor_019f6c0d-cfbe-7301-880f-900d37a30ad5" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6807,0.7917,0.8272" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfbe-7301-880f-900d37a30ad6" data-object-id="obj_019f6c0d-cfbe-7301-880f-900d37a30ad6" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbe-7301-880f-900d37a30ad7" data-anchor-ids="anchor_019f6c0d-cfbe-7301-880f-900d37a30ad7" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6807,0.7917,0.8272">This checklist for analysts summarizes guidelines for maneuvering through the minefields encountered while proceeding through the analytical process. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfbf-7bc8-ba6a-deeb0573a412" data-object-id="obj_019f6c0d-cfbf-7bc8-ba6a-deeb0573a412" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbf-7bc8-ba6a-deeb0573a413" data-anchor-ids="anchor_019f6c0d-cfbf-7bc8-ba6a-deeb0573a413" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6807,0.7917,0.8272">Following the guidelines will help analysts protect themselves from avoidable error and improve their chances of making the right calls. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfbf-7bc8-ba6a-deeb0573a414" data-object-id="obj_019f6c0d-cfbf-7bc8-ba6a-deeb0573a414" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfbf-7bc8-ba6a-deeb0573a415" data-anchor-ids="anchor_019f6c0d-cfbf-7bc8-ba6a-deeb0573a415" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.2426,0.6807,0.7917,0.8272">The discussion is organized around six key steps in the analytical process: defining the problem, generating hypotheses, collecting information, evaluating hypotheses, selecting the most likely hypothesis, and the ongoing monitoring of new information.</span></p><p class="source-gap-49" id="obj_019f6c0d-cfc0-7e54-b99a-b79fcb2bb18e" data-object-id="obj_019f6c0d-cfc0-7e54-b99a-b79fcb2bb18e" data-object-type="paragraph" data-page="200" data-anchor-id="anchor_019f6c0d-cfc0-7e54-b99a-b79fcb2bb18f" data-anchor-ids="anchor_019f6c0d-cfc0-7e54-b99a-b79fcb2bb18f" data-page-indices="200" data-pages="201" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.1229"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc0-7e54-b99a-b79fcb2bb190" data-object-id="obj_019f6c0d-cfc0-7e54-b99a-b79fcb2bb190" data-object-type="sentence" data-page="200" data-anchor-id="anchor_019f6c0d-cfc1-7532-abf8-8559bcd0f25b" data-anchor-ids="anchor_019f6c0d-cfc1-7532-abf8-8559bcd0f25b" data-page-indices="200" data-pages="201" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">173</span></p></section><section id="obj_019f6c0d-cfc1-7532-abf8-8559bcd0f25c" data-object-id="obj_019f6c0d-cfc1-7532-abf8-8559bcd0f25c" data-object-type="section" data-page="201" data-anchor-id="anchor_019f6c0d-cfc1-7532-abf8-8559bcd0f25d" data-anchor-ids="anchor_019f6c0d-cfc1-7532-abf8-8559bcd0f25d" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.4167,0.1716"><h1 id="obj_019f6c0d-cfc1-7532-abf8-8559bcd0f25e" data-object-id="obj_019f6c0d-cfc1-7532-abf8-8559bcd0f25e" data-object-type="heading" data-page="201" data-anchor-id="anchor_019f6c0d-cfc2-7c6d-bb52-25406a967be4" data-anchor-ids="anchor_019f6c0d-cfc2-7c6d-bb52-25406a967be4" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.4167,0.1716"><strong>Defining the Problem</strong></h1><p id="obj_019f6c0d-cfc2-7c6d-bb52-25406a967be7" data-object-id="obj_019f6c0d-cfc2-7c6d-bb52-25406a967be7" data-object-type="paragraph" data-page="201" data-anchor-id="anchor_019f6c0d-cfc3-7546-a70c-30be40bdd4f2" data-anchor-ids="anchor_019f6c0d-cfc3-7546-a70c-30be40bdd4f2" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc3-7546-a70c-30be40bdd4f3" data-object-id="obj_019f6c0d-cfc3-7546-a70c-30be40bdd4f3" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc3-7546-a70c-30be40bdd4f4" data-anchor-ids="anchor_019f6c0d-cfc3-7546-a70c-30be40bdd4f4" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534">Start out by making certain you are asking—or being asked—the right questions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc4-7e89-85dd-9baf705561f8" data-object-id="obj_019f6c0d-cfc4-7e89-85dd-9baf705561f8" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc4-7e89-85dd-9baf705561f9" data-anchor-ids="anchor_019f6c0d-cfc4-7e89-85dd-9baf705561f9" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534">Do not hesitate to go back up the chain of command with a suggestion for doing something a little different from what was asked for. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc4-7e89-85dd-9baf705561fa" data-object-id="obj_019f6c0d-cfc4-7e89-85dd-9baf705561fa" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc4-7e89-85dd-9baf705561fb" data-anchor-ids="anchor_019f6c0d-cfc4-7e89-85dd-9baf705561fb" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534">The policymaker who originated the requirement may not have thought through his or her needs, or the requirement may be somewhat garbled as it passes down through several echelons of management. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc5-7a2e-9a73-79a1c512c66a" data-object-id="obj_019f6c0d-cfc5-7a2e-9a73-79a1c512c66a" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc5-7a2e-9a73-79a1c512c66b" data-anchor-ids="anchor_019f6c0d-cfc5-7a2e-9a73-79a1c512c66b" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534">You may have a better understanding than the policymaker of what he or she needs, or should have, or what is possible to do. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc5-7a2e-9a73-79a1c512c66c" data-object-id="obj_019f6c0d-cfc5-7a2e-9a73-79a1c512c66c" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc5-7a2e-9a73-79a1c512c66d" data-anchor-ids="anchor_019f6c0d-cfc5-7a2e-9a73-79a1c512c66d" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.1705,0.7623,0.3534">At the outset, also be sure your supervisor is aware of any tradeoff between quality of analysis and what you can accomplish within a specified time deadline.</span></p></section><section class="source-gap-184" id="obj_019f6c0d-cfc6-7dcb-87ef-0e14f9704a68" data-object-id="obj_019f6c0d-cfc6-7dcb-87ef-0e14f9704a68" data-object-type="section" data-page="201" data-anchor-id="anchor_019f6c0d-cfc6-7dcb-87ef-0e14f9704a69" data-anchor-ids="anchor_019f6c0d-cfc6-7dcb-87ef-0e14f9704a69" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3670,0.4316,0.3882" data-source-gap="0.4606"><h1 id="obj_019f6c0d-cfc6-7dcb-87ef-0e14f9704a6a" data-object-id="obj_019f6c0d-cfc6-7dcb-87ef-0e14f9704a6a" data-object-type="heading" data-page="201" data-anchor-id="anchor_019f6c0d-cfc6-7dcb-87ef-0e14f9704a6b" data-anchor-ids="anchor_019f6c0d-cfc6-7dcb-87ef-0e14f9704a6b" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3670,0.4316,0.3882"><strong>Generating Hypotheses</strong></h1><p id="obj_019f6c0d-cfc7-7a2e-aed2-b4939b5c7065" data-object-id="obj_019f6c0d-cfc7-7a2e-aed2-b4939b5c7065" data-object-type="paragraph" data-page="201" data-anchor-id="anchor_019f6c0d-cfc8-7b05-8d64-cff3c78771b0" data-anchor-ids="anchor_019f6c0d-cfc8-7b05-8d64-cff3c78771b0" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3872,0.7623,0.6973"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc8-7b05-8d64-cff3c78771b1" data-object-id="obj_019f6c0d-cfc8-7b05-8d64-cff3c78771b1" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc8-7b05-8d64-cff3c78771b2" data-anchor-ids="anchor_019f6c0d-cfc8-7b05-8d64-cff3c78771b2" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3872,0.7623,0.4610">Identify all the plausible hypotheses that need to be considered. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc8-7b05-8d64-cff3c78771b3" data-object-id="obj_019f6c0d-cfc8-7b05-8d64-cff3c78771b3" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc9-7c49-ad79-884d4ea3c5ef" data-anchor-ids="anchor_019f6c0d-cfc9-7c49-ad79-884d4ea3c5ef" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3872,0.7623,0.4610">Make a list of as many ideas as possible by consulting colleagues and outside experts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f0" data-object-id="obj_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f0" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f1" data-anchor-ids="anchor_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f1" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.3872,0.7623,0.5337">Do this in a brainstorming mode, suspending judgment for as long as possible until all the ideas are out on the table. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f2" data-object-id="obj_019f6c0d-cfc9-7c49-ad79-884d4ea3c5f2" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfca-7961-8917-b6d2dcd9b752" data-anchor-ids="anchor_019f6c0d-cfca-7961-8917-b6d2dcd9b752" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.4599,0.7623,0.5337">Then whittle the list down to a workable number of hypotheses for more detailed analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfca-7961-8917-b6d2dcd9b753" data-object-id="obj_019f6c0d-cfca-7961-8917-b6d2dcd9b753" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfcb-7982-a836-27a3bb632672" data-anchor-ids="anchor_019f6c0d-cfcb-7982-a836-27a3bb632672" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.4599,0.7623,0.6973">Frequently, one of these will be a deception hypothesis—that another country or group is engaging in denial and deception to influence US perceptions or actions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfcb-7982-a836-27a3bb632673" data-object-id="obj_019f6c0d-cfcb-7982-a836-27a3bb632673" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfcb-7982-a836-27a3bb632674" data-anchor-ids="anchor_019f6c0d-cfcb-7982-a836-27a3bb632674" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.5326,0.7623,0.6973">At this stage, do not screen out reasonable hypotheses only because there is no evidence to support them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfcc-7007-b4f4-956b301da862" data-object-id="obj_019f6c0d-cfcc-7007-b4f4-956b301da862" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfcc-7007-b4f4-956b301da863" data-anchor-ids="anchor_019f6c0d-cfcc-7007-b4f4-956b301da863" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.5326,0.7623,0.6973">This applies in particular to the deception hypothesis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfcc-7007-b4f4-956b301da864" data-object-id="obj_019f6c0d-cfcc-7007-b4f4-956b301da864" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfcc-7007-b4f4-956b301da865" data-anchor-ids="anchor_019f6c0d-cfcc-7007-b4f4-956b301da865" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.5326,0.7623,0.6973">If another country is concealing its intent through denial and deception, you should probably not expect to see evidence of it without completing a very careful analysis of this possibility. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfcd-760f-a965-7e6c10b80325" data-object-id="obj_019f6c0d-cfcd-760f-a965-7e6c10b80325" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfcd-760f-a965-7e6c10b80326" data-anchor-ids="anchor_019f6c0d-cfcd-760f-a965-7e6c10b80326" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.5326,0.7623,0.6973">The deception hypothesis and other plausible hypotheses for which there may be no immediate evidence should be carried forward to the next stage of analysis until they can be carefully considered and, if appropriate, rejected with good cause.</span></p></section><section id="obj_019f6c0d-cfce-713c-85d1-930fc0826a5c" data-object-id="obj_019f6c0d-cfce-713c-85d1-930fc0826a5c" data-object-type="section" data-page="201" data-anchor-id="anchor_019f6c0d-cfce-713c-85d1-930fc0826a5d" data-anchor-ids="anchor_019f6c0d-cfce-713c-85d1-930fc0826a5d" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7109,0.4303,0.7322"><h1 id="obj_019f6c0d-cfce-713c-85d1-930fc0826a5e" data-object-id="obj_019f6c0d-cfce-713c-85d1-930fc0826a5e" data-object-type="heading" data-page="201" data-anchor-id="anchor_019f6c0d-cfce-713c-85d1-930fc0826a5f" data-anchor-ids="anchor_019f6c0d-cfce-713c-85d1-930fc0826a5f" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7109,0.4303,0.7322"><strong>Collecting Information</strong></h1><p id="obj_019f6c0d-cfcf-73a0-8bca-b83cc27ab492" data-object-id="obj_019f6c0d-cfcf-73a0-8bca-b83cc27ab492" data-object-type="paragraph" data-page="201" data-anchor-id="anchor_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd0" data-anchor-ids="anchor_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd0" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7311,0.7623,0.8413"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd1" data-object-id="obj_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd1" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd2" data-anchor-ids="anchor_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd2" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7311,0.7623,0.8413">Relying only on information that is automatically delivered to you will probably not solve all your analytical problems. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd3" data-object-id="obj_019f6c0d-cfd0-75c9-ad9a-e277fffc2cd3" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfd1-774b-b774-a7bec88c17da" data-anchor-ids="anchor_019f6c0d-cfd1-774b-b774-a7bec88c17da" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7311,0.7623,0.8413">To do the job right, it will probably be necessary to look elsewhere and dig for more information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd1-774b-b774-a7bec88c17db" data-object-id="obj_019f6c0d-cfd1-774b-b774-a7bec88c17db" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfd1-774b-b774-a7bec88c17dc" data-anchor-ids="anchor_019f6c0d-cfd1-774b-b774-a7bec88c17dc" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7311,0.7623,0.8413">Contact with the collectors, other Directorate of Operations personnel, or first-cut analysts often yields additional information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd1-774b-b774-a7bec88c17dd" data-object-id="obj_019f6c0d-cfd1-774b-b774-a7bec88c17dd" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfd2-78a8-b3b5-454c71bd84df" data-anchor-ids="anchor_019f6c0d-cfd2-78a8-b3b5-454c71bd84df" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.2132,0.7311,0.7623,0.8413">Also check academic specialists, foreign newspapers, and specialized journals.</span></p><p class="source-gap-35" id="obj_019f6c0d-cfd2-78a8-b3b5-454c71bd84e0" data-object-id="obj_019f6c0d-cfd2-78a8-b3b5-454c71bd84e0" data-object-type="paragraph" data-page="201" data-anchor-id="anchor_019f6c0d-cfd2-78a8-b3b5-454c71bd84e1" data-anchor-ids="anchor_019f6c0d-cfd2-78a8-b3b5-454c71bd84e1" data-page-indices="201" data-pages="202" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0882"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd2-78a8-b3b5-454c71bd84e2" data-object-id="obj_019f6c0d-cfd2-78a8-b3b5-454c71bd84e2" data-object-type="sentence" data-page="201" data-anchor-id="anchor_019f6c0d-cfd3-74e0-a811-0e9dcd06b70a" data-anchor-ids="anchor_019f6c0d-cfd3-74e0-a811-0e9dcd06b70a" data-page-indices="201" data-pages="202" data-confidence="0.7500" data-source-bbox="0.4706,0.8787,0.5000,0.8980">174</span></p><p id="obj_019f6c0d-cfd3-74e0-a811-0e9dcd06b70b" data-object-id="obj_019f6c0d-cfd3-74e0-a811-0e9dcd06b70b" data-object-type="paragraph" data-page="202" data-anchor-id="anchor_019f6c0d-cfd3-74e0-a811-0e9dcd06b70c" data-anchor-ids="anchor_019f6c0d-cfd3-74e0-a811-0e9dcd06b70c" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.5516"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd4-71a8-8b0b-e78b931d37a6" data-object-id="obj_019f6c0d-cfd4-71a8-8b0b-e78b931d37a6" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd4-71a8-8b0b-e78b931d37a7" data-anchor-ids="anchor_019f6c0d-cfd4-71a8-8b0b-e78b931d37a7" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2970">Collect information to evaluate all the reasonable hypotheses, not just the one that seems most likely. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd4-71a8-8b0b-e78b931d37a8" data-object-id="obj_019f6c0d-cfd4-71a8-8b0b-e78b931d37a8" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd4-71a8-8b0b-e78b931d37a9" data-anchor-ids="anchor_019f6c0d-cfd4-71a8-8b0b-e78b931d37a9" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2970">Exploring alternative hypotheses that have not been seriously considered before often leads an analyst into unexpected and unfamiliar territory. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd5-7253-89e2-cb7d37b0e078" data-object-id="obj_019f6c0d-cfd5-7253-89e2-cb7d37b0e078" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd5-7253-89e2-cb7d37b0e079" data-anchor-ids="anchor_019f6c0d-cfd5-7253-89e2-cb7d37b0e079" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.2970">For example, evaluating the possibility of deception requires evaluating another country’s or group’s motives, opportunities, and means for denial and deception. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd5-7253-89e2-cb7d37b0e07a" data-object-id="obj_019f6c0d-cfd5-7253-89e2-cb7d37b0e07a" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd6-76f6-ac72-8ba447c555e1" data-anchor-ids="anchor_019f6c0d-cfd6-76f6-ac72-8ba447c555e1" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.4061">This, in turn, may require understanding the strengths and weaknesses of US human and technical collection capabilities. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd6-76f6-ac72-8ba447c555e2" data-object-id="obj_019f6c0d-cfd6-76f6-ac72-8ba447c555e2" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd6-76f6-ac72-8ba447c555e3" data-anchor-ids="anchor_019f6c0d-cfd6-76f6-ac72-8ba447c555e3" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.2960,0.7917,0.4061">It is important to suspend judgment while information is being assembled on each of the hypotheses. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd6-76f6-ac72-8ba447c555e4" data-object-id="obj_019f6c0d-cfd6-76f6-ac72-8ba447c555e4" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd7-789b-b15c-799253f70e55" data-anchor-ids="anchor_019f6c0d-cfd7-789b-b15c-799253f70e55" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.2960,0.7917,0.4061">It is easy to form impressions about a hypothesis on the basis of very little information, but hard to change an impression once it has taken root. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd7-789b-b15c-799253f70e56" data-object-id="obj_019f6c0d-cfd7-789b-b15c-799253f70e56" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd7-789b-b15c-799253f70e57" data-anchor-ids="anchor_019f6c0d-cfd7-789b-b15c-799253f70e57" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.2960,0.7917,0.5516">If you find yourself thinking you already know the answer, ask yourself what would cause you to change your mind; then look for that information. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd8-797b-b4db-43333c1681b4" data-object-id="obj_019f6c0d-cfd8-797b-b4db-43333c1681b4" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd8-797b-b4db-43333c1681b5" data-anchor-ids="anchor_019f6c0d-cfd8-797b-b4db-43333c1681b5" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.4050,0.7917,0.5516">Try to develop alternative hypotheses in order to determine if some alternative—when given a fair chance—might not be as compelling as your own preconceived view. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd8-797b-b4db-43333c1681b6" data-object-id="obj_019f6c0d-cfd8-797b-b4db-43333c1681b6" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd8-797b-b4db-43333c1681b7" data-anchor-ids="anchor_019f6c0d-cfd8-797b-b4db-43333c1681b7" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.4050,0.7917,0.5516">Systematic development of an alternative hypothesis usually increases the perceived likelihood of that hypothesis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd9-7868-9653-6cf3324a713f" data-object-id="obj_019f6c0d-cfd9-7868-9653-6cf3324a713f" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfd9-7868-9653-6cf3324a7140" data-anchor-ids="anchor_019f6c0d-cfd9-7868-9653-6cf3324a7140" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.4050,0.7917,0.5516">“A willingness to play with material from different angles and in the context of unpopular as well as popular hypotheses is an essential ingredient of a good detective, whether the end is the solution of a crime or an intelligence estimate.”</span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfd9-7868-9653-6cf3324a7141" data-object-id="obj_019f6c0d-cfd9-7868-9653-6cf3324a7141" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfda-7742-bcbf-ae50ef04d9e2" data-anchor-ids="anchor_019f6c0d-cfda-7742-bcbf-ae50ef04d9e2" data-page-indices="202" data-pages="203" data-confidence="0.7500" data-source-bbox="0.2426,0.4050,0.7917,0.5516"><sup><strong>155</strong></sup></span></p></section><section id="obj_019f6c0d-cfda-7742-bcbf-ae50ef04d9e3" data-object-id="obj_019f6c0d-cfda-7742-bcbf-ae50ef04d9e3" data-object-type="section" data-page="202" data-anchor-id="anchor_019f6c0d-cfda-7742-bcbf-ae50ef04d9e4" data-anchor-ids="anchor_019f6c0d-cfda-7742-bcbf-ae50ef04d9e4" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5652,0.4562,0.5864"><h1 id="obj_019f6c0d-cfda-7742-bcbf-ae50ef04d9e5" data-object-id="obj_019f6c0d-cfda-7742-bcbf-ae50ef04d9e5" data-object-type="heading" data-page="202" data-anchor-id="anchor_019f6c0d-cfdb-7452-a7d2-d9d20ffce4ab" data-anchor-ids="anchor_019f6c0d-cfdb-7452-a7d2-d9d20ffce4ab" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5652,0.4562,0.5864"><strong>Evaluating Hypotheses</strong></h1><p id="obj_019f6c0d-cfdb-7452-a7d2-d9d20ffce4ae" data-object-id="obj_019f6c0d-cfdb-7452-a7d2-d9d20ffce4ae" data-object-type="paragraph" data-page="202" data-anchor-id="anchor_019f6c0d-cfdc-76d2-a050-438f29a0640a" data-anchor-ids="anchor_019f6c0d-cfdc-76d2-a050-438f29a0640a" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5853,0.7917,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfdc-76d2-a050-438f29a0640b" data-object-id="obj_019f6c0d-cfdc-76d2-a050-438f29a0640b" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfdc-76d2-a050-438f29a0640c" data-anchor-ids="anchor_019f6c0d-cfdc-76d2-a050-438f29a0640c" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5853,0.7917,0.7137">Do not be misled by the fact that so much evidence supports your preconceived idea of which is the most likely hypothesis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfdc-76d2-a050-438f29a0640d" data-object-id="obj_019f6c0d-cfdc-76d2-a050-438f29a0640d" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfdd-7d30-a2a3-082c9067b4cc" data-anchor-ids="anchor_019f6c0d-cfdd-7d30-a2a3-082c9067b4cc" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5853,0.7917,0.7137">That same evidence may be consistent with several different hypotheses. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfdd-7d30-a2a3-082c9067b4cd" data-object-id="obj_019f6c0d-cfdd-7d30-a2a3-082c9067b4cd" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfdd-7d30-a2a3-082c9067b4ce" data-anchor-ids="anchor_019f6c0d-cfdd-7d30-a2a3-082c9067b4ce" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5853,0.7917,0.7137">Focus on developing arguments <em>against</em> each hypothesis rather than trying to confirm hypotheses. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfde-7b66-a584-9bee0539e629" data-object-id="obj_019f6c0d-cfde-7b66-a584-9bee0539e629" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfde-7b66-a584-9bee0539e62a" data-anchor-ids="anchor_019f6c0d-cfde-7b66-a584-9bee0539e62a" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.5853,0.7917,0.8046">In other words, pay particular attention to evidence or assumptions that suggest one or more hypotheses are <em>less</em> likely than the others. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfde-7b66-a584-9bee0539e62b" data-object-id="obj_019f6c0d-cfde-7b66-a584-9bee0539e62b" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfde-7b66-a584-9bee0539e62c" data-anchor-ids="anchor_019f6c0d-cfde-7b66-a584-9bee0539e62c" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8046">Recognize that your conclusions may be driven by assumptions that determine how you interpret the evidence rather than by the evidence itself. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfdf-766a-8af5-da0be708380d" data-object-id="obj_019f6c0d-cfdf-766a-8af5-da0be708380d" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfdf-766a-8af5-da0be708380e" data-anchor-ids="anchor_019f6c0d-cfdf-766a-8af5-da0be708380e" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8046">Especially critical are assumptions about what is in another country’s national interest and how things are usually done in that country. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfdf-766a-8af5-da0be708380f" data-object-id="obj_019f6c0d-cfdf-766a-8af5-da0be708380f" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfe0-78d3-9da5-55cf114fb77a" data-anchor-ids="anchor_019f6c0d-cfe0-78d3-9da5-55cf114fb77a" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.7126,0.7917,0.8506">Assumptions are fine as long as they are made explicit in your analysis 155. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe0-78d3-9da5-55cf114fb77b" data-object-id="obj_019f6c0d-cfe0-78d3-9da5-55cf114fb77b" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfe0-78d3-9da5-55cf114fb77c" data-anchor-ids="anchor_019f6c0d-cfe0-78d3-9da5-55cf114fb77c" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7718,0.8506">Roberta Wohlstetter, <em>Pearl Harbor: Warning and Decision</em> (Stanford: Stanford University Press, 1962), p. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe0-78d3-9da5-55cf114fb77d" data-object-id="obj_019f6c0d-cfe0-78d3-9da5-55cf114fb77d" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfe1-7091-9ac9-df7b617d1f29" data-anchor-ids="anchor_019f6c0d-cfe1-7091-9ac9-df7b617d1f29" data-page-indices="202" data-pages="203" data-confidence="0.9000" data-source-bbox="0.2426,0.8225,0.7718,0.8506">302.</span></p><p class="source-gap-27" id="obj_019f6c0d-cfe1-7091-9ac9-df7b617d1f2a" data-object-id="obj_019f6c0d-cfe1-7091-9ac9-df7b617d1f2a" data-object-type="paragraph" data-page="202" data-anchor-id="anchor_019f6c0d-cfe1-7091-9ac9-df7b617d1f2b" data-anchor-ids="anchor_019f6c0d-cfe1-7091-9ac9-df7b617d1f2b,anchor_019f6c0d-cfe2-7ebe-8913-eba498579e47" data-page-indices="202,203" data-pages="203,204" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe2-7ebe-8913-eba498579e48" data-object-id="obj_019f6c0d-cfe2-7ebe-8913-eba498579e48" data-object-type="sentence" data-page="202" data-anchor-id="anchor_019f6c0d-cfe2-7ebe-8913-eba498579e49" data-anchor-ids="anchor_019f6c0d-cfe2-7ebe-8913-eba498579e49,anchor_019f6c0d-cfe2-7ebe-8913-eba498579e4a" data-page-indices="202,203" data-pages="203,204" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">175 and you analyze the sensitivity of your conclusions to those assumptions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e7" data-object-id="obj_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e7" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e8" data-anchor-ids="anchor_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e8" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2607">Ask yourself, would different assumptions lead to a different interpretation of the evidence and different conclusions? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e9" data-object-id="obj_019f6c0d-cfe3-7f4f-a61f-5c14dbef68e9" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe4-7dc3-83bc-4a64f8399c72" data-anchor-ids="anchor_019f6c0d-cfe4-7dc3-83bc-4a64f8399c72" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.2050,0.7623,0.3698">Consider using the matrix format discussed in Chapter 8, “Analysis of Competing Hypotheses,” to keep track of the evidence and how it relates to the various hypotheses. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe4-7dc3-83bc-4a64f8399c73" data-object-id="obj_019f6c0d-cfe4-7dc3-83bc-4a64f8399c73" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe4-7dc3-83bc-4a64f8399c74" data-anchor-ids="anchor_019f6c0d-cfe4-7dc3-83bc-4a64f8399c74" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.2596,0.7623,0.3698">Guard against the various cognitive biases. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe4-7dc3-83bc-4a64f8399c75" data-object-id="obj_019f6c0d-cfe4-7dc3-83bc-4a64f8399c75" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bc" data-anchor-ids="anchor_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bc" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.2596,0.7623,0.3698">Especially dangerous are those biases that occur when you lack sufficient understanding of how a situation appears from another country’s point of view. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bd" data-object-id="obj_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bd" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe5-74f7-9ac5-2238a47bf9be" data-anchor-ids="anchor_019f6c0d-cfe5-74f7-9ac5-2238a47bf9be" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.2596,0.7623,0.5334">Do not fill gaps in your knowledge by assuming that the other side is likely to act in a certain way because that is how the US Government would act, or other Americans would act, under similar circumstances. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bf" data-object-id="obj_019f6c0d-cfe5-74f7-9ac5-2238a47bf9bf" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7b" data-anchor-ids="anchor_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7b" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5334">Recognize that the US perception of another country’s national interest and decisionmaking processes often differs from how that country perceives its own interests and how decisions are actually made in that country. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7c" data-object-id="obj_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7c" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7d" data-anchor-ids="anchor_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7d" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5334">In 1989–90, for example, many analysts of Middle Eastern affairs clearly assumed that Iraq would demobilize part of its armed forces after the lengthy Iran-Iraq war so as to help rehabilitate the Iraqi economy. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7e" data-object-id="obj_019f6c0d-cfe6-7bd5-b49a-9e4ef1ac5f7e" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe7-73cf-aee2-51f8e1908253" data-anchor-ids="anchor_019f6c0d-cfe7-73cf-aee2-51f8e1908253" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.5334">They also believed Baghdad would see that attacking a neighboring Arab country would not be in Iraq’s best interest. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe7-73cf-aee2-51f8e1908254" data-object-id="obj_019f6c0d-cfe7-73cf-aee2-51f8e1908254" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe7-73cf-aee2-51f8e1908255" data-anchor-ids="anchor_019f6c0d-cfe7-73cf-aee2-51f8e1908255" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.3687,0.7623,0.6061">We now know they were wrong. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe8-7520-9c65-3668962718e7" data-object-id="obj_019f6c0d-cfe8-7520-9c65-3668962718e7" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe8-7520-9c65-3668962718e8" data-anchor-ids="anchor_019f6c0d-cfe8-7520-9c65-3668962718e8" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.5323,0.7623,0.7152">When making a judgment about what another country is likely to do, invest whatever time and effort are needed to consult with whichever experts have the best understanding of what that country’s government is actually thinking and how the decision is likely to be made. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe8-7520-9c65-3668962718e9" data-object-id="obj_019f6c0d-cfe8-7520-9c65-3668962718e9" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe9-70a3-8de0-7d2c9a9969e9" data-anchor-ids="anchor_019f6c0d-cfe9-70a3-8de0-7d2c9a9969e9" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.6050,0.7623,0.7152">Do not assume that every foreign government action is based on a rational decision in pursuit of identified goals. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfe9-70a3-8de0-7d2c9a9969ea" data-object-id="obj_019f6c0d-cfe9-70a3-8de0-7d2c9a9969ea" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfe9-70a3-8de0-7d2c9a9969eb" data-anchor-ids="anchor_019f6c0d-cfe9-70a3-8de0-7d2c9a9969eb" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.6050,0.7623,0.7152">Recognize that government actions are sometimes best explained as a product of bargaining among semi-independent bureaucratic entities, following standard operating procedures under inappropriate circumstances, unintended consequences, failure to follow orders, confusion, accident, or coincidence.</span></p></section><section id="obj_019f6c0d-cfe9-70a3-8de0-7d2c9a9969ec" data-object-id="obj_019f6c0d-cfe9-70a3-8de0-7d2c9a9969ec" data-object-type="section" data-page="203" data-anchor-id="anchor_019f6c0d-cfea-7776-ae8e-c7be3dc6bae3" data-anchor-ids="anchor_019f6c0d-cfea-7776-ae8e-c7be3dc6bae3" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.7288,0.5602,0.7500"><h1 id="obj_019f6c0d-cfea-7776-ae8e-c7be3dc6bae4" data-object-id="obj_019f6c0d-cfea-7776-ae8e-c7be3dc6bae4" data-object-type="heading" data-page="203" data-anchor-id="anchor_019f6c0d-cfeb-7635-bf1f-bab3e3efd258" data-anchor-ids="anchor_019f6c0d-cfeb-7635-bf1f-bab3e3efd258" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.7288,0.5602,0.7500"><strong>Selecting the Most Likely Hypothesis</strong></h1><p id="obj_019f6c0d-cfec-7013-b2b4-138d3cd8873c" data-object-id="obj_019f6c0d-cfec-7013-b2b4-138d3cd8873c" data-object-type="paragraph" data-page="203" data-anchor-id="anchor_019f6c0d-cfec-7013-b2b4-138d3cd8873d" data-anchor-ids="anchor_019f6c0d-cfec-7013-b2b4-138d3cd8873d" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.7490,0.7623,0.8410"><span tabindex="0" class="sentence" id="obj_019f6c0d-cfed-70b3-92be-0f93b8a579bc" data-object-id="obj_019f6c0d-cfed-70b3-92be-0f93b8a579bc" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfed-70b3-92be-0f93b8a579bd" data-anchor-ids="anchor_019f6c0d-cfed-70b3-92be-0f93b8a579bd" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.7490,0.7623,0.8046">Proceed by trying to reject hypotheses rather than confirm them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfed-70b3-92be-0f93b8a579be" data-object-id="obj_019f6c0d-cfed-70b3-92be-0f93b8a579be" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfed-70b3-92be-0f93b8a579bf" data-anchor-ids="anchor_019f6c0d-cfed-70b3-92be-0f93b8a579bf" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.7490,0.7623,0.8410">The most likely hypothesis is usually the one with the least evidence against it, not the one with the most evidence for it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2ba" data-object-id="obj_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2ba" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2bb" data-anchor-ids="anchor_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2bb" data-page-indices="203" data-pages="204" data-confidence="0.9000" data-source-bbox="0.2132,0.8035,0.7623,0.8410">In presenting your conclusions, note all the reasonable hypotheses that were considered. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2bc" data-object-id="obj_019f6c0d-cfee-7f81-9e6f-0fda9bd5d2bc" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cfef-7985-8511-f23cd41dcab4" data-anchor-ids="anchor_019f6c0d-cfef-7985-8511-f23cd41dcab4" data-page-indices="203" data-pages="204" data-confidence="0.7500" data-source-bbox="0.2132,0.8035,0.7623,0.8410">Cite the arguments and evidence supporting your</span></p><p class="source-gap-36" id="obj_019f6c0d-cfef-7985-8511-f23cd41dcab5" data-object-id="obj_019f6c0d-cfef-7985-8511-f23cd41dcab5" data-object-type="paragraph" data-page="203" data-anchor-id="anchor_019f6c0d-cfef-7985-8511-f23cd41dcab6" data-anchor-ids="anchor_019f6c0d-cfef-7985-8511-f23cd41dcab6,anchor_019f6c0d-cff0-77de-a921-c17e3650d51e" data-page-indices="203,204" data-pages="204,205" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0890"><span tabindex="0" class="sentence" id="obj_019f6c0d-cff0-77de-a921-c17e3650d51f" data-object-id="obj_019f6c0d-cff0-77de-a921-c17e3650d51f" data-object-type="sentence" data-page="203" data-anchor-id="anchor_019f6c0d-cff0-77de-a921-c17e3650d520" data-anchor-ids="anchor_019f6c0d-cff0-77de-a921-c17e3650d520,anchor_019f6c0d-cff0-77de-a921-c17e3650d521" data-page-indices="203,204" data-pages="204,205" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">176 judgment, but also justify briefly why other alternatives were rejected or considered less likely. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff1-7d9f-b088-f45d624739b2" data-object-id="obj_019f6c0d-cff1-7d9f-b088-f45d624739b2" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff1-7d9f-b088-f45d624739b3" data-anchor-ids="anchor_019f6c0d-cff1-7d9f-b088-f45d624739b3" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7916,0.2243">To avoid ambiguity, insert an odds ratio or probability range in parentheses after expressions of uncertainty in key judgments.</span></p></section><section id="obj_019f6c0d-cff1-7d9f-b088-f45d624739b4" data-object-id="obj_019f6c0d-cff1-7d9f-b088-f45d624739b4" data-object-type="section" data-page="204" data-anchor-id="anchor_019f6c0d-cff1-7d9f-b088-f45d624739b5" data-anchor-ids="anchor_019f6c0d-cff1-7d9f-b088-f45d624739b5" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2379,0.4404,0.2591"><h1 id="obj_019f6c0d-cff2-7cff-aab6-5adb860adae7" data-object-id="obj_019f6c0d-cff2-7cff-aab6-5adb860adae7" data-object-type="heading" data-page="204" data-anchor-id="anchor_019f6c0d-cff2-7cff-aab6-5adb860adae8" data-anchor-ids="anchor_019f6c0d-cff2-7cff-aab6-5adb860adae8" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2379,0.4404,0.2591"><strong>Ongoing Monitoring</strong></h1><p id="obj_019f6c0d-cff3-7955-9cf1-c5802cc99684" data-object-id="obj_019f6c0d-cff3-7955-9cf1-c5802cc99684" data-object-type="paragraph" data-page="204" data-anchor-id="anchor_019f6c0d-cff3-7955-9cf1-c5802cc99685" data-anchor-ids="anchor_019f6c0d-cff3-7955-9cf1-c5802cc99685" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2581,0.7917,0.4592"><span tabindex="0" class="sentence" id="obj_019f6c0d-cff3-7955-9cf1-c5802cc99686" data-object-id="obj_019f6c0d-cff3-7955-9cf1-c5802cc99686" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff4-7b41-964f-a493662833a3" data-anchor-ids="anchor_019f6c0d-cff4-7b41-964f-a493662833a3" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2581,0.7917,0.3501">In a rapidly changing, probabilistic world, analytical conclusions are always tentative. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff4-7b41-964f-a493662833a4" data-object-id="obj_019f6c0d-cff4-7b41-964f-a493662833a4" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff4-7b41-964f-a493662833a5" data-anchor-ids="anchor_019f6c0d-cff4-7b41-964f-a493662833a5" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2581,0.7917,0.3501">The situation may change, or it may remain unchanged while you receive new information that alters your understanding of it. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff5-781d-8dca-b9a0845d89b0" data-object-id="obj_019f6c0d-cff5-781d-8dca-b9a0845d89b0" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff5-781d-8dca-b9a0845d89b1" data-anchor-ids="anchor_019f6c0d-cff5-781d-8dca-b9a0845d89b1" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.2581,0.7917,0.4592">Specify things to look for that, if observed, would suggest a significant change in the probabilities. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff5-781d-8dca-b9a0845d89b2" data-object-id="obj_019f6c0d-cff5-781d-8dca-b9a0845d89b2" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff5-781d-8dca-b9a0845d89b3" data-anchor-ids="anchor_019f6c0d-cff5-781d-8dca-b9a0845d89b3" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.3490,0.7917,0.4592">Pay particular attention to any feeling of surprise when new information does not fit your prior understanding. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff6-7da9-9bc9-02d280d2909e" data-object-id="obj_019f6c0d-cff6-7da9-9bc9-02d280d2909e" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff6-7da9-9bc9-02d280d2909f" data-anchor-ids="anchor_019f6c0d-cff6-7da9-9bc9-02d280d2909f" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.3490,0.7917,0.4592">Consider whether this surprising information is consistent with an alternative hypothesis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff6-7da9-9bc9-02d280d290a0" data-object-id="obj_019f6c0d-cff6-7da9-9bc9-02d280d290a0" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff7-7339-bb91-29667a271c7b" data-anchor-ids="anchor_019f6c0d-cff7-7339-bb91-29667a271c7b" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.3490,0.7917,0.4592">A surprise or two, however small, may be the first clue that your understanding of what is happening requires some adjustment, is at best incomplete, or may be quite wrong.</span></p></section><section class="source-gap-206" id="obj_019f6c0d-cff7-7339-bb91-29667a271c7c" data-object-id="obj_019f6c0d-cff7-7339-bb91-29667a271c7c" data-object-type="section" data-page="204" data-anchor-id="anchor_019f6c0d-cff7-7339-bb91-29667a271c7d" data-anchor-ids="anchor_019f6c0d-cff7-7339-bb91-29667a271c7d" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.4773,0.4715,0.4985" data-source-gap="0.5142"><h1 id="obj_019f6c0d-cff7-7339-bb91-29667a271c7e" data-object-id="obj_019f6c0d-cff7-7339-bb91-29667a271c7e" data-object-type="heading" data-page="204" data-anchor-id="anchor_019f6c0d-cff8-7c1b-ae6d-a20c8bc46b4c" data-anchor-ids="anchor_019f6c0d-cff8-7c1b-ae6d-a20c8bc46b4c" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.4773,0.4715,0.4985"><strong>Management of Analysis</strong></h1><p class="source-gap-10" id="obj_019f6c0d-cff8-7c1b-ae6d-a20c8bc46b4f" data-object-id="obj_019f6c0d-cff8-7c1b-ae6d-a20c8bc46b4f" data-object-type="paragraph" data-page="204" data-anchor-id="anchor_019f6c0d-cff9-722c-951e-c42b8d4f99a4" data-anchor-ids="anchor_019f6c0d-cff9-722c-951e-c42b8d4f99a4" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.5088,0.7917,0.6372" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-cff9-722c-951e-c42b8d4f99a5" data-object-id="obj_019f6c0d-cff9-722c-951e-c42b8d4f99a5" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cff9-722c-951e-c42b8d4f99a6" data-anchor-ids="anchor_019f6c0d-cff9-722c-951e-c42b8d4f99a6" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.5088,0.7917,0.6372">The cognitive problems described in this book have implications for the management as well as the conduct of intelligence analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cff9-722c-951e-c42b8d4f99a7" data-object-id="obj_019f6c0d-cff9-722c-951e-c42b8d4f99a7" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cffa-7585-9c11-3834158b808e" data-anchor-ids="anchor_019f6c0d-cffa-7585-9c11-3834158b808e" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.5088,0.7917,0.6372">This concluding section looks at what managers of intelligence analysis can do to help create an organizational environment in which analytical excellence flourishes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cffa-7585-9c11-3834158b808f" data-object-id="obj_019f6c0d-cffa-7585-9c11-3834158b808f" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cffa-7585-9c11-3834158b8090" data-anchor-ids="anchor_019f6c0d-cffa-7585-9c11-3834158b8090" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.5088,0.7917,0.6372">These measures fall into four general categories: research, training, exposure to alternative mind-sets, and guiding analytical products.</span></p></section><section class="source-gap-144" id="obj_019f6c0d-cffb-76c1-b058-f44c23ae9cdc" data-object-id="obj_019f6c0d-cffb-76c1-b058-f44c23ae9cdc" data-object-type="section" data-page="204" data-anchor-id="anchor_019f6c0d-cffb-76c1-b058-f44c23ae9cdd" data-anchor-ids="anchor_019f6c0d-cffb-76c1-b058-f44c23ae9cdd" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6508,0.4400,0.6720" data-source-gap="0.3588"><h1 id="obj_019f6c0d-cffb-76c1-b058-f44c23ae9cde" data-object-id="obj_019f6c0d-cffb-76c1-b058-f44c23ae9cde" data-object-type="heading" data-page="204" data-anchor-id="anchor_019f6c0d-cffb-76c1-b058-f44c23ae9cdf" data-anchor-ids="anchor_019f6c0d-cffb-76c1-b058-f44c23ae9cdf" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6508,0.4400,0.6720"><strong>Support for Research</strong></h1><p id="obj_019f6c0d-cffc-77a2-9733-7a9e2c011223" data-object-id="obj_019f6c0d-cffc-77a2-9733-7a9e2c011223" data-object-type="paragraph" data-page="204" data-anchor-id="anchor_019f6c0d-cffd-7753-974e-07490c30d06b" data-anchor-ids="anchor_019f6c0d-cffd-7753-974e-07490c30d06b" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357"><span tabindex="0" class="sentence" id="obj_019f6c0d-cffd-7753-974e-07490c30d06c" data-object-id="obj_019f6c0d-cffd-7753-974e-07490c30d06c" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cffd-7753-974e-07490c30d06d" data-anchor-ids="anchor_019f6c0d-cffd-7753-974e-07490c30d06d" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357">Management should support research to gain a better understanding of the cognitive processes involved in making intelligence judgments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cffd-7753-974e-07490c30d06e" data-object-id="obj_019f6c0d-cffd-7753-974e-07490c30d06e" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cffe-75f4-9e09-47074810718c" data-anchor-ids="anchor_019f6c0d-cffe-75f4-9e09-47074810718c" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357">There is a need for better understanding of the thinking skills involved in intelligence analysis, how to test job applicants for these skills, and how to train analysts to improve these skills. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cffe-75f4-9e09-47074810718d" data-object-id="obj_019f6c0d-cffe-75f4-9e09-47074810718d" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cffe-75f4-9e09-47074810718e" data-anchor-ids="anchor_019f6c0d-cffe-75f4-9e09-47074810718e" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357">Analysts also need a fuller understanding of how cognitive limitations affect intelligence analysis and how to minimize their impact. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfff-7e14-8173-d18b22a02642" data-object-id="obj_019f6c0d-cfff-7e14-8173-d18b22a02642" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cfff-7e14-8173-d18b22a02643" data-anchor-ids="anchor_019f6c0d-cfff-7e14-8173-d18b22a02643" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357">They need simple tools and techniques to help protect themselves from avoidable error. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-cfff-7e14-8173-d18b22a02644" data-object-id="obj_019f6c0d-cfff-7e14-8173-d18b22a02644" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-cfff-7e14-8173-d18b22a02645" data-anchor-ids="anchor_019f6c0d-cfff-7e14-8173-d18b22a02645" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.2426,0.6710,0.7917,0.8357">There is so much research to be done that it is difficult to know where to start.</span></p><p class="source-gap-41" id="obj_019f6c0d-d000-7917-80d7-79a5c307169b" data-object-id="obj_019f6c0d-d000-7917-80d7-79a5c307169b" data-object-type="paragraph" data-page="204" data-anchor-id="anchor_019f6c0d-d000-7917-80d7-79a5c307169c" data-anchor-ids="anchor_019f6c0d-d000-7917-80d7-79a5c307169c" data-page-indices="204" data-pages="205" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.1030"><span tabindex="0" class="sentence" id="obj_019f6c0d-d000-7917-80d7-79a5c307169d" data-object-id="obj_019f6c0d-d000-7917-80d7-79a5c307169d" data-object-type="sentence" data-page="204" data-anchor-id="anchor_019f6c0d-d001-7689-8442-4a9cc892ca76" data-anchor-ids="anchor_019f6c0d-d001-7689-8442-4a9cc892ca76" data-page-indices="204" data-pages="205" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">177</span></p><p id="obj_019f6c0d-d001-7689-8442-4a9cc892ca77" data-object-id="obj_019f6c0d-d001-7689-8442-4a9cc892ca77" data-object-type="paragraph" data-page="205" data-anchor-id="anchor_019f6c0d-d001-7689-8442-4a9cc892ca78" data-anchor-ids="anchor_019f6c0d-d001-7689-8442-4a9cc892ca78" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061"><span tabindex="0" class="sentence" id="obj_019f6c0d-d001-7689-8442-4a9cc892ca79" data-object-id="obj_019f6c0d-d001-7689-8442-4a9cc892ca79" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d002-7994-8263-37068cd21ffe" data-anchor-ids="anchor_019f6c0d-d002-7994-8263-37068cd21ffe" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">Scholars selected for tours of duty in the Intelligence Community should include cognitive psychologists or other scholars of various backgrounds who are interested in studying the thinking processes of intelligence analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d002-7994-8263-37068cd21fff" data-object-id="obj_019f6c0d-d002-7994-8263-37068cd21fff" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d002-7994-8263-37068cd22000" data-anchor-ids="anchor_019f6c0d-d002-7994-8263-37068cd22000" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">There should also be post-doctoral fellowships for promising scholars who could be encouraged to make a career of research in this field. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d002-7994-8263-37068cd22001" data-object-id="obj_019f6c0d-d002-7994-8263-37068cd22001" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d003-7829-a58f-5f4bfb352417" data-anchor-ids="anchor_019f6c0d-d003-7829-a58f-5f4bfb352417" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.4061">Over time, this would contribute to building a better base of knowledge about how analysts do and/or should make analytical judgments and what tools or techniques can help them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d003-7829-a58f-5f4bfb352418" data-object-id="obj_019f6c0d-d003-7829-a58f-5f4bfb352418" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d003-7829-a58f-5f4bfb352419" data-anchor-ids="anchor_019f6c0d-d003-7829-a58f-5f4bfb352419" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7622,0.4061">Management should also support research on the mind-sets and implicit mental models of intelligence analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d004-7035-8e83-6072fb9f9811" data-object-id="obj_019f6c0d-d004-7035-8e83-6072fb9f9811" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d004-7035-8e83-6072fb9f9812" data-anchor-ids="anchor_019f6c0d-d004-7035-8e83-6072fb9f9812" data-page-indices="205" data-pages="206" data-confidence="0.7500" data-source-bbox="0.2132,0.2960,0.7622,0.4061">Because these mind-sets or models serve as a “screen” or “lens” through which analysts perceive foreign developments, research to determine the nature of this “lens” may contribute as much to accurate judgments as does research focused more directly on the foreign areas themselves.<sup><strong>156</strong></sup></span></p></section><section id="obj_019f6c0d-d004-7035-8e83-6072fb9f9813" data-object-id="obj_019f6c0d-d004-7035-8e83-6072fb9f9813" data-object-type="section" data-page="205" data-anchor-id="anchor_019f6c0d-d004-7035-8e83-6072fb9f9814" data-anchor-ids="anchor_019f6c0d-d004-7035-8e83-6072fb9f9814" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4197,0.2934,0.4409"><h1 id="obj_019f6c0d-d005-7d31-8b84-430115cc3d94" data-object-id="obj_019f6c0d-d005-7d31-8b84-430115cc3d94" data-object-type="heading" data-page="205" data-anchor-id="anchor_019f6c0d-d005-7d31-8b84-430115cc3d95" data-anchor-ids="anchor_019f6c0d-d005-7d31-8b84-430115cc3d95" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4197,0.2934,0.4409"><strong>Training</strong></h1><p id="obj_019f6c0d-d006-7f7a-af9d-41968bdd8dc1" data-object-id="obj_019f6c0d-d006-7f7a-af9d-41968bdd8dc1" data-object-type="paragraph" data-page="205" data-anchor-id="anchor_019f6c0d-d006-7f7a-af9d-41968bdd8dc2" data-anchor-ids="anchor_019f6c0d-d006-7f7a-af9d-41968bdd8dc2" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4399,0.7623,0.8506"><span tabindex="0" class="sentence" id="obj_019f6c0d-d006-7f7a-af9d-41968bdd8dc3" data-object-id="obj_019f6c0d-d006-7f7a-af9d-41968bdd8dc3" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d007-7c30-93d3-4ff297d1b86f" data-anchor-ids="anchor_019f6c0d-d007-7c30-93d3-4ff297d1b86f" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4399,0.7623,0.5319">Most training of intelligence analysts is focused on organizational procedures, writing style, and methodological techniques. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d007-7c30-93d3-4ff297d1b870" data-object-id="obj_019f6c0d-d007-7c30-93d3-4ff297d1b870" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d007-7c30-93d3-4ff297d1b871" data-anchor-ids="anchor_019f6c0d-d007-7c30-93d3-4ff297d1b871" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4399,0.7623,0.5319">Analysts who write clearly are assumed to be thinking clearly. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d007-7c30-93d3-4ff297d1b872" data-object-id="obj_019f6c0d-d007-7c30-93d3-4ff297d1b872" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d008-7cf9-b94a-24b27f5b49f5" data-anchor-ids="anchor_019f6c0d-d008-7cf9-b94a-24b27f5b49f5" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.4399,0.7623,0.6228">Yet it is quite possible to follow a faulty analytical process and write a clear and persuasive argument in support of an erroneous judgment. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d008-7cf9-b94a-24b27f5b49f6" data-object-id="obj_019f6c0d-d008-7cf9-b94a-24b27f5b49f6" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d008-7cf9-b94a-24b27f5b49f7" data-anchor-ids="anchor_019f6c0d-d008-7cf9-b94a-24b27f5b49f7" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.5308,0.7623,0.6228">More training time should be devoted to the thinking and reasoning processes involved in making intelligence judgments, and to the tools of the trade that are available to alleviate or compensate for the known cognitive problems encountered in analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d008-7cf9-b94a-24b27f5b49f8" data-object-id="obj_019f6c0d-d008-7cf9-b94a-24b27f5b49f8" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d009-752a-bbed-e8a8bc35bbc4" data-anchor-ids="anchor_019f6c0d-d009-752a-bbed-e8a8bc35bbc4" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.5308,0.7623,0.6773">This book is intended to support such training. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d009-752a-bbed-e8a8bc35bbc5" data-object-id="obj_019f6c0d-d009-752a-bbed-e8a8bc35bbc5" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d009-752a-bbed-e8a8bc35bbc6" data-anchor-ids="anchor_019f6c0d-d009-752a-bbed-e8a8bc35bbc6" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6217,0.7623,0.6773">Training will be more effective if supplemented with ongoing advice and assistance. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00a-743b-aee3-6c3531b50b1b" data-object-id="obj_019f6c0d-d00a-743b-aee3-6c3531b50b1b" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00a-743b-aee3-6c3531b50b1c" data-anchor-ids="anchor_019f6c0d-d00a-743b-aee3-6c3531b50b1c" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6217,0.7623,0.8506">An experienced coach who can monitor and guide ongoing performance is a valuable supplement to classroom instruction 156. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00a-743b-aee3-6c3531b50b1d" data-object-id="obj_019f6c0d-d00a-743b-aee3-6c3531b50b1d" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00a-743b-aee3-6c3531b50b1e" data-anchor-ids="anchor_019f6c0d-d00a-743b-aee3-6c3531b50b1e" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">Graham Allison’s work on the Cuban missile crisis (Essence of Decision, Little, Brown &amp; Co.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00b-73cf-a86a-a55e00fe3edf" data-object-id="obj_019f6c0d-d00b-73cf-a86a-a55e00fe3edf" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00b-73cf-a86a-a55e00fe3ee0" data-anchor-ids="anchor_019f6c0d-d00b-73cf-a86a-a55e00fe3ee0" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">, 1971) is an example of what I have in mind. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00b-73cf-a86a-a55e00fe3ee1" data-object-id="obj_019f6c0d-d00b-73cf-a86a-a55e00fe3ee1" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00b-73cf-a86a-a55e00fe3ee2" data-anchor-ids="anchor_019f6c0d-d00b-73cf-a86a-a55e00fe3ee2" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">Allison identified three alternative assumptions about how governments work--the rational actor model, organizational process model, and bureaucratic politics model. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00c-71a2-ba32-3480cba1793d" data-object-id="obj_019f6c0d-d00c-71a2-ba32-3480cba1793d" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00c-71a2-ba32-3480cba1793e" data-anchor-ids="anchor_019f6c0d-d00c-71a2-ba32-3480cba1793e" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">He then showed how an analystÍs implicit assumptions about the most appropriate model for analyzing a foreign government’s behavior cause him or her to focus on different evidence and arrive at different conclusions. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00c-71a2-ba32-3480cba1793f" data-object-id="obj_019f6c0d-d00c-71a2-ba32-3480cba1793f" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00d-7d93-b8ca-d5a251763381" data-anchor-ids="anchor_019f6c0d-d00d-7d93-b8ca-d5a251763381" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">Another example is my own analysis of five alternative paths for making counterintelligence judgments in the controversial case of KGB defector Yuriy Nosenko. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00d-7d93-b8ca-d5a251763382" data-object-id="obj_019f6c0d-d00d-7d93-b8ca-d5a251763382" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00d-7d93-b8ca-d5a251763383" data-anchor-ids="anchor_019f6c0d-d00d-7d93-b8ca-d5a251763383" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">Richards J. Heuer, Jr., “Nosenko: Five Paths to Judgment,” <em>Studies in Intelligence</em>, Vol. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00d-7d93-b8ca-d5a251763384" data-object-id="obj_019f6c0d-d00d-7d93-b8ca-d5a251763384" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00e-7bd7-82ff-687266e5adc0" data-anchor-ids="anchor_019f6c0d-d00e-7bd7-82ff-687266e5adc0" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">31, No. 3 (Fall 1987), originally classified Secret but declassified and published in H. Bradford Westerfield, ed.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-d00e-7bd7-82ff-687266e5adc1" data-object-id="obj_019f6c0d-d00e-7bd7-82ff-687266e5adc1" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d00e-7bd7-82ff-687266e5adc2" data-anchor-ids="anchor_019f6c0d-d00e-7bd7-82ff-687266e5adc2" data-page-indices="205" data-pages="206" data-confidence="0.9000" data-source-bbox="0.2132,0.6998,0.7506,0.8506">, <em>Inside CIA’s Private World: Declassified Articles from the Agency Internal Journal 1955-1992</em> (New Haven: Yale University Press, 1995).</span></p><p class="source-gap-26" id="obj_019f6c0d-d00e-7bd7-82ff-687266e5adc3" data-object-id="obj_019f6c0d-d00e-7bd7-82ff-687266e5adc3" data-object-type="paragraph" data-page="205" data-anchor-id="anchor_019f6c0d-d00f-7b17-ba86-2c7bfa1f3cd5" data-anchor-ids="anchor_019f6c0d-d00f-7b17-ba86-2c7bfa1f3cd5,anchor_019f6c0d-d00f-7b17-ba86-2c7bfa1f3cd6" data-page-indices="205,206" data-pages="206,207" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0662"><span tabindex="0" class="sentence" id="obj_019f6c0d-d00f-7b17-ba86-2c7bfa1f3cd7" data-object-id="obj_019f6c0d-d00f-7b17-ba86-2c7bfa1f3cd7" data-object-type="sentence" data-page="205" data-anchor-id="anchor_019f6c0d-d010-755c-a0bf-fa734b976bf2" data-anchor-ids="anchor_019f6c0d-d010-755c-a0bf-fa734b976bf2,anchor_019f6c0d-d010-755c-a0bf-fa734b976bf3" data-page-indices="205,206" data-pages="206,207" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">178 in many fields, probably including intelligence analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d010-755c-a0bf-fa734b976bf4" data-object-id="obj_019f6c0d-d010-755c-a0bf-fa734b976bf4" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d011-7be9-98f3-60dbf224c57a" data-anchor-ids="anchor_019f6c0d-d011-7be9-98f3-60dbf224c57a" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3879">This is supposed to be the job of the branch chief or senior analyst, but these officers are often too busy responding to other pressing demands on their time. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d011-7be9-98f3-60dbf224c57b" data-object-id="obj_019f6c0d-d011-7be9-98f3-60dbf224c57b" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d011-7be9-98f3-60dbf224c57c" data-anchor-ids="anchor_019f6c0d-d011-7be9-98f3-60dbf224c57c" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3879">It would be worthwhile to consider how an analytical coaching staff might be formed to mentor new analysts or consult with analysts working particularly difficult issues. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d011-7be9-98f3-60dbf224c57d" data-object-id="obj_019f6c0d-d011-7be9-98f3-60dbf224c57d" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d012-7a0d-94b4-04c339b28e75" data-anchor-ids="anchor_019f6c0d-d012-7a0d-94b4-04c339b28e75" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3879">One possible model is the SCORE organization that exists in many communities. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d012-7a0d-94b4-04c339b28e76" data-object-id="obj_019f6c0d-d012-7a0d-94b4-04c339b28e76" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d012-7a0d-94b4-04c339b28e77" data-anchor-ids="anchor_019f6c0d-d012-7a0d-94b4-04c339b28e77" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3879">SCORE stands for Senior Corps of Retired Executives. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d012-7a0d-94b4-04c339b28e78" data-object-id="obj_019f6c0d-d012-7a0d-94b4-04c339b28e78" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d013-7905-8d43-a6cf94a52afd" data-anchor-ids="anchor_019f6c0d-d013-7905-8d43-a6cf94a52afd" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3879">It is a national organization of retired executives who volunteer their time to counsel young entrepreneurs starting their own businesses. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d013-7905-8d43-a6cf94a52afe" data-object-id="obj_019f6c0d-d013-7905-8d43-a6cf94a52afe" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d013-7905-8d43-a6cf94a52aff" data-anchor-ids="anchor_019f6c0d-d013-7905-8d43-a6cf94a52aff" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.5516">It should be possible to form a small group of retired analysts who possess the skills and values that should be imparted to new analysts, and who would be willing to volunteer (or be hired) to come in several days a week to counsel junior analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d014-7fda-b50a-5b7d387d6b17" data-object-id="obj_019f6c0d-d014-7fda-b50a-5b7d387d6b17" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d014-7fda-b50a-5b7d387d6b18" data-anchor-ids="anchor_019f6c0d-d014-7fda-b50a-5b7d387d6b18" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.3869,0.7917,0.5516">New analysts could be required to read a specified set of books or articles relating to analysis, and to attend a half-day meeting once a month to discuss the reading and other experiences related to their development as analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d014-7fda-b50a-5b7d387d6b19" data-object-id="obj_019f6c0d-d014-7fda-b50a-5b7d387d6b19" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d014-7fda-b50a-5b7d387d6b1a" data-anchor-ids="anchor_019f6c0d-d014-7fda-b50a-5b7d387d6b1a" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.3869,0.7917,0.5516">A comparable voluntary program could be conducted for experienced analysts. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d015-7366-9ea2-5edd1288b637" data-object-id="obj_019f6c0d-d015-7366-9ea2-5edd1288b637" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d015-7366-9ea2-5edd1288b638" data-anchor-ids="anchor_019f6c0d-d015-7366-9ea2-5edd1288b638" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.3869,0.7917,0.5516">This would help make analysts more conscious of the procedures they use in doing analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d015-7366-9ea2-5edd1288b639" data-object-id="obj_019f6c0d-d015-7366-9ea2-5edd1288b639" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d015-7366-9ea2-5edd1288b63a" data-anchor-ids="anchor_019f6c0d-d015-7366-9ea2-5edd1288b63a" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.3869,0.7917,0.8243">In addition to their educational value, the required readings and discussion would give analysts a common experience and vocabulary for communicating with each other, and with management, about the problems of doing analysis. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d016-7cc2-a6a1-2d5b47f46780" data-object-id="obj_019f6c0d-d016-7cc2-a6a1-2d5b47f46780" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d016-7cc2-a6a1-2d5b47f46781" data-anchor-ids="anchor_019f6c0d-d016-7cc2-a6a1-2d5b47f46781" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8243">My suggestions for writings that would qualify for a mandatory reading program include: Robert Jervis’ <em>Perception and Misperception in International Politics</em> (Princeton University Press, 1977); Graham Allison’s <em>Essence of Decision: Explaining the Cuban Missile Crisis</em> (Little, Brown, 1971); Ernest May’s “<em>Lessons” of the Past: The Use and Misuse of History in American Foreign Policy</em> (Oxford University Press, 1973); Ephraim Kam’s, <em>Surprise Attack</em> (Harvard University Press, 1988); Richard Betts’ “Analysis, War and Decision: Why Intelligence Failures Are Inevitable,” <em>World Politics,</em> Vol. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d016-7cc2-a6a1-2d5b47f46782" data-object-id="obj_019f6c0d-d016-7cc2-a6a1-2d5b47f46782" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d017-7388-8652-29c1361ab607" data-anchor-ids="anchor_019f6c0d-d017-7388-8652-29c1361ab607" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8243">31, No. 1 (October 1978); Thomas Kuhn’s <em>The Structure of Scientific Revolutions</em> (University of Chicago Press, 1970); and Robin Hogarth’s <em>Judgement and Choice</em> (John Wiley, 1980). </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d017-7388-8652-29c1361ab608" data-object-id="obj_019f6c0d-d017-7388-8652-29c1361ab608" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d017-7388-8652-29c1361ab609" data-anchor-ids="anchor_019f6c0d-d017-7388-8652-29c1361ab609" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8243">Although these were all written many years ago, they are classics of permanent value. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d018-763e-9268-8828f30c155b" data-object-id="obj_019f6c0d-d018-763e-9268-8828f30c155b" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d019-77b3-b288-69ec68696771" data-anchor-ids="anchor_019f6c0d-d019-77b3-b288-69ec68696771" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8243">Current analysts will doubtless have other works to recommend. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d019-77b3-b288-69ec68696772" data-object-id="obj_019f6c0d-d019-77b3-b288-69ec68696772" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d019-77b3-b288-69ec68696773" data-anchor-ids="anchor_019f6c0d-d019-77b3-b288-69ec68696773" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.2426,0.5505,0.7917,0.8243">CIA and Intelligence Community postmortem analyses of intelligence failure should also be part of the reading program.</span></p><p class="source-gap-52" id="obj_019f6c0d-d019-77b3-b288-69ec68696774" data-object-id="obj_019f6c0d-d019-77b3-b288-69ec68696774" data-object-type="paragraph" data-page="206" data-anchor-id="anchor_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a1" data-anchor-ids="anchor_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a1" data-page-indices="206" data-pages="207" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.1297"><span tabindex="0" class="sentence" id="obj_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a2" data-object-id="obj_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a2" data-object-type="sentence" data-page="206" data-anchor-id="anchor_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a3" data-anchor-ids="anchor_019f6c0d-d01a-7277-b4cf-d5b8bb09f9a3" data-page-indices="206" data-pages="207" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">179</span></p><p id="obj_019f6c0d-d01b-7df0-ac99-52cf03f265e3" data-object-id="obj_019f6c0d-d01b-7df0-ac99-52cf03f265e3" data-object-type="paragraph" data-page="207" data-anchor-id="anchor_019f6c0d-d01b-7df0-ac99-52cf03f265e4" data-anchor-ids="anchor_019f6c0d-d01b-7df0-ac99-52cf03f265e4" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.6970"><span tabindex="0" class="sentence" id="obj_019f6c0d-d01b-7df0-ac99-52cf03f265e5" data-object-id="obj_019f6c0d-d01b-7df0-ac99-52cf03f265e5" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01b-7df0-ac99-52cf03f265e6" data-anchor-ids="anchor_019f6c0d-d01b-7df0-ac99-52cf03f265e6" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">To facilitate institutional memory and learning, thorough postmortem analyses should be conducted on all significant intelligence failures. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01c-793d-b3b1-4c84b1ad2484" data-object-id="obj_019f6c0d-d01c-793d-b3b1-4c84b1ad2484" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01c-793d-b3b1-4c84b1ad2485" data-anchor-ids="anchor_019f6c0d-d01c-793d-b3b1-4c84b1ad2485" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">Analytical (as distinct from collection) successes should also be studied. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01c-793d-b3b1-4c84b1ad2486" data-object-id="obj_019f6c0d-d01c-793d-b3b1-4c84b1ad2486" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01d-7ad7-85fd-0fb3c7760df4" data-anchor-ids="anchor_019f6c0d-d01d-7ad7-85fd-0fb3c7760df4" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">These analyses should be collated and maintained in a central location, available for review to identify the common characteristics of analytical failure and success. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01d-7ad7-85fd-0fb3c7760df5" data-object-id="obj_019f6c0d-d01d-7ad7-85fd-0fb3c7760df5" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01d-7ad7-85fd-0fb3c7760df6" data-anchor-ids="anchor_019f6c0d-d01d-7ad7-85fd-0fb3c7760df6" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.5152">A meta-analysis of the causes and consequences of analytical success and failure should be widely distributed and used in training programs to heighten awareness of analytical problems. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01d-7ad7-85fd-0fb3c7760df7" data-object-id="obj_019f6c0d-d01d-7ad7-85fd-0fb3c7760df7" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4d" data-anchor-ids="anchor_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4d" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.5152">To encourage learning from experience, even in the absence of a high-profile failure, management should require more frequent and systematic retrospective evaluation of analytical performance. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4e" data-object-id="obj_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4e" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4f" data-anchor-ids="anchor_019f6c0d-d01e-72ae-a9c6-a9b5a0acdc4f" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.5152">One ought not generalize from any single instance of a correct or incorrect judgment, but a series of related judgments that are, or are not, borne out by subsequent events can reveal the accuracy or inaccuracy of the analyst’s mental model. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a72" data-object-id="obj_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a72" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a73" data-anchor-ids="anchor_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a73" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.5152">Obtaining systematic feedback on the accuracy of past judgments is frequently difficult or impossible, especially in the political intelligence field. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a74" data-object-id="obj_019f6c0d-d01f-7ebd-bfa9-e8cbbf8a7a74" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d020-7372-a05a-710075a4e2fb" data-anchor-ids="anchor_019f6c0d-d020-7372-a05a-710075a4e2fb" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.5152">Political judgments are normally couched in imprecise terms and are generally conditional upon other developments. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d020-7372-a05a-710075a4e2fc" data-object-id="obj_019f6c0d-d020-7372-a05a-710075a4e2fc" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d020-7372-a05a-710075a4e2fd" data-anchor-ids="anchor_019f6c0d-d020-7372-a05a-710075a4e2fd" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.2960,0.7623,0.6970">Even in retrospect, there are no objective criteria for evaluating the accuracy of most political intelligence judgments as they are presently written. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d020-7372-a05a-710075a4e2fe" data-object-id="obj_019f6c0d-d020-7372-a05a-710075a4e2fe" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d021-7d0d-9d97-6b28560acb8c" data-anchor-ids="anchor_019f6c0d-d021-7d0d-9d97-6b28560acb8c" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.5141,0.7623,0.6970">In the economic and military fields, however, where estimates are frequently concerned with numerical quantities, systematic feedback on analytical performance is feasible. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d021-7d0d-9d97-6b28560acb8d" data-object-id="obj_019f6c0d-d021-7d0d-9d97-6b28560acb8d" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d021-7d0d-9d97-6b28560acb8e" data-anchor-ids="anchor_019f6c0d-d021-7d0d-9d97-6b28560acb8e" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.5141,0.7623,0.6970">Retrospective evaluation should be standard procedure in those fields in which estimates are routinely updated at periodic intervals. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d022-7777-8da8-93b8fdc1faa7" data-object-id="obj_019f6c0d-d022-7777-8da8-93b8fdc1faa7" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d022-7777-8da8-93b8fdc1faa8" data-anchor-ids="anchor_019f6c0d-d022-7777-8da8-93b8fdc1faa8" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.5141,0.7623,0.6970">The goal of learning from retrospective evaluation is achieved, however, only if it is accomplished as part of an objective search for improved understanding, not to identify scapegoats or assess blame. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d022-7777-8da8-93b8fdc1faa9" data-object-id="obj_019f6c0d-d022-7777-8da8-93b8fdc1faa9" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d022-7777-8da8-93b8fdc1faaa" data-anchor-ids="anchor_019f6c0d-d022-7777-8da8-93b8fdc1faaa" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.5141,0.7623,0.6970">This requirement suggests that retrospective evaluation should be done routinely within the organizational unit that prepared the report, even at the cost of some loss of objectivity.</span></p></section><section id="obj_019f6c0d-d023-7548-a3d4-a6a4edbcc9ea" data-object-id="obj_019f6c0d-d023-7548-a3d4-a6a4edbcc9ea" data-object-type="section" data-page="207" data-anchor-id="anchor_019f6c0d-d023-7548-a3d4-a6a4edbcc9eb" data-anchor-ids="anchor_019f6c0d-d023-7548-a3d4-a6a4edbcc9eb" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.7106,0.5330,0.7319"><h1 id="obj_019f6c0d-d023-7548-a3d4-a6a4edbcc9ec" data-object-id="obj_019f6c0d-d023-7548-a3d4-a6a4edbcc9ec" data-object-type="heading" data-page="207" data-anchor-id="anchor_019f6c0d-d023-7548-a3d4-a6a4edbcc9ed" data-anchor-ids="anchor_019f6c0d-d023-7548-a3d4-a6a4edbcc9ed" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.7106,0.5330,0.7319"><strong>Exposure to Alternative Mind-Sets</strong></h1><p id="obj_019f6c0d-d024-7d7e-a52b-3d0f71d3caed" data-object-id="obj_019f6c0d-d024-7d7e-a52b-3d0f71d3caed" data-object-type="paragraph" data-page="207" data-anchor-id="anchor_019f6c0d-d024-7d7e-a52b-3d0f71d3caee" data-anchor-ids="anchor_019f6c0d-d024-7d7e-a52b-3d0f71d3caee" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.7308,0.7622,0.8228"><span tabindex="0" class="sentence" id="obj_019f6c0d-d025-7575-b86f-1252890f66ed" data-object-id="obj_019f6c0d-d025-7575-b86f-1252890f66ed" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d025-7575-b86f-1252890f66ee" data-anchor-ids="anchor_019f6c0d-d025-7575-b86f-1252890f66ee" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.7308,0.7622,0.8228">The realities of bureaucratic life produce strong pressures for conformity. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d025-7575-b86f-1252890f66ef" data-object-id="obj_019f6c0d-d025-7575-b86f-1252890f66ef" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d025-7575-b86f-1252890f66f0" data-anchor-ids="anchor_019f6c0d-d025-7575-b86f-1252890f66f0" data-page-indices="207" data-pages="208" data-confidence="0.9000" data-source-bbox="0.2132,0.7308,0.7622,0.8228">Management needs to make conscious efforts to ensure that wellreasoned competing views have the opportunity to surface within the Intelligence Community. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d026-7077-ab27-515b2b426681" data-object-id="obj_019f6c0d-d026-7077-ab27-515b2b426681" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d026-7077-ab27-515b2b426682" data-anchor-ids="anchor_019f6c0d-d026-7077-ab27-515b2b426682" data-page-indices="207" data-pages="208" data-confidence="0.7500" data-source-bbox="0.2132,0.7308,0.7622,0.8228">Analysts need to enjoy a sense of security, so that partially developed new ideas may be expressed and bounced off</span></p><p class="source-gap-53" id="obj_019f6c0d-d026-7077-ab27-515b2b426683" data-object-id="obj_019f6c0d-d026-7077-ab27-515b2b426683" data-object-type="paragraph" data-page="207" data-anchor-id="anchor_019f6c0d-d027-7c5a-833c-2946608fab16" data-anchor-ids="anchor_019f6c0d-d027-7c5a-833c-2946608fab16,anchor_019f6c0d-d027-7c5a-833c-2946608fab17" data-page-indices="207,208" data-pages="208,209" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.1318"><span tabindex="0" class="sentence" id="obj_019f6c0d-d027-7c5a-833c-2946608fab18" data-object-id="obj_019f6c0d-d027-7c5a-833c-2946608fab18" data-object-type="sentence" data-page="207" data-anchor-id="anchor_019f6c0d-d028-7832-882d-b6730e30683f" data-anchor-ids="anchor_019f6c0d-d028-7832-882d-b6730e30683f,anchor_019f6c0d-d028-7832-882d-b6730e306840" data-page-indices="207,208" data-pages="208,209" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">180 others as sounding boards with minimal fear of criticism for deviating from established orthodoxy. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d028-7832-882d-b6730e306841" data-object-id="obj_019f6c0d-d028-7832-882d-b6730e306841" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d028-7832-882d-b6730e306842" data-anchor-ids="anchor_019f6c0d-d028-7832-882d-b6730e306842" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.1869,0.7917,0.2788">Much of this book has dealt with ways of helping analysts remain more open to alternative views. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d029-7ded-87af-b4831cc29444" data-object-id="obj_019f6c0d-d029-7ded-87af-b4831cc29444" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d029-7ded-87af-b4831cc29445" data-anchor-ids="anchor_019f6c0d-d029-7ded-87af-b4831cc29445" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.1869,0.7917,0.4607">Management can help by promoting the kinds of activities that confront analysts with alternative perspectives—consultation with outside experts, analytical debates, competitive analysis, devil’s advocates, gaming, and interdisciplinary brainstorming. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d029-7ded-87af-b4831cc29446" data-object-id="obj_019f6c0d-d029-7ded-87af-b4831cc29446" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02a-723f-9396-f078898da137" data-anchor-ids="anchor_019f6c0d-d02a-723f-9396-f078898da137" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.4607">Consultation with outside experts is especially important as a means of avoiding what Adm. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02a-723f-9396-f078898da138" data-object-id="obj_019f6c0d-d02a-723f-9396-f078898da138" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02a-723f-9396-f078898da139" data-anchor-ids="anchor_019f6c0d-d02a-723f-9396-f078898da139" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.4607">David Jeremiah called the “everybody-thinkslike-us mindset” when making significant judgments that depend upon knowledge of a foreign culture. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02a-723f-9396-f078898da13a" data-object-id="obj_019f6c0d-d02a-723f-9396-f078898da13a" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02b-70ff-981e-83e8d47aeef2" data-anchor-ids="anchor_019f6c0d-d02b-70ff-981e-83e8d47aeef2" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.4607">Intelligence analysts have often spent less time living in and absorbing the culture of the countries they are working on than outside experts on those countries. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02b-70ff-981e-83e8d47aeef3" data-object-id="obj_019f6c0d-d02b-70ff-981e-83e8d47aeef3" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02b-70ff-981e-83e8d47aeef4" data-anchor-ids="anchor_019f6c0d-d02b-70ff-981e-83e8d47aeef4" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.4607">If analysts fail to understand the foreign culture, they will not see issues as the foreign government sees them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02b-70ff-981e-83e8d47aeef5" data-object-id="obj_019f6c0d-d02b-70ff-981e-83e8d47aeef5" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02c-736d-bbc6-773651ad4fd8" data-anchor-ids="anchor_019f6c0d-d02c-736d-bbc6-773651ad4fd8" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.4607">Instead, they may be inclined to mirror-image—that is, to assume that the other country’s leaders think like we do. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02c-736d-bbc6-773651ad4fd9" data-object-id="obj_019f6c0d-d02c-736d-bbc6-773651ad4fd9" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02c-736d-bbc6-773651ad4fda" data-anchor-ids="anchor_019f6c0d-d02c-736d-bbc6-773651ad4fda" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.2778,0.7917,0.5879">The analyst assumes that the other country will do what we would do if we were in their shoes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02c-736d-bbc6-773651ad4fdb" data-object-id="obj_019f6c0d-d02c-736d-bbc6-773651ad4fdb" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02d-7c0c-95c9-c324e98274bd" data-anchor-ids="anchor_019f6c0d-d02d-7c0c-95c9-c324e98274bd" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.4596,0.7917,0.5879">Mirror-imaging is a common source of analytical error, and one that reportedly played a role in the Intelligence Community failure to warn of imminent Indian nuclear weapons testing in 1998. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02d-7c0c-95c9-c324e98274be" data-object-id="obj_019f6c0d-d02d-7c0c-95c9-c324e98274be" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02d-7c0c-95c9-c324e98274bf" data-anchor-ids="anchor_019f6c0d-d02d-7c0c-95c9-c324e98274bf" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.4596,0.7917,0.5879">After leading a US Government team that analyzed this episode, Adm. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02e-7911-97fa-c1b3c0670209" data-object-id="obj_019f6c0d-d02e-7911-97fa-c1b3c0670209" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02e-7911-97fa-c1b3c067020a" data-anchor-ids="anchor_019f6c0d-d02e-7911-97fa-c1b3c067020a" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.4596,0.7917,0.7334">Jeremiah recommended more systematic use of outside expertise whenever there is a major transition that may lead to policy changes, such as the Hindu nationalists’ 1998 election victory and ascension to power in India.<sup><strong>157</strong></sup>&nbsp;Pre-publication review of analytical reports offers another opportunity to bring alternative perspectives to bear on an issue. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02e-7911-97fa-c1b3c067020b" data-object-id="obj_019f6c0d-d02e-7911-97fa-c1b3c067020b" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02e-7911-97fa-c1b3c067020c" data-anchor-ids="anchor_019f6c0d-d02e-7911-97fa-c1b3c067020c" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.5869,0.7917,0.7334">Review procedures should explicitly question the mental model employed by the analyst in searching for and examining evidence. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02f-7c16-a2a7-ccfbc5aef012" data-object-id="obj_019f6c0d-d02f-7c16-a2a7-ccfbc5aef012" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02f-7c16-a2a7-ccfbc5aef013" data-anchor-ids="anchor_019f6c0d-d02f-7c16-a2a7-ccfbc5aef013" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.5869,0.7917,0.7334">What assumptions has the analyst made that are not discussed in the draft itself, but that underlie the principal judgments? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d02f-7c16-a2a7-ccfbc5aef014" data-object-id="obj_019f6c0d-d02f-7c16-a2a7-ccfbc5aef014" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d02f-7c16-a2a7-ccfbc5aef015" data-anchor-ids="anchor_019f6c0d-d02f-7c16-a2a7-ccfbc5aef015" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.5869,0.7917,0.7334">What alternative hypotheses have been considered but rejected, and for what reason? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d030-7c0e-b557-a3f9e292a2bc" data-object-id="obj_019f6c0d-d030-7c0e-b557-a3f9e292a2bc" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d030-7c0e-b557-a3f9e292a2bd" data-anchor-ids="anchor_019f6c0d-d030-7c0e-b557-a3f9e292a2bd" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.5869,0.7917,0.8061">What could cause the analyst to change his or her mind? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d030-7c0e-b557-a3f9e292a2be" data-object-id="obj_019f6c0d-d030-7c0e-b557-a3f9e292a2be" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d031-7689-9a4d-97e2afe2441a" data-anchor-ids="anchor_019f6c0d-d031-7689-9a4d-97e2afe2441a" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.7323,0.7917,0.8061">Ideally, the review process should include analysts from other areas who are not specialists in the subject matter of the report. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d031-7689-9a4d-97e2afe2441b" data-object-id="obj_019f6c0d-d031-7689-9a4d-97e2afe2441b" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d031-7689-9a4d-97e2afe2441c" data-anchor-ids="anchor_019f6c0d-d031-7689-9a4d-97e2afe2441c" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.7323,0.7917,0.8061">Analysts within the same branch or division often share a similar mind-set. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d031-7689-9a4d-97e2afe2441d" data-object-id="obj_019f6c0d-d031-7689-9a4d-97e2afe2441d" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d032-73da-95af-e8c611f8159b" data-anchor-ids="anchor_019f6c0d-d032-73da-95af-e8c611f8159b" data-page-indices="208" data-pages="209" data-confidence="0.7500" data-source-bbox="0.2426,0.7323,0.7917,0.8061">Past experience with review by analysts from other divisions or offices indi-</span></p><p class="source-gap-28" id="obj_019f6c0d-d032-73da-95af-e8c611f8159c" data-object-id="obj_019f6c0d-d032-73da-95af-e8c611f8159c" data-object-type="paragraph" data-page="208" data-anchor-id="anchor_019f6c0d-d032-73da-95af-e8c611f8159d" data-anchor-ids="anchor_019f6c0d-d032-73da-95af-e8c611f8159d" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.8362,0.6969,0.8506" data-source-gap="0.0708"><span tabindex="0" class="sentence" id="obj_019f6c0d-d033-72e7-a4f9-d699b2cbf669" data-object-id="obj_019f6c0d-d033-72e7-a4f9-d699b2cbf669" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d033-72e7-a4f9-d699b2cbf66a" data-anchor-ids="anchor_019f6c0d-d033-72e7-a4f9-d699b2cbf66a" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.8362,0.6969,0.8506">157. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d033-72e7-a4f9-d699b2cbf66b" data-object-id="obj_019f6c0d-d033-72e7-a4f9-d699b2cbf66b" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d033-72e7-a4f9-d699b2cbf66c" data-anchor-ids="anchor_019f6c0d-d033-72e7-a4f9-d699b2cbf66c" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.8362,0.6969,0.8506">Transcript of Adm. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d034-76fb-8e1c-282da975fd0f" data-object-id="obj_019f6c0d-d034-76fb-8e1c-282da975fd0f" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d034-76fb-8e1c-282da975fd10" data-anchor-ids="anchor_019f6c0d-d034-76fb-8e1c-282da975fd10" data-page-indices="208" data-pages="209" data-confidence="0.9000" data-source-bbox="0.2426,0.8362,0.6969,0.8506">David Jeremiah’s news conference at CIA, 2 June 1998.</span></p><p class="source-gap-27" id="obj_019f6c0d-d034-76fb-8e1c-282da975fd11" data-object-id="obj_019f6c0d-d034-76fb-8e1c-282da975fd11" data-object-type="paragraph" data-page="208" data-anchor-id="anchor_019f6c0d-d035-7615-b5ad-6d0282e17b73" data-anchor-ids="anchor_019f6c0d-d035-7615-b5ad-6d0282e17b73,anchor_019f6c0d-d035-7615-b5ad-6d0282e17b74" data-page-indices="208,209" data-pages="209,210" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0677"><span tabindex="0" class="sentence" id="obj_019f6c0d-d035-7615-b5ad-6d0282e17b75" data-object-id="obj_019f6c0d-d035-7615-b5ad-6d0282e17b75" data-object-type="sentence" data-page="208" data-anchor-id="anchor_019f6c0d-d035-7615-b5ad-6d0282e17b76" data-anchor-ids="anchor_019f6c0d-d035-7615-b5ad-6d0282e17b76,anchor_019f6c0d-d036-7597-a38e-6b147b28635e" data-page-indices="208,209" data-pages="209,210" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986">181 cates that critical thinkers whose expertise is in other areas make a significant contribution. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d036-7597-a38e-6b147b28635f" data-object-id="obj_019f6c0d-d036-7597-a38e-6b147b28635f" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d036-7597-a38e-6b147b286360" data-anchor-ids="anchor_019f6c0d-d036-7597-a38e-6b147b286360" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">They often see things or ask questions that the author has not seen or asked. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d036-7597-a38e-6b147b286361" data-object-id="obj_019f6c0d-d036-7597-a38e-6b147b286361" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d037-797d-af96-f8872fa982de" data-anchor-ids="anchor_019f6c0d-d037-797d-af96-f8872fa982de" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">Because they are not so absorbed in the substance, they are better able to identify the assumptions and assess the argumentation, internal consistency, logic, and relationship of the evidence to the conclusion. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d037-797d-af96-f8872fa982df" data-object-id="obj_019f6c0d-d037-797d-af96-f8872fa982df" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d037-797d-af96-f8872fa982e0" data-anchor-ids="anchor_019f6c0d-d037-797d-af96-f8872fa982e0" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.1505,0.7623,0.2970">The reviewers also profit from the experience by learning standards for good analysis that are independent of the subject matter of the analysis.</span></p></section><section id="obj_019f6c0d-d037-797d-af96-f8872fa982e1" data-object-id="obj_019f6c0d-d037-797d-af96-f8872fa982e1" data-object-type="section" data-page="209" data-anchor-id="anchor_019f6c0d-d038-72df-b0e2-b4d874cf4811" data-anchor-ids="anchor_019f6c0d-d038-72df-b0e2-b4d874cf4811" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3106,0.4791,0.3319"><h1 id="obj_019f6c0d-d038-72df-b0e2-b4d874cf4812" data-object-id="obj_019f6c0d-d038-72df-b0e2-b4d874cf4812" data-object-type="heading" data-page="209" data-anchor-id="anchor_019f6c0d-d038-72df-b0e2-b4d874cf4813" data-anchor-ids="anchor_019f6c0d-d038-72df-b0e2-b4d874cf4813" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3106,0.4791,0.3319"><strong>Guiding Analytical Products</strong></h1><p id="obj_019f6c0d-d039-7336-9a0f-85efef14accf" data-object-id="obj_019f6c0d-d039-7336-9a0f-85efef14accf" data-object-type="paragraph" data-page="209" data-anchor-id="anchor_019f6c0d-d039-7336-9a0f-85efef14acd0" data-anchor-ids="anchor_019f6c0d-d039-7336-9a0f-85efef14acd0" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3308,0.7623,0.8410"><span tabindex="0" class="sentence" id="obj_019f6c0d-d03a-78f3-83d0-4240f57d310c" data-object-id="obj_019f6c0d-d03a-78f3-83d0-4240f57d310c" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03a-78f3-83d0-4240f57d310d" data-anchor-ids="anchor_019f6c0d-d03a-78f3-83d0-4240f57d310d" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3308,0.7623,0.4955">On key issues, management should reject most single-outcome analysis—that is, the single-minded focus on what the analyst believes is probably happening or most likely will happen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03a-78f3-83d0-4240f57d310e" data-object-id="obj_019f6c0d-d03a-78f3-83d0-4240f57d310e" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03b-7271-a891-784e82be3970" data-anchor-ids="anchor_019f6c0d-d03b-7271-a891-784e82be3970" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3308,0.7623,0.4955">When we cannot afford to get it wrong, or when deception is a serious possibility, management should consider mandating a systematic analytical process such as the one described in Chapter 8, “Analysis of Competing Hypotheses.” </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03b-7271-a891-784e82be3971" data-object-id="obj_019f6c0d-d03b-7271-a891-784e82be3971" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03b-7271-a891-784e82be3972" data-anchor-ids="anchor_019f6c0d-d03b-7271-a891-784e82be3972" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.3308,0.7623,0.5864">Analysts should be required to identify alternatives that were considered, justify why the alternatives are deemed less likely, and clearly express the degree of likelihood that events may not turn out as expected. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03b-7271-a891-784e82be3973" data-object-id="obj_019f6c0d-d03b-7271-a891-784e82be3973" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03c-7299-8288-c046aa636359" data-anchor-ids="anchor_019f6c0d-d03c-7299-8288-c046aa636359" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.4944,0.7623,0.5864">Even if the analyst firmly believes the odds are, say, three-to-one against something happening, that leaves a 25-percent chance that it will occur. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03c-7299-8288-c046aa63635a" data-object-id="obj_019f6c0d-d03c-7299-8288-c046aa63635a" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03c-7299-8288-c046aa63635b" data-anchor-ids="anchor_019f6c0d-d03c-7299-8288-c046aa63635b" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.4944,0.7623,0.5864">Making this explicit helps to better define the problem for the policymaker. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03d-7a05-a44f-3edba23f5cae" data-object-id="obj_019f6c0d-d03d-7a05-a44f-3edba23f5cae" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03d-7a05-a44f-3edba23f5caf" data-anchor-ids="anchor_019f6c0d-d03d-7a05-a44f-3edba23f5caf" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.4944,0.7623,0.6773">Does that 25-percent chance merit some form of contingency planning? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03d-7a05-a44f-3edba23f5cb0" data-object-id="obj_019f6c0d-d03d-7a05-a44f-3edba23f5cb0" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03e-74ee-bef1-601346a8d2ad" data-anchor-ids="anchor_019f6c0d-d03e-74ee-bef1-601346a8d2ad" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.5853,0.7623,0.8410">If the less likely hypothesis happens to be, for example, that a new Indian Government will actually follow through on its election campaign promise to conduct nuclear weapons testing, as recently occurred, even a 25-percent chance might be sufficient to put technical collection systems on increased alert. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03e-74ee-bef1-601346a8d2ae" data-object-id="obj_019f6c0d-d03e-74ee-bef1-601346a8d2ae" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03e-74ee-bef1-601346a8d2af" data-anchor-ids="anchor_019f6c0d-d03e-74ee-bef1-601346a8d2af" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.6763,0.7623,0.8410">Verbal expressions of uncertainty—such as possible, probable, unlikely, may, and could—have long been recognized as sources of ambiguity and misunderstanding. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03e-74ee-bef1-601346a8d2b0" data-object-id="obj_019f6c0d-d03e-74ee-bef1-601346a8d2b0" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03f-7674-a984-33aa4dfc0309" data-anchor-ids="anchor_019f6c0d-d03f-7674-a984-33aa4dfc0309" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.6763,0.7623,0.8410">By themselves, most verbal expressions of uncertainty are empty shells. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d03f-7674-a984-33aa4dfc030a" data-object-id="obj_019f6c0d-d03f-7674-a984-33aa4dfc030a" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d03f-7674-a984-33aa4dfc030b" data-anchor-ids="anchor_019f6c0d-d03f-7674-a984-33aa4dfc030b" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.6763,0.7623,0.8410">The reader or listener fills them with meaning through the context in which they are used and what is already in the reader’s or listener’s mind about that subject. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d040-7ab7-9db8-bdcf341aa90e" data-object-id="obj_019f6c0d-d040-7ab7-9db8-bdcf341aa90e" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d040-7ab7-9db8-bdcf341aa90f" data-anchor-ids="anchor_019f6c0d-d040-7ab7-9db8-bdcf341aa90f" data-page-indices="209" data-pages="210" data-confidence="0.9000" data-source-bbox="0.2132,0.6763,0.7623,0.8410">An intelligence consumer’s interpretation of imprecise probability judgments will always be biased in favor of consistency with what the reader already believes. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d040-7ab7-9db8-bdcf341aa910" data-object-id="obj_019f6c0d-d040-7ab7-9db8-bdcf341aa910" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d040-7ab7-9db8-bdcf341aa911" data-anchor-ids="anchor_019f6c0d-d040-7ab7-9db8-bdcf341aa911" data-page-indices="209" data-pages="210" data-confidence="0.7500" data-source-bbox="0.2132,0.6763,0.7623,0.8410">That means the intelligence reports will be undervalued and have little impact on the</span></p><p class="source-gap-36" id="obj_019f6c0d-d041-7b73-9b46-1764dbc3aa80" data-object-id="obj_019f6c0d-d041-7b73-9b46-1764dbc3aa80" data-object-type="paragraph" data-page="209" data-anchor-id="anchor_019f6c0d-d041-7b73-9b46-1764dbc3aa81" data-anchor-ids="anchor_019f6c0d-d041-7b73-9b46-1764dbc3aa81,anchor_019f6c0d-d041-7b73-9b46-1764dbc3aa82" data-page-indices="209,210" data-pages="210,211" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980" data-source-gap="0.0890"><span tabindex="0" class="sentence" id="obj_019f6c0d-d042-770f-a933-72184e50a329" data-object-id="obj_019f6c0d-d042-770f-a933-72184e50a329" data-object-type="sentence" data-page="209" data-anchor-id="anchor_019f6c0d-d042-770f-a933-72184e50a32a" data-anchor-ids="anchor_019f6c0d-d042-770f-a933-72184e50a32a,anchor_019f6c0d-d042-770f-a933-72184e50a32b" data-page-indices="209,210" data-pages="210,211" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980">182 consumer’s judgment. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d043-7367-b29c-fd518c36daad" data-object-id="obj_019f6c0d-d043-7367-b29c-fd518c36daad" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d043-7367-b29c-fd518c36daae" data-anchor-ids="anchor_019f6c0d-d043-7367-b29c-fd518c36daae" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.1505,0.7917,0.3152">This ambiguity can be especially troubling when dealing with low-probability, high-impact dangers against which policymakers may wish to make contingency plans. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d043-7367-b29c-fd518c36daaf" data-object-id="obj_019f6c0d-d043-7367-b29c-fd518c36daaf" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d043-7367-b29c-fd518c36dab0" data-anchor-ids="anchor_019f6c0d-d043-7367-b29c-fd518c36dab0" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.3152">Managers of intelligence analysis need to convey to analysts that it is okay to be uncertain, as long as they clearly inform readers of the degree of uncertainty, sources of uncertainty, and what milestones to watch for that might clarify the situation. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d044-7297-a703-ee830f7a530e" data-object-id="obj_019f6c0d-d044-7297-a703-ee830f7a530e" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d044-7297-a703-ee830f7a530f" data-anchor-ids="anchor_019f6c0d-d044-7297-a703-ee830f7a530f" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.2050,0.7917,0.4970">Inserting odds ratios or numerical probability ranges in parentheses to clarify key points of an analysis should be standard practice. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d044-7297-a703-ee830f7a5310" data-object-id="obj_019f6c0d-d044-7297-a703-ee830f7a5310" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d045-7556-b2a8-c501f5c00698" data-anchor-ids="anchor_019f6c0d-d045-7556-b2a8-c501f5c00698" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.4970">The likelihood of future surprises can be reduced if management assigns more resources to monitoring and analyzing seemingly low-probability events that will have a significant impact on US policy if they do occur. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d045-7556-b2a8-c501f5c00699" data-object-id="obj_019f6c0d-d045-7556-b2a8-c501f5c00699" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d045-7556-b2a8-c501f5c0069a" data-anchor-ids="anchor_019f6c0d-d045-7556-b2a8-c501f5c0069a" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.4970">Analysts are often reluctant, on their own initiative, to devote time to studying things they do not believe will happen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d045-7556-b2a8-c501f5c0069b" data-object-id="obj_019f6c0d-d045-7556-b2a8-c501f5c0069b" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d046-71a3-9f71-d5a0f1dc3316" data-anchor-ids="anchor_019f6c0d-d046-71a3-9f71-d5a0f1dc3316" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.4970">This usually does not further an analyst’s career, although it can ruin a career when the unexpected does happen. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d046-71a3-9f71-d5a0f1dc3317" data-object-id="obj_019f6c0d-d046-71a3-9f71-d5a0f1dc3317" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d046-71a3-9f71-d5a0f1dc3318" data-anchor-ids="anchor_019f6c0d-d046-71a3-9f71-d5a0f1dc3318" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.3141,0.7917,0.6243">Given the day-to-day pressures of current events, it is necessary for managers and analysts to clearly identify which unlikely but high-impact events need to be analyzed and to allocate the resources to cover them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d046-71a3-9f71-d5a0f1dc3319" data-object-id="obj_019f6c0d-d046-71a3-9f71-d5a0f1dc3319" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d047-78e2-89e3-06da73ceb23b" data-anchor-ids="anchor_019f6c0d-d047-78e2-89e3-06da73ceb23b" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.4960,0.7917,0.6243">One guideline for identifying unlikely events that merit the specific allocation of resources is to ask the following question: Are the chances of this happening, however small, sufficient that if policymakers fully understood the risks, they might want to make contingency plans or take some form of preventive or preemptive action? </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d047-78e2-89e3-06da73ceb23c" data-object-id="obj_019f6c0d-d047-78e2-89e3-06da73ceb23c" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d047-78e2-89e3-06da73ceb23d" data-anchor-ids="anchor_019f6c0d-d047-78e2-89e3-06da73ceb23d" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.4960,0.7917,0.7698">If the answer is yes, resources should be committed to analyze even what appears to be an unlikely outcome. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d048-79b5-b46d-599a6f9b75e4" data-object-id="obj_019f6c0d-d048-79b5-b46d-599a6f9b75e4" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d048-79b5-b46d-599a6f9b75e5" data-anchor-ids="anchor_019f6c0d-d048-79b5-b46d-599a6f9b75e5" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.6232,0.7917,0.7698">Managers of intelligence should support analyses that periodically re-examine key problems from the ground up in order to avoid the pitfalls of the incremental approach. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d048-79b5-b46d-599a6f9b75e6" data-object-id="obj_019f6c0d-d048-79b5-b46d-599a6f9b75e6" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d049-7fc9-a348-ca73cd402fab" data-anchor-ids="anchor_019f6c0d-d049-7fc9-a348-ca73cd402fab" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.6232,0.7917,0.7698">Receipt of information in small increments over time facilitates assimilation of this information to the analyst’s existing views. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d049-7fc9-a348-ca73cd402fac" data-object-id="obj_019f6c0d-d049-7fc9-a348-ca73cd402fac" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d049-7fc9-a348-ca73cd402fad" data-anchor-ids="anchor_019f6c0d-d049-7fc9-a348-ca73cd402fad" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.6232,0.7917,0.7698">No one item of information may be sufficient to prompt the analyst to change a previous view. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d049-7fc9-a348-ca73cd402fae" data-object-id="obj_019f6c0d-d049-7fc9-a348-ca73cd402fae" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d04a-7f36-8709-ba4b74ecf900" data-anchor-ids="anchor_019f6c0d-d04a-7f36-8709-ba4b74ecf900" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.6232,0.7917,0.8425">The cumulative message inherent in many pieces of information may be significant but is attenuated when this information is not examined as a whole. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d04a-7f36-8709-ba4b74ecf901" data-object-id="obj_019f6c0d-d04a-7f36-8709-ba4b74ecf901" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d04a-7f36-8709-ba4b74ecf902" data-anchor-ids="anchor_019f6c0d-d04a-7f36-8709-ba4b74ecf902" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.2426,0.7687,0.7917,0.8425">Finally, management should educate consumers concerning the limitations as well as the capabilities of intelligence analysis and should define a set of realistic expectations as a standard against which to judge analytical performance.</span></p><p class="source-gap-35" id="obj_019f6c0d-d04a-7f36-8709-ba4b74ecf903" data-object-id="obj_019f6c0d-d04a-7f36-8709-ba4b74ecf903" data-object-type="paragraph" data-page="210" data-anchor-id="anchor_019f6c0d-d04b-724a-8bda-3959d52bc707" data-anchor-ids="anchor_019f6c0d-d04b-724a-8bda-3959d52bc707" data-page-indices="210" data-pages="211" data-confidence="0.9000" data-source-bbox="0.5000,0.8794,0.5294,0.8986" data-source-gap="0.0869"><span tabindex="0" class="sentence" id="obj_019f6c0d-d04b-724a-8bda-3959d52bc708" data-object-id="obj_019f6c0d-d04b-724a-8bda-3959d52bc708" data-object-type="sentence" data-page="210" data-anchor-id="anchor_019f6c0d-d04b-724a-8bda-3959d52bc709" data-anchor-ids="anchor_019f6c0d-d04b-724a-8bda-3959d52bc709" data-page-indices="210" data-pages="211" data-confidence="0.7500" data-source-bbox="0.5000,0.8794,0.5294,0.8986">183</span></p></section><section id="obj_019f6c0d-d04b-724a-8bda-3959d52bc70a" data-object-id="obj_019f6c0d-d04b-724a-8bda-3959d52bc70a" data-object-type="section" data-page="211" data-anchor-id="anchor_019f6c0d-d04c-783d-92e0-1da6c9b3a1e3" data-anchor-ids="anchor_019f6c0d-d04c-783d-92e0-1da6c9b3a1e3" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.3727,0.1716"><h1 id="obj_019f6c0d-d04c-783d-92e0-1da6c9b3a1e4" data-object-id="obj_019f6c0d-d04c-783d-92e0-1da6c9b3a1e4" data-object-type="heading" data-page="211" data-anchor-id="anchor_019f6c0d-d04c-783d-92e0-1da6c9b3a1e5" data-anchor-ids="anchor_019f6c0d-d04c-783d-92e0-1da6c9b3a1e5" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1503,0.3727,0.1716"><strong>The Bottom Line</strong></h1><p class="source-gap-10" id="obj_019f6c0d-d04d-7374-bfc3-eb1490936eb3" data-object-id="obj_019f6c0d-d04d-7374-bfc3-eb1490936eb3" data-object-type="paragraph" data-page="211" data-anchor-id="anchor_019f6c0d-d04d-7374-bfc3-eb1490936eb4" data-anchor-ids="anchor_019f6c0d-d04d-7374-bfc3-eb1490936eb4" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.2920" data-source-gap="0.0243"><span tabindex="0" class="sentence" id="obj_019f6c0d-d04d-7374-bfc3-eb1490936eb5" data-object-id="obj_019f6c0d-d04d-7374-bfc3-eb1490936eb5" data-object-type="sentence" data-page="211" data-anchor-id="anchor_019f6c0d-d04e-7901-99ac-0cdacc3c79a6" data-anchor-ids="anchor_019f6c0d-d04e-7901-99ac-0cdacc3c79a6" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.2920">Analysis can be improved! </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d04e-7901-99ac-0cdacc3c79a7" data-object-id="obj_019f6c0d-d04e-7901-99ac-0cdacc3c79a7" data-object-type="sentence" data-page="211" data-anchor-id="anchor_019f6c0d-d04e-7901-99ac-0cdacc3c79a8" data-anchor-ids="anchor_019f6c0d-d04e-7901-99ac-0cdacc3c79a8" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.2920">None of the measures discussed in this book will guarantee that accurate conclusions will be drawn from the incomplete and ambiguous information that intelligence analysts typically work with. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d04f-7178-8a0c-e438799b0e70" data-object-id="obj_019f6c0d-d04f-7178-8a0c-e438799b0e70" data-object-type="sentence" data-page="211" data-anchor-id="anchor_019f6c0d-d04f-7178-8a0c-e438799b0e71" data-anchor-ids="anchor_019f6c0d-d04f-7178-8a0c-e438799b0e71" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.2920">Occasional intelligence failures must be expected. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d04f-7178-8a0c-e438799b0e72" data-object-id="obj_019f6c0d-d04f-7178-8a0c-e438799b0e72" data-object-type="sentence" data-page="211" data-anchor-id="anchor_019f6c0d-d04f-7178-8a0c-e438799b0e73" data-anchor-ids="anchor_019f6c0d-d04f-7178-8a0c-e438799b0e73" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.2132,0.1819,0.7623,0.2920">Collectively, however, the measures discussed here can certainly improve the odds in the analysts’ favor.</span></p><p id="obj_019f6c0d-d050-750c-a368-70321030fe87" data-object-id="obj_019f6c0d-d050-750c-a368-70321030fe87" data-object-type="paragraph" data-page="211" data-anchor-id="anchor_019f6c0d-d050-750c-a368-70321030fe88" data-anchor-ids="anchor_019f6c0d-d050-750c-a368-70321030fe88" data-page-indices="211" data-pages="212" data-confidence="0.9000" data-source-bbox="0.4706,0.8787,0.5000,0.8980"><span tabindex="0" class="sentence" id="obj_019f6c0d-d050-750c-a368-70321030fe89" data-object-id="obj_019f6c0d-d050-750c-a368-70321030fe89" data-object-type="sentence" data-page="211" data-anchor-id="anchor_019f6c0d-d050-750c-a368-70321030fe8a" data-anchor-ids="anchor_019f6c0d-d050-750c-a368-70321030fe8a" data-page-indices="211" data-pages="212" data-confidence="0.7500" data-source-bbox="0.4706,0.8787,0.5000,0.8980">184</span></p><p id="obj_019f6c0d-d051-7fda-a926-9d5b63dad30d" data-object-id="obj_019f6c0d-d051-7fda-a926-9d5b63dad30d" data-object-type="paragraph" data-page="213" data-anchor-id="anchor_019f6c0d-d051-7fda-a926-9d5b63dad30e" data-anchor-ids="anchor_019f6c0d-d051-7fda-a926-9d5b63dad30e" data-page-indices="213" data-pages="214" data-confidence="0.8779" data-source-bbox="0.2916,0.1353,0.4015,0.1500"><span tabindex="0" class="sentence" id="obj_019f6c0d-d051-7fda-a926-9d5b63dad30f" data-object-id="obj_019f6c0d-d051-7fda-a926-9d5b63dad30f" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d051-7fda-a926-9d5b63dad310" data-anchor-ids="anchor_019f6c0d-d051-7fda-a926-9d5b63dad310" data-page-indices="213" data-pages="214" data-confidence="0.7500" data-source-bbox="0.2916,0.1353,0.4015,0.1500">The Author</span></p><p id="obj_019f6c0d-d052-7e97-a1c8-b94b68e16670" data-object-id="obj_019f6c0d-d052-7e97-a1c8-b94b68e16670" data-object-type="paragraph" data-page="213" data-anchor-id="anchor_019f6c0d-d052-7e97-a1c8-b94b68e16671" data-anchor-ids="anchor_019f6c0d-d052-7e97-a1c8-b94b68e16671" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1869,0.1520,0.5491,0.6429"><span tabindex="0" class="sentence" id="obj_019f6c0d-d053-7c79-805a-75a4246e134b" data-object-id="obj_019f6c0d-d053-7c79-805a-75a4246e134b" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d053-7c79-805a-75a4246e134c" data-anchor-ids="anchor_019f6c0d-d053-7c79-805a-75a4246e134c" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1869,0.1520,0.4867,0.2211">worked for the CiA for nearly 45 yeatrs-firstas a staff officer from.1951 until his retirement in 1979and then as a contractor on a variety of projects until 1995. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d052-7e97-a1c8-b94b68e16672" data-object-id="obj_019f6c0d-d052-7e97-a1c8-b94b68e16672" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d053-7c79-805a-75a4246e134a" data-anchor-ids="anchor_019f6c0d-d053-7c79-805a-75a4246e134a" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1879,0.1520,0.4707,0.1633">Richards J. Heuer,Jr.</span><span tabindex="0" class="sentence" id="obj_019f6c0d-d054-7ed5-bb54-98d23ef6b3ee" data-object-id="obj_019f6c0d-d054-7ed5-bb54-98d23ef6b3ee" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d054-7ed5-bb54-98d23ef6b3ef" data-anchor-ids="anchor_019f6c0d-d054-7ed5-bb54-98d23ef6b3ef" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1872,0.2073,0.4867,0.3616">He began his careerin the Directorate of Operations and later transferred to the Directorate of Intelligence, where he headed the unit working on analytic methods in the Office of Political AnalysisHe is now a consultant for the Defense Security Service&#x27;s Security Research Center in Monterey,California. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d054-7ed5-bb54-98d23ef6b3f0" data-object-id="obj_019f6c0d-d054-7ed5-bb54-98d23ef6b3f0" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d054-7ed5-bb54-98d23ef6b3f1" data-anchor-ids="anchor_019f6c0d-d054-7ed5-bb54-98d23ef6b3f1" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1874,0.3484,0.4740,0.3616">Mir. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d055-7ccc-9ec8-fb54df4fba1d" data-object-id="obj_019f6c0d-d055-7ccc-9ec8-fb54df4fba1d" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d055-7ccc-9ec8-fb54df4fba1e" data-anchor-ids="anchor_019f6c0d-d055-7ccc-9ec8-fb54df4fba1e" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1874,0.3484,0.4740,0.4318">Heuer was awarded theAgency Seal Medallion in 1987 for developing and teaching an innovative methodology for addressing complex and challenging problems facing the Intelligence Community. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d055-7ccc-9ec8-fb54df4fba1f" data-object-id="obj_019f6c0d-d055-7ccc-9ec8-fb54df4fba1f" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d056-7b27-bbe6-9d1b1c2b90af" data-anchor-ids="anchor_019f6c0d-d056-7b27-bbe6-9d1b1c2b90af" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1881,0.4193,0.5488,0.4740">He was recognized in 1988 for his&quot;outstanding contribution to the literature of intelligence,and again in 1996for&quot;superior accomplishment.&quot;</span><span tabindex="0" class="sentence" id="obj_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b0" data-object-id="obj_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b0" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b1" data-anchor-ids="anchor_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b1" data-page-indices="213" data-pages="214" data-confidence="0.8229" data-source-bbox="0.1874,0.4615,0.5491,0.5580">In addition to his work on thepsychology of intelligence analysis, Mr. Heuer is a published author on counterintelligence, deception,analytical methodology, and personnel security issues. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b2" data-object-id="obj_019f6c0d-d056-7b27-bbe6-9d1b1c2b90b2" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d057-77f3-aa41-400f26a89847" data-anchor-ids="anchor_019f6c0d-d057-77f3-aa41-400f26a89847" data-page-indices="213" data-pages="214" data-confidence="0.7500" data-source-bbox="0.1891,0.5456,0.5364,0.6429">Many of the chapters in this book were originally written for the Directorate of Intelligence in the 1980s.They were recently edited and assembled, along with additional material that Mr.Heuer prepared specifically for this book, under the auspices of the CiA&#x27;s Center for the Study of Intelligence</span></p><p class="source-gap-41" id="obj_019f6c0d-d057-77f3-aa41-400f26a89848" data-object-id="obj_019f6c0d-d057-77f3-aa41-400f26a89848" data-object-type="paragraph" data-page="213" data-anchor-id="anchor_019f6c0d-d057-77f3-aa41-400f26a89849" data-anchor-ids="anchor_019f6c0d-d057-77f3-aa41-400f26a89849" data-page-indices="213" data-pages="214" data-confidence="0.8579" data-source-bbox="0.1886,0.6867,0.5669,0.7880" data-source-gap="0.1033"><span tabindex="0" class="sentence" id="obj_019f6c0d-d058-72c6-af4e-21da7e36f92b" data-object-id="obj_019f6c0d-d058-72c6-af4e-21da7e36f92b" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d058-72c6-af4e-21da7e36f92c" data-anchor-ids="anchor_019f6c0d-d058-72c6-af4e-21da7e36f92c" data-page-indices="213" data-pages="214" data-confidence="0.8579" data-source-bbox="0.1886,0.6867,0.5669,0.7369">I have been a fan of Richards Heuer ever since I met himand read some of his material 20 years ago.This book combines Dick&#x27;s many years of experience with his extensive knowledge of psychological research. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d058-72c6-af4e-21da7e36f92d" data-object-id="obj_019f6c0d-d058-72c6-af4e-21da7e36f92d" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d059-7039-91ed-d1815f3f5a99" data-anchor-ids="anchor_019f6c0d-d059-7039-91ed-d1815f3f5a99" data-page-indices="213" data-pages="214" data-confidence="0.8579" data-source-bbox="0.1888,0.7251,0.5476,0.7613">He examines impediments to good intelligence analysis and points the Way to how to overcome them. </span><span tabindex="0" class="sentence" id="obj_019f6c0d-d059-7039-91ed-d1815f3f5a9a" data-object-id="obj_019f6c0d-d059-7039-91ed-d1815f3f5a9a" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d059-7039-91ed-d1815f3f5a9b" data-anchor-ids="anchor_019f6c0d-d059-7039-91ed-d1815f3f5a9b" data-page-indices="213" data-pages="214" data-confidence="0.7500" data-source-bbox="0.1895,0.7507,0.5667,0.7880">The volume should be of real assistance to people faced with the need to draw sound estimates from changing and ambiguous information,</span></p><p class="source-gap-14" id="obj_019f6c0d-d059-7039-91ed-d1815f3f5a9c" data-object-id="obj_019f6c0d-d059-7039-91ed-d1815f3f5a9c" data-object-type="paragraph" data-page="213" data-anchor-id="anchor_019f6c0d-d05a-7c50-9512-6e76d68499d2" data-anchor-ids="anchor_019f6c0d-d05a-7c50-9512-6e76d68499d2" data-page-indices="213" data-pages="214" data-confidence="0.7309" data-source-bbox="0.3093,0.8031,0.4434,0.8249" data-source-gap="0.0356"><span tabindex="0" class="sentence" id="obj_019f6c0d-d05a-7c50-9512-6e76d68499d3" data-object-id="obj_019f6c0d-d05a-7c50-9512-6e76d68499d3" data-object-type="sentence" data-page="213" data-anchor-id="anchor_019f6c0d-d05a-7c50-9512-6e76d68499d4" data-anchor-ids="anchor_019f6c0d-d05a-7c50-9512-6e76d68499d4" data-page-indices="213" data-pages="214" data-confidence="0.7309" data-source-bbox="0.3093,0.8031,0.4434,0.8249">Robert Jeruis Professor, Institute of</span></p></section><section id="obj_019f6c0d-d05a-7c50-9512-6e76d68499d5" data-object-id="obj_019f6c0d-d05a-7c50-9512-6e76d68499d5" data-object-type="section" data-page="213" data-anchor-id="anchor_019f6c0d-d05b-761d-b914-aa1f1abd6774" data-anchor-ids="anchor_019f6c0d-d05b-761d-b914-aa1f1abd6774" data-page-indices="213" data-pages="214" data-confidence="0.8240" data-source-bbox="0.3093,0.8282,0.4519,0.8527"><h1 id="obj_019f6c0d-d05b-761d-b914-aa1f1abd6775" data-object-id="obj_019f6c0d-d05b-761d-b914-aa1f1abd6775" data-object-type="heading" data-page="213" data-anchor-id="anchor_019f6c0d-d05b-761d-b914-aa1f1abd6776" data-anchor-ids="anchor_019f6c0d-d05b-761d-b914-aa1f1abd6776" data-page-indices="213" data-pages="214" data-confidence="0.8240" data-source-bbox="0.3093,0.8282,0.4519,0.8527"><strong>War and Peace Studies Columbia University</strong></h1></section></article><nav class="publication-navigation publication-navigation-bottom" aria-label="Book navigation"><a class="publication-previous" rel="prev" href="17-chapter-13.html">← Chapter 13 — Hindsight Biases in Evaluation of Intelligence Reporting</a><a class="publication-contents" href="index.html">Contents</a><span class="publication-next"></span></nav><nav class="export-tools"><a id="source-pdf-link" href="assets/original.pdf">Open original PDF</a></nav></main><script>(() => {
+  "use strict";
+
+  const viewer = document.querySelector("#source-viewer");
+  if (!viewer) return;
+
+  const image = viewer.querySelector("#source-image");
+  const sourceCanvas = viewer.querySelector("#source-canvas");
+  const pdfCanvas = viewer.querySelector("#source-pdf-canvas");
+  const overlays = viewer.querySelector("#source-overlays");
+  const legacyOverlay = viewer.querySelector("#source-overlay");
+  const label = viewer.querySelector("#source-label");
+  const pageLabel = viewer.querySelector("#source-page-label");
+  const previousRegion = viewer.querySelector("#source-prev");
+  const nextRegion = viewer.querySelector("#source-next");
+  const previousPage = viewer.querySelector("#source-page-prev");
+  const nextPage = viewer.querySelector("#source-page-next");
+  const zoomOut = viewer.querySelector("#source-zoom-out");
+  const zoomIn = viewer.querySelector("#source-zoom-in");
+  const zoomLabel = viewer.querySelector("#source-zoom-label");
+  const sourcePdfLink = viewer.querySelector("#source-pdf-link");
+  const sourcePdfBase = sourcePdfLink?.getAttribute("href") || "";
+  const reviewEmpty = viewer.querySelector("#review-empty");
+  const reviewFields = viewer.querySelector("#review-fields");
+  const reviewObjectId = viewer.querySelector("#review-object-id");
+  const reviewConfidence = viewer.querySelector("#review-confidence");
+  const reviewText = viewer.querySelector("#review-text");
+  const reviewType = viewer.querySelector("#review-type");
+  const reviewStatus = viewer.querySelector("#review-status");
+  const reviewSave = viewer.querySelector("#review-save");
+  const reviewSplit = viewer.querySelector("#review-split");
+  const reviewMergeIds = viewer.querySelector("#review-merge-ids");
+  const reviewMerge = viewer.querySelector("#review-merge");
+  const reviewAlternatives = viewer.querySelector("#review-alternatives");
+  const reviewIssues = viewer.querySelector("#review-issues");
+  const reviewMessage = viewer.querySelector("#review-message");
+  const svgNamespace = "http://www.w3.org/2000/svg";
+
+  let selectedAnchors = [];
+  let anchorIndex = 0;
+  let activeDocumentId = null;
+  let currentPage = null;
+  let pageCount = null;
+  let zoom = 1;
+  let pdfDocument = null;
+  let pdfRenderTask = null;
+  let pdfjsPromise = null;
+  let activeReview = null;
+
+  const isFiniteNumber = (value) => typeof value === "number" && Number.isFinite(value);
+
+  const selectObject = (objectId, scroll = true) => {
+    document.querySelectorAll(".is-selected").forEach((item) => {
+      item.classList.remove("is-selected");
+    });
+    if (!objectId) return;
+    const object = document.getElementById(objectId);
+    if (object) {
+      object.classList.add("is-selected");
+      if (scroll) object.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  const fetchJson = async (url, options = {}) => {
+    const headers = { accept: "application/json", ...(options.headers || {}) };
+    const response = await fetch(url, { ...options, headers });
+    if (!response.ok) {
+      let detail = `request failed (${response.status})`;
+      try {
+        const payload = await response.json();
+        if (typeof payload.detail === "string") detail = payload.detail;
+      } catch (_error) {
+        // Keep the status-only message for non-JSON failures.
+      }
+      throw new Error(detail);
+    }
+    return response.json();
+  };
+
+  const setReviewBusy = (busy) => {
+    if (reviewSave) reviewSave.disabled = busy;
+    if (reviewMerge) reviewMerge.disabled = busy;
+    if (reviewSplit) {
+      const canSplit =
+        activeReview && ["paragraph", "sentence"].includes(activeReview.object.object_type);
+      reviewSplit.disabled = busy || !canSplit;
+    }
+  };
+
+  const evidenceItem = (primary, secondary = "") => {
+    const item = document.createElement("li");
+    const heading = document.createElement("strong");
+    heading.textContent = primary;
+    item.append(heading);
+    if (secondary) {
+      const detail = document.createElement("div");
+      detail.textContent = secondary;
+      item.append(detail);
+    }
+    return item;
+  };
+
+  const renderEvidence = (container, items, render) => {
+    if (!container) return;
+    container.replaceChildren();
+    if (!Array.isArray(items) || !items.length) {
+      container.append(evidenceItem("None available"));
+      return;
+    }
+    items.forEach((item) => container.append(render(item)));
+  };
+
+  const loadReviewObject = async (objectId) => {
+    if (!objectId || !reviewFields) return;
+    reviewMessage.textContent = "Loading review evidence…";
+    const payload = await fetchJson(`/objects/${encodeURIComponent(objectId)}/review`);
+    activeReview = payload;
+    const object = payload.object;
+    reviewEmpty.hidden = true;
+    reviewFields.hidden = false;
+    reviewObjectId.textContent = object.id;
+    reviewConfidence.textContent =
+      typeof object.confidence === "number" ? object.confidence.toFixed(3) : "not scored";
+    reviewText.value = object.text_normalized ?? object.text_raw ?? "";
+    reviewType.value = object.object_type;
+    reviewStatus.value = object.status;
+    reviewMergeIds.value = object.id;
+    reviewSplit.disabled = !["paragraph", "sentence"].includes(object.object_type);
+    renderEvidence(reviewAlternatives, payload.parser_alternatives, (alternative) => {
+      const confidence =
+        typeof alternative.confidence === "number"
+          ? `, confidence ${alternative.confidence.toFixed(3)}`
+          : "";
+      return evidenceItem(
+        `${alternative.tool_name} (${alternative.object_type}${confidence})`,
+        alternative.text || "No text returned by this parser.",
+      );
+    });
+    renderEvidence(reviewIssues, payload.validation_issues, (issue) =>
+      evidenceItem(`${issue.severity}: ${issue.rule_code}`, issue.message),
+    );
+    reviewMessage.textContent = "";
+  };
+
+  const loadReviewSafely = (objectId) => {
+    loadReviewObject(objectId).catch((error) => {
+      reviewMessage.textContent = `Review details unavailable: ${error.message}`;
+    });
+  };
+
+  const mutateReview = async (url, method, payload) => {
+    setReviewBusy(true);
+    reviewMessage.textContent = "Saving…";
+    try {
+      return await fetchJson(url, {
+        method,
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } finally {
+      setReviewBusy(false);
+    }
+  };
+
+  const reloadAtObject = (objectId) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("object_id", objectId);
+    url.hash = objectId;
+    window.location.assign(url.toString());
+  };
+
+  const updateZoom = (value) => {
+    zoom = Math.min(4, Math.max(0.5, value));
+    sourceCanvas.style.width = `${zoom * 100}%`;
+    zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+    zoomOut.disabled = zoom <= 0.5;
+    zoomIn.disabled = zoom >= 4;
+  };
+
+  const loadPdfJs = async () => {
+    if (!pdfjsPromise) {
+      pdfjsPromise = import("/static/vendor/pdfjs/pdf.mjs").then((pdfjs) => {
+        pdfjs.GlobalWorkerOptions.workerSrc = "/static/vendor/pdfjs/pdf.worker.mjs";
+        return pdfjs;
+      });
+    }
+    return pdfjsPromise;
+  };
+
+  const renderPdfPage = async (pageIndex) => {
+    if (!pdfCanvas || !sourcePdfBase) throw new Error("PDF.js source is unavailable");
+    const pdfjs = await loadPdfJs();
+    if (!pdfDocument) {
+      const sourceUrl = sourcePdfBase.split("#", 1)[0];
+      const response = await fetch(sourceUrl, { headers: { accept: "application/pdf" } });
+      if (!response.ok) throw new Error(`PDF request failed (${response.status})`);
+      const data = new Uint8Array(await response.arrayBuffer());
+      pdfDocument = await pdfjs.getDocument({ data }).promise;
+    }
+    if (pdfRenderTask) {
+      pdfRenderTask.cancel();
+      pdfRenderTask = null;
+    }
+    const pdfPage = await pdfDocument.getPage(pageIndex + 1);
+    const baseViewport = pdfPage.getViewport({ scale: 1 });
+    const outputScale = Math.min(3, Math.max(1.5, window.devicePixelRatio || 1));
+    const renderScale = Math.max(outputScale, 1200 / Math.max(baseViewport.width, 1));
+    const viewport = pdfPage.getViewport({ scale: Math.min(3, renderScale) });
+    pdfCanvas.width = Math.ceil(viewport.width);
+    pdfCanvas.height = Math.ceil(viewport.height);
+    const context = pdfCanvas.getContext("2d", { alpha: false });
+    if (!context) throw new Error("PDF canvas is unavailable");
+    pdfRenderTask = pdfPage.render({ canvasContext: context, viewport });
+    try {
+      await pdfRenderTask.promise;
+    } finally {
+      pdfRenderTask = null;
+    }
+    pdfCanvas.hidden = false;
+    image.hidden = true;
+  };
+
+  const polygonPoints = (anchor) => {
+    if (!Array.isArray(anchor.polygon) || anchor.polygon.length < 3) return null;
+    const points = anchor.polygon.map((point) => {
+      if (!Array.isArray(point) || point.length < 2) return null;
+      const x = Number(point[0]);
+      const y = Number(point[1]);
+      return Number.isFinite(x) && Number.isFinite(y) ? [x, y] : null;
+    });
+    return points.every(Boolean) ? points : null;
+  };
+
+  const appendOverlay = (anchor, activeAnchor) => {
+    const polygon = polygonPoints(anchor);
+    let shape;
+    if (polygon) {
+      shape = document.createElementNS(svgNamespace, "polygon");
+      shape.setAttribute(
+        "points",
+        polygon.map(([x, y]) => `${x},${y}`).join(" "),
+      );
+    } else if (
+      [anchor.x0, anchor.y0, anchor.x1, anchor.y1].every(isFiniteNumber) &&
+      anchor.x1 >= anchor.x0 &&
+      anchor.y1 >= anchor.y0
+    ) {
+      shape = document.createElementNS(svgNamespace, "rect");
+      shape.setAttribute("x", String(anchor.x0));
+      shape.setAttribute("y", String(anchor.y0));
+      shape.setAttribute("width", String(anchor.x1 - anchor.x0));
+      shape.setAttribute("height", String(anchor.y1 - anchor.y0));
+    } else {
+      return;
+    }
+    shape.classList.add("source-overlay-shape");
+    if (activeAnchor?.id === anchor.id) shape.classList.add("is-active-region");
+    shape.dataset.anchorId = anchor.id;
+    overlays.append(shape);
+  };
+
+  const renderOverlays = () => {
+    overlays.replaceChildren();
+    legacyOverlay.hidden = true;
+    if (!currentPage || !isFiniteNumber(currentPage.width) || !isFiniteNumber(currentPage.height)) {
+      return;
+    }
+    overlays.setAttribute("viewBox", `0 0 ${currentPage.width} ${currentPage.height}`);
+    overlays.setAttribute("preserveAspectRatio", "none");
+    const activeAnchor = selectedAnchors[anchorIndex] || null;
+    selectedAnchors
+      .filter((anchor) => anchor.page_index === currentPage.page_index)
+      .forEach((anchor) => appendOverlay(anchor, activeAnchor));
+  };
+
+  const updateControls = () => {
+    previousRegion.disabled = anchorIndex <= 0;
+    nextRegion.disabled = !selectedAnchors.length || anchorIndex >= selectedAnchors.length - 1;
+    const pageIndex = currentPage?.page_index;
+    previousPage.disabled = !Number.isInteger(pageIndex) || pageIndex <= 0;
+    nextPage.disabled =
+      !Number.isInteger(pageIndex) || !Number.isInteger(pageCount) || pageIndex >= pageCount - 1;
+  };
+
+  const loadDocumentMetadata = async () => {
+    if (!activeDocumentId) return;
+    try {
+      const documentRecord = await fetchJson(
+        `/documents/${encodeURIComponent(activeDocumentId)}`,
+      );
+      pageCount = Number.isInteger(documentRecord.page_count) ? documentRecord.page_count : null;
+    } catch (_error) {
+      pageCount = null;
+    }
+  };
+
+  const loadPage = async (pageIndex) => {
+    if (!activeDocumentId || !Number.isInteger(pageIndex) || pageIndex < 0) return;
+    currentPage = await fetchJson(
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}`,
+    );
+    image.alt = `Source PDF page ${pageIndex + 1}`;
+    pageLabel.textContent = pageCount
+      ? `Page ${pageIndex + 1} of ${pageCount}`
+      : `Page ${pageIndex + 1}`;
+    const activeAnchor = selectedAnchors[anchorIndex];
+    label.textContent =
+      activeAnchor?.page_index === pageIndex
+        ? `Source region ${anchorIndex + 1} of ${selectedAnchors.length}, page ${pageIndex + 1}`
+        : `Source page ${pageIndex + 1}`;
+    if (sourcePdfLink && sourcePdfBase) {
+      sourcePdfLink.setAttribute("href", `${sourcePdfBase.split("#", 1)[0]}#page=${pageIndex + 1}`);
+    }
+    try {
+      await renderPdfPage(pageIndex);
+      label.textContent = `${label.textContent} · rendered with PDF.js`;
+    } catch (_error) {
+      if (pdfCanvas) pdfCanvas.hidden = true;
+      image.hidden = false;
+      image.src = `/documents/${encodeURIComponent(activeDocumentId)}/pages/${pageIndex}/image`;
+    }
+    renderOverlays();
+    updateControls();
+  };
+
+  const showAnchor = async (index) => {
+    if (!selectedAnchors.length) return;
+    anchorIndex = Math.min(selectedAnchors.length - 1, Math.max(0, index));
+    await loadPage(selectedAnchors[anchorIndex].page_index);
+  };
+
+  const loadAnchors = async (anchorIds) => {
+    const uniqueIds = [...new Set(anchorIds.filter(Boolean))];
+    const records = await Promise.all(
+      uniqueIds.map(async (anchorId) => {
+        try {
+          return await fetchJson(`/source/${encodeURIComponent(anchorId)}`);
+        } catch (_error) {
+          return null;
+        }
+      }),
+    );
+    const available = records.filter(Boolean);
+    if (!available.length) throw new Error("source anchors unavailable");
+    activeDocumentId = available[0].document_id;
+    selectedAnchors = available.filter((anchor) => anchor.document_id === activeDocumentId);
+    anchorIndex = 0;
+    await loadDocumentMetadata();
+    await showAnchor(0);
+  };
+
+  const movePage = async (offset) => {
+    if (!currentPage) return;
+    const target = currentPage.page_index + offset;
+    if (target < 0 || (Number.isInteger(pageCount) && target >= pageCount)) return;
+    const matchingAnchor = selectedAnchors.findIndex((anchor) => anchor.page_index === target);
+    if (matchingAnchor >= 0) anchorIndex = matchingAnchor;
+    await loadPage(target);
+  };
+
+  previousRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex - 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  nextRegion.addEventListener("click", async () => {
+    try {
+      await showAnchor(anchorIndex + 1);
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  previousPage.addEventListener("click", async () => {
+    try {
+      await movePage(-1);
+    } catch (_error) {
+      label.textContent = "Previous source page is unavailable.";
+    }
+  });
+
+  nextPage.addEventListener("click", async () => {
+    try {
+      await movePage(1);
+    } catch (_error) {
+      label.textContent = "Next source page is unavailable.";
+    }
+  });
+
+  zoomOut.addEventListener("click", () => updateZoom(zoom - 0.25));
+  zoomIn.addEventListener("click", () => updateZoom(zoom + 0.25));
+
+  document.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target.closest("a.internal-reference,a.backlink")) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target) return;
+    const anchorIds = (target.dataset.anchorIds || "").split(",").filter(Boolean);
+    if (!anchorIds.length) return;
+    event.preventDefault();
+    const objectId = target.dataset.objectId;
+    selectObject(objectId);
+    loadReviewSafely(objectId);
+    try {
+      await loadAnchors(anchorIds);
+      viewer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } catch (_error) {
+      label.textContent = "Source preview unavailable; use the original PDF link.";
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!(event.target instanceof Element) || !["Enter", " "].includes(event.key)) return;
+    const target = event.target.closest("[data-anchor-ids]");
+    if (!target || target.matches("a,button")) return;
+    event.preventDefault();
+    target.click();
+  });
+
+  const hitTestSource = async (event) => {
+    if (!currentPage || !activeDocumentId) return;
+    const target = event.currentTarget;
+    if (!(target instanceof Element)) return;
+    const bounds = target.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    const x = ((event.clientX - bounds.left) / bounds.width) * currentPage.width;
+    const y = ((event.clientY - bounds.top) / bounds.height) * currentPage.height;
+    const url =
+      `/documents/${encodeURIComponent(activeDocumentId)}/pages/${currentPage.page_index}` +
+      `/hit-test?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}&tolerance=4`;
+    try {
+      const hits = await fetchJson(url);
+      if (hits.length) {
+        selectObject(hits[0].object_id);
+        loadReviewSafely(hits[0].object_id);
+      }
+    } catch (_error) {
+      label.textContent = "Could not match this source position.";
+    }
+  };
+
+  image.addEventListener("click", hitTestSource);
+  if (pdfCanvas) pdfCanvas.addEventListener("click", hitTestSource);
+
+  reviewSave?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    const payload = {
+      reason: "local review editor correction",
+      created_by: "local-user",
+      expected_updated_at: activeReview.updated_at,
+    };
+    if (reviewText.value !== currentText) payload.text_normalized = reviewText.value;
+    if (reviewType.value !== object.object_type) payload.object_type = reviewType.value;
+    if (reviewStatus.value !== object.status) payload.status = reviewStatus.value;
+    if (!("text_normalized" in payload || "object_type" in payload || "status" in payload)) {
+      reviewMessage.textContent = "No changes to save.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}`,
+        "PATCH",
+        payload,
+      );
+      reviewMessage.textContent = `Saved revision ${result.revision_number}.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Correction failed: ${error.message}`;
+    }
+  });
+
+  reviewSplit?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const object = activeReview.object;
+    const currentText = object.text_normalized ?? object.text_raw ?? "";
+    if (reviewText.value !== currentText) {
+      reviewMessage.textContent = "Save text edits before splitting.";
+      return;
+    }
+    const offset = reviewText.selectionStart;
+    if (!Number.isInteger(offset) || offset <= 0 || offset >= currentText.length) {
+      reviewMessage.textContent = "Place the text cursor inside the text before splitting.";
+      return;
+    }
+    try {
+      const result = await mutateReview(
+        `/objects/${encodeURIComponent(object.id)}/split`,
+        "POST",
+        {
+          offsets: [offset],
+          reason: "local review editor split",
+          created_by: "local-user",
+          expected_updated_at: activeReview.updated_at,
+        },
+      );
+      reviewMessage.textContent = `Created ${result.object_ids.length} objects.`;
+      reloadAtObject(result.object_ids[0]);
+    } catch (error) {
+      reviewMessage.textContent = `Split failed: ${error.message}`;
+    }
+  });
+
+  reviewMerge?.addEventListener("click", async () => {
+    if (!activeReview) return;
+    const objectIds = [
+      ...new Set(
+        reviewMergeIds.value
+          .split(",")
+          .map((value) => value.trim())
+          .filter(Boolean),
+      ),
+    ];
+    if (!objectIds.includes(activeReview.object.id)) objectIds.unshift(activeReview.object.id);
+    if (objectIds.length < 2) {
+      reviewMessage.textContent = "Enter at least one additional object ID to merge.";
+      return;
+    }
+    try {
+      const result = await mutateReview("/objects/merge", "POST", {
+        object_ids: objectIds,
+        reason: "local review editor merge",
+        created_by: "local-user",
+      });
+      reviewMessage.textContent = `Merged ${result.merged_object_ids.length} objects.`;
+      reloadAtObject(result.object_id);
+    } catch (error) {
+      reviewMessage.textContent = `Merge failed: ${error.message}`;
+    }
+  });
+
+  updateZoom(1);
+
+  const query = new URLSearchParams(window.location.search);
+  const requestedObject = query.get("object_id");
+  if (requestedObject) {
+    selectObject(requestedObject, false);
+    loadReviewSafely(requestedObject);
+  }
+  const requestedAnchor = query.get("anchor_id");
+  if (requestedAnchor) {
+    loadAnchors([requestedAnchor]).catch(() => {
+      label.textContent = "Requested source preview is unavailable.";
+    });
+  } else if (window.location.hash && window.location.hash !== "#source-viewer") {
+    try {
+      const objectId = decodeURIComponent(window.location.hash.slice(1));
+      selectObject(objectId, false);
+      loadReviewSafely(objectId);
+    } catch (_error) {
+      // Ignore malformed external fragments without changing the document.
+    }
+  }
+})();
+</script></body></html>
