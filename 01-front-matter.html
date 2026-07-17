@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-bReeUTDWpAgmb3eRNjFZd62VnapxDkeN85L9D+hSFLs=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Front Matter &amp; Contents — Psychology of Intelligence Analysis</title><style>:root {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-sXbCWQzM8qNi59VFwWNfzSJEmiV5ffE0rUjNJpYi0ow=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Front Matter &amp; Contents — Psychology of Intelligence Analysis</title><style>:root {
   --reader-prose-measure: 60ch;
   --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
   --reader-document-gutter: clamp(1rem, 5vw, 4rem);
@@ -42,8 +42,38 @@ body {
 .static-export .document {
   min-height: 80vh;
   padding-inline: var(--reader-document-gutter);
-  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.375rem);
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Static book pages read like prose, not like a print facsimile: no paragraph
+   indent, breathing room between paragraphs, quiet inline note markers, and
+   all notes collected at the end of the page. */
+.static-export .document p {
+  margin-block: 0.6rem;
+  text-indent: 0;
+}
+
+.static-export .document sup {
+  color: #0a5ec2;
+  font-weight: 600;
+}
+
+.static-export .notes {
+  margin-top: 2.5rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.static-export .footnote {
+  border-top: 0;
+  border-left: 2px solid #e2e2e2;
+  margin: 0.45rem auto;
+  padding: 0.1rem 0 0.1rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: left;
 }
 
 .export-tools {
