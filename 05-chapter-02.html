@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-PUH9lTmoPWHKiKdxjjmrgO0Hnvu5byK02k7SYnqEs5E=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27; &#x27;sha256-R2J1/NuHqqzhT6qOFUxeOODiyChsf94k3+6WYPoHaiI=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Chapter 2 — Perception: Why Can&#x27;t We See What Is There To Be Seen? — Psychology of Intelligence Analysis</title><style>:root {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-eWN05AsXLYE/e0cgJDJ2D/vxrob1xxy4eQ27TsIkfSE=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Chapter 2 — Perception: Why Can&#x27;t We See What Is There To Be Seen? — Psychology of Intelligence Analysis</title><style>:root {
   --reader-prose-measure: 60ch;
   --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
   --reader-document-gutter: clamp(1rem, 5vw, 4rem);
@@ -178,8 +178,10 @@ body.static-page {
   text-decoration: none;
 }
 
-/* Jump highlighting: the note (or the sentence containing the marker) that
-   the reader just navigated to. */
+/* Jump highlighting, pure CSS: the note the reader just navigated to, or the
+   sentence containing the marker they returned to. */
+.static-page .static-export aside.footnote:target,
+.static-page .static-export .sentence:has(sup:target),
 .static-page .note-target {
   background: #fbf0c2;
   border-radius: 2px;
@@ -220,6 +222,8 @@ body.static-page {
     filter: brightness(0.88);
   }
 
+  .static-page .static-export aside.footnote:target,
+  .static-page .static-export .sentence:has(sup:target),
   .static-page .note-target {
     background: #3b3517;
   }
@@ -1438,4 +1442,4 @@ th {
     }
   }
 })();
-</script><script>;(function(){function hl(){var prev=document.querySelectorAll('.note-target');for(var i=0;i<prev.length;i++)prev[i].classList.remove('note-target');var h=location.hash;if(!h||!/^#(?:note|ref)-\d+$/.test(h))return;var el=document.querySelector(h);if(!el)return;var t=(el.closest&&(el.closest('aside.footnote')||el.closest('.sentence')))||el;t.classList.add('note-target');}window.addEventListener('hashchange',hl);hl();})();</script></body></html>
+</script></body></html>
