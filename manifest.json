@@ -7,9 +7,9 @@
   },
   "book_key": "psychology-of-intelligence-analysis--5320b0abc261",
   "content_mode": "sectioned-continuous-html",
-  "content_sha256": "88d6ebfc303a861a37861104aabdf5ef313a6583ed79ee8b87f283926279db97",
+  "content_sha256": "bab7ca5026cf132858c1755e2f0470b18b0cb417022f8c5fa142be66876c6ef8",
   "document_id": "doc_019f6d34-f2a8-7ea4-8a3f-fddd5ffccc48",
-  "export_id": "pub-88d6ebfc303a861a3786",
+  "export_id": "pub-bab7ca5026cf132858c1",
   "files": {
     "01-preface.html": "0cab3d131cc2fa81c3a2cfe69bf9a97132b704ae37cdb02a4c5bad5f558bdc87",
     "02-foreword.html": "cce40c2f4be5b7c8f18093e6aecdb5bbf2bcf6d344d00d7b3956cc0a99b7029e",
@@ -50,12 +50,12 @@
     "assets/figures/obj_019f6d36-f43d-76a2-8959-df0bdfd6df23.png": "fed1f063c88d8449b33a7e56a5e968ed632928e07c84efe84a813e802263da33",
     "assets/figures/obj_019f6d36-f50f-7cf5-83c2-4a45fafae915.png": "f8b72033a6bba5775dc54eee293d8793795cf01c15a1b80474abba877bc8d0e2",
     "assets/original.pdf": "5320b0abc2610ebeb93a7c556da3661b65abc95284d06f1a210127ae971c1b4c",
-    "index.html": "0c8a798ca03ed9e45a6d76fd3a93a65be7f1401fb4e1be87493d0a4cf3ac1dae"
+    "index.html": "471a7d72b2c3d2d5f242edbc7e3a4cdcfe19145ad282e0c9140d80e3bb723513"
   },
   "offline": true,
   "output_kind": "publication",
   "renderer_version": "0.1.0",
-  "rendering_profile_sha256": "325d91442421b40d64b9d9178bc051c0f398a1b6c59cd4936bcbfc6fae6dfe6f",
+  "rendering_profile_sha256": "810ea8a80c52a36db374ac476ed218201cab2e4f6a609aa67ff1cbd8ff1aa341",
   "schema_version": 1,
   "sections": [
     {
