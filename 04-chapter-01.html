@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-dMU3/rlx3UMhJlvZAFvKTw+uyRb++yVmV06X4srse/0=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Part I · Chapter 1 — Thinking About Thinking — Psychology of Intelligence Analysis</title><style>:root {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-cwa1ldcsaFjY2D0z9FZ4rTk6iuWwiWGs8NCk8WMGxug=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Part I · Chapter 1 — Thinking About Thinking — Psychology of Intelligence Analysis</title><style>:root {
   --reader-prose-measure: 60ch;
   --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
   --reader-document-gutter: clamp(1rem, 5vw, 4rem);
@@ -176,6 +176,12 @@ body.static-page {
   margin-left: 0.35rem;
   color: #275b9d;
   text-decoration: none;
+}
+
+/* Jump targets land mid-viewport, not at the top edge. */
+.static-page .static-export aside.footnote,
+.static-page .static-export sup[id^="ref-"] {
+  scroll-margin-top: 40vh;
 }
 
 /* Jump highlighting, pure CSS: the note the reader just navigated to, or the
