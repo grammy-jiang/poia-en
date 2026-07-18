@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-isik2//vsm8MP6i0zXjTyj77AoZyEuw4m+QKYjBLHt0=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Foreword — Psychology of Intelligence Analysis</title><style>:root {
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; object-src &#x27;none&#x27;; frame-ancestors &#x27;none&#x27;; form-action &#x27;none&#x27;; font-src &#x27;none&#x27;; frame-src &#x27;none&#x27;; media-src &#x27;none&#x27;; style-src &#x27;sha256-INfOA8TNhxBb6rZrZ+B55VwuFxIPKUbOM3CyazqZMJo=&#x27;; script-src &#x27;sha256-GZhCNFt9sxFrUT77naH7YMRnCXhcqPmZ/ZKt6ubsjMc=&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;"><title>Foreword — Psychology of Intelligence Analysis</title><style>:root {
   --reader-prose-measure: 60ch;
   --reader-shell-gutter: clamp(0.5rem, 2vw, 2rem);
   --reader-document-gutter: clamp(1rem, 5vw, 4rem);
@@ -156,6 +156,15 @@ body.static-page {
   margin-block: 0.55rem;
   /* Hanging indent: the whole item sits inset, wrapped lines align with the
      text after the bullet character (which lives in the text itself). */
+  margin-inline-start: 1.4rem;
+  padding-inline-start: 1.05rem;
+  text-indent: -1.05rem;
+}
+
+/* A paragraph the extractor left as prose but that opens with a bullet "•"
+   (the marker lives in the text) gets the same hanging indent as a list item,
+   so wrapped lines align with the text after the bullet, not under it. */
+.static-page .static-export .document p.bullet-para {
   margin-inline-start: 1.4rem;
   padding-inline-start: 1.05rem;
   text-indent: -1.05rem;
